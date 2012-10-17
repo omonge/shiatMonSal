@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd"
+    xmlns:jee="http://www.springframework.org/schema/jee">
+
+    <!--========== Transaction Manager ==========-->
+    <bean id="shiatsuTM" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="shiatsuSF"/>
+    </bean>
+    <!--========== Transaction Proxy ==========-->
+    <bean id="shiatsuTP" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" abstract="true">
+        <property name="transactionManager" ref="shiatsuTM"/>        
+        <property name="transactionAttributes">
+            <props>
+                <prop key="agregar*">PROPAGATION_REQUIRED</prop>
+                <prop key="modificar*">PROPAGATION_REQUIRED</prop>
+                <prop key="eliminar*">PROPAGATION_REQUIRED</prop>
+                <prop key="buscar*">PROPAGATION_REQUIRED</prop>
+                <prop key="existe*">PROPAGATION_REQUIRED</prop>
+                <prop key="*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+   	
+   <!--========== Bussiness Objects ==========-->
+      <bean id="clienteBo" parent="shiatsuTP">
+        <property name="target">
+            <bean class="com.shiatsu.bo.impl.ClienteBoImpl">
+                <property name="clienteDao" ref="clienteDao"/>
+            </bean>
+        </property> 
+    </bean>
+</beans>

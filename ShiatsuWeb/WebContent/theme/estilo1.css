@@ -1,0 +1,168 @@
+body
+{
+  font-family: Georgia, Serif;
+  color: Black;
+  background-color: White;
+  margin-left: 0px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  height:100%;
+}
+
+html
+{
+  height:100%;
+}
+
+p
+{
+  font-family: Georgia, Serif;
+  color: Black;
+}
+
+a:link
+{
+  color: #336699;
+  text-decoration: none;
+}
+
+a:visited
+{
+  color: Purple;
+  text-decoration: none;
+}
+
+a:active
+{
+  color: Red;
+  text-decoration: none;
+}
+
+a:hover
+{
+  color: Red;
+  text-decoration: none;
+}
+
+h1
+{
+  color: #114477;
+}
+
+h2
+{
+  color: #336699;
+}
+
+h3
+{
+  color: #114477;
+}
+
+h4
+{
+  color: #336699;
+}
+
+h5
+{
+  color: #114477;
+}
+
+h6
+{
+  color: #336699;
+}
+
+.tablaTitulo{
+  background-color:#114477;
+  color:#FFFFFF;
+  font-size:16px;
+}
+
+.odd{
+  background-color:#CCCCCC;
+  color:#000000;
+}
+
+.even{
+  background-color:#FFFFFF;
+  color:#000000;
+}
+
+.tituloNaranja {
+	font-size:20px;
+	color:#C86115
+}
+
+.tableMenuTitle {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #9DB1D3;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #6D8BBD;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 5px;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-top-color: #E7ECF4;
+
+
+}
+
+.Tit04Tabla {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #FFFFFF;
+	text-align: left;
+	font-weight: bold;
+	background-image: url(tableHeadBack_lg.gif);
+	background-repeat:repeat-x;
+	padding: 3px;
+}
+
+.tabbedPanel {
+	background-color: #DCDDCC;
+	border-width: 1px; 
+	border-style: solid; 
+	border-color: #808080;
+	padding: 0px;
+	margin: 0px;
+}
+
+.info{
+  color: #0000FF;
+}
+
+.warn{
+  color: #CC6600;
+}
+
+.error{
+  color: #FF0000;
+}
+
+.totalRegistros{
+  color:#1f4921;
+}
+
+.inputText{
+	font-family: Arial;
+	font-size: 13px;	
+}
+
+.footer{
+	font-size:16px;
+  	color:#FFFFFF;
+}
+.icono{
+	border-bottom-style: none;
+	border-top-style: none;
+	border-left-style: none;
+	border-right-style: none
+}

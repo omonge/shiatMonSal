@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd"
+	xmlns:jee="http://www.springframework.org/schema/jee">
+
+    <!--========== Data Sources ==========-->
+    <bean id="shiatsuDS" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="java:comp/env/jdbc/mySqlShiatsuDS" />
+    </bean>
+    
+    <bean id="shiatsuSF" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource" ref="shiatsuDS" />
+        <property name="mappingResources">
+        	<list>
+        		  <value>com/shiatsu/domain/Cliente.hbm.xml</value>
+        		
+        	</list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.use_outer_join">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <!--<prop name="hibernate.hbm2ddl.auto">create</prop>
+            --></props>
+        </property>
+    </bean>
+	
+    <!--========== Data Access Objects ==========-->
+    
+    <!-- ===================Abstractos================= -->
+    <bean id="abstractShiatsuDAO" class="org.springframework.orm.hibernate3.support.HibernateDaoSupport" abstract="true">
+        <property name="sessionFactory" ref="shiatsuSF"/>
+    </bean>
+    
+    <!-- ===================DAOs de la Aplicacion================= -->
+    <bean id="clienteDao" class="com.shiatsu.dao.impl.ClienteDaoImpl" parent="abstractShiatsuDAO" />
+</beans>

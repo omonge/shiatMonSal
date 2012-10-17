@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+    version="1.2">
+    
+    <application>
+		<el-resolver>
+			org.springframework.web.jsf.el.SpringBeanFacesELResolver
+		</el-resolver>
+		<message-bundle>
+    		com.vvs.chrono.web.bundles.recursos
+    	</message-bundle>
+	</application>
+	
+	
+ <!-- ========================   Managed Beans =============================== -->
+	
+ <!-- ================ Managed Bean ClienteController ================ -->
+	 <managed-bean>
+	        <managed-bean-name>clienteController</managed-bean-name>
+	        <managed-bean-class>com.vvs.chrono.web.controller.ClienteController</managed-bean-class>
+	        <managed-bean-scope>session</managed-bean-scope>
+	        <managed-property>
+	            <property-name>clienteBo</property-name>
+	            <property-class>com.vvs.chrono.bo.ClienteBo</property-class>
+	            <value>#{clienteBo}</value>
+        	</managed-property>
+	 </managed-bean>
+	  <!-- ================ Managed Bean ContactoController ================ -->
+	 <managed-bean>
+	        <managed-bean-name>contactoController</managed-bean-name>
+	        <managed-bean-class>com.vvs.chrono.web.controller.ContactoController</managed-bean-class>
+	        <managed-bean-scope>session</managed-bean-scope>
+	        <managed-property>
+	            <property-name>clienteBo</property-name>
+	            <property-class>com.vvs.chrono.bo.ClienteBo</property-class>
+	            <value>#{clienteBo}</value>
+        	</managed-property>
+        	<managed-property>
+	            <property-name>contactoBo</property-name>
+	            <property-class>com.vvs.chrono.bo.ContactoBo</property-class>
+	            <value>#{contactoBo}</value>
+        	</managed-property>
+	 </managed-bean>
+	 <!-- ================ Managed Bean PopUpDetalleContactoController ================ -->
+	 <managed-bean>
+	        <managed-bean-name>popUpDetalleContactoController</managed-bean-name>
+	        <managed-bean-class>com.vvs.chrono.web.controller.PopUpDetalleContactoController</managed-bean-class>
+	        <managed-bean-scope>session</managed-bean-scope>
+	 </managed-bean>
+	 
+<!-- *************************  Navegación ************************************* -->
+
+	<!-- ================ Navigation ClienteController ================ -->
+	 <navigation-rule>
+	    	<from-view-id>/chronoManListClientes.jsp</from-view-id>
+	    	<navigation-case>
+	    		<from-action>#{clienteController.cargarObjeto}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/chronoManActClientes.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{clienteController.irAgregar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/chronoManActClientes.jsp</to-view-id>
+	    	</navigation-case>
+	    </navigation-rule>
+		<navigation-rule>
+	    	<from-view-id>/chronoManActClientes.jsp</from-view-id>
+	    	<navigation-case>
+	    		<from-action>#{clienteController.regresar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/chronoManListClientes.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{clienteController.eliminarCliente}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/chronoManListClientes.jsp</to-view-id>
+	    	</navigation-case>
+	    </navigation-rule>
+	   <!-- ================ Navigation ContactoController ================ --> 
+		<navigation-rule>
+	    	<from-view-id>/chronoManListContactos.jsp</from-view-id>
+	    	<navigation-case>
+	    		<from-action>#{contactoController.cargarObjeto}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/chronoManActContactos.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{contactoController.irAgregar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/chronoManActContactos.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{contactoController.abrirPopUpContacto}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/chronoManPopUpDetalleContacto.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{contactoController.cerrarPopUpContacto}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/chronoManListContactos.jsp</to-view-id>
+	    	</navigation-case>
+	    </navigation-rule>
+		<navigation-rule>
+	    	<from-view-id>/chronoManActContactos.jsp</from-view-id>
+	    	<navigation-case>
+	    		<from-action>#{contactoController.regresar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/chronoManListContactos.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{contactoController.eliminarContacto}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/chronoManListContactos.jsp</to-view-id>
+	    	</navigation-case>
+	    </navigation-rule>
+</faces-config>
