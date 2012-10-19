@@ -72,13 +72,13 @@
 	</servlet>
 	<!-- SERVLETS MAPINGS-->
   <servlet-mapping>
-    <servlet-name>Faces Servlet</servlet-name>
-    <url-pattern>/faces/*</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
 		<servlet-name>Jenia internal servlet</servlet-name>
 		<url-pattern>/jenia4faces/*</url-pattern>
- </servlet-mapping>
+	</servlet-mapping>
  
  <!-- JNDI  -->
 	

@@ -15,7 +15,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 --><tomcat-users>
-<user name="shiatsuAdmin" password="shiatsuAdmin" roles="admin-gui,manager-gui"/>
+<user name="shiatsu" password="shiatsu" roles="admin-gui,manager-gui"/>
 <!--
   NOTE:  By default, no user is included in the "manager-gui" role required
   to operate the "/manager/html" web application.  If you wish to use this app,

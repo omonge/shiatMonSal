@@ -13,4 +13,48 @@
     		com.shiatsu.web.bundles.recursos
     	</message-bundle>
 	</application>
+	 <!-- ========================   Managed Beans =============================== -->
+	 
+	 
+	<!-- ================ Managed Bean ClienteController ================ -->
+	 <managed-bean>
+	        <managed-bean-name>clienteController</managed-bean-name>
+	        <managed-bean-class>com.shiatsu.web.controller.ClienteController</managed-bean-class>
+	        <managed-bean-scope>session</managed-bean-scope>
+	        <managed-property>
+	            <property-name>clienteBo</property-name>
+	            <property-class>com.shiatsu.bo.ClienteBo</property-class>
+	            <value>#{clienteBo}</value>
+        	</managed-property>
+	 </managed-bean>
+	 <!-- *************************  Navegación ************************************* -->
+
+	<!-- ================ Navigation ClienteController ================ -->
+	 <navigation-rule>
+	    	<from-view-id>/shiatsuListaClientes.jsp</from-view-id>
+	    	<navigation-case>
+	    		<from-action>#{clienteController.cargarObjeto}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuActClientes.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{clienteController.irAgregar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuActClientes.jsp</to-view-id>
+	    	</navigation-case>
+	    </navigation-rule>
+		<navigation-rule>
+	    	<from-view-id>/shiatsuActClientes.jsp</from-view-id>
+	    	<navigation-case>
+	    		<from-action>#{clienteController.regresar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuListaClientes.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{clienteController.eliminarCliente}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuListaClientes.jsp</to-view-id>
+	    	</navigation-case>
+	    </navigation-rule>
+		
 </faces-config>

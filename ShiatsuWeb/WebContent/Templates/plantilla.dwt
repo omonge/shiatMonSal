@@ -24,11 +24,11 @@
 <div class="header" id="menu">
         <div id="logo"><a id="siteLogo"><img src="../images/logo.gif"  alt="Some text about the site"/></a></div>
         <ul class="nav">
-            <li><a href="#">Inicio</a></li>
+            <li><a href="shiatsuInicio.jsf?init=true">Inicio</a></li>
             <li><a href="#">Login</a></li>
-            <li><a href="#">Servicios</a>
+            <li><a href="#">Clientes</a>
                 <ul>
-                    <li><a href="#">sub1</a></li>
+                    <li><a href="shiatsuListaClientes.jsf?init=true">Lista Clientes</a></li>
                     <li><a href="#">sub2</a></li>
                     <li>
                         <a href="#">sub3</a>

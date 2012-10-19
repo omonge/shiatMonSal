@@ -4,6 +4,10 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class BusinessErrorHelper extends Exception{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@SuppressWarnings("rawtypes")
 	private Map errors;
 	@SuppressWarnings("rawtypes")
