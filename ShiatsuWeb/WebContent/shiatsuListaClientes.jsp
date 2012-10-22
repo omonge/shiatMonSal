@@ -157,21 +157,32 @@
 							<h:column id="Columna5">
 								<f:facet name="header">
 									<h:outputText styleClass="outputText"
-										value="#{rcs['cliente.fax']}"
+										value="#{rcs['cliente.telefonoCasa']}"
 										id="lbl5"></h:outputText>
 								</f:facet>			
 								<h:outputText styleClass="outputText" id="text5"
-									value="#{clientes.pvLoFax}">
+									value="#{clientes.pvLoTelefonoCasa}">
 								</h:outputText>			
 								<f:attribute value="center" name="align" />
 							</h:column>		
 							<h:column id="Columna6">
 								<f:facet name="header">
 									<h:outputText styleClass="outputText"
-										value="#{rcs['cliente.estado']}"
+										value="#{rcs['cliente.telefonoCelular']}"
 										id="lbl6"></h:outputText>
 								</f:facet>			
 								<h:outputText styleClass="outputText" id="text6"
+									value="#{clientes.pvLoTelefonoCelular}">
+								</h:outputText>			
+								<f:attribute value="center" name="align" />
+							</h:column>	
+							<h:column id="Columna7">
+								<f:facet name="header">
+									<h:outputText styleClass="outputText"
+										value="#{rcs['cliente.estado']}"
+										id="lbl7"></h:outputText>
+								</f:facet>			
+								<h:outputText styleClass="outputText" id="text7"
 									value="#{clientes.pvStEstadoDescripcion}">
 								</h:outputText>		
 								<f:attribute value="center" name="align" />	

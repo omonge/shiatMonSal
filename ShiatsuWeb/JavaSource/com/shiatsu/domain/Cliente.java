@@ -1,6 +1,7 @@
 package com.shiatsu.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -20,149 +21,22 @@ public class Cliente implements Serializable {
 	public static final Integer LONGITUD_DIRECCION  = new Integer(100);
 	
 	private Long 	pvLoCodigo;//CODIGO
-	private Integer pvInEstado;//ESTADO
-	private String 	pvStNombre;//NOMBRE
+
 	private String 	pvStDireccion;//DIRECCION
+	private Integer pvInEstado;//ESTADO
 	private String 	pvStEmail1;//EMAIL1
 	private String 	pvStEmail2;//EMAIL2
-	private Long 	pvLoFax;//FAX
-	private Long 	pvLoTelefono1;//TELEFONO1
-	private Long 	pvLoTelefono2;//TELEFONO2
-	private String  pvStComentario;//COMENTARIO
-	/**
-	 * @return the pvLoCodigo
-	 */
-	public Long getPvLoCodigo() {
-		return pvLoCodigo;
-	}
-
-	/** @param pvLoCodigo el pvLoCodigo a establecer */
-	public void setPvLoCodigo(Long pvLoCodigo) {
-		this.pvLoCodigo = pvLoCodigo;
-	}
-
-	/**
-	 * @return the pvInEstado
-	 */
-	public Integer getPvInEstado() {
-		return pvInEstado;
-	}
-
-	/** @param pvInEstado el pvInEstado a establecer */
-	public void setPvInEstado(Integer pvInEstado) {
-		this.pvInEstado = pvInEstado;
-	}
-
-	/**
-	 * @return the pvStNombre
-	 */
-	public String getPvStNombre() {
-		if(this.pvStNombre !=null){
-			return this.pvStNombre.toUpperCase();
-		}
-		return pvStNombre;
-	}
-
-	/** @param pvStNombre el pvStNombre a establecer */
-	public void setPvStNombre(String pvStNombre) {
-		this.pvStNombre = pvStNombre;
-	}
-
-	/**
-	 * @return the pvStDireccion
-	 */
-	public String getPvStDireccion() {
-		if(this.pvStDireccion !=null){
-			return this.pvStDireccion.toUpperCase();
-		}
-		return pvStDireccion;
-	}
-
-	/** @param pvStDireccion el pvStDireccion a establecer */
-	public void setPvStDireccion(String pvStDireccion) {
-		this.pvStDireccion = pvStDireccion;
-	}
-
-	/**
-	 * @return the pvStEmail1
-	 */
-	public String getPvStEmail1() {
-		if(this.pvStEmail1 !=null){
-			return this.pvStEmail1.toUpperCase();
-		}
-		return pvStEmail1;
-	}
-
-	/** @param pvStEmail1 el pvStEmail1 a establecer */
-	public void setPvStEmail1(String pvStEmail1) {
-		this.pvStEmail1 = pvStEmail1;
-	}
-
-	/**
-	 * @return the pvStEmail2
-	 */
-	public String getPvStEmail2() {
-		if(this.pvStEmail2 !=null){
-			return this.pvStEmail2.toUpperCase();
-		}
-		return pvStEmail2;
-	}
-
-	/** @param pvStEmail2 el pvStEmail2 a establecer */
-	public void setPvStEmail2(String pvStEmail2) {
-		this.pvStEmail2 = pvStEmail2;
-	}
-
-	/**
-	 * @return the pvLoFax
-	 */
-	public Long getPvLoFax() {
-		return pvLoFax;
-	}
-
-	/** @param pvLoFax el pvLoFax a establecer */
-	public void setPvLoFax(Long pvLoFax) {
-		this.pvLoFax = pvLoFax;
-	}
-
-	/**
-	 * @return the pvLoTelefono1
-	 */
-	public Long getPvLoTelefono1() {
-		return pvLoTelefono1;
-	}
-
-	/** @param pvLoTelefono1 el pvLoTelefono1 a establecer */
-	public void setPvLoTelefono1(Long pvLoTelefono1) {
-		this.pvLoTelefono1 = pvLoTelefono1;
-	}
-
-	/**
-	 * @return the pvLoTelefono2
-	 */
-	public Long getPvLoTelefono2() {
-		return pvLoTelefono2;
-	}
-
-	/** @param pvLoTelefono2 el pvLoTelefono2 a establecer */
-	public void setPvLoTelefono2(Long pvLoTelefono2) {
-		this.pvLoTelefono2 = pvLoTelefono2;
-	}
-
-	/**
-	 * @return the pvStComentario
-	 */
-	public String getPvStComentario() {
-		if(this.pvStComentario !=null){
-			return this.pvStComentario.toUpperCase();
-		}
-		return pvStComentario;
-	}
-
-	/** @param pvStComentario el pvStComentario a establecer */
-	public void setPvStComentario(String pvStComentario) {
-		this.pvStComentario = pvStComentario;
-	}
+	private String  pvStFacturaNombre;
+	private	Integer pvStFrecuenciaCita;
+	private String  pvStLugarProfesion;
+	private Date	pvDaNacimiento;
+	private Integer pvInNacionalidad;
+	private String 	pvStNombre;//NOMBRE
+	private Integer pvInProfesion;
+	private Integer pvInSexo;
+	private Long 	pvLoTelefonoCasa;//TELEFONO1
+	private Long 	pvLoTelefonoCelular;//TELEFONO2
+	private	Integer pvInTipoAlopecia;
 
 	/**
 	 * Comment for equals
@@ -188,7 +62,7 @@ public class Cliente implements Serializable {
 		}else{return Bundle.rcs.getString("inactivo");}
 	}	
 
-	 /**
+	/**
      * @see java.lang.Object#hashCode()
      * @return int
      */
@@ -197,6 +71,198 @@ public class Cliente implements Serializable {
         .append(this.pvLoCodigo)
         .toHashCode();
     }
+	/**
+	 * @return the pvLoCodigo
+	 */
+	public Long getPvLoCodigo() {
+		return pvLoCodigo;
+	}
+	/**
+	 * @param pvLoCodigo the pvLoCodigo to set
+	 */
+	public void setPvLoCodigo(Long pvLoCodigo) {
+		this.pvLoCodigo = pvLoCodigo;
+	}
+	/**
+	 * @return the pvStDireccion
+	 */
+	public String getPvStDireccion() {
+		return pvStDireccion;
+	}
+	/**
+	 * @param pvStDireccion the pvStDireccion to set
+	 */
+	public void setPvStDireccion(String pvStDireccion) {
+		this.pvStDireccion = pvStDireccion;
+	}
+	/**
+	 * @return the pvInEstado
+	 */
+	public Integer getPvInEstado() {
+		return pvInEstado;
+	}
+	/**
+	 * @param pvInEstado the pvInEstado to set
+	 */
+	public void setPvInEstado(Integer pvInEstado) {
+		this.pvInEstado = pvInEstado;
+	}
+	/**
+	 * @return the pvStEmail1
+	 */
+	public String getPvStEmail1() {
+		return pvStEmail1;
+	}
+	/**
+	 * @param pvStEmail1 the pvStEmail1 to set
+	 */
+	public void setPvStEmail1(String pvStEmail1) {
+		this.pvStEmail1 = pvStEmail1;
+	}
+	/**
+	 * @return the pvStEmail2
+	 */
+	public String getPvStEmail2() {
+		return pvStEmail2;
+	}
+	/**
+	 * @param pvStEmail2 the pvStEmail2 to set
+	 */
+	public void setPvStEmail2(String pvStEmail2) {
+		this.pvStEmail2 = pvStEmail2;
+	}
+	/**
+	 * @return the pvStFacturaNombre
+	 */
+	public String getPvStFacturaNombre() {
+		return pvStFacturaNombre;
+	}
+	/**
+	 * @param pvStFacturaNombre the pvStFacturaNombre to set
+	 */
+	public void setPvStFacturaNombre(String pvStFacturaNombre) {
+		this.pvStFacturaNombre = pvStFacturaNombre;
+	}
+	/**
+	 * @return the pvStFrecuenciaCita
+	 */
+	public Integer getPvStFrecuenciaCita() {
+		return pvStFrecuenciaCita;
+	}
+	/**
+	 * @param pvStFrecuenciaCita the pvStFrecuenciaCita to set
+	 */
+	public void setPvStFrecuenciaCita(Integer pvStFrecuenciaCita) {
+		this.pvStFrecuenciaCita = pvStFrecuenciaCita;
+	}
+	/**
+	 * @return the pvStLugarProfesion
+	 */
+	public String getPvStLugarProfesion() {
+		return pvStLugarProfesion;
+	}
+	/**
+	 * @param pvStLugarProfesion the pvStLugarProfesion to set
+	 */
+	public void setPvStLugarProfesion(String pvStLugarProfesion) {
+		this.pvStLugarProfesion = pvStLugarProfesion;
+	}
+	/**
+	 * @return the pvDaNacimiento
+	 */
+	public Date getPvDaNacimiento() {
+		return pvDaNacimiento;
+	}
+	/**
+	 * @param pvDaNacimiento the pvDaNacimiento to set
+	 */
+	public void setPvDaNacimiento(Date pvDaNacimiento) {
+		this.pvDaNacimiento = pvDaNacimiento;
+	}
+	/**
+	 * @return the pvInNacionalidad
+	 */
+	public Integer getPvInNacionalidad() {
+		return pvInNacionalidad;
+	}
+	/**
+	 * @param pvInNacionalidad the pvInNacionalidad to set
+	 */
+	public void setPvInNacionalidad(Integer pvInNacionalidad) {
+		this.pvInNacionalidad = pvInNacionalidad;
+	}
+	/**
+	 * @return the pvStNombre
+	 */
+	public String getPvStNombre() {
+		return pvStNombre;
+	}
+	/**
+	 * @param pvStNombre the pvStNombre to set
+	 */
+	public void setPvStNombre(String pvStNombre) {
+		this.pvStNombre = pvStNombre;
+	}
+	/**
+	 * @return the pvInProfesion
+	 */
+	public Integer getPvInProfesion() {
+		return pvInProfesion;
+	}
+	/**
+	 * @param pvInProfesion the pvInProfesion to set
+	 */
+	public void setPvInProfesion(Integer pvInProfesion) {
+		this.pvInProfesion = pvInProfesion;
+	}
+	/**
+	 * @return the pvInSexo
+	 */
+	public Integer getPvInSexo() {
+		return pvInSexo;
+	}
+	/**
+	 * @param pvInSexo the pvInSexo to set
+	 */
+	public void setPvInSexo(Integer pvInSexo) {
+		this.pvInSexo = pvInSexo;
+	}
+	/**
+	 * @return the pvLoTelefonoCasa
+	 */
+	public Long getPvLoTelefonoCasa() {
+		return pvLoTelefonoCasa;
+	}
+	/**
+	 * @param pvLoTelefonoCasa the pvLoTelefonoCasa to set
+	 */
+	public void setPvLoTelefonoCasa(Long pvLoTelefonoCasa) {
+		this.pvLoTelefonoCasa = pvLoTelefonoCasa;
+	}
+	/**
+	 * @return the pvLoTelefonoCelular
+	 */
+	public Long getPvLoTelefonoCelular() {
+		return pvLoTelefonoCelular;
+	}
+	/**
+	 * @param pvLoTelefonoCelular the pvLoTelefonoCelular to set
+	 */
+	public void setPvLoTelefonoCelular(Long pvLoTelefonoCelular) {
+		this.pvLoTelefonoCelular = pvLoTelefonoCelular;
+	}
+	/**
+	 * @return the pvInTipoAlopecia
+	 */
+	public Integer getPvInTipoAlopecia() {
+		return pvInTipoAlopecia;
+	}
+	/**
+	 * @param pvInTipoAlopecia the pvInTipoAlopecia to set
+	 */
+	public void setPvInTipoAlopecia(Integer pvInTipoAlopecia) {
+		this.pvInTipoAlopecia = pvInTipoAlopecia;
+	}
 
 	
 }

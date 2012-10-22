@@ -35,16 +35,16 @@
 	    	<navigation-case>
 	    		<from-action>#{clienteController.cargarObjeto}</from-action>
 	    		<from-outcome>success</from-outcome>
-	    		<to-view-id>/shiatsuActClientes.jsp</to-view-id>
+	    		<to-view-id>/shiatsuActCliente.jsp</to-view-id>
 	    	</navigation-case>
 	    	<navigation-case>
 	    		<from-action>#{clienteController.irAgregar}</from-action>
 	    		<from-outcome>success</from-outcome>
-	    		<to-view-id>/shiatsuActClientes.jsp</to-view-id>
+	    		<to-view-id>/shiatsuActCliente.jsp</to-view-id>
 	    	</navigation-case>
 	    </navigation-rule>
 		<navigation-rule>
-	    	<from-view-id>/shiatsuActClientes.jsp</from-view-id>
+	    	<from-view-id>/shiatsuActCliente.jsp</from-view-id>
 	    	<navigation-case>
 	    		<from-action>#{clienteController.regresar}</from-action>
 	    		<from-outcome>success</from-outcome>

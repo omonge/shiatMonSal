@@ -9,6 +9,7 @@ import java.util.List;
 import javax.faces.component.html.HtmlDataTable;
 import javax.faces.model.SelectItem;
 
+import com.shiatsu.domain.Cita;
 import com.shiatsu.domain.Cliente;
 import com.shiatsu.web.bundles.Bundle;
 import com.utilidades.business.BusinessErrorHelper;
@@ -29,7 +30,7 @@ public class ClienteController extends FacesController {
     private HtmlDataTable dataTableClientes;
     private List<Cliente> clientes;
 	private ClienteBo	  clienteBo;
-	
+	private Boolean init;
 	/**
 	 * 
 	 */
@@ -43,14 +44,14 @@ public class ClienteController extends FacesController {
 	}
 	public void reiniciarController(){
 		this.cliente=new Cliente();
-		this.agregar=true;
+		this.agregar=Boolean.TRUE;
 		this.reiniciarFiltro();
+		this.init=Boolean.FALSE;
 	}
 /****************** METODOS *************************************/
 	public String buscarPorCodigo(){
 		String correcto = "success";
 		try{
-		  this.clientes = new ArrayList<Cliente>();
 		  if(this.validarBusquedaCodigo()){
 		        Long codigoParseado = new Long(Long.parseLong(this.criterioBusqueda));
 		        Cliente cliente = this.clienteBo.buscar(codigoParseado);
@@ -63,7 +64,10 @@ public class ClienteController extends FacesController {
 		            correcto = "error";
 		        }
 		  }
-		}catch(Exception e){
+		}catch(NumberFormatException e){
+			e.printStackTrace();
+	        correcto = "error";
+	    }catch(Exception e){
 			e.printStackTrace();
 	        this.addMessage(this.getPropertyFieldName("cliente.buscar"), Bundle.rcs.getString("error") + e.getMessage(), null, FacesController.ERROR);//"Error: " + e.getMessage()
 	        correcto = "error";
@@ -73,13 +77,14 @@ public class ClienteController extends FacesController {
 	public String buscarPorDescripcion(){
 		String correcto = "success";
         try{
-            this.clientes = new ArrayList<Cliente>();
             if(this.validarBusquedaDescripcion()){
-               this.clientes = this.clienteBo.getClientesDescripcion(this.criterioBusqueda);
-               if(this.clientes.isEmpty()){
+            	List<Cliente> clientes = this.clienteBo.getClientesDescripcion(this.criterioBusqueda);
+               if(clientes.isEmpty()){
 		           this.reiniciarController();
                    this.addMessage(null, Bundle.rcs.getString("noHayDatosDescripcion"),null, FacesController.ERROR);
                    correcto= "error";
+               }else{
+            	   this.clientes = clientes;
                }
             }
         }catch(Exception e){
@@ -118,7 +123,58 @@ public class ClienteController extends FacesController {
 		return items;
 	}
 	
-	
+	/**
+     * Retorna una lista de selectItems que contienen frecuencia de citas del cliente
+     * @return Lista de objetos <code>SelectItem</code> que contienen las frecuencia de citas del cliente
+     */
+	public List<SelectItem> getFrecuenciasCitasItems(){
+		List<SelectItem> items = new ArrayList<SelectItem>();
+		items.add(new SelectItem(Cita.SEMANAL,  	Bundle.rcs.getString("cita.semanal")));
+		items.add(new SelectItem(Cita.QUINCENAL,  	Bundle.rcs.getString("cita.quincenal")));
+		items.add(new SelectItem(Cita.MENSUAL,  	Bundle.rcs.getString("cita.mensual")));
+		return items;
+	}
+	/**
+     * Retorna una lista de selectItems que contienen frecuencia de citas del cliente
+     * @return Lista de objetos <code>SelectItem</code> que contienen las frecuencia de citas del cliente
+     */
+	public List<SelectItem> getProfesionItems(){
+		List<SelectItem> items = new ArrayList<SelectItem>();
+		items.add(new SelectItem(Cita.SEMANAL,  	"Profesional 1"));
+		items.add(new SelectItem(Cita.QUINCENAL,  	"Profesional 2"));
+		items.add(new SelectItem(Cita.MENSUAL,  	"Profesional 3"));
+		return items;
+	}
+	/**
+     * Retorna una lista de selectItems que contienen frecuencia de citas del cliente
+     * @return Lista de objetos <code>SelectItem</code> que contienen las frecuencia de citas del cliente
+     */
+	public List<SelectItem> getNacionalidadItems(){
+		List<SelectItem> items = new ArrayList<SelectItem>();
+		items.add(new SelectItem(Cita.SEMANAL,  	"Costarricense"));
+		items.add(new SelectItem(Cita.QUINCENAL,  	"Extranjero"));
+		return items;
+	}
+	/**
+     * Retorna una lista de selectItems que contienen frecuencia de citas del cliente
+     * @return Lista de objetos <code>SelectItem</code> que contienen las frecuencia de citas del cliente
+     */
+	public List<SelectItem> getSexoItems(){
+		List<SelectItem> items = new ArrayList<SelectItem>();
+		items.add(new SelectItem(Integer.valueOf(1),  	"Masculino"));
+		items.add(new SelectItem(Integer.valueOf(0),  	"Femenino"));
+		return items;
+	}
+	/**
+     * Retorna una lista de selectItems que contienen frecuencia de citas del cliente
+     * @return Lista de objetos <code>SelectItem</code> que contienen las frecuencia de citas del cliente
+     */
+	public List<SelectItem> getTipoAlopeciaItems(){
+		List<SelectItem> items = new ArrayList<SelectItem>();
+		items.add(new SelectItem(Integer.valueOf(1),  	"Tipo 1"));
+		items.add(new SelectItem(Integer.valueOf(0),  	"Tipo 2"));
+		return items;
+	}
 	
 	/*********************** NAVEGACION *******************************/
 	/**Metodo irAgregar
@@ -142,33 +198,20 @@ public class ClienteController extends FacesController {
 	private boolean validarCliente(){
 		boolean correcto = true;
 		try{
-			if((this.cliente.getPvLoFax() == null) || (this.cliente.getPvLoFax().equals(""))){
-				this.addMessage(this.getPropertyFieldName("cliente.pvLoFax"),Bundle.rcs.getString("campoRequerido"),null,FacesController.ERROR);
+			if((this.cliente.getPvLoTelefonoCasa() == null) ||(this.cliente.getPvLoTelefonoCasa().equals(""))){
+				this.addMessage(this.getPropertyFieldName("cliente.pvLoTelefonoCasa"),Bundle.rcs.getString("campoRequerido"),null,FacesController.ERROR);
 				correcto = false;
-			}else if(cliente.getPvLoFax().intValue() <= 0){
-	            this.addMessage(this.getPropertyFieldName("cliente.pvLoFax"), Bundle.rcs.getString("codigoNoMenorIgualCero"),null,FacesController.ERROR);//"El código no puede ser menor o igual a cero");
+			}else if(cliente.getPvLoTelefonoCasa().intValue() <= 0){
+	            this.addMessage(this.getPropertyFieldName("cliente.pvLoTelefonoCasa"), Bundle.rcs.getString("codigoNoMenorIgualCero"),null,FacesController.ERROR);//"El código no puede ser menor o igual a cero");
 	            correcto = false;
 	        }
-			if((this.cliente.getPvLoTelefono1() == null) ||(this.cliente.getPvLoTelefono1().equals(""))){
-				this.addMessage(this.getPropertyFieldName("cliente.pvLoTelefono1"),Bundle.rcs.getString("campoRequerido"),null,FacesController.ERROR);
+			if((this.cliente.getPvLoTelefonoCelular() == null) || (this.cliente.getPvLoTelefonoCelular().equals(""))){
+				this.addMessage(this.getPropertyFieldName("cliente.pvLoTelefonoCelular"),Bundle.rcs.getString("campoRequerido"),null,FacesController.ERROR);
 				correcto = false;
-			}else if(cliente.getPvLoTelefono1().intValue() <= 0){
-	            this.addMessage(this.getPropertyFieldName("cliente.pvLoTelefono1"), Bundle.rcs.getString("codigoNoMenorIgualCero"),null,FacesController.ERROR);//"El código no puede ser menor o igual a cero");
+			}else if(cliente.getPvLoTelefonoCelular().intValue() <= 0){
+	            this.addMessage(this.getPropertyFieldName("cliente.pvLoTelefonoCelular"), Bundle.rcs.getString("codigoNoMenorIgualCero"),null,FacesController.ERROR);//"El código no puede ser menor o igual a cero");
 	            correcto = false;
 	        }
-			if((this.cliente.getPvLoTelefono2() == null) || (this.cliente.getPvLoTelefono2().equals(""))){
-				this.addMessage(this.getPropertyFieldName("cliente.pvLoTelefono2"),Bundle.rcs.getString("campoRequerido"),null,FacesController.ERROR);
-				correcto = false;
-			}else if(cliente.getPvLoTelefono2().intValue() <= 0){
-	            this.addMessage(this.getPropertyFieldName("cliente.pvLoTelefono2"), Bundle.rcs.getString("codigoNoMenorIgualCero"),null,FacesController.ERROR);//"El código no puede ser menor o igual a cero");
-	            correcto = false;
-	        }
-			if(this.cliente.getPvStComentario() != null){
-				if(this.cliente.getPvStComentario().length() > Cliente.LONGITUD_COMENTARIO){
-					this.addMessage(this.getPropertyFieldName("cliente.pvStComentario"),Bundle.rcs.getString("excedeCodigoLongitud") + " (" + Cliente.LONGITUD_COMENTARIO.intValue()+ ")",null,FacesController.ERROR);
-					correcto = false;
-				}	
-			}
 			if((this.cliente.getPvStDireccion() == null) || (this.cliente.getPvStDireccion().equals(""))){
 				this.addMessage(this.getPropertyFieldName("cliente.pvStDireccion"),Bundle.rcs.getString("campoRequerido"),null,FacesController.ERROR);
 				correcto = false;
@@ -178,14 +221,14 @@ public class ClienteController extends FacesController {
 					correcto = false;
 				}	
 			}
-			if((this.cliente.getPvStEmail1() == null) || (this.cliente.getPvStEmail1().equals(""))){
+			/*if((this.cliente.getPvStEmail1() == null) || (this.cliente.getPvStEmail1().equals(""))){
 				this.addMessage(this.getPropertyFieldName("cliente.pvStEmail1"),Bundle.rcs.getString("campoRequerido"),null,FacesController.ERROR);
 				correcto = false;
 			}
 			if((this.cliente.getPvStEmail2() == null) || (this.cliente.getPvStEmail2().equals(""))){
 				this.addMessage(this.getPropertyFieldName("cliente.pvStEmail2"),Bundle.rcs.getString("campoRequerido"),null,FacesController.ERROR);
 				correcto = false;
-			}
+			}*/
 			if((this.cliente.getPvStNombre() == null) || (this.cliente.getPvStNombre().equals(""))){
 				this.addMessage(this.getPropertyFieldName("cliente.pvStNombre"),Bundle.rcs.getString("campoRequerido"),null,FacesController.ERROR);
 				correcto = false;
@@ -302,8 +345,21 @@ public class ClienteController extends FacesController {
         return respuesta;
 	}
 	@Override
-	protected String getPropertyFieldName(String arg0) {
-		// TODO Auto-generated method stub
+	protected String getPropertyFieldName(String property) {
+		if(property != null){
+			if (property.equals("cliente.pvLoCodigo")) 					return "form1:txtPvLoCodigo";
+			if (property.equals("cliente.pvLoTelefonoCasa")) 			return "form1:txtPvLoTelefonoCasa";
+			if (property.equals("cliente.pvLoTelefonoCelular")) 		return "form1:txtPvLoTelefonoCelular";
+			if (property.equals("cliente.pvStDireccion")) 				return "form1:txtPvStDireccion";
+			if (property.equals("cliente.pvStEmail1")) 					return "form1:txtPvStEmail1";
+			if (property.equals("cliente.pvStEmail2")) 					return "form1:txtPvStEmail2";
+			if (property.equals("cliente.pvStNombre")) 					return "form1:txtPvStNombre";
+			if (property.equals("clienteBo.eliminar")) 					return "form1:txtPvLoCodigo";
+			if (property.equals("clienteBo.modificar")) 				return "form1:txtPvLoCodigo";
+			if (property.equals("clienteBo.agregar")) 					return "form1:txtPvLoCodigo";
+			if (property.equals("cliente.pvInEstado")) 	   			    return "form1:cmbPvInEstado";
+			if (property.equals("cliente.buscar")) 	    				return "form1:txtBuscar";
+		}
 		return null;
 	}
 /********************** SET Y GETS ****************************/
@@ -372,6 +428,21 @@ public class ClienteController extends FacesController {
 	 */
 	public void setClienteBo(ClienteBo clienteBo) {
 		this.clienteBo = clienteBo;
+	}
+	/**
+	 * @return the init
+	 */
+	public Boolean getInit() {
+		if(init==null){
+			this.reiniciarController();
+		}
+		return init;
+	}
+	/**
+	 * @param init the init to set
+	 */
+	public void setInit(Boolean init) {
+		this.init = init;
 	}
 	
 }
