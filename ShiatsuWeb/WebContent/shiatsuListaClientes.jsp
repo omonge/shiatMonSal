@@ -16,7 +16,7 @@
 <title>Shiatsu - Inicio </title>
 <!-- InstanceEndEditable -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="theme/css/estilo.css" rel="stylesheet" type="text/css" />
+<link href="theme/css/estilo1.css" rel="stylesheet" type="text/css" />
 
 <!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
 </head>
@@ -24,56 +24,64 @@
 <f:loadBundle var="rcs" basename="com.shiatsu.web.bundles.recursos" />
 <body bgcolor="#ffffff">
 <div class="header" id="menu">
-        <div id="logo"><a id="siteLogo"><img src="images/logo.gif"  alt="Some text about the site"/></a></div>
-        <ul class="nav">
-            <li><a href="shiatsuInicio.jsf?init=true">Inicio</a></li>
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Clientes</a>
-                <ul>
-                    <li><a href="shiatsuListaClientes.jsf?init=true">Lista Clientes</a></li>
-                    <li><a href="#">sub2</a></li>
-                    <li>
-                        <a href="#">sub3</a>
-                        <ul>
-                            <li>
-                                <a href="#">sub1</a>
-                                <ul>
-                                    <li><a href="#">sub1</a></li>
-                                    <li><a href="#">sub2</a></li>
-                                    <li><a href="#">sub3</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">sub2</a>
-                                <ul>
-                                    <li><a href="#">sub1</a></li>
-                                    <li><a href="#">sub2</a></li>
-                                    <li><a href="#">sub3</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">subs3</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="#">Acerca De</a>
-                <ul>
-                    <li><a href="#">sub1</a></li>
-                    <li><a href="#">sub2</a></li>
-                    <li><a href="#">sub3</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Contacto</a></li>
-        </ul>
-    </div>
-<table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
-      <tr>
-       <td height="50" valign="top">
-        <h2><!-- InstanceBeginEditable name="titulo" --><h:outputText styleClass="outputText" value="#{rcs['titulo.inicio']}"/><!-- InstanceEndEditable --></h2>
-       </td>
-      </tr>
-	  <tr height="100%">
-   		<td colspan="7" valign="top" height="100%"><!-- InstanceBeginEditable name="contenido" -->
+        <section id="navContainer">
+			<nav>
+				<ul class="nav">
+		            <li><a href="shiatsuInicio.jsf?init=true">Inicio</a></li>
+		            <li><a href="#">Login</a></li>
+		            <li><a href="#">Clientes</a>
+		                <ul>
+		                    <li><a href="shiatsuListaClientes.jsf?init=true">Lista Clientes</a></li>
+		                    <li><a href="#">sub2</a></li>
+		                    
+		                                    <li><a href="#">sub3</a></li>
+		                                    <li><a href="#">sub3</a></li>
+		                                    <li><a href="#">sub3</a></li>
+		                                    <li><a href="#">sub3</a></li>
+		                    <li>
+		                        <a href="#">sub3</a>
+		                        <ul>
+		                            <li>
+		                                <a href="#">sub1</a>
+		                                <ul>
+		                                    <li><a href="#">sub1</a></li>
+		                                    <li><a href="#">sub2</a></li>
+		                                    <li><a href="#">sub3</a></li>
+		                                </ul>
+		                            </li>
+		                            <li>
+		                                <a href="#">sub2</a>
+		                                <ul>
+		                                    <li><a href="#">sub1</a></li>
+		                                    <li><a href="#">sub2</a></li>
+		                                    <li><a href="#">sub3</a></li>
+		                                </ul>
+		                            </li>
+		                            <li><a href="#">subs3</a></li>
+		                        </ul>
+		                    </li>
+
+		                </ul>
+		            </li>
+		            <li><a href="#">Acerca De</a>
+		                
+		            </li>
+		            <li><a href="#">Contacto</a></li>
+		        </ul>
+			</nav>
+	</section>
+</div>
+<section  id="container">
+		<section id="innerContainer">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+                  	<tr>
+                   		<td height="50" valign="top">
+                    		<h2><!-- InstanceBeginEditable name="titulo" --><h:outputText styleClass="outputText" value="#{rcs['titulo.cliente.lista']}"/><!-- InstanceEndEditable --></h2>
+                   		</td>
+                  	</tr>
+                  	<tr height="100%">
+                    	<td colspan="7" valign="top" height="100%"><!-- InstanceBeginEditable name="contenido" -->
+					<div align="center">
 					<h:form  styleClass="form" id="form1" enctype="multipart/form-data">
 					   		<table border="1">
 					   		<tbody>
@@ -214,15 +222,15 @@
 						<p>
 							<h:commandButton type="submit" value="#{rcs['boton.agregar']}" styleClass="commandButton" id="button1" action="#{clienteController.irAgregar}"></h:commandButton>
 						</p>
-	</h:form>	
+	</h:form>	</div>
 					<!-- InstanceEndEditable -->   </td>
-  	  </tr>
-	  <tr>
-		<td width="100%" colspan="7" align="center" background="images/spacer_Footer.png" height="26">
-			<div align="center" style="color:#FFFFFF"><h:outputText styleClass="outputText" id="txtTituloVersion" value="#{rcs['version']}"/></div>
-		</td>
-  </tr>
-</table>
+                  	</tr>
+            </table>
+            </section>
+	</section>
+	<footer>
+		©
+	</footer>
 </body>
 </f:view>
 

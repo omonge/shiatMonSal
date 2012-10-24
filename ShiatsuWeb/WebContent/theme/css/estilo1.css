@@ -1,0 +1,108 @@
+*{
+  padding:0px;
+  margin: 0px;
+ }
+@font-face
+{
+	font-family: "Komika";
+	src: url("fuentes/KomikaTitle-webfont.eot");
+	src: url("fuentes/KomikaTitle-webfont.eot?#iefix") format("embedded-opentype"),
+		 url("fuentes/KomikaTitle-webfont.woff") format("woff"),
+		 url("fuentes/KomikaTitle-webfont.ttf") format("truetype"),
+		 url("fuentes/KomikaTitle-webfont.svg#KomikaTitleRegular") format("svg");
+}
+article, footer, header, section
+{
+	display: block;
+}
+body
+{
+	background: white;
+	font-family: "Open Sans", Arial;
+	font-size: 16px;
+	margin: 0;
+	text-align: center;
+}
+footer, header, section
+{
+	background: white;
+	border-radius: 0.5em;
+	box-shadow: rgba(0,0,0, 0.5) 0px 5px 10px;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	-o-border-radius: 0.5em;
+	-ms-border-radius: 0.5em;
+	margin: 1em auto;
+	padding: 1em;
+	width: 90%;
+}
+header
+{
+	background: url("logo.png") no-repeat 10px center;/*,url("zacate.jpg")*/ 
+	color: black;
+}
+ul,ol{
+  list-style:none;
+}
+ul.nav {
+	margin: -8px 0px 0px 0px;
+	padding: 0px;
+}
+ .nav li a{
+      /*background-color:#000;*/
+      color:#FE9A2E;
+      text-decoration:none;
+      padding:0px 15px;
+      margin: 0px 10px 0px 0px;
+      display: block;
+ }
+ .nav li a:hover{
+    background-color: white;
+    -webkit-border-radius: 5px;
+	-webkit-border-top-left-radius: 99px;
+	-webkit-border-bottom-right-radius: 99px;
+	-moz-border-radius: 5px;
+	-moz-border-radius-topleft: 99px;
+	-moz-border-radius-bottomright: 99px;
+	border-radius: 5px;
+	border-top-left-radius: 99px;
+	border-bottom-right-radius: 99px;
+
+ }
+ .nav > li {
+      float: left;
+ }
+ .nav li ul{
+      background-color:#123D88;
+      display: none;
+      position: absolute;
+      min-width:auto;
+      top:27px;
+      padding: 0;
+ }
+ .nav li:hover > ul{
+    display:block;
+    -webkit-border-top-left-radius: 20px;
+	-webkit-border-bottom-right-radius: 40px;
+	-moz-border-radius-topleft: 20px;
+	-moz-border-radius-bottomright: 40px;
+	border-top-left-radius: 20px;
+	border-bottom-right-radius: 40px;
+ }
+ .nav li ul li{
+      position: relative;
+ }
+ .nav li ul li ul{
+    right: -68px;
+	top: -18px;
+ }
+#container{
+	background: #123D88;
+	box-shadow: black 0px 5px 30px inset;
+}
+#navContainer{
+	background: url("../images/Logo.gif")  no-repeat right;
+}
+.outputText{
+	color: #FE9A2E;
+}
