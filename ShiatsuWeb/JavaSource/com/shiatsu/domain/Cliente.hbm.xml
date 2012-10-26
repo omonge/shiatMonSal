@@ -13,7 +13,7 @@
         <property name="pvStEmail1" 			column="EMAIL1" 				type="java.lang.String" 	length="50"/>
         <property name="pvStEmail2" 			column="EMAIL2" 				type="java.lang.String" 	length="50"/>
         <property name="pvStFacturaNombre" 		column="FACTURA_A_NOMBRE" 		type="java.lang.String" 	length="50"/>
-        <property name="pvStFrecuenciaCita"		column="FRECUENCIA_CITA" 		type="java.lang.Integer" 	length="1"/>
+        <property name="pvInFrecuenciaCita"		column="FRECUENCIA_CITA" 		type="java.lang.Integer" 	length="1"/>
         <property name="pvStLugarProfesion"		column="LUGAR_PROFESION" 		type="java.lang.String" 	length="50"/>
         <property name="pvDaNacimiento" 		column="NACIMIENTO" 			type="java.util.Date"/>
         <property name="pvInNacionalidad"		column="NACIONALIDAD"			type="java.lang.Integer" 	length="10"/>

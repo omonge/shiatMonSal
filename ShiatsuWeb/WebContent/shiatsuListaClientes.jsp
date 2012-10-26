@@ -83,7 +83,7 @@
                     	<td colspan="7" valign="top" height="100%"><!-- InstanceBeginEditable name="contenido" -->
 					<div align="center">
 					<h:form  styleClass="form" id="form1" enctype="multipart/form-data">
-					   		<table border="1">
+					   		<table border="0">
 					   		<tbody>
 					   			<tr>   				
 									<td class="Tit04Tabla"><h:outputText styleClass="outputText"
@@ -111,7 +111,7 @@
 						<br/>
 						<h:messages styleClass="messages" id="messages1" globalOnly="true" infoClass="info" errorClass="error" warnClass="warn"/>
 						<br/>
-					   <h:dataTable border="1" columnClasses="" headerClass="Tit04Tabla"
+					   <h:dataTable border="0" columnClasses="" headerClass="headerStyle"
 									footerClass="Tit04Tabla" rowClasses="even,odd"
 									styleClass="dataTable" id="table1"
 									value="#{clienteController.clientes}" var="clientes" rows="20" 
@@ -123,7 +123,7 @@
 										id="lbl1"></h:outputText>
 								</f:facet>
 									<h:commandLink styleClass="commandLink" id="link1" action="#{clienteController.cargarObjeto}">
-										<h:outputText styleClass="outputText" id="text1"
+										<h:outputText styleClass="pad-right" id="text1"
 											value="#{clientes.pvLoCodigo}">
 										</h:outputText>
 										<f:attribute value="center" name="align" />
@@ -131,66 +131,66 @@
 							</h:column>
 							<h:column id="Columna2">
 								<f:facet name="header">
-									<h:outputText styleClass="outputText"
+									<h:outputText styleClass="outputText pad-right"
 										value="#{rcs['cliente.nombre']}"
 										id="lbl2"></h:outputText>
 								</f:facet>			
-								<h:outputText styleClass="outputText" id="text2"
+								<h:outputText styleClass="outputText pad-right" id="text2"
 										value="#{clientes.pvStNombre}">					
 								</h:outputText>
 								<f:attribute value="center" name="align" />
 							</h:column>
 							<h:column id="Columna3">
 								<f:facet name="header">
-									<h:outputText styleClass="outputText"
+									<h:outputText styleClass="outputText pad-right"
 										value="#{rcs['cliente.direccion']}"
 										id="lbl3"></h:outputText>
 								</f:facet>			
-								<h:outputText styleClass="outputText" id="text3"
+								<h:outputText styleClass="outputText pad-right" id="text3"
 									value="#{clientes.pvStDireccion}">
 								</h:outputText>		
 								<f:attribute value="center" name="align" />	
 							</h:column>
 							<h:column id="Columna4">
 								<f:facet name="header">
-									<h:outputText styleClass="outputText"
+									<h:outputText styleClass="outputText pad-right"
 										value="#{rcs['cliente.email']}"
 										id="lbl4"></h:outputText>
 								</f:facet>			
-								<h:outputText styleClass="outputText" id="text4"
+								<h:outputText styleClass="outputText pad-right" id="text4"
 									value="#{clientes.pvStEmail1}">
 								</h:outputText>		
 								<f:attribute value="center" name="align" />	
 							</h:column>
 							<h:column id="Columna5">
 								<f:facet name="header">
-									<h:outputText styleClass="outputText"
+									<h:outputText styleClass="outputText pad-right"
 										value="#{rcs['cliente.telefonoCasa']}"
 										id="lbl5"></h:outputText>
 								</f:facet>			
-								<h:outputText styleClass="outputText" id="text5"
+								<h:outputText styleClass="outputText pad-right" id="text5"
 									value="#{clientes.pvLoTelefonoCasa}">
 								</h:outputText>			
 								<f:attribute value="center" name="align" />
 							</h:column>		
 							<h:column id="Columna6">
 								<f:facet name="header">
-									<h:outputText styleClass="outputText"
+									<h:outputText styleClass="outputText pad-right"
 										value="#{rcs['cliente.telefonoCelular']}"
 										id="lbl6"></h:outputText>
 								</f:facet>			
-								<h:outputText styleClass="outputText" id="text6"
+								<h:outputText styleClass="outputText pad-right" id="text6"
 									value="#{clientes.pvLoTelefonoCelular}">
 								</h:outputText>			
 								<f:attribute value="center" name="align" />
 							</h:column>	
 							<h:column id="Columna7">
 								<f:facet name="header">
-									<h:outputText styleClass="outputText"
+									<h:outputText styleClass="outputText pad-right"
 										value="#{rcs['cliente.estado']}"
 										id="lbl7"></h:outputText>
 								</f:facet>			
-								<h:outputText styleClass="outputText" id="text7"
+								<h:outputText styleClass="outputText pad-right" id="text7"
 									value="#{clientes.pvStEstadoDescripcion}">
 								</h:outputText>		
 								<f:attribute value="center" name="align" />	
@@ -201,22 +201,22 @@
 									paginatorMaxPages="9" paginatorTableClass="paginator"
 									paginatorActiveColumnStyle="font-weight:bold;" immediate="true">
 							<f:facet name="first">
-								<t:graphicImage url="theme/arrow-first.gif" border="1" />
+								<t:graphicImage url="theme/arrow-first.gif" />
 							</f:facet>
 							<f:facet name="last">
-								<t:graphicImage url="theme/arrow-last.gif" border="1" />
+								<t:graphicImage url="theme/arrow-last.gif" />
 							</f:facet>
 							<f:facet name="previous">
-								<t:graphicImage url="theme/arrow-previous.gif" border="1" />
+								<t:graphicImage url="theme/arrow-previous.gif" />
 							</f:facet>
 							<f:facet name="next">
-								<t:graphicImage url="theme/arrow-next.gif" border="1" />
+								<t:graphicImage url="theme/arrow-next.gif" />
 							</f:facet>
 							<f:facet name="fastforward">
-								<t:graphicImage url="theme/arrow-ff.gif" border="1" />
+								<t:graphicImage url="theme/arrow-ff.gif" />
 							</f:facet>
 							<f:facet name="fastrewind">
-								<t:graphicImage url="theme/arrow-fr.gif" border="1" />
+								<t:graphicImage url="theme/arrow-fr.gif"  />
 							</f:facet>
 						</t:dataScroller>					
 						<p>

@@ -46,14 +46,14 @@ public class ClienteBoImpl extends BusinessObjectHelper implements ClienteBo {
 	@Override
 	public void agregar(Cliente cliente) throws BusinessErrorHelper {
 		try{
-			 if(this.clienteDao.existe(cliente)){
+			 if((!this.existe(cliente))){
 				 this.clienteDao.agregar(cliente);
 			 }else{
-				 throw new Exception();
+				 throw new Exception(Bundle.rcs.getString("clienteExiste"));
 			 }
 		}catch (Exception e) {
             e.printStackTrace();
-            this.addError("clienteBo.agregar", Bundle.rcs.getString("clienteExiste"));
+            this.addError("clienteBo.agregar",e.getMessage() );
             this.throwBussinessError();
 		}
 		
@@ -90,7 +90,8 @@ public class ClienteBoImpl extends BusinessObjectHelper implements ClienteBo {
 
 	@Override
 	public boolean existe(Cliente cliente) {
-		return this.clienteDao.existe(cliente);
+		boolean correcto = this.clienteDao.existe(cliente);
+		return correcto;
 	}
 
 	@Override

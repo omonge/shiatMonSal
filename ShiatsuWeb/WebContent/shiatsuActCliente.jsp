@@ -83,7 +83,7 @@
                     	<td colspan="7" valign="top" height="100%"><!-- InstanceBeginEditable name="contenido" -->
                     	<div align="center">
 					<h:form  styleClass="form" id="form1" enctype="multipart/form-data">
-   <table border="1">
+   <table border="0">
 		<tbody>
 			<tr>
 		  		<td class="Tit04Tabla">
@@ -92,7 +92,7 @@
 			    </td>
 		  	    <td>
 		  	    	<h:inputText styleClass="inputText" id="txtPvLoCodigo"
-		  	    				 value="#{clienteController.cliente.pvLoCodigo}" size="10" maxlength="10">
+		  	    				 value="#{clienteController.cliente.pvLoCodigo}" size="10" maxlength="10" disabled="#{!clienteController.agregar}">
 		  	    	</h:inputText> 
 		  	    	<h:message styleClass="error" id="msgTxtCodigo" for="txtPvLoCodigo" errorClass="error" infoClass="info" warnClass="warn"></h:message>
 		  	   </td>
@@ -104,7 +104,7 @@
 				    </td>
 			  	    <td>
 			  	    	<h:inputText styleClass="inputText" id="txtPvStNombre" 
-			  	    				 value="#{clienteController.cliente.pvStNombre}" size="20" maxlength="50">
+			  	    				 value="#{clienteController.cliente.pvStNombre}" size="50" maxlength="50">
 			  	    	</h:inputText> 
 			  	    	<h:message styleClass="error" id="msgTxtNombre" for="txtPvStNombre" errorClass="error" infoClass="info" warnClass="warn"></h:message>
 			  	   </td>
@@ -116,16 +116,22 @@
 			    </td>
 		  	    <td>
 		  	    	<h:inputText styleClass="inputText" id="txtPvStDireccion" 
-		  	    				 value="#{clienteController.cliente.pvStDireccion}" size="20" maxlength="50">
+		  	    				 value="#{clienteController.cliente.pvStDireccion}" size="50" maxlength="50">
 		  	    	</h:inputText> 
 		  	    	<h:message styleClass="error" id="msgTxtDireccion" for="txtPvStDireccion" errorClass="error" infoClass="info" warnClass="warn"></h:message>
 		  	   </td>
 		    </tr>
 			<tr>
-		  		<td class="Tit04Tabla" colspan="2">
+		  		<td class="Tit04Tabla">
 		  			<h:outputText styleClass="outputText" id="lblEmails"
 					value="#{rcs['cliente.email']}"></h:outputText>
 			    </td>
+			     <td>
+		  	    	<h:inputText styleClass="inputText" id="txtPvStEmail1" 
+		  	    				 value="#{clienteController.cliente.pvStEmail1}" size="50" maxlength="50">
+		  	    	</h:inputText> 
+		  	    	<h:message styleClass="error" id="msgTxtStEmail1" for="txtPvStEmail1" errorClass="error" infoClass="info" warnClass="warn"></h:message>
+		  	   </td>
 			 </tr> 
 			<tr>
 	  		<td class="Tit04Tabla" colspan="2">
@@ -159,10 +165,10 @@
         <tr>
             <td class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblFrecuenciaCita" value="#{rcs['cliente.frecuencia']}"></h:outputText></td>
             <td>
-	  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvStFrecuenciaCita" value="#{clienteController.cliente.pvStFrecuenciaCita}">
+	  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInFrecuenciaCita" value="#{clienteController.cliente.pvInFrecuenciaCita}">
 									<f:selectItems value="#{clienteController.frecuenciasCitasItems}"/>
 					</h:selectOneMenu>
-                <h:message styleClass="error" id="msgTxtPvStFrecuenciaCita" for="cmbPvStFrecuenciaCita" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
+                <h:message styleClass="error" id="msgTxtPvInFrecuenciaCita" for="cmbPvInFrecuenciaCita" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
             </td>
         </tr>
         <tr>
@@ -228,14 +234,14 @@
 		</c:if>
 		<tr>
             <td colspan="2">
-	            <h:commandButton type="submit" value="#{rcs['boton.agregar']}"   styleClass="commandExButton" id="btnAgregar"   rendered="#{clienteController.agregar}" 	action="#{clienteController.agregarCliente}"></h:commandButton>
-	            <h:commandButton type="submit" value="#{rcs['boton.modificar']}" styleClass="commandExButton" id="btnModificar" rendered="#{!clienteController.agregar}" 	action="#{clienteController.modificarCliente}"></h:commandButton>
-	            <h:commandButton type="submit" value="#{rcs['boton.eliminar']}"  styleClass="commandExButton" id="btnEliminar"  rendered="#{!clienteController.agregar}"  	action="#{clienteController.eliminarCliente}" onclick="return confirmEliminar('e','Cliente');"></h:commandButton>
+	            <h:commandButton type="submit" value="#{rcs['boton.agregar']}"   styleClass="commandButton" id="btnAgregar"   rendered="#{clienteController.agregar}" 	action="#{clienteController.agregarCliente}"></h:commandButton>
+	            <h:commandButton type="submit" value="#{rcs['boton.modificar']}" styleClass="commandButton" id="btnModificar" rendered="#{!clienteController.agregar}" 	action="#{clienteController.modificarCliente}"></h:commandButton>
+	            <h:commandButton type="submit" value="#{rcs['boton.eliminar']}"  styleClass="commandButton" id="btnEliminar"  rendered="#{!clienteController.agregar}"  	action="#{clienteController.eliminarCliente}" onclick="return confirmEliminar('e','Cliente');"></h:commandButton>
             </td>
         </tr>
 		</tbody>
 	</table>
-		<h:commandButton type="submit" value="#{rcs['boton.regresar']}"  styleClass="commandExButton" id="btnRegresar"  action="#{clienteController.regresar}"></h:commandButton>
+		<h:commandButton type="submit" value="#{rcs['boton.regresar']}"  styleClass="commandButton" id="btnRegresar"  action="#{clienteController.regresar}"></h:commandButton>
 		<h:messages styleClass="messages" id="messages1" globalOnly="true" infoClass="info" errorClass="error" warnClass="warn"></h:messages>
 	</h:form>	</div>
 					<!-- InstanceEndEditable -->   </td>

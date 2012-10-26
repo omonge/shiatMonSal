@@ -17,7 +17,7 @@ article, footer, header, section
 }
 body
 {
-	background: white;
+	background: rgba(102, 101, 101, 0.19);
 	font-family: "Open Sans", Arial;
 	font-size: 16px;
 	margin: 0;
@@ -38,7 +38,7 @@ footer, header, section
 }
 header
 {
-	background: url("logo.png") no-repeat 10px center;/*,url("zacate.jpg")*/ 
+	background: url("Logo.png") no-repeat 10px center;/*,url("zacate.jpg")*/ 
 	color: black;
 }
 ul,ol{
@@ -77,10 +77,11 @@ ul.nav {
       display: none;
       position: absolute;
       min-width:auto;
-      top:27px;
+      top:auto;
       padding: 0;
  }
  .nav li:hover > ul{
+ 	color: #123D88;
     display:block;
     -webkit-border-top-left-radius: 20px;
 	-webkit-border-bottom-right-radius: 40px;
@@ -94,15 +95,81 @@ ul.nav {
  }
  .nav li ul li ul{
     right: -68px;
-	top: -18px;
+	top: 0px;
  }
 #container{
 	background: #123D88;
 	box-shadow: black 0px 5px 30px inset;
 }
 #navContainer{
-	background: url("../images/Logo.gif")  no-repeat right;
+	background: url("../../images/Logo.gif")  no-repeat right;
+	background-color: white;
 }
 .outputText{
-	color: #FE9A2E;
+	color: #1A4796;
+}
+.inputText{
+	 -webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-right-radius: 20px;
+	-moz-border-radius-topleft: 20px;
+	-moz-border-radius-bottomright: 20px;
+	border-top-left-radius: 5px;
+	border-bottom-right-radius: 20px;
+}
+.selectOneMenu{
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-bottomright: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+.headerStyle{
+	text-transform: uppercase;
+	font-size: 12px;
+}
+.dataTable{
+	border-spacing: 0;
+}
+.odd {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #7F8485;
+	background-color: #E5E6E7;
+	font-weight: bold;
+}
+.even {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #7F8485;
+	background-color: #fdfdfd;
+	font-weight: bold;
+}
+.pad-right{
+	padding-right: 15px;
+}
+
+.commandLink{
+	text-decoration: none;
+	color:#FE9A2E;
+}
+.commandLink:hover{
+	text-decoration: pointer;
+	color:#123D88;
+}
+.commandButton{
+	padding: 2px 5px 2px 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-bottomright: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+.warn{
+	color: yellowgreen;
+}
+.error{
+	color: red;
+}
+.info{
+	color: blue;
 }

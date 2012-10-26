@@ -27,7 +27,7 @@ public class Cliente implements Serializable {
 	private String 	pvStEmail1;//EMAIL1
 	private String 	pvStEmail2;//EMAIL2
 	private String  pvStFacturaNombre;
-	private	Integer pvStFrecuenciaCita;
+	private	Integer pvInFrecuenciaCita;
 	private String  pvStLugarProfesion;
 	private Date	pvDaNacimiento;
 	private Integer pvInNacionalidad;
@@ -87,7 +87,10 @@ public class Cliente implements Serializable {
 	 * @return the pvStDireccion
 	 */
 	public String getPvStDireccion() {
-		return pvStDireccion;
+		if(this.pvStDireccion!=null){
+			return this.pvStDireccion.toUpperCase();
+		}
+		return this.pvStDireccion;
 	}
 	/**
 	 * @param pvStDireccion the pvStDireccion to set
@@ -111,6 +114,9 @@ public class Cliente implements Serializable {
 	 * @return the pvStEmail1
 	 */
 	public String getPvStEmail1() {
+		if(this.pvStEmail1!=null){
+			return this.pvStEmail1.toUpperCase();
+		}
 		return pvStEmail1;
 	}
 	/**
@@ -123,6 +129,9 @@ public class Cliente implements Serializable {
 	 * @return the pvStEmail2
 	 */
 	public String getPvStEmail2() {
+		if(this.pvStEmail2!=null){
+			return this.pvStEmail2.toUpperCase();
+		}
 		return pvStEmail2;
 	}
 	/**
@@ -135,6 +144,9 @@ public class Cliente implements Serializable {
 	 * @return the pvStFacturaNombre
 	 */
 	public String getPvStFacturaNombre() {
+		if(this.pvStFacturaNombre!=null){
+			return this.pvStFacturaNombre.toUpperCase();
+		}
 		return pvStFacturaNombre;
 	}
 	/**
@@ -143,22 +155,26 @@ public class Cliente implements Serializable {
 	public void setPvStFacturaNombre(String pvStFacturaNombre) {
 		this.pvStFacturaNombre = pvStFacturaNombre;
 	}
+	
 	/**
-	 * @return the pvStFrecuenciaCita
+	 * @return the pvInFrecuenciaCita
 	 */
-	public Integer getPvStFrecuenciaCita() {
-		return pvStFrecuenciaCita;
+	public Integer getPvInFrecuenciaCita() {
+		return pvInFrecuenciaCita;
 	}
 	/**
-	 * @param pvStFrecuenciaCita the pvStFrecuenciaCita to set
+	 * @param pvInFrecuenciaCita the pvInFrecuenciaCita to set
 	 */
-	public void setPvStFrecuenciaCita(Integer pvStFrecuenciaCita) {
-		this.pvStFrecuenciaCita = pvStFrecuenciaCita;
+	public void setPvInFrecuenciaCita(Integer pvInFrecuenciaCita) {
+		this.pvInFrecuenciaCita = pvInFrecuenciaCita;
 	}
 	/**
 	 * @return the pvStLugarProfesion
 	 */
 	public String getPvStLugarProfesion() {
+		if(this.pvStLugarProfesion!=null){
+			return this.pvStLugarProfesion.toUpperCase();
+		}
 		return pvStLugarProfesion;
 	}
 	/**
@@ -195,6 +211,9 @@ public class Cliente implements Serializable {
 	 * @return the pvStNombre
 	 */
 	public String getPvStNombre() {
+		if(this.pvStNombre!=null){
+			return this.pvStNombre.toUpperCase();
+		}
 		return pvStNombre;
 	}
 	/**
