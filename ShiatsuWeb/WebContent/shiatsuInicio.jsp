@@ -72,7 +72,6 @@
 	</section>
 </div>
 <section  id="container">
-		<section id="innerContainer">
             <table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
                   	<tr>
                    		<td height="50" valign="top">
@@ -85,7 +84,6 @@
 					<!-- InstanceEndEditable -->   </td>
                   	</tr>
             </table>
-            </section>
 	</section>
 	<footer>
 		©

@@ -72,7 +72,6 @@
 	</section>
 </div>
 <section  id="container">
-		<section id="innerContainer">
             <table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
                   	<tr>
                    		<td height="50" valign="top">
@@ -95,22 +94,21 @@
 										<h:message errorClass="error" infoClass="info" styleClass="error"
 										id="msgtxtBuscar" for="txtBuscar"></h:message>
 									</td>
+									<td>
+										<h:commandButton type="submit" value="" image="images/buscar.gif"
+													styleClass="icon" id="btnBuscar"
+													action="#{clienteController.buscar}">
+										</h:commandButton>
+									</td>
 								</tr>			
 							</tbody>
 						</table>
-						<h:commandButton type="submit"
-									value="#{rcs['buscar.boton.codigo']}"
-									styleClass="commandButton" id="btnBuscarCodigo"
-									action="#{clienteController.buscarPorCodigo}">
-						</h:commandButton>
-						<h:commandButton type="submit"
-									value="#{rcs['buscar.boton.descripcion']}"
-									styleClass="commandButton" id="btnBuscarNombre"
-									action="#{clienteController.buscarPorDescripcion}">
-						</h:commandButton>
 						<br/>
 						<h:messages styleClass="messages" id="messages1" globalOnly="true" infoClass="info" errorClass="error" warnClass="warn"/>
 						<br/>
+						<div align="left">
+							<h:commandButton type="submit" value="#{rcs['boton.agregar']}" styleClass="commandButton" id="btnAgregarTop" action="#{clienteController.irAgregar}"></h:commandButton>
+						</div>
 					   <h:dataTable border="0" columnClasses="" headerClass="headerStyle"
 									footerClass="Tit04Tabla" rowClasses="even,odd"
 									styleClass="dataTable" id="table1"
@@ -219,14 +217,13 @@
 								<t:graphicImage url="theme/arrow-fr.gif"  />
 							</f:facet>
 						</t:dataScroller>					
-						<p>
-							<h:commandButton type="submit" value="#{rcs['boton.agregar']}" styleClass="commandButton" id="button1" action="#{clienteController.irAgregar}"></h:commandButton>
-						</p>
+						<div align="left">
+							<h:commandButton type="submit" value="#{rcs['boton.agregar']}" styleClass="commandButton" id="btnAgregarBottom" action="#{clienteController.irAgregar}"></h:commandButton>
+						</div>
 	</h:form>	</div>
 					<!-- InstanceEndEditable -->   </td>
                   	</tr>
             </table>
-            </section>
 	</section>
 	<footer>
 		©

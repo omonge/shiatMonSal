@@ -49,6 +49,28 @@ public class ClienteController extends FacesController {
 		this.init=Boolean.FALSE;
 	}
 /****************** METODOS *************************************/
+	private Boolean isNaN(){
+		Boolean correcto = Boolean.FALSE;
+		try{
+			Double.valueOf(this.criterioBusqueda);
+		}catch(Exception ex){
+			correcto = Boolean.TRUE;
+		}
+		return correcto;
+	}
+	public String buscar(){
+		String correcto = "success";
+		try{
+			if(this.isNaN()){
+				this.buscarPorDescripcion();
+			}else{
+				this.buscarPorCodigo();
+			}
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+		return correcto;
+	}
 	public String buscarPorCodigo(){
 		String correcto = "success";
 		try{
@@ -56,6 +78,7 @@ public class ClienteController extends FacesController {
 		        Long codigoParseado = new Long(Long.parseLong(this.criterioBusqueda));
 		        Cliente cliente = this.clienteBo.buscar(codigoParseado);
 		        if(cliente != null) {
+		        	this.clientes = new ArrayList<Cliente>();
 		        	this.clientes.add(cliente);
 		            correcto =  "success";
 		        }else{

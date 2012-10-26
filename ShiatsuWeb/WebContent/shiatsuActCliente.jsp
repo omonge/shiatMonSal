@@ -72,7 +72,6 @@
 	</section>
 </div>
 <section  id="container">
-		<section id="innerContainer">
             <table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
                   	<tr>
                    		<td height="50" valign="top">
@@ -86,11 +85,11 @@
    <table border="0">
 		<tbody>
 			<tr>
-		  		<td class="Tit04Tabla">
+		  		<td>
 		  			<h:outputText styleClass="outputText" id="txt1"
 					value="#{rcs['cliente.codigo']}"></h:outputText>
 			    </td>
-		  	    <td>
+		  	    <td class="formPaddingData">
 		  	    	<h:inputText styleClass="inputText" id="txtPvLoCodigo"
 		  	    				 value="#{clienteController.cliente.pvLoCodigo}" size="10" maxlength="10" disabled="#{!clienteController.agregar}">
 		  	    	</h:inputText> 
@@ -98,11 +97,11 @@
 		  	   </td>
 		    </tr>
 		    <tr>
-			  		<td class="Tit04Tabla">
+			  		<td>
 			  			<h:outputText styleClass="outputText" id="lblNombre"
 						value="#{rcs['cliente.nombre']}"></h:outputText>
 				    </td>
-			  	    <td>
+			  	    <td class="formPaddingData">
 			  	    	<h:inputText styleClass="inputText" id="txtPvStNombre" 
 			  	    				 value="#{clienteController.cliente.pvStNombre}" size="50" maxlength="50">
 			  	    	</h:inputText> 
@@ -110,11 +109,11 @@
 			  	   </td>
 			</tr>
 			<tr>
-		  		<td class="Tit04Tabla">
+		  		<td>
 		  			<h:outputText styleClass="outputText" id="lblDireccion"
 					value="#{rcs['cliente.direccion']}"></h:outputText>
 			    </td>
-		  	    <td>
+		  	    <td class="formPaddingData">
 		  	    	<h:inputText styleClass="inputText" id="txtPvStDireccion" 
 		  	    				 value="#{clienteController.cliente.pvStDireccion}" size="50" maxlength="50">
 		  	    	</h:inputText> 
@@ -122,11 +121,11 @@
 		  	   </td>
 		    </tr>
 			<tr>
-		  		<td class="Tit04Tabla">
+		  		<td>
 		  			<h:outputText styleClass="outputText" id="lblEmails"
 					value="#{rcs['cliente.email']}"></h:outputText>
 			    </td>
-			     <td>
+			     <td class="formPaddingData">
 		  	    	<h:inputText styleClass="inputText" id="txtPvStEmail1" 
 		  	    				 value="#{clienteController.cliente.pvStEmail1}" size="50" maxlength="50">
 		  	    	</h:inputText> 
@@ -134,28 +133,32 @@
 		  	   </td>
 			 </tr> 
 			<tr>
-	  		<td class="Tit04Tabla" colspan="2">
-	  			<h:outputText styleClass="outputText" id="lblTelefonos"
-				value="#{rcs['cliente.telefono']}"></h:outputText>
+	  		<td>
+	  			<h:outputText styleClass="outputText" id="lblCelular"
+				value="#{rcs['cliente.telefonoCelular']}"></h:outputText>
+		    </td>
+		    <td class="formPaddingData">
+	  			<h:outputText styleClass="outputText" id="lblCasa"
+				value="#{rcs['cliente.telefonoCasa']}"></h:outputText>
 		    </td>
 		 </tr> 
 		 <tr>
-	  	    <td>
-	  	    	<h:inputText styleClass="inputText" id="txtPvLoTelefonoCasa" 
-	  	    				 value="#{clienteController.cliente.pvLoTelefonoCasa}" size="8" maxlength="8">
-	  	    	</h:inputText> 
-	  	    	<h:message styleClass="error" id="msgTxtpvInTelefonoCasa" for="txtPvLoTelefonoCasa" errorClass="error" infoClass="info" warnClass="warn"></h:message>
-	  	   	</td>
 	  	   	<td>	
 	  	   		<h:inputText styleClass="inputText" id="txtPvLoTelefonoCelular" 
 	  	    				 value="#{clienteController.cliente.pvLoTelefonoCelular}" size="8" maxlength="8">
 	  	    	</h:inputText> 
 	  	    	<h:message styleClass="error" id="msgTxtpvInTelefonoCelular" for="txtPvLoTelefonoCelular" errorClass="error" infoClass="info" warnClass="warn"></h:message>
 	  	   </td>
+	  	    <td class="formPaddingData">
+	  	    	<h:inputText styleClass="inputText" id="txtPvLoTelefonoCasa" 
+	  	    				 value="#{clienteController.cliente.pvLoTelefonoCasa}" size="8" maxlength="8">
+	  	    	</h:inputText> 
+	  	    	<h:message styleClass="error" id="msgTxtpvInTelefonoCasa" for="txtPvLoTelefonoCasa" errorClass="error" infoClass="info" warnClass="warn"></h:message>
+	  	   	</td>
 	    </tr>
 	    <tr>
-            <td class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblFacturaANombre" value="#{rcs['cliente.facturaANombre']}"></h:outputText></td>
-            <td>
+            <td  ><h:outputText styleClass="outputText" id="lblFacturaANombre" value="#{rcs['cliente.facturaANombre']}"></h:outputText></td>
+            <td class="formPaddingData">
               	<h:inputText styleClass="inputText" id="txtPvStFacturaNombre" 
 	  	    				 value="#{clienteController.cliente.pvStFacturaNombre}" size="50" maxlength="50">
 	  	    	</h:inputText>
@@ -163,8 +166,8 @@
             </td>
         </tr>
         <tr>
-            <td class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblFrecuenciaCita" value="#{rcs['cliente.frecuencia']}"></h:outputText></td>
-            <td>
+            <td  ><h:outputText styleClass="outputText" id="lblFrecuenciaCita" value="#{rcs['cliente.frecuencia']}"></h:outputText></td>
+            <td class="formPaddingData">
 	  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInFrecuenciaCita" value="#{clienteController.cliente.pvInFrecuenciaCita}">
 									<f:selectItems value="#{clienteController.frecuenciasCitasItems}"/>
 					</h:selectOneMenu>
@@ -172,8 +175,8 @@
             </td>
         </tr>
         <tr>
-            <td class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblProfesion" value="#{rcs['cliente.profesion']}"></h:outputText></td>
-            <td>
+            <td  ><h:outputText styleClass="outputText" id="lblProfesion" value="#{rcs['cliente.profesion']}"></h:outputText></td>
+            <td class="formPaddingData">
 	  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvIntProfesion" value="#{clienteController.cliente.pvInProfesion}">
 									<f:selectItems value="#{clienteController.profesionItems}"/>
 					</h:selectOneMenu>
@@ -181,8 +184,8 @@
             </td>
         </tr>
         <tr>
-            <td class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblLugarProfesion" value="#{rcs['cliente.lugarProfesion']}"></h:outputText></td>
-            <td>
+            <td  ><h:outputText styleClass="outputText" id="lblLugarProfesion" value="#{rcs['cliente.lugarProfesion']}"></h:outputText></td>
+            <td class="formPaddingData">
               	<h:inputText styleClass="inputText" id="txtPvStLugarProfesion" 
 	  	    				 value="#{clienteController.cliente.pvStLugarProfesion}" size="50" maxlength="50">
 	  	    	</h:inputText>
@@ -190,8 +193,8 @@
             </td>
         </tr>
         <tr>
-            <td class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblNacionalidad" value="#{rcs['cliente.nacionalidad']}"></h:outputText></td>
-            <td>
+            <td  ><h:outputText styleClass="outputText" id="lblNacionalidad" value="#{rcs['cliente.nacionalidad']}"></h:outputText></td>
+            <td class="formPaddingData">
 	  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInNacionalidad" value="#{clienteController.cliente.pvInNacionalidad}">
 									<f:selectItems value="#{clienteController.nacionalidadItems}"/>
 					</h:selectOneMenu>
@@ -199,13 +202,13 @@
             </td>
         </tr>
         <tr>
-            <td class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblNacimiento" value="#{rcs['cliente.nacimiento']}"></h:outputText></td>
+            <td  ><h:outputText styleClass="outputText" id="lblNacimiento" value="#{rcs['cliente.nacimiento']}"></h:outputText></td>
             <td><h:message styleClass="error" id="msgTxtPvDaNacimiento" for="txtPvDaNacimiento" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
             </td>
         </tr>
         <tr>
-            <td class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblSexo" value="#{rcs['cliente.sexo']}"></h:outputText></td>
-            <td>
+            <td  ><h:outputText styleClass="outputText" id="lblSexo" value="#{rcs['cliente.sexo']}"></h:outputText></td>
+            <td class="formPaddingData">
 	  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvIntSexo" value="#{clienteController.cliente.pvInSexo}">
 									<f:selectItems value="#{clienteController.sexoItems}"/>
 					</h:selectOneMenu>
@@ -213,8 +216,8 @@
             </td>
         </tr>
       	<tr>
-            <td class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblTipoAlopecia" value="#{rcs['cliente.tipoAlopecia']}"></h:outputText></td>
-            <td>
+            <td  ><h:outputText styleClass="outputText" id="lblTipoAlopecia" value="#{rcs['cliente.tipoAlopecia']}"></h:outputText></td>
+            <td class="formPaddingData">
 	  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInTipoAlopecia" value="#{clienteController.cliente.pvInTipoAlopecia}">
 									<f:selectItems value="#{clienteController.tipoAlopeciaItems}"/>
 					</h:selectOneMenu>
@@ -223,8 +226,8 @@
         </tr>
         <c:if test="${!clienteController.agregar}">	
 			<tr>
-	            <td class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblEstado" value="#{rcs['cliente.estado']}"/></td>
-	            <td>
+	            <td  ><h:outputText styleClass="outputText" id="lblEstado" value="#{rcs['cliente.estado']}"/></td>
+	            <td class="formPaddingData">
 	                <h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInEstado" value="#{clienteController.cliente.pvInEstado}">
 									<f:selectItems value="#{clienteController.estadoItems}"/>
 					</h:selectOneMenu>
@@ -247,7 +250,6 @@
 					<!-- InstanceEndEditable -->   </td>
                   	</tr>
             </table>
-            </section>
 	</section>
 	<footer>
 		©

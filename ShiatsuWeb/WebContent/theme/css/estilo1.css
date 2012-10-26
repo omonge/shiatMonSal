@@ -36,9 +36,12 @@ footer, header, section
 	padding: 1em;
 	width: 90%;
 }
+footer{
+	box-shadow:black 0px 2px 18px inset;
+}
 header
 {
-	background: url("Logo.png") no-repeat 10px center;/*,url("zacate.jpg")*/ 
+	background: url("Logo.png") no-repeat 10px center;/*,url(".jpg")*/ 
 	color: black;
 }
 ul,ol{
@@ -57,7 +60,7 @@ ul.nav {
       display: block;
  }
  .nav li a:hover{
-    background-color: white;
+    background-color:#1A4796; /*#579AFF;*/
     -webkit-border-radius: 5px;
 	-webkit-border-top-left-radius: 99px;
 	-webkit-border-bottom-right-radius: 99px;
@@ -73,7 +76,7 @@ ul.nav {
       float: left;
  }
  .nav li ul{
-      background-color:#123D88;
+      background-color:white;/*#123D88;*/
       display: none;
       position: absolute;
       min-width:auto;
@@ -81,7 +84,7 @@ ul.nav {
       padding: 0;
  }
  .nav li:hover > ul{
- 	color: #123D88;
+ 	color: #FE9A2E;
     display:block;
     -webkit-border-top-left-radius: 20px;
 	-webkit-border-bottom-right-radius: 40px;
@@ -98,7 +101,7 @@ ul.nav {
 	top: 0px;
  }
 #container{
-	background: #123D88;
+	background: white;
 	box-shadow: black 0px 5px 30px inset;
 }
 #navContainer{
@@ -126,6 +129,7 @@ ul.nav {
 .headerStyle{
 	text-transform: uppercase;
 	font-size: 12px;
+	padding-top: 20px;
 }
 .dataTable{
 	border-spacing: 0;
@@ -145,7 +149,7 @@ ul.nav {
 	font-weight: bold;
 }
 .pad-right{
-	padding-right: 15px;
+	padding-right: 16px;
 }
 
 .commandLink{
@@ -172,4 +176,14 @@ ul.nav {
 }
 .info{
 	color: blue;
+}
+
+tr.even td,tr.odd td{
+	padding: 8px 0px 8px 0; 
+}
+.icon{
+	height: 15px;
+}
+.formPaddingData{
+	padding: 0px 0px 10px 10px; 
 }
