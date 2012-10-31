@@ -4,7 +4,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="com.shiatsu.domain">
-    <class name="Cliente" table="CLIENTE">
+    <class name="Cliente" table="CAT_CLIENTE">
         <id name="pvStCodigo" column="CODIGO" type="java.lang.String" length="22">
             <generator class="assigned" />
         </id>

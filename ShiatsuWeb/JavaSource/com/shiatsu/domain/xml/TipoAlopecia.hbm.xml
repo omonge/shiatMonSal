@@ -4,7 +4,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="com.shiatsu.domain">
-    <class name="Tipo" table="CAT_TIPO_ALOPECIA">
+    <class name="TipoAlopecia" table="CAT_TIPO_ALOPECIA">
         <id name="pvInCodigo" column="CODIGO" type="java.lang.Integer" length="10">
             <generator class="assigned" />
         </id>

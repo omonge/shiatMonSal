@@ -5,40 +5,39 @@ import java.io.Serializable;
 public class Pais  implements Serializable{
 
 	private static final long serialVersionUID = 4655663135297201540L;
-	private Integer codigo;
-	private String descripcion;
+	private Integer pvInCodigo;
+	private String pvStDescripcion;
 	
-	public Pais() {
-		 this.codigo = null;
-		 this.descripcion = null;
+	public Pais(){
+		this.pvInCodigo = null;
+		this.pvStDescripcion = null;
+	}
+	
+	/**
+	 * @return the pvInCodigo
+	 */
+	public Integer getPvInCodigo() {
+		return pvInCodigo;
+	}
+	/**
+	 * @param pvInCodigo the pvInCodigo to set
+	 */
+	public void setPvInCodigo(Integer pvInCodigo) {
+		this.pvInCodigo = pvInCodigo;
+	}
+ 
+	/**
+	 * @return the pvStDescripcion
+	 */
+	public String getPvStDescripcion() {
+		return pvStDescripcion;
 	}
 
 	/**
-	 * @return the codigo
+	 * @param pvStDescripcion the pvStDescripcion to set
 	 */
-	public Integer getCodigo() {
-		return codigo;
-	}
-
-	/**
-	 * @param codigo the codigo to set
-	 */
-	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
-	}
-
-	/**
-	 * @return the descripcion
-	 */
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-	/**
-	 * @param descripcion the descripcion to set
-	 */
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setPvStDescripcion(String pvStDescripcion) {
+		this.pvStDescripcion = pvStDescripcion;
 	}
 
 	/* (non-Javadoc)
@@ -48,10 +47,10 @@ public class Pais  implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+		result = prime * result
+				+ ((pvInCodigo == null) ? 0 : pvInCodigo.hashCode());
 		return result;
 	}
-
 	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
@@ -64,13 +63,14 @@ public class Pais  implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Pais other = (Pais) obj;
-		if (codigo == null) {
-			if (other.codigo != null)
+		if (pvInCodigo == null) {
+			if (other.pvInCodigo != null)
 				return false;
-		} else if (!codigo.equals(other.codigo))
+		} else if (!pvInCodigo.equals(other.pvInCodigo))
 			return false;
 		return true;
 	}
-
+	
+	 
 	
 }
