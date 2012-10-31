@@ -29,11 +29,11 @@ public interface ClienteDao {
 	public void eliminar(Cliente cliente)throws BusinessErrorHelper;
 	
 	/**
-     * Busca un cliente por su código
-     * @param codigo del cliente
-     * @return El cliente correspondiente
+     * Busca una Cliente por su código
+     * @param cliente
+     * @return El ajuste correspondiente
      */
-    public Cliente buscar(Long codigo);
+    public Cliente buscar(Cliente cliente);
     
     /**Metodo existe
     * Permite verificar la existencia de un Cliente en la base de datos
@@ -51,5 +51,5 @@ public interface ClienteDao {
  	*@param nombre
  	*@return Lista de Clientes, lista vacia en caso contrario
  	*/
- 	public List<Cliente> getClientesDescripcion(String nombre);
+ 	public List<Cliente> getClientes(Cliente cliente);
 }

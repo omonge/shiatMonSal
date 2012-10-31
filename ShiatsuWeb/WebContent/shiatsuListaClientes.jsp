@@ -1,119 +1,207 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 4.01 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 4.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" />
 
 <!-- saved from url=(0014)about:internet -->
 
-<html><!-- InstanceBegin template="/Templates/plantilla.dwt" codeOutsideHTMLIsLocked="false" -->
+<html lang="es"><!-- InstanceBegin template="/Templates/plantilla.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
-
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
-<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
-<%@ taglib uri="http://www.jenia.org/jsf/popup" prefix="jp" %>
-<%@ taglib uri="http://myfaces.apache.org/tomahawk" prefix="t"%>
-<!-- InstanceBeginEditable name="doctitle" -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width"/>
+    <meta http-equiv="Content-Type"         content="text/html; charset=ISO-8859-1">
+    <meta http-equiv="Content-Style-Type"   content="text/css">
+    <meta http-equiv="X-UA-Compatible"      content="IE=EmulateIE7"/> 
+	<!-- InstanceBeginEditable name="doctitle" -->
 <title>Shiatsu - Inicio </title>
-<!-- InstanceEndEditable -->
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="theme/css/estilo1.css" rel="stylesheet" type="text/css" />
+<!-- InstanceEndEditable --> 
+	<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
+	<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
+	<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+	<%@ taglib uri="http://www.jenia.org/jsf/popup" prefix="jp" %>
+	<%@ taglib uri="http://myfaces.apache.org/tomahawk" prefix="t"%>
+    <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+    
+    <link href="html5/normalize.css"                rel="stylesheet" type="text/css" />
+    <link href="html5/plantilla_html5.css"          rel="stylesheet" type="text/css" />
+    <link href="theme/hmenu/src/skin-modern3.css"   rel="stylesheet" type="text/css" />
+    <link href="theme/styles/SIGETR.css"            rel="stylesheet" type="text/css" />
+    <link href="theme/styles/shiatzu.css"              rel="stylesheet" type="text/css" />
+    <link href="theme/styles/menu.css"              rel="stylesheet" type="text/css" />
+    <link href="theme/styles/stylesheet.css"        rel="stylesheet" type="text/css" />
+    <link href="theme/styles/tablas.css"            rel="stylesheet" type="text/css" />
+    <link href="theme/stylesheet.css"               rel="stylesheet" type="text/css" />
+    <link href="theme/tabpanel.css"                 rel="stylesheet" type="text/css" />
+    <link href="theme/Master.css"                   rel="stylesheet" type="text/css" />
+    
+    <script type="text/javascript" src="html5/jquery.js"></script> 
+    <script type="text/javascript" src="html5/plantilla_html5.js"></script> 
+    <script type="text/javascript" src="theme/hmenu/src/hmenu.js"></script>
+    <script type="text/javascript">document.writeln("<style type='text/css'>#menu { display: none; }</style>");</script>    
+</head> 
 
-<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
-</head>
-<f:view locale="es_CR">
-<f:loadBundle var="rcs" basename="com.shiatsu.web.bundles.recursos" />
-<body bgcolor="#ffffff">
-<div class="header" id="menu">
-        <section id="navContainer">
-			<nav>
-				<ul class="nav">
-		            <li><a href="shiatsuInicio.jsf?init=true">Inicio</a></li>
-		            <li><a href="#">Login</a></li>
-		            <li><a href="#">Clientes</a>
-		                <ul>
-		                    <li><a href="shiatsuListaClientes.jsf?init=true">Lista Clientes</a></li>
-		                    <li><a href="#">sub2</a></li>
-		                    
-		                                    <li><a href="#">sub3</a></li>
-		                                    <li><a href="#">sub3</a></li>
-		                                    <li><a href="#">sub3</a></li>
-		                                    <li><a href="#">sub3</a></li>
-		                    <li>
-		                        <a href="#">sub3</a>
-		                        <ul>
-		                            <li>
-		                                <a href="#">sub1</a>
-		                                <ul>
-		                                    <li><a href="#">sub1</a></li>
-		                                    <li><a href="#">sub2</a></li>
-		                                    <li><a href="#">sub3</a></li>
-		                                </ul>
-		                            </li>
-		                            <li>
-		                                <a href="#">sub2</a>
-		                                <ul>
-		                                    <li><a href="#">sub1</a></li>
-		                                    <li><a href="#">sub2</a></li>
-		                                    <li><a href="#">sub3</a></li>
-		                                </ul>
-		                            </li>
-		                            <li><a href="#">subs3</a></li>
-		                        </ul>
-		                    </li>
-
-		                </ul>
-		            </li>
-		            <li><a href="#">Acerca De</a>
-		                
-		            </li>
-		            <li><a href="#">Contacto</a></li>
-		        </ul>
-			</nav>
-	</section>
-</div>
-<section  id="container">
-            <table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
-                  	<tr>
-                   		<td height="50" valign="top">
-                    		<h2><!-- InstanceBeginEditable name="titulo" --><h:outputText styleClass="outputText" value="#{rcs['titulo.cliente.lista']}"/><!-- InstanceEndEditable --></h2>
-                   		</td>
-                  	</tr>
-                  	<tr height="100%">
-                    	<td colspan="7" valign="top" height="100%"><!-- InstanceBeginEditable name="contenido" -->
-					<div align="center">
-					<h:form  styleClass="form" id="form1" enctype="multipart/form-data">
+<f:view locale="es-CR">
+    <f:loadBundle var="rcs" basename="com.shiatsu.web.bundles.recursos" />
+        <body onload="DynarchMenu.setup('menu'); getFocus();">
+            <div id="wrap"> 
+                <header id="tablaBanner">
+                </header>
+                <nav>
+                    <h:form id="formBanner" >
+                        
+                            <div id="menus">
+                                <div id="usuario" class="flotarIzquierda"> 
+                                        <h:outputText styleClass="outputText" id="usuario" value="Shiatzu"/>  
+                                </div>
+                                <div id="menu_fecha" class="flotarDerecha">
+                                    <script language="JavaScript">mostrarFecha();</script> - <h:outputText value="#{rcs['version']}"></h:outputText>
+                                </div> 
+                                <div id="menu_mes_contable" class="flotarDerecha">
+                                    <label></label>  
+                                </div>
+                            </div>
+                            <div style="clear: both"></div>
+                            <div id="raya_amarilla"></div>
+                            <div id="menu_page">
+								<ul id="menu">	 
+								<li><a href="Templates/shiatsuInicio.jsf?init=true">Inicio</a></li>
+								<li>Cat&aacute;logos
+								  <ul>
+									<li>Clientes
+									  <ul>
+										<li><a href="shiatsuActCliente.jsf?init=true">Agregar</a></li>
+										<li><a href="shiatsuConsClientes.jsf?init=true">Consulta</a></li> 
+										<li><a href="shiatsuListaClientes.jsf?init=true">Mantenimiento</a></li>
+									  </ul>
+									</li>
+								  </ul>
+								</li>
+								<li><a href="#">Salir</a> </li>
+							  </ul> 
+                      </div> 
+                  </h:form>
+                </nav>
+                <section id="main"> 
+                    <div id="titulo" class="Tit_04_naranja">
+					<!-- InstanceBeginEditable name="titulo" --><h:outputText styleClass="outputText" value="#{rcs['titulo.cliente.mantenimiento']}"/><!-- InstanceEndEditable -->
+                    </div>
+                    <div id="cuerpo" class="Text">
+						<!-- InstanceBeginEditable name="contenido" -->
+					
+					<h:form  styleClass="form" id="form1"  >
+					<h:inputHidden value="#{clienteController.init}" ></h:inputHidden>
 					   		<table border="0">
-					   		<tbody>
-					   			<tr>   				
-									<td class="Tit04Tabla"><h:outputText styleClass="outputText"
-										id="lblBuscar"
-										value="#{rcs['buscar.titulo']}"></h:outputText></td>
-									<td class="odd"><h:inputText styleClass="inputText"
-										id="txtBuscar"
-										value="#{clienteController.criterioBusqueda}"></h:inputText>
-										<h:message errorClass="error" infoClass="info" styleClass="error"
-										id="msgtxtBuscar" for="txtBuscar"></h:message>
-									</td>
-									<td>
-										<h:commandButton type="submit" value="" image="images/buscar.gif"
-													styleClass="icon" id="btnBuscar"
-													action="#{clienteController.buscar}">
-										</h:commandButton>
-									</td>
-								</tr>			
-							</tbody>
-						</table>
+					<tbody>
+						<tr>
+					  		<td class="Tit04Tabla">
+					  			<h:outputText styleClass="outputText" id="txt1" value="#{rcs['cliente.codigo']}"></h:outputText>
+						    </td>
+					  	    <td class="formPaddingData">
+					  	    	<h:inputText styleClass="inputText" id="txtPvLoCodigo"
+					  	    				 value="#{clienteController.cliente.pvStCodigo}" size="22" maxlength="22" >
+					  	    	</h:inputText> 
+					  	    	<h:message styleClass="error" id="msgTxtCodigo" for="txtPvLoCodigo" errorClass="error" infoClass="info" warnClass="warn"></h:message>
+					  	   </td>
+					    </tr>
+					    <tr>
+						  		<td class="Tit04Tabla"> 
+						  			<h:outputText styleClass="outputText" id="lblNombre"
+									value="#{rcs['cliente.nombre']}"></h:outputText>
+							    </td>
+						  	    <td class="formPaddingData">
+						  	    	<h:inputText styleClass="inputText" id="txtPvStNombre" 
+						  	    				 value="#{clienteController.cliente.pvStNombre}" size="50" maxlength="50">
+						  	    	</h:inputText> 
+						  	    	<h:message styleClass="error" id="msgTxtNombre" for="txtPvStNombre" errorClass="error" infoClass="info" warnClass="warn"></h:message>
+						  	   </td>
+						</tr>  
+						 
+						<tr>
+				  		<td class="Tit04Tabla">
+				  			<h:outputText styleClass="outputText" id="lblCelular"
+							value="#{rcs['cliente.telefonoCelular']}"></h:outputText>
+					    </td>
+					    <td class="formPaddingData">
+				  			
+					    <h:inputText styleClass="inputText" id="txtPvLoTelefonoCelular" value="#{clienteController.cliente.pvLoTelefonoCelular}" size="8" maxlength="8">
+				  	    	</h:inputText><h:message styleClass="error" id="msgTxtpvInTelefonoCelular" for="txtPvLoTelefonoCelular" errorClass="error" infoClass="info" warnClass="warn"></h:message></td>
+					 </tr> 
+					 <tr>
+				  	   	<td class="Tit04Tabla">	
+				  	   		 
+				  	    	<h:outputText styleClass="outputText" id="lblCasa" value="#{rcs['cliente.telefonoCasa']}"></h:outputText>
+				  	   </td>
+				  	    <td class="formPaddingData">
+				  	    	<h:inputText styleClass="inputText" id="txtPvLoTelefonoCasa" 
+				  	    				 value="#{clienteController.cliente.pvLoTelefonoCasa}" size="8" maxlength="8">
+				  	    	</h:inputText> 
+				  	    	<h:message styleClass="error" id="msgTxtpvInTelefonoCasa" for="txtPvLoTelefonoCasa" errorClass="error" infoClass="info" warnClass="warn"></h:message>
+				  	   	</td>
+				    </tr> 
+			        <tr>
+			            <td  class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblFrecuenciaCita" value="#{rcs['cliente.frecuencia']}"></h:outputText></td>
+			            <td class="formPaddingData">
+				  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInFrecuenciaCita" value="#{clienteController.cliente.pvInFrecuenciaCita}">
+												<f:selectItems value="#{clienteController.frecuenciasCitasItems}"/>
+								</h:selectOneMenu>
+			                <h:message styleClass="error" id="msgTxtPvInFrecuenciaCita" for="cmbPvInFrecuenciaCita" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td  class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblProfesion" value="#{rcs['cliente.profesion']}"></h:outputText></td>
+			            <td class="formPaddingData">
+				  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvIntProfesion" value="#{clienteController.cliente.pvInProfesion}">
+												<f:selectItems value="#{clienteController.profesionItems}"/>
+								</h:selectOneMenu>
+			                <h:message styleClass="error" id="msgTxtPvIntProfesion" for="cmbPvIntProfesion" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
+			            </td>
+			        </tr> 
+			        <tr>
+			            <td class="Tit04Tabla" ><h:outputText styleClass="outputText" id="lblNacionalidad" value="#{rcs['cliente.nacionalidad']}"></h:outputText></td>
+			            <td class="formPaddingData">
+				  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInNacionalidad" value="#{clienteController.cliente.pvInNacionalidad}">
+												<f:selectItems value="#{clienteController.nacionalidadItems}"/>
+								</h:selectOneMenu>
+			                <h:message styleClass="error" id="msgTxtPvInNacionalidad" for="cmbPvInNacionalidad" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
+			            </td>
+			        </tr> 
+			        <tr>
+			            <td  class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblSexo" value="#{rcs['cliente.sexo']}"></h:outputText></td>
+			            <td class="formPaddingData">
+				  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvIntSexo" value="#{clienteController.cliente.pvInSexo}">
+												<f:selectItems value="#{clienteController.sexoItems}"/>
+								</h:selectOneMenu>
+			                <h:message styleClass="error" id="msgTxtPvIntSexo" for="cmbPvIntSexo" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
+			            </td>
+			        </tr>
+			      	<tr>
+			            <td  class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblTipoAlopecia" value="#{rcs['cliente.tipoAlopecia']}"></h:outputText></td>
+			            <td class="formPaddingData">
+				  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInTipoAlopecia" value="#{clienteController.cliente.pvInTipoAlopecia}">
+												<f:selectItems value="#{clienteController.tipoAlopeciaItems}"/>
+								</h:selectOneMenu>
+			                <h:message styleClass="error" id="msgCmbPvInTipoAlopecia" for="cmbPvInTipoAlopecia" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
+			            </td>
+			        </tr>
+			        
+					<tr>
+			            <td colspan="2">
+				            <h:commandButton type="submit" value="#{rcs['boton.buscar']}"   styleClass="commandButton" id="btnBuscar"   action="#{clienteController.buscar}"></h:commandButton>
+				            
+				            
+				            
+			            </td>
+			        </tr>
+					</tbody>
+				</table>
+	
 						<br/>
 						<h:messages styleClass="messages" id="messages1" globalOnly="true" infoClass="info" errorClass="error" warnClass="warn"/>
 						<br/>
-						<div align="left">
-							<h:commandButton type="submit" value="#{rcs['boton.agregar']}" styleClass="commandButton" id="btnAgregarTop" action="#{clienteController.irAgregar}"></h:commandButton>
-						</div>
-					   <h:dataTable border="0" columnClasses="" headerClass="headerStyle"
-									footerClass="Tit04Tabla" rowClasses="even,odd"
+						 
+					   <h:dataTable border="0" columnClasses="" headerClass="Tit04Tabla"
+									footerClass="Tit04Tabla" rowClasses="even,odd"  
 									styleClass="dataTable" id="table1"
-									value="#{clienteController.clientes}" var="clientes" rows="20" 
-									binding="#{clienteController.dataTableClientes}">		
+									value="#{clienteController.listaCliente}" var="clientes" rows="20" 
+									binding="#{clienteController.listaDataTableCliente}">		
 							<h:column id="Columna1">
 								<f:facet name="header">
 									<h:outputText styleClass="outputText"
@@ -122,7 +210,7 @@
 								</f:facet>
 									<h:commandLink styleClass="commandLink" id="link1" action="#{clienteController.cargarObjeto}">
 										<h:outputText styleClass="pad-right" id="text1"
-											value="#{clientes.pvLoCodigo}">
+											value="#{clientes.pvStCodigo}">
 										</h:outputText>
 										<f:attribute value="center" name="align" />
 									</h:commandLink>
@@ -220,15 +308,18 @@
 						<div align="left">
 							<h:commandButton type="submit" value="#{rcs['boton.agregar']}" styleClass="commandButton" id="btnAgregarBottom" action="#{clienteController.irAgregar}"></h:commandButton>
 						</div>
-	</h:form>	</div>
-					<!-- InstanceEndEditable -->   </td>
-                  	</tr>
-            </table>
-	</section>
-	<footer>
-		©
-	</footer>
-</body>
-</f:view>
-
+	</h:form>
+					<!-- InstanceEndEditable -->   
+                    </div>
+                </section>
+            </div>
+            <div id="footer">
+                <footer>
+                </footer>
+            </div> 
+            <form method="post" action="Templates/ibm_security_logout" name="logout" id="logout">
+                <input type="hidden" name="logoutExitPage" value="main.jsf" />
+            </form>   
+        </body>
+    </f:view>
 <!-- InstanceEnd --></html>

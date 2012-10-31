@@ -13,75 +13,72 @@ public class Cliente implements Serializable {
 
 	private static final long serialVersionUID = 4655663135297201540L;
 	
-	public static final Integer ACTIVO   = new Integer(1);
-	public static final Integer INACTIVO = new Integer(0);
+	public static final Integer ESTADO_DEFAULT			= new Integer(-1);
+	public static final Integer ESTADO_ACTIVO   		= new Integer(1);
+	public static final Integer ESTADO_INACTIVO 		= new Integer(0);
+	public static final Long TELEFONO_DEFAULT 			= new Long(0);
+	public static final Integer PROFESION_DEFAULT  		= new Integer(0);
+	public static final Integer FRECUENCIA_CITA_DEFAULT = new Integer(0);
+	public static final Integer NACIONALIDAD_DEFAULT  	= new Integer(0);
+	public static final Integer SEXO_DEFAULT  			= new Integer(-1);
+	public static final Integer ALOPECIA_DEFAULT  		= new Integer(-1);
 	
-	public static final Integer CODIGO_LONGITUD     = new Integer(10);
-	public static final Integer LONGITUD_COMENTARIO = new Integer(100);
-	public static final Integer LONGITUD_DIRECCION  = new Integer(100);
-	
-	private Long 	pvLoCodigo;//CODIGO
+	private String 	pvStCodigo;
 
-	private String 	pvStDireccion;//DIRECCION
-	private Integer pvInEstado;//ESTADO
-	private String 	pvStEmail1;//EMAIL1
-	private String 	pvStEmail2;//EMAIL2
+	private String 	pvStDireccion;
+	private Integer pvInEstado;
+	private String 	pvStEmail1;
+	private String 	pvStEmail2;
 	private String  pvStFacturaNombre;
 	private	Integer pvInFrecuenciaCita;
 	private String  pvStLugarProfesion;
 	private Date	pvDaNacimiento;
 	private Integer pvInNacionalidad;
-	private String 	pvStNombre;//NOMBRE
+	private String 	pvStNombre;
 	private Integer pvInProfesion;
 	private Integer pvInSexo;
-	private Long 	pvLoTelefonoCasa;//TELEFONO1
-	private Long 	pvLoTelefonoCelular;//TELEFONO2
+	private Long 	pvLoTelefonoCasa;
+	private Long 	pvLoTelefonoCelular;
 	private	Integer pvInTipoAlopecia;
 
-	/**
-	 * Comment for equals
-	 * @param obj
-	 * @return resultado
-	 */
-	public boolean equals(Object obj) {
-		boolean resultado;
-		if (!(obj instanceof Cliente)) {
-			resultado = false;
-		} else {
-			Cliente cliente = (Cliente) obj;
-			resultado = new EqualsBuilder()
-			.append(this.pvLoCodigo, cliente.getPvLoCodigo())
-			.isEquals();	
-		}	
-		return resultado;
+	public Cliente(){
+		this.pvStCodigo = null;
+		this.pvStDireccion = null;
+		this.pvInEstado = null;
+		this.pvStEmail1 = null;
+		this.pvStEmail2 = null;
+		this.pvStFacturaNombre = null;
+		this.pvInFrecuenciaCita = null;
+		this.pvStLugarProfesion = null;
+		this.pvDaNacimiento = null;
+		this.pvInNacionalidad = null;
+		this.pvStNombre = null;
+		this.pvInProfesion = null;
+		this.pvInSexo = null;
+		this.pvLoTelefonoCasa = null;
+		this.pvLoTelefonoCelular = null;
+		this.pvInTipoAlopecia = null;
 	}
+	
 	/** @return regresa el pvStEstadoDescripcion*/
-	public String getPvStEstadoDescripcion() {
-		if(this.pvInEstado.equals(Cliente.ACTIVO)){
-			return Bundle.rcs.getString("activo");
-		}else{return Bundle.rcs.getString("inactivo");}
+	public String getPvStEstadoDescripcion() { 
+		if(Cliente.ESTADO_ACTIVO.equals(this.pvInEstado)){
+			return Bundle.rcs.getString("cliente.activo");
+		}else{
+			return Bundle.rcs.getString("cliente.inactivo");}
 	}	
 
 	/**
-     * @see java.lang.Object#hashCode()
-     * @return int
-     */
-    public int hashCode() {
-        return new HashCodeBuilder()
-        .append(this.pvLoCodigo)
-        .toHashCode();
-    }
-	/**
-	 * @return the pvLoCodigo
+	 * @return the pvStCodigo
 	 */
-	public Long getPvLoCodigo() {
-		return pvLoCodigo;
+	public String getPvStCodigo() {
+		return pvStCodigo;
 	}
 	/**
-	 * @param pvLoCodigo the pvLoCodigo to set
+	 * @param pvStCodigo the pvStCodigo to set
 	 */
-	public void setPvLoCodigo(Long pvLoCodigo) {
-		this.pvLoCodigo = pvLoCodigo;
+	public void setPvStCodigo(String pvStCodigo) {
+		this.pvStCodigo = pvStCodigo;
 	}
 	/**
 	 * @return the pvStDireccion
@@ -283,5 +280,33 @@ public class Cliente implements Serializable {
 		this.pvInTipoAlopecia = pvInTipoAlopecia;
 	}
 
+	/**
+	 * Comment for equals
+	 * @param obj
+	 * @return resultado
+	 */
+	public boolean equals(Object obj) {
+		boolean resultado;
+		if (!(obj instanceof Cliente)) {
+			resultado = false;
+		} else {
+			Cliente cliente = (Cliente) obj;
+			resultado = new EqualsBuilder()
+			.append(this.pvStCodigo, cliente.getPvStCodigo())
+			.isEquals();	
+		}	
+		return resultado;
+	}
+	
+	/**
+     * @see java.lang.Object#hashCode()
+     * @return int
+     */
+    public int hashCode() {
+        return new HashCodeBuilder()
+        .append(this.pvStCodigo)
+        .toHashCode();
+    }
+	 
 	
 }

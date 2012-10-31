@@ -1,103 +1,107 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 4.01 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 4.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" />
 
 <!-- saved from url=(0014)about:internet -->
 
-<html><!-- InstanceBegin template="/Templates/plantilla.dwt" codeOutsideHTMLIsLocked="false" -->
+<html lang="es"><!-- InstanceBegin template="/Templates/plantilla.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
-
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
-<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
-<%@ taglib uri="http://www.jenia.org/jsf/popup" prefix="jp" %>
-<%@ taglib uri="http://myfaces.apache.org/tomahawk" prefix="t"%>
-<!-- InstanceBeginEditable name="doctitle" -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width"/>
+    <meta http-equiv="Content-Type"         content="text/html; charset=ISO-8859-1">
+    <meta http-equiv="Content-Style-Type"   content="text/css">
+    <meta http-equiv="X-UA-Compatible"      content="IE=EmulateIE7"/> 
+	<!-- InstanceBeginEditable name="doctitle" -->
 <title>Shiatsu - Inicio </title>
-<!-- InstanceEndEditable -->
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="theme/css/estilo1.css" rel="stylesheet" type="text/css" />
+<!-- InstanceEndEditable --> 
+	<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
+	<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
+	<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+	<%@ taglib uri="http://www.jenia.org/jsf/popup" prefix="jp" %>
+	<%@ taglib uri="http://myfaces.apache.org/tomahawk" prefix="t"%>
+    <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+    
+    <link href="html5/normalize.css"                rel="stylesheet" type="text/css" />
+    <link href="html5/plantilla_html5.css"          rel="stylesheet" type="text/css" />
+    <link href="theme/hmenu/src/skin-modern3.css"   rel="stylesheet" type="text/css" />
+    <link href="theme/styles/SIGETR.css"            rel="stylesheet" type="text/css" />
+    <link href="theme/styles/shiatzu.css"              rel="stylesheet" type="text/css" />
+    <link href="theme/styles/menu.css"              rel="stylesheet" type="text/css" />
+    <link href="theme/styles/stylesheet.css"        rel="stylesheet" type="text/css" />
+    <link href="theme/styles/tablas.css"            rel="stylesheet" type="text/css" />
+    <link href="theme/stylesheet.css"               rel="stylesheet" type="text/css" />
+    <link href="theme/tabpanel.css"                 rel="stylesheet" type="text/css" />
+    <link href="theme/Master.css"                   rel="stylesheet" type="text/css" />
+    
+    <script type="text/javascript" src="html5/jquery.js"></script> 
+    <script type="text/javascript" src="html5/plantilla_html5.js"></script> 
+    <script type="text/javascript" src="theme/hmenu/src/hmenu.js"></script>
+    <script type="text/javascript">document.writeln("<style type='text/css'>#menu { display: none; }</style>");</script>    
+</head> 
 
-<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
-</head>
-<f:view locale="es_CR">
-<f:loadBundle var="rcs" basename="com.shiatsu.web.bundles.recursos" />
-<body bgcolor="#ffffff">
-<div class="header" id="menu">
-        <section id="navContainer">
-			<nav>
-				<ul class="nav">
-		            <li><a href="shiatsuInicio.jsf?init=true">Inicio</a></li>
-		            <li><a href="#">Login</a></li>
-		            <li><a href="#">Clientes</a>
-		                <ul>
-		                    <li><a href="shiatsuListaClientes.jsf?init=true">Lista Clientes</a></li>
-		                    <li><a href="#">sub2</a></li>
-		                    
-		                                    <li><a href="#">sub3</a></li>
-		                                    <li><a href="#">sub3</a></li>
-		                                    <li><a href="#">sub3</a></li>
-		                                    <li><a href="#">sub3</a></li>
-		                    <li>
-		                        <a href="#">sub3</a>
-		                        <ul>
-		                            <li>
-		                                <a href="#">sub1</a>
-		                                <ul>
-		                                    <li><a href="#">sub1</a></li>
-		                                    <li><a href="#">sub2</a></li>
-		                                    <li><a href="#">sub3</a></li>
-		                                </ul>
-		                            </li>
-		                            <li>
-		                                <a href="#">sub2</a>
-		                                <ul>
-		                                    <li><a href="#">sub1</a></li>
-		                                    <li><a href="#">sub2</a></li>
-		                                    <li><a href="#">sub3</a></li>
-		                                </ul>
-		                            </li>
-		                            <li><a href="#">subs3</a></li>
-		                        </ul>
-		                    </li>
-
-		                </ul>
-		            </li>
-		            <li><a href="#">Acerca De</a>
-		                
-		            </li>
-		            <li><a href="#">Contacto</a></li>
-		        </ul>
-			</nav>
-	</section>
-</div>
-<section  id="container">
-            <table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
-                  	<tr>
-                   		<td height="50" valign="top">
-                    		<h2><!-- InstanceBeginEditable name="titulo" --><h:outputText styleClass="outputText" value="#{rcs['titulo.cliente.mantenimiento']}"/><!-- InstanceEndEditable --></h2>
-                   		</td>
-                  	</tr>
-                  	<tr height="100%">
-                    	<td colspan="7" valign="top" height="100%"><!-- InstanceBeginEditable name="contenido" -->
-                    	<div align="center">
-					<h:form  styleClass="form" id="form1" enctype="multipart/form-data">
+<f:view locale="es-CR">
+    <f:loadBundle var="rcs" basename="com.shiatsu.web.bundles.recursos" />
+        <body onload="DynarchMenu.setup('menu'); getFocus();">
+            <div id="wrap"> 
+                <header id="tablaBanner">
+                </header>
+                <nav>
+                    <h:form id="formBanner" >
+                        
+                            <div id="menus">
+                                <div id="usuario" class="flotarIzquierda"> 
+                                        <h:outputText styleClass="outputText" id="usuario" value="Shiatzu"/>  
+                                </div>
+                                <div id="menu_fecha" class="flotarDerecha">
+                                    <script language="JavaScript">mostrarFecha();</script> - <h:outputText value="#{rcs['version']}"></h:outputText>
+                                </div> 
+                                <div id="menu_mes_contable" class="flotarDerecha">
+                                    <label></label>  
+                                </div>
+                            </div>
+                            <div style="clear: both"></div>
+                            <div id="raya_amarilla"></div>
+                            <div id="menu_page">
+								<ul id="menu">	 
+								<li><a href="Templates/shiatsuInicio.jsf?init=true">Inicio</a></li>
+								<li>Cat&aacute;logos
+								  <ul>
+									<li>Clientes
+									  <ul>
+										<li><a href="shiatsuActCliente.jsf?init=true">Agregar</a></li>
+										<li><a href="shiatsuConsClientes.jsf?init=true">Consulta</a></li> 
+										<li><a href="shiatsuListaClientes.jsf?init=true">Mantenimiento</a></li>
+									  </ul>
+									</li>
+								  </ul>
+								</li>
+								<li><a href="#">Salir</a> </li>
+							  </ul> 
+                      </div> 
+                  </h:form>
+                </nav>
+                <section id="main"> 
+                    <div id="titulo" class="Tit_04_naranja">
+					<!-- InstanceBeginEditable name="titulo" --><h:outputText styleClass="outputText" value="#{rcs['titulo.cliente.mantenimiento']}"/><!-- InstanceEndEditable -->
+                    </div>
+                    <div id="cuerpo" class="Text">
+						<!-- InstanceBeginEditable name="contenido" -->
+       <h:form  styleClass="form" id="form1" >
+       <h:inputHidden value="#{clienteController.init}" ></h:inputHidden>
    <table border="0">
 		<tbody>
 			<tr>
-		  		<td>
-		  			<h:outputText styleClass="outputText" id="txt1"
-					value="#{rcs['cliente.codigo']}"></h:outputText>
+		  		<td class="Tit04Tabla">
+		  			<h:outputText styleClass="outputText" id="txt1" value="#{rcs['cliente.codigo']}"></h:outputText>
 			    </td>
 		  	    <td class="formPaddingData">
 		  	    	<h:inputText styleClass="inputText" id="txtPvLoCodigo"
-		  	    				 value="#{clienteController.cliente.pvLoCodigo}" size="10" maxlength="10" disabled="#{!clienteController.agregar}">
+		  	    				 value="#{clienteController.cliente.pvStCodigo}" size="10" maxlength="10" disabled="#{!clienteController.agregar}">
 		  	    	</h:inputText> 
 		  	    	<h:message styleClass="error" id="msgTxtCodigo" for="txtPvLoCodigo" errorClass="error" infoClass="info" warnClass="warn"></h:message>
 		  	   </td>
 		    </tr>
 		    <tr>
-			  		<td>
+			  		<td class="Tit04Tabla"> 
 			  			<h:outputText styleClass="outputText" id="lblNombre"
 						value="#{rcs['cliente.nombre']}"></h:outputText>
 				    </td>
@@ -109,7 +113,7 @@
 			  	   </td>
 			</tr>
 			<tr>
-		  		<td>
+		  		<td class="Tit04Tabla">
 		  			<h:outputText styleClass="outputText" id="lblDireccion"
 					value="#{rcs['cliente.direccion']}"></h:outputText>
 			    </td>
@@ -121,7 +125,7 @@
 		  	   </td>
 		    </tr>
 			<tr>
-		  		<td>
+		  		<td class="Tit04Tabla">
 		  			<h:outputText styleClass="outputText" id="lblEmails"
 					value="#{rcs['cliente.email']}"></h:outputText>
 			    </td>
@@ -133,21 +137,19 @@
 		  	   </td>
 			 </tr> 
 			<tr>
-	  		<td>
+	  		<td class="Tit04Tabla">
 	  			<h:outputText styleClass="outputText" id="lblCelular"
 				value="#{rcs['cliente.telefonoCelular']}"></h:outputText>
 		    </td>
 		    <td class="formPaddingData">
-	  			<h:outputText styleClass="outputText" id="lblCasa"
-				value="#{rcs['cliente.telefonoCasa']}"></h:outputText>
-		    </td>
+	  			
+		    <h:inputText styleClass="inputText" id="txtPvLoTelefonoCelular" value="#{clienteController.cliente.pvLoTelefonoCelular}" size="8" maxlength="8">
+	  	    	</h:inputText><h:message styleClass="error" id="msgTxtpvInTelefonoCelular" for="txtPvLoTelefonoCelular" errorClass="error" infoClass="info" warnClass="warn"></h:message></td>
 		 </tr> 
 		 <tr>
-	  	   	<td>	
-	  	   		<h:inputText styleClass="inputText" id="txtPvLoTelefonoCelular" 
-	  	    				 value="#{clienteController.cliente.pvLoTelefonoCelular}" size="8" maxlength="8">
-	  	    	</h:inputText> 
-	  	    	<h:message styleClass="error" id="msgTxtpvInTelefonoCelular" for="txtPvLoTelefonoCelular" errorClass="error" infoClass="info" warnClass="warn"></h:message>
+	  	   	<td class="Tit04Tabla">	
+	  	   		 
+	  	    	<h:outputText styleClass="outputText" id="lblCasa" value="#{rcs['cliente.telefonoCasa']}"></h:outputText>
 	  	   </td>
 	  	    <td class="formPaddingData">
 	  	    	<h:inputText styleClass="inputText" id="txtPvLoTelefonoCasa" 
@@ -157,7 +159,7 @@
 	  	   	</td>
 	    </tr>
 	    <tr>
-            <td  ><h:outputText styleClass="outputText" id="lblFacturaANombre" value="#{rcs['cliente.facturaANombre']}"></h:outputText></td>
+            <td class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblFacturaANombre" value="#{rcs['cliente.facturaANombre']}"></h:outputText></td>
             <td class="formPaddingData">
               	<h:inputText styleClass="inputText" id="txtPvStFacturaNombre" 
 	  	    				 value="#{clienteController.cliente.pvStFacturaNombre}" size="50" maxlength="50">
@@ -166,7 +168,7 @@
             </td>
         </tr>
         <tr>
-            <td  ><h:outputText styleClass="outputText" id="lblFrecuenciaCita" value="#{rcs['cliente.frecuencia']}"></h:outputText></td>
+            <td  class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblFrecuenciaCita" value="#{rcs['cliente.frecuencia']}"></h:outputText></td>
             <td class="formPaddingData">
 	  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInFrecuenciaCita" value="#{clienteController.cliente.pvInFrecuenciaCita}">
 									<f:selectItems value="#{clienteController.frecuenciasCitasItems}"/>
@@ -175,7 +177,7 @@
             </td>
         </tr>
         <tr>
-            <td  ><h:outputText styleClass="outputText" id="lblProfesion" value="#{rcs['cliente.profesion']}"></h:outputText></td>
+            <td  class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblProfesion" value="#{rcs['cliente.profesion']}"></h:outputText></td>
             <td class="formPaddingData">
 	  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvIntProfesion" value="#{clienteController.cliente.pvInProfesion}">
 									<f:selectItems value="#{clienteController.profesionItems}"/>
@@ -184,7 +186,7 @@
             </td>
         </tr>
         <tr>
-            <td  ><h:outputText styleClass="outputText" id="lblLugarProfesion" value="#{rcs['cliente.lugarProfesion']}"></h:outputText></td>
+            <td class="Tit04Tabla" ><h:outputText styleClass="outputText" id="lblLugarProfesion" value="#{rcs['cliente.lugarProfesion']}"></h:outputText></td>
             <td class="formPaddingData">
               	<h:inputText styleClass="inputText" id="txtPvStLugarProfesion" 
 	  	    				 value="#{clienteController.cliente.pvStLugarProfesion}" size="50" maxlength="50">
@@ -193,7 +195,7 @@
             </td>
         </tr>
         <tr>
-            <td  ><h:outputText styleClass="outputText" id="lblNacionalidad" value="#{rcs['cliente.nacionalidad']}"></h:outputText></td>
+            <td class="Tit04Tabla" ><h:outputText styleClass="outputText" id="lblNacionalidad" value="#{rcs['cliente.nacionalidad']}"></h:outputText></td>
             <td class="formPaddingData">
 	  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInNacionalidad" value="#{clienteController.cliente.pvInNacionalidad}">
 									<f:selectItems value="#{clienteController.nacionalidadItems}"/>
@@ -202,12 +204,25 @@
             </td>
         </tr>
         <tr>
-            <td  ><h:outputText styleClass="outputText" id="lblNacimiento" value="#{rcs['cliente.nacimiento']}"></h:outputText></td>
-            <td><h:message styleClass="error" id="msgTxtPvDaNacimiento" for="txtPvDaNacimiento" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
+            <td class="Tit04Tabla" ><h:outputText styleClass="outputText" id="lblNacimiento" value="#{rcs['cliente.nacimiento']}"></h:outputText></td>
+            <td> <t:inputCalendar id="txtPvDaNacimiento" 
+				    maxlength="10" 
+				    value="#{clienteController.cliente.pvDaNacimiento}"
+				    monthYearRowClass="monthYearRowClass" 
+				    weekRowClass="weekRowClass" 
+				    dayCellClass="dayCellClass" 
+				    currentDayCellClass="currentDayCellClass"
+				    popupTodayString="Hoy :" 
+				    popupWeekString="Wk" renderAsPopup="true"
+				    renderPopupButtonAsImage="true" 
+				    popupDateFormat="dd/MM/yyyy"
+				    alt="Calendario" title="Calendario">
+				 </t:inputCalendar>
+  				<h:message styleClass="error" id="msgTxtPvDaNacimiento" for="txtPvDaNacimiento" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
             </td>
         </tr>
         <tr>
-            <td  ><h:outputText styleClass="outputText" id="lblSexo" value="#{rcs['cliente.sexo']}"></h:outputText></td>
+            <td  class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblSexo" value="#{rcs['cliente.sexo']}"></h:outputText></td>
             <td class="formPaddingData">
 	  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvIntSexo" value="#{clienteController.cliente.pvInSexo}">
 									<f:selectItems value="#{clienteController.sexoItems}"/>
@@ -216,7 +231,7 @@
             </td>
         </tr>
       	<tr>
-            <td  ><h:outputText styleClass="outputText" id="lblTipoAlopecia" value="#{rcs['cliente.tipoAlopecia']}"></h:outputText></td>
+            <td  class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblTipoAlopecia" value="#{rcs['cliente.tipoAlopecia']}"></h:outputText></td>
             <td class="formPaddingData">
 	  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInTipoAlopecia" value="#{clienteController.cliente.pvInTipoAlopecia}">
 									<f:selectItems value="#{clienteController.tipoAlopeciaItems}"/>
@@ -226,7 +241,7 @@
         </tr>
         <c:if test="${!clienteController.agregar}">	
 			<tr>
-	            <td  ><h:outputText styleClass="outputText" id="lblEstado" value="#{rcs['cliente.estado']}"/></td>
+	            <td class="Tit04Tabla" ><h:outputText styleClass="outputText" id="lblEstado" value="#{rcs['cliente.estado']}"/></td>
 	            <td class="formPaddingData">
 	                <h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInEstado" value="#{clienteController.cliente.pvInEstado}">
 									<f:selectItems value="#{clienteController.estadoItems}"/>
@@ -237,24 +252,28 @@
 		</c:if>
 		<tr>
             <td colspan="2">
-	            <h:commandButton type="submit" value="#{rcs['boton.agregar']}"   styleClass="commandButton" id="btnAgregar"   rendered="#{clienteController.agregar}" 	action="#{clienteController.agregarCliente}"></h:commandButton>
-	            <h:commandButton type="submit" value="#{rcs['boton.modificar']}" styleClass="commandButton" id="btnModificar" rendered="#{!clienteController.agregar}" 	action="#{clienteController.modificarCliente}"></h:commandButton>
-	            <h:commandButton type="submit" value="#{rcs['boton.eliminar']}"  styleClass="commandButton" id="btnEliminar"  rendered="#{!clienteController.agregar}"  	action="#{clienteController.eliminarCliente}" onclick="return confirmEliminar('e','Cliente');"></h:commandButton>
+	            <h:commandButton type="submit" value="#{rcs['boton.agregar']}"   styleClass="commandButton" id="btnAgregar"   rendered="#{clienteController.agregar}" 	action="#{clienteController.insertar}"></h:commandButton>
+	            <h:commandButton type="submit" value="#{rcs['boton.modificar']}" styleClass="commandButton" id="btnModificar" rendered="#{!clienteController.agregar}" 	action="#{clienteController.modificar}"></h:commandButton>
+	            <h:commandButton type="submit" value="#{rcs['boton.eliminar']}"  styleClass="commandButton" id="btnEliminar"  rendered="#{!clienteController.agregar}"  	action="#{clienteController.eliminar}" onclick="return confirmEliminar('e','Cliente');"></h:commandButton>
+			    <h:commandButton type="submit" value="#{rcs['boton.regresar']}"  styleClass="commandButton" id="bntRegresar"  action="#{clienteController.regresar}"></h:commandButton>	            
             </td>
         </tr>
 		</tbody>
 	</table>
-		<h:commandButton type="submit" value="#{rcs['boton.regresar']}"  styleClass="commandButton" id="btnRegresar"  action="#{clienteController.regresar}"></h:commandButton>
+		
 		<h:messages styleClass="messages" id="messages1" globalOnly="true" infoClass="info" errorClass="error" warnClass="warn"></h:messages>
-	</h:form>	</div>
-					<!-- InstanceEndEditable -->   </td>
-                  	</tr>
-            </table>
-	</section>
-	<footer>
-		©
-	</footer>
-</body>
-</f:view>
-
+	</h:form>
+					<!-- InstanceEndEditable -->   
+                    </div>
+                </section>
+            </div>
+            <div id="footer">
+                <footer>
+                </footer>
+            </div> 
+            <form method="post" action="Templates/ibm_security_logout" name="logout" id="logout">
+                <input type="hidden" name="logoutExitPage" value="main.jsf" />
+            </form>   
+        </body>
+    </f:view>
 <!-- InstanceEnd --></html>

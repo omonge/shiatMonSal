@@ -19,13 +19,7 @@ import com.utilidades.business.BusinessObjectHelper;
  *
  */
 public class ClienteBoImpl extends BusinessObjectHelper implements ClienteBo {
-
-	/**
-	 * 
-	 */
-	@SuppressWarnings("unused")
-	private static final long serialVersionUID = 5465939057749348216L;
-	
+ 
 	private ClienteDao clienteDao;
 	
 	/** @param clienteDao el clienteDao a establecer */
@@ -39,17 +33,17 @@ public class ClienteBoImpl extends BusinessObjectHelper implements ClienteBo {
 	}
 
 	@Override
-	public List<Cliente> getClientesDescripcion(String nombre) {
-		return this.clienteDao.getClientesDescripcion(nombre);
+	public List<Cliente> getClientes(Cliente cliente) {
+		return this.clienteDao.getClientes(cliente);
 	}
 
 	@Override
 	public void agregar(Cliente cliente) throws BusinessErrorHelper {
 		try{
-			 if((!this.existe(cliente))){
+			 if(!this.existe(cliente)){
 				 this.clienteDao.agregar(cliente);
 			 }else{
-				 throw new Exception(Bundle.rcs.getString("clienteExiste"));
+				 throw new Exception(Bundle.rcs.getString("existe"));
 			 }
 		}catch (Exception e) {
             e.printStackTrace();
@@ -65,7 +59,7 @@ public class ClienteBoImpl extends BusinessObjectHelper implements ClienteBo {
 			 if(this.clienteDao.existe(cliente)){
 				 this.clienteDao.modificar(cliente);
 	         }else{ 
-	        	this.addError("clienteBo.modificar", Bundle.rcs.getString("clienteNoExiste"));
+	        	this.addError("clienteBo.modificar", Bundle.rcs.getString("noExiste"));
 	         }
 		}catch (Exception e) {
           e.printStackTrace();
@@ -81,7 +75,7 @@ public class ClienteBoImpl extends BusinessObjectHelper implements ClienteBo {
 			this.clienteDao.eliminar(cliente);
 		}catch (Exception e) {
             e.printStackTrace();
-            this.addError("clienteBo.eliminar", Bundle.rcs.getString("clienteNoExiste"));
+            this.addError("clienteBo.eliminar", Bundle.rcs.getString("noExiste"));
             this.addError(null, Bundle.rcs.getString("error") + e.getMessage());
             this.throwBussinessError();
 		}
@@ -95,9 +89,8 @@ public class ClienteBoImpl extends BusinessObjectHelper implements ClienteBo {
 	}
 
 	@Override
-	public Cliente buscar(Long codigo) {
-		// TODO Auto-generated method stub
-		return this.clienteDao.buscar(codigo);
+	public Cliente buscar(Cliente cliente) { 
+		return this.clienteDao.buscar(cliente);
 	}
 
 }

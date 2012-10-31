@@ -20,14 +20,14 @@ public interface ClienteBo {
 	 * @param ajuste
 	 * @throws BusinessObjectHelper 
 	 */
-	public void agregar(Cliente cliente) throws BusinessErrorHelper;// throws BussinessError;
+	public void agregar(Cliente cliente) throws BusinessErrorHelper;
 	
 	/**
 	 * Metodo que modifica un registro en la tabla de Cliente
 	 * @param cliente
 	 * @throws BusinessErrorHelper 
 	 */
-	public void modificar(Cliente cliente) throws BusinessErrorHelper;//throws BussinessError;
+	public void modificar(Cliente cliente) throws BusinessErrorHelper;
 	
 	/**
 	 * Metodo que elimina un registro en la tabla de Cliente
@@ -36,11 +36,11 @@ public interface ClienteBo {
 	public void eliminar(Cliente cliente) throws BusinessErrorHelper;
 	
 	/**
-     * Busca una Cliente por su cÃ³digo
-     * @param codigo
+     * Busca una Cliente por su código
+     * @param cliente
      * @return El ajuste correspondiente
      */
-    public Cliente buscar(Long codigo);
+    public Cliente buscar(Cliente cliente);
     
     /**Metodo existe
     * Permite verificar la existencia de un Cliente en la base de datos
@@ -51,15 +51,15 @@ public interface ClienteBo {
     
     /**Metodo getClientes
     * Devuelve los clientes existentes en la base de datos
-    *@return Lista de Clientes, lista vacÃ­a en caso contrario.
+    *@return Lista de Clientes, lista vacía en caso contrario.
     */
     public List<Cliente>getClientes();
 
-	/**Metodo getClientesDescripcion
-	* Devuelve los clientes cuya descripciÃ³n coincida con los datos dados
-	*@param nombre
+	/**Metodo getClientes
+	* Devuelve los clientes cuya descripción coincida con los datos dados
+	*@param cliente
 	*@return Lista de Clientes, lista vacia en caso contrario
 	*/
-	public List<Cliente> getClientesDescripcion(String nombre);
+	public List<Cliente> getClientes(Cliente cliente);
 	
 }

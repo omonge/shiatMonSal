@@ -12,9 +12,10 @@ import java.io.Serializable;
 public class Cita implements Serializable {
 	private static final long serialVersionUID = 7129844110408404138L;
 
-	public static final Integer SEMANAL   	= new Integer(1);
-	public static final Integer QUINCENAL 	= new Integer(2);
-	public static final Integer MENSUAL 	= new Integer(3);
+	public static final Integer CITA_DEFAULT   	= new Integer(0);
+	public static final Integer CITA_SEMANAL   	= new Integer(1);
+	public static final Integer CITA_QUINCENAL 	= new Integer(2);
+	public static final Integer CITA_MENSUAL 	= new Integer(3);
 	
 	public Cita() {
 		// TODO Auto-generated constructor stub
