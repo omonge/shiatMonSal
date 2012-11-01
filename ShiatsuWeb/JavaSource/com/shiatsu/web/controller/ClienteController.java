@@ -6,47 +6,45 @@ package com.shiatsu.web.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.component.html.HtmlDataTable;
-import javax.faces.component.html.HtmlForm;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
+import javax.faces.component.html.HtmlDataTable; 
 import javax.faces.model.SelectItem;
 
 import com.shiatsu.domain.Cita;
 import com.shiatsu.domain.Cliente;
 import com.shiatsu.web.bundles.Bundle;
 import com.utilidades.business.BusinessErrorHelper;
-import com.utilidades.web.faces.FacesController;
 import com.shiatsu.bo.ClienteBo;
+import com.shiatzu.util.Controller;
 
 /**
  * @author oscar.monge
  *
  */
-public class ClienteController extends FacesController {
+public class ClienteController extends Controller {
 	 
-	private Cliente 	  cliente; 
-    private Boolean 	  agregar; 
     private HtmlDataTable listaDataTableCliente;
-    private boolean 	  init;
-    private List<Cliente> listaCliente;
+    private List<Cliente> listaCliente; 
+    private Cliente 	  cliente;
 	private ClienteBo	  clienteBo;  
 	
 	public ClienteController() { 
 		this.reiniciarController();
 	}
 	
-	public void reiniciarController(){
+	@Override
+	protected void reiniciarController(){
 		this.reiniciarFiltro();
 		this.reiniciarDatos(); 
 	}
 	
-	private void reiniciarFiltro(){ 
+	@Override
+	protected void reiniciarFiltro(){ 
 		this.agregar=Boolean.TRUE;
 		this.cliente=new Cliente();
 	}
 	
-	private void reiniciarDatos(){ 
+	@Override
+	protected void reiniciarDatos(){ 
 		this.listaDataTableCliente=new HtmlDataTable();
 		this.listaCliente = new ArrayList<Cliente>(); 
 	}
@@ -66,12 +64,7 @@ public class ClienteController extends FacesController {
         return init;
 	}
 	 
-	/**
-	 * @param init the init to set
-	 */
-	public void setInit(boolean init) {
-		this.init = init;
-	}
+	
 
 	/**
      * Método para validar el código, agrega el error al faces si lo hay
@@ -98,13 +91,13 @@ public class ClienteController extends FacesController {
     	if ((this.cliente.getPvInNacionalidad() != null) && (this.cliente.getPvInNacionalidad().intValue() > Cliente.NACIONALIDAD_DEFAULT.intValue())) {
             correcto = true;
     	}    	
-    	if ((this.cliente.getPvInSexo() != null) && (this.cliente.getPvInSexo().intValue()  != Cliente.SEXO_DEFAULT.intValue())) {
+    	if ((this.cliente.getPvInSexo() != null) && (!Cliente.SEXO_DEFAULT.equals(this.cliente.getPvInSexo()))) {
             correcto = true;
     	} 
     	if ((this.cliente.getPvInTipoAlopecia() != null) && (this.cliente.getPvInTipoAlopecia().intValue()  > Cliente.ALOPECIA_DEFAULT.intValue() )) {
             correcto = true;
     	}
-    	if ((this.cliente.getPvInEstado() != null) && (this.cliente.getPvInEstado().intValue() > Cliente.ESTADO_DEFAULT.intValue() )) {
+    	if ((this.cliente.getPvInEstado() != null) && (!Cliente.ESTADO_DEFAULT.equals(this.cliente.getPvInEstado()))) {
             correcto = true;
     	}
         return correcto;
@@ -143,15 +136,15 @@ public class ClienteController extends FacesController {
         		respuesta = "success";
         	}
             else{ 
-                this.addMessage(null, Bundle.rcs.getString("todosLosRegistros"),null,FacesController.WARNING);
+                this.addWarning(null, Bundle.rcs.getString("todosLosRegistros"));
                 this.buscarTodos();
             }
         } 
         if ((respuesta == "success") && (this.listaCliente.isEmpty())) { 
-            this.addMessage(null, Bundle.rcs.getString("noHayRegistros"),null,FacesController.ERROR);
+            this.addError(null, Bundle.rcs.getString("noHayRegistros"));
         } else if (respuesta == "success") {
             this.reiniciarFiltro();
-            this.addMessage(null, Bundle.rcs.getString("operacionExitosa"),null,FacesController.INFO);
+            this.addInfo(null, Bundle.rcs.getString("operacionExitosa"));
         }
         return respuesta;
     }
@@ -159,7 +152,7 @@ public class ClienteController extends FacesController {
 	public void buscarTodos(){
 		this.listaCliente = this.clienteBo.getClientes();
         if(this.listaCliente.isEmpty()){
-        	this.addMessage(null, Bundle.rcs.getString("noHayRegistros"), null, FacesController.ERROR);
+        	this.addError(null, Bundle.rcs.getString("noHayRegistros"));
         }
 	}
 	/**Metodo cargarObjeto
@@ -177,9 +170,9 @@ public class ClienteController extends FacesController {
      */
 	public List<SelectItem> getEstadoItems(){
 		List<SelectItem> items = new ArrayList<SelectItem>();
-		items.add(new SelectItem(Cliente.ESTADO_DEFAULT,    Bundle.rcs.getString("seleccion.valor")));
-		items.add(new SelectItem(Cliente.ESTADO_ACTIVO,    Bundle.rcs.getString("cliente.activo")));
-		items.add(new SelectItem(Cliente.ESTADO_INACTIVO,  Bundle.rcs.getString("cliente.inactivo")));
+		items.add(new SelectItem(Cliente.ESTADO_DEFAULT,   Bundle.rcs.getString("seleccion.valor")));
+		items.add(new SelectItem(Cliente.ESTADO_ACTIVO,    Cliente.ESTADO_ACTIVO_DESCRIPCION));
+		items.add(new SelectItem(Cliente.ESTADO_INACTIVO,  Cliente.ESTADO_INACTIVO_DESCRIPCION));
 		return items;
 	}
 	
@@ -225,8 +218,8 @@ public class ClienteController extends FacesController {
 	public List<SelectItem> getSexoItems(){
 		List<SelectItem> items = new ArrayList<SelectItem>();
 		items.add(new SelectItem(Cliente.SEXO_DEFAULT,     Bundle.rcs.getString("seleccion.valor")));
-		items.add(new SelectItem(Integer.valueOf(1),  	"Masculino"));
-		items.add(new SelectItem(Integer.valueOf(0),  	"Femenino"));
+		items.add(new SelectItem(Cliente.SEXO_FEMENINO,  	Cliente.SEXO_FEMENINO_DESCRIPCION));
+		items.add(new SelectItem(Cliente.SEXO_MASCULINO,  	Cliente.SEXO_MASCULINO_DESCRIPCION));
 		return items;
 	}
 	/**
@@ -265,63 +258,64 @@ public class ClienteController extends FacesController {
 		boolean correcto = true;
 		try{
 			if((this.cliente.getPvLoTelefonoCasa() == null) ||(Cliente.TELEFONO_DEFAULT.equals(this.cliente.getPvLoTelefonoCasa()))){
-				this.addMessage(this.getPropertyFieldName("cliente.pvLoTelefonoCasa"),Bundle.rcs.getString("campoRequerido"),null,FacesController.ERROR);
+				this.addError(this.getPropertyFieldName("cliente.pvLoTelefonoCasa"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
 			}
 			if((this.cliente.getPvLoTelefonoCelular() == null ||(Cliente.TELEFONO_DEFAULT.equals(this.cliente.getPvLoTelefonoCelular())))){
-				this.addMessage(this.getPropertyFieldName("cliente.pvLoTelefonoCelular"),Bundle.rcs.getString("campoRequerido"),null,FacesController.ERROR);
+				this.addError(this.getPropertyFieldName("cliente.pvLoTelefonoCelular"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
 			}
 			if((this.cliente.getPvStDireccion() == null) || ("".equals(this.cliente.getPvStDireccion()))){
-				this.addMessage(this.getPropertyFieldName("cliente.pvStDireccion"),Bundle.rcs.getString("campoRequerido"),null,FacesController.ERROR);
+				this.addError(this.getPropertyFieldName("cliente.pvStDireccion"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
 			}
 			/*if((this.cliente.getPvStEmail1() == null) || (this.cliente.getPvStEmail1().equals(""))){
-				this.addMessage(this.getPropertyFieldName("cliente.pvStEmail1"),Bundle.rcs.getString("campoRequerido"),null,FacesController.ERROR);
+				this.addError(this.getPropertyFieldName("cliente.pvStEmail1"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
 			}
 			if((this.cliente.getPvStEmail2() == null) || (this.cliente.getPvStEmail2().equals(""))){
-				this.addMessage(this.getPropertyFieldName("cliente.pvStEmail2"),Bundle.rcs.getString("campoRequerido"),null,FacesController.ERROR);
+				this.addError(this.getPropertyFieldName("cliente.pvStEmail2"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
 			}*/
 			if((this.cliente.getPvStNombre() == null) || ("".equals(this.cliente.getPvStNombre()))){
-				this.addMessage(this.getPropertyFieldName("cliente.pvStNombre"),Bundle.rcs.getString("campoRequerido"),null,FacesController.ERROR);
+				this.addError(this.getPropertyFieldName("cliente.pvStNombre"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
 			}
-			if((this.cliente.getPvInEstado() == null) || (Cliente.ESTADO_INACTIVO.equals(this.cliente.getPvInEstado()))){
-				this.addMessage(this.getPropertyFieldName("cliente.pvInEstado"),Bundle.rcs.getString("campoRequerido"),null,FacesController.ERROR);
+			if((this.cliente.getPvInEstado() == null) || (Cliente.ESTADO_DEFAULT.equals(this.cliente.getPvInEstado()))){
+				this.addError(this.getPropertyFieldName("cliente.pvInEstado"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
 			}
 			if((this.cliente.getPvInFrecuenciaCita() == null) || (Cliente.FRECUENCIA_CITA_DEFAULT.equals(this.cliente.getPvInFrecuenciaCita()))){
-				this.addMessage(this.getPropertyFieldName("cliente.pvInFrecuenciaCita"),Bundle.rcs.getString("campoRequerido"),null,FacesController.ERROR);
+				this.addError(this.getPropertyFieldName("cliente.pvInFrecuenciaCita"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
 			}
 			if((this.cliente.getPvInNacionalidad() == null) || (Cliente.FRECUENCIA_CITA_DEFAULT.equals(this.cliente.getPvInNacionalidad()))){
-				this.addMessage(this.getPropertyFieldName("cliente.pvInNacionalidad"),Bundle.rcs.getString("campoRequerido"),null,FacesController.ERROR);
+				this.addError(this.getPropertyFieldName("cliente.pvInNacionalidad"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
 			}
 			if((this.cliente.getPvInProfesion() == null) || (Cliente.PROFESION_DEFAULT.equals(this.cliente.getPvInProfesion()))){
-				this.addMessage(this.getPropertyFieldName("cliente.pvInProfesion"),Bundle.rcs.getString("campoRequerido"),null,FacesController.ERROR);
+				this.addError(this.getPropertyFieldName("cliente.pvInProfesion"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
 			}
 			if((this.cliente.getPvInSexo() == null) || (Cliente.SEXO_DEFAULT.equals(this.cliente.getPvInSexo()))){
-				this.addMessage(this.getPropertyFieldName("cliente.pvInSexo"),Bundle.rcs.getString("campoRequerido"),null,FacesController.ERROR);
+				this.addError(this.getPropertyFieldName("cliente.pvInSexo"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
 			}
 			if((this.cliente.getPvInTipoAlopecia() == null) || (Cliente.ALOPECIA_DEFAULT.equals(this.cliente.getPvInTipoAlopecia()))){
-				this.addMessage(this.getPropertyFieldName("cliente.pvInTipoAlopecia"),Bundle.rcs.getString("campoRequerido"),null,FacesController.ERROR);
+				this.addError(this.getPropertyFieldName("cliente.pvInTipoAlopecia"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
 			}
 		}catch(NumberFormatException nef){
-            this.addMessage(null, Bundle.rcs.getString("soloNumeros"),null,FacesController.ERROR);
+            this.addError(null, Bundle.rcs.getString("soloNumeros"));
             nef.printStackTrace();
         }catch(Exception e){
-        	this.addMessage(null, Bundle.rcs.getString("error") + e.getMessage(),null,FacesController.ERROR);
+        	this.addError(null, Bundle.rcs.getString("error") + e.getMessage());
             e.printStackTrace();
 		}
 		return correcto;
 	}
-	/**MÃ©todo agregar
+	
+	/**Método agregar
 	* Agrega un cliente en la base de datos
 	*@return success si logra insertar, error en caso contrario
 	*/
@@ -331,17 +325,17 @@ public class ClienteController extends FacesController {
             if(this.validaInsertar()){
             	this.cliente.setPvInEstado(Cliente.ESTADO_ACTIVO);
                 this.clienteBo.agregar(this.cliente);
-                this.addMessage(null, Bundle.rcs.getString("datosAgregados"),null,FacesController.INFO);//"Los datos se agregaron con Ã©xito";
+                this.addInfo(null, Bundle.rcs.getString("datosAgregados"));
                 respuesta = "success";
             }
         }catch(BusinessErrorHelper be){
             this.exceptionBussinessError(be);
         }catch(Exception e){
-            this.addMessage(null, Bundle.rcs.getString("error") + e.getMessage(),null,FacesController.ERROR);
+            this.addError(null, Bundle.rcs.getString("error") + e.getMessage());
         }
         return respuesta;
 	}
-	/**MÃ©todo modificar
+	/**Método modificar
 	* Modificar un cliente en la base de datos
 	*@return success si logra modificar, error en caso contrario
 	*/
@@ -350,13 +344,13 @@ public class ClienteController extends FacesController {
         try{
             if(this.validaInsertar()){
                 this.clienteBo.modificar(this.cliente);
-                this.addMessage(null, Bundle.rcs.getString("datosModificados"),null,FacesController.INFO);
+                this.addInfo(null, Bundle.rcs.getString("datosModificados"));
                 respuesta = "success";
             }
         }catch(BusinessErrorHelper be){
             this.exceptionBussinessError(be);
         }catch(Exception e){
-            this.addMessage(null, Bundle.rcs.getString("error") + e.getMessage(),null,FacesController.ERROR);
+            this.addError(null, Bundle.rcs.getString("error") + e.getMessage());
         }
         return respuesta;
 	}
@@ -368,14 +362,14 @@ public class ClienteController extends FacesController {
 		String respuesta = "error";
         try{
             this.clienteBo.eliminar(this.cliente);
-            this.addMessage(null, Bundle.rcs.getString("datosEliminados"),null, FacesController.INFO); 
+            this.addInfo(null, Bundle.rcs.getString("datosEliminados")); 
             this.reiniciarController();
             this.buscarTodos();
             respuesta = "success";
         }catch(BusinessErrorHelper be){
             this.exceptionBussinessError(be);
         }catch(Exception e){
-            this.addMessage(null, Bundle.rcs.getString("error") + e.getMessage(),null,FacesController.ERROR);
+            this.addError(null, Bundle.rcs.getString("error") + e.getMessage());
         }
         return respuesta;
 	}

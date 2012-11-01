@@ -39,5 +39,8 @@ http://www.springframework.org/schema/jee http://www.springframework.org/schema/
     </bean>
     
     <!-- ===================DAOs de la Aplicacion================= -->
-    <bean id="clienteDao" class="com.shiatsu.dao.impl.ClienteDaoImpl" parent="abstractShiatsuDAO" />
+    <bean id="clienteDao" 		class="com.shiatsu.dao.impl.ClienteDaoImpl" 		parent="abstractShiatsuDAO" />
+    <bean id="tipoAlopeciaDao" 	class="com.shiatsu.dao.impl.TipoAlopeciaDaoImpl" 	parent="abstractShiatsuDAO" />
+    <bean id="paisDao" 			class="com.shiatsu.dao.impl.PaisDaoImpl" 			parent="abstractShiatsuDAO" />
+    <bean id="profesionDao" 	class="com.shiatsu.dao.impl.ProfesionDaoImpl" 		parent="abstractShiatsuDAO" />
 </beans>

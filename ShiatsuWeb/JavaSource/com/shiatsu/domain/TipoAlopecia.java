@@ -5,12 +5,30 @@ import java.io.Serializable;
 public class TipoAlopecia  implements Serializable{
 
 	private static final long serialVersionUID = 4655663135297201540L;
+	public static final Integer TIPO_APOPECIA_DEFAULT   = new Integer(0);
+	public static final String ESTADO_DEFAULT	= new String("");
+	public static final String ESTADO_ACTIVO   	= new String("A");
+	public static final String ESTADO_INACTIVO 	= new String("I");
+	public static final String ESTADO_ACTIVO_DESCRIPCION   	= new String("ACTIVO");
+	public static final String ESTADO_INACTIVO_DESCRIPCION 	= new String("INACTIVO");
 	private Integer pvInCodigo;
 	private String pvStDescripcion;
+	private String pvStEstado;
 	
 	public TipoAlopecia(){
 		this.pvInCodigo = null;
 		this.pvStDescripcion = null;
+		this.pvStEstado = null;
+	}
+	
+	public String getEstadoDescripcion(){
+		if(ESTADO_ACTIVO.equals(this.pvStEstado)){
+			return ESTADO_ACTIVO_DESCRIPCION;
+		}
+		if(ESTADO_INACTIVO.equals(this.pvStEstado)){
+			return ESTADO_INACTIVO_DESCRIPCION;
+		}
+		return null;
 	}
 	
 	/**
@@ -38,6 +56,20 @@ public class TipoAlopecia  implements Serializable{
 	 */
 	public void setPvStDescripcion(String pvStDescripcion) {
 		this.pvStDescripcion = pvStDescripcion;
+	}
+
+	/**
+	 * @return the pvStEstado
+	 */
+	public String getPvStEstado() {
+		return pvStEstado;
+	}
+
+	/**
+	 * @param pvStEstado the pvStEstado to set
+	 */
+	public void setPvStEstado(String pvStEstado) {
+		this.pvStEstado = pvStEstado;
 	}
 
 	/* (non-Javadoc)

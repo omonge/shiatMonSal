@@ -23,6 +23,42 @@
 	            <value>#{clienteBo}</value>
         	</managed-property>
 	 </managed-bean>
+	 
+	 <!-- ================ Managed Bean TipoAlopeciaController ================ -->
+	 <managed-bean>
+	        <managed-bean-name>tipoAlopeciaController</managed-bean-name>
+	        <managed-bean-class>com.shiatsu.web.controller.TipoAlopeciaController</managed-bean-class>
+	        <managed-bean-scope>session</managed-bean-scope>
+	        <managed-property>
+	            <property-name>tipoAlopeciaBo</property-name>
+	            <property-class>com.shiatsu.bo.TipoAlopeciaBo</property-class>
+	            <value>#{tipoAlopeciaBo}</value>
+        	</managed-property>
+	 </managed-bean>
+	 
+	 <!-- ================ Managed Bean PaisController ================ -->
+	 <managed-bean>
+	        <managed-bean-name>paisController</managed-bean-name>
+	        <managed-bean-class>com.shiatsu.web.controller.PaisController</managed-bean-class>
+	        <managed-bean-scope>session</managed-bean-scope>
+	        <managed-property>
+	            <property-name>paisBo</property-name>
+	            <property-class>com.shiatsu.bo.PaisBo</property-class>
+	            <value>#{paisBo}</value>
+        	</managed-property>
+	 </managed-bean>
+	 
+	 <!-- ================ Managed Bean ProfesionController ================ -->
+	 <managed-bean>
+	        <managed-bean-name>profesionController</managed-bean-name>
+	        <managed-bean-class>com.shiatsu.web.controller.profesionController</managed-bean-class>
+	        <managed-bean-scope>session</managed-bean-scope>
+	        <managed-property>
+	            <property-name>profesionBo</property-name>
+	            <property-class>com.shiatsu.bo.ProfesioBo</property-class>
+	            <value>#{profesionBo}</value>
+        	</managed-property>
+	 </managed-bean>
 	 <!-- *************************  Navegación ************************************* -->
 
 	<!-- ================ Navigation ClienteController ================ -->

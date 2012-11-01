@@ -2,31 +2,38 @@ package com.shiatsu.domain;
 
 import java.io.Serializable;
 import java.util.Date;
-
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
-import com.shiatsu.web.bundles.Bundle;
 
 
 public class Cliente implements Serializable {
 
 	private static final long serialVersionUID = 4655663135297201540L;
 	
-	public static final Integer ESTADO_DEFAULT			= new Integer(-1);
-	public static final Integer ESTADO_ACTIVO   		= new Integer(1);
-	public static final Integer ESTADO_INACTIVO 		= new Integer(0);
-	public static final Long TELEFONO_DEFAULT 			= new Long(0);
-	public static final Integer PROFESION_DEFAULT  		= new Integer(0);
-	public static final Integer FRECUENCIA_CITA_DEFAULT = new Integer(0);
-	public static final Integer NACIONALIDAD_DEFAULT  	= new Integer(0);
-	public static final Integer SEXO_DEFAULT  			= new Integer(-1);
-	public static final Integer ALOPECIA_DEFAULT  		= new Integer(-1);
+	public static final String ESTADO_DEFAULT	= new String("");
+	public static final String ESTADO_ACTIVO   	= new String("A");
+	public static final String ESTADO_INACTIVO 	= new String("I");
+	public static final String ESTADO_ACTIVO_DESCRIPCION   	= new String("ACTIVO");
+	public static final String ESTADO_INACTIVO_DESCRIPCION 	= new String("INACTIVO");
+	
+	public static final Long   TELEFONO_DEFAULT 			= new Long(0);
+	public static final Integer PROFESION_DEFAULT  			= new Integer(0);
+	public static final Integer FRECUENCIA_CITA_DEFAULT 	= new Integer(0);
+	public static final Integer NACIONALIDAD_DEFAULT  		= new Integer(0);
+	
+	public static final String SEXO_DEFAULT  				= new String("");
+	public static final String SEXO_MASCULINO  				= new String("M");
+	public static final String SEXO_FEMENINO  				= new String("F");
+	public static final String SEXO_MASCULINO_DESCRIPCION 	= new String("MASCULINO");
+	public static final String SEXO_FEMENINO_DESCRIPCION  	= new String("FEMENINO");
+	
+	public static final Integer ALOPECIA_DEFAULT  			= new Integer(0);
 	
 	private String 	pvStCodigo;
 
 	private String 	pvStDireccion;
-	private Integer pvInEstado;
+	private String  pvInEstado;
 	private String 	pvStEmail1;
 	private String 	pvStEmail2;
 	private String  pvStFacturaNombre;
@@ -63,9 +70,23 @@ public class Cliente implements Serializable {
 	/** @return regresa el pvStEstadoDescripcion*/
 	public String getPvStEstadoDescripcion() { 
 		if(Cliente.ESTADO_ACTIVO.equals(this.pvInEstado)){
-			return Bundle.rcs.getString("cliente.activo");
-		}else{
-			return Bundle.rcs.getString("cliente.inactivo");}
+			return ESTADO_ACTIVO_DESCRIPCION;
+		}
+		if(Cliente.ESTADO_INACTIVO.equals(this.pvInEstado)){ 
+			return ESTADO_INACTIVO_DESCRIPCION;
+		}
+		return null;
+	}	
+	
+	/** @return regresa el getPvStSexoDescripcion*/
+	public String getPvStSexoDescripcion() { 
+		if(Cliente.SEXO_FEMENINO.equals(this.pvInSexo)){
+			return SEXO_FEMENINO_DESCRIPCION;
+		}
+		if(Cliente.SEXO_MASCULINO.equals(this.pvInSexo)){ 
+			return SEXO_MASCULINO_DESCRIPCION;
+		}
+		return null;
 	}	
 
 	/**
@@ -98,13 +119,13 @@ public class Cliente implements Serializable {
 	/**
 	 * @return the pvInEstado
 	 */
-	public Integer getPvInEstado() {
+	public String getPvInEstado() {
 		return pvInEstado;
 	}
 	/**
 	 * @param pvInEstado the pvInEstado to set
 	 */
-	public void setPvInEstado(Integer pvInEstado) {
+	public void setPvInEstado(String pvInEstado) {
 		this.pvInEstado = pvInEstado;
 	}
 	/**

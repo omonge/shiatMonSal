@@ -25,11 +25,37 @@ http://www.springframework.org/schema/jee http://www.springframework.org/schema/
     </bean>
    	
    <!--========== Bussiness Objects ==========-->
-      <bean id="clienteBo" parent="shiatsuTP">
+    <bean id="clienteBo" parent="shiatsuTP">
         <property name="target">
             <bean class="com.shiatsu.bo.impl.ClienteBoImpl">
                 <property name="clienteDao" ref="clienteDao"/>
             </bean>
         </property> 
     </bean>
+    
+    <bean id="tipoAlopeciaBo" parent="shiatsuTP">
+        <property name="target">
+            <bean class="com.shiatsu.bo.impl.TipoAlopeciaBoImpl">
+                <property name="tipoAlopeciaDao" ref="tipoAlopeciaDao"/>
+            </bean>
+        </property> 
+    </bean>
+    
+    <bean id="paisBo" parent="shiatsuTP">
+        <property name="target">
+            <bean class="com.shiatsu.bo.impl.PaisBoImpl">
+                <property name="paisDao" ref="paisDao"/>
+            </bean>
+        </property> 
+    </bean>
+    
+     <bean id="profesionBo" parent="shiatsuTP">
+        <property name="target">
+            <bean class="com.shiatsu.bo.impl.ProfesionBoImpl">
+                <property name="profesionDao" ref="profesionDao"/>
+            </bean>
+        </property> 
+    </bean>
+    
+    
 </beans>

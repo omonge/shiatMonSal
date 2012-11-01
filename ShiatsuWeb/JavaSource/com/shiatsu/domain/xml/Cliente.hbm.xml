@@ -9,7 +9,7 @@
             <generator class="assigned" />
         </id>
         <property name="pvStDireccion" 			column="DIRECCION" 				type="java.lang.String" 	length="100"/>
-        <property name="pvInEstado" 		    column="ESTADO" 				type="java.lang.Integer" 	length="1"/>
+        <property name="pvInEstado" 		    column="ESTADO" 				type="java.lang.String" 	length="1"/>
         <property name="pvStEmail1" 			column="EMAIL1" 				type="java.lang.String" 	length="50"/>
         <property name="pvStEmail2" 			column="EMAIL2" 				type="java.lang.String" 	length="50"/>
         <property name="pvStFacturaNombre" 		column="FACTURA_A_NOMBRE" 		type="java.lang.String" 	length="50"/>
