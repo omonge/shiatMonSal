@@ -11,9 +11,15 @@ import javax.faces.model.SelectItem;
 
 import com.shiatsu.domain.Cita;
 import com.shiatsu.domain.Cliente;
+import com.shiatsu.domain.Pais;
+import com.shiatsu.domain.Profesion;
+import com.shiatsu.domain.TipoAlopecia;
 import com.shiatsu.web.bundles.Bundle;
 import com.utilidades.business.BusinessErrorHelper;
 import com.shiatsu.bo.ClienteBo;
+import com.shiatsu.bo.PaisBo;
+import com.shiatsu.bo.ProfesionBo;
+import com.shiatsu.bo.TipoAlopeciaBo;
 import com.shiatzu.util.Controller;
 
 /**
@@ -26,6 +32,9 @@ public class ClienteController extends Controller {
     private List<Cliente> listaCliente; 
     private Cliente 	  cliente;
 	private ClienteBo	  clienteBo;  
+	private PaisBo	  	  paisBo;  
+	private ProfesionBo	  profesionBo;  
+	private TipoAlopeciaBo	  tipoAlopeciaBo; 
 	
 	public ClienteController() { 
 		this.reiniciarController();
@@ -183,9 +192,9 @@ public class ClienteController extends Controller {
 	public List<SelectItem> getFrecuenciasCitasItems(){
 		List<SelectItem> items = new ArrayList<SelectItem>();
 		items.add(new SelectItem(Cita.CITA_DEFAULT,     Bundle.rcs.getString("seleccion.valor")));
-		items.add(new SelectItem(Cita.CITA_SEMANAL,  	Bundle.rcs.getString("cita.semanal")));
-		items.add(new SelectItem(Cita.CITA_QUINCENAL,  	Bundle.rcs.getString("cita.quincenal")));
-		items.add(new SelectItem(Cita.CITA_MENSUAL,  	Bundle.rcs.getString("cita.mensual")));
+		items.add(new SelectItem(Cita.CITA_SEMANAL,  	Cita.CITA_SEMANAL_DESCRIPCION));
+		items.add(new SelectItem(Cita.CITA_QUINCENAL,  	Cita.CITA_QUINCENAL_DESCRIPCION));
+		items.add(new SelectItem(Cita.CITA_MENSUAL,  	Cita.CITA_MENSUAL_DESCRIPCION));
 		return items;
 	}
 	/**
@@ -195,9 +204,10 @@ public class ClienteController extends Controller {
 	public List<SelectItem> getProfesionItems(){
 		List<SelectItem> items = new ArrayList<SelectItem>();
 		items.add(new SelectItem(Cliente.PROFESION_DEFAULT,     Bundle.rcs.getString("seleccion.valor")));
-		items.add(new SelectItem(Cita.CITA_SEMANAL,  	Bundle.rcs.getString("cita.semanal")));
-		items.add(new SelectItem(Cita.CITA_QUINCENAL,  	Bundle.rcs.getString("cita.quincenal")));
-		items.add(new SelectItem(Cita.CITA_MENSUAL,  	Bundle.rcs.getString("cita.mensual")));
+		List<Profesion> lista = this.profesionBo.getProfesion();
+		for (Profesion profesion : lista) {
+			items.add(new SelectItem(profesion.getPvInCodigo(),  profesion.getPvStDescripcion()));
+		}
 		return items;
 	}
 	/**
@@ -207,8 +217,10 @@ public class ClienteController extends Controller {
 	public List<SelectItem> getNacionalidadItems(){
 		List<SelectItem> items = new ArrayList<SelectItem>();
 		items.add(new SelectItem(Cliente.NACIONALIDAD_DEFAULT,     Bundle.rcs.getString("seleccion.valor")));
-		items.add(new SelectItem(Cita.CITA_SEMANAL,  	"Costarricense"));
-		items.add(new SelectItem(Cita.CITA_QUINCENAL,  	"Extranjero"));
+		List<Pais> lista = this.paisBo.getPais();
+		for (Pais pais : lista) {
+			items.add(new SelectItem(pais.getPvInCodigo(),  pais.getPvStDescripcion()));
+		}
 		return items;
 	}
 	/**
@@ -229,8 +241,10 @@ public class ClienteController extends Controller {
 	public List<SelectItem> getTipoAlopeciaItems(){
 		List<SelectItem> items = new ArrayList<SelectItem>();
 		items.add(new SelectItem(Cliente.ALOPECIA_DEFAULT,     Bundle.rcs.getString("seleccion.valor")));
-		items.add(new SelectItem(Integer.valueOf(1),  	"Tipo 1"));
-		items.add(new SelectItem(Integer.valueOf(0),  	"Tipo 2"));
+		List<TipoAlopecia> lista = this.tipoAlopeciaBo.getTipoAlopecia();
+		for (TipoAlopecia tipoAlopecia : lista) {
+			items.add(new SelectItem(tipoAlopecia.getPvInCodigo(),  tipoAlopecia.getPvStDescripcion()));
+		}
 		return items;
 	}
 	
@@ -447,6 +461,48 @@ public class ClienteController extends Controller {
 	 */
 	public void setClienteBo(ClienteBo clienteBo) {
 		this.clienteBo = clienteBo;
+	}
+
+	/**
+	 * @return the paisBo
+	 */
+	public PaisBo getPaisBo() {
+		return paisBo;
+	}
+
+	/**
+	 * @param paisBo the paisBo to set
+	 */
+	public void setPaisBo(PaisBo paisBo) {
+		this.paisBo = paisBo;
+	}
+
+	/**
+	 * @return the profesionBo
+	 */
+	public ProfesionBo getProfesionBo() {
+		return profesionBo;
+	}
+
+	/**
+	 * @param profesionBo the profesionBo to set
+	 */
+	public void setProfesionBo(ProfesionBo profesionBo) {
+		this.profesionBo = profesionBo;
+	}
+
+	/**
+	 * @return the tipoAlopeciaBo
+	 */
+	public TipoAlopeciaBo getTipoAlopeciaBo() {
+		return tipoAlopeciaBo;
+	}
+
+	/**
+	 * @param tipoAlopeciaBo the tipoAlopeciaBo to set
+	 */
+	public void setTipoAlopeciaBo(TipoAlopeciaBo tipoAlopeciaBo) {
+		this.tipoAlopeciaBo = tipoAlopeciaBo;
 	}
 
 	

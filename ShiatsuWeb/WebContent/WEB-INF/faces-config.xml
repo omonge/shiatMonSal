@@ -22,6 +22,21 @@
 	            <property-class>com.shiatsu.bo.ClienteBo</property-class>
 	            <value>#{clienteBo}</value>
         	</managed-property>
+        	<managed-property>
+	            <property-name>tipoAlopeciaBo</property-name>
+	            <property-class>com.shiatsu.bo.TipoAlopeciaBo</property-class>
+	            <value>#{tipoAlopeciaBo}</value>
+        	</managed-property>
+        	<managed-property>
+	            <property-name>paisBo</property-name>
+	            <property-class>com.shiatsu.bo.PaisBo</property-class>
+	            <value>#{paisBo}</value>
+        	</managed-property>
+        	<managed-property>
+	            <property-name>profesionBo</property-name>
+	            <property-class>com.shiatsu.bo.ProfesionBo</property-class>
+	            <value>#{profesionBo}</value>
+        	</managed-property>
 	 </managed-bean>
 	 
 	 <!-- ================ Managed Bean TipoAlopeciaController ================ -->

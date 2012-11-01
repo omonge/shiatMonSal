@@ -16,6 +16,10 @@ public class Cita implements Serializable {
 	public static final Integer CITA_SEMANAL   	= new Integer(1);
 	public static final Integer CITA_QUINCENAL 	= new Integer(2);
 	public static final Integer CITA_MENSUAL 	= new Integer(3);
+	 
+	public static final String CITA_SEMANAL_DESCRIPCION   	= new String("SEMANAL");
+	public static final String CITA_QUINCENAL_DESCRIPCION 	= new String("QUINCENAL");
+	public static final String CITA_MENSUAL_DESCRIPCION 	= new String("MENSUAL");
 	
 	public Cita() {
 		// TODO Auto-generated constructor stub

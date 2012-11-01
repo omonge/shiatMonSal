@@ -16,7 +16,7 @@
 	<%@ taglib uri="http://myfaces.apache.org/tomahawk" prefix="t"%>
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
     
-    <link href="../html5/normalize.css"                rel="stylesheet" type="text/css" />
+    <link href="../html5/normalize.css"                rel="stylesheet" type="text/css" /> 
     <link href="../html5/plantilla_html5.css"          rel="stylesheet" type="text/css" />
     <link href="../theme/hmenu/src/skin-modern3.css"   rel="stylesheet" type="text/css" />
     <link href="../theme/styles/SIGETR.css"            rel="stylesheet" type="text/css" />
@@ -71,7 +71,7 @@
 									<li>Tipo Alopecia
 									  <ul>
 										<li><a href="../shiatsuActTipoAlopecia.jsf?init=true">Agregar</a></li>
-										<li><a href="../shiatsuConstipoAlopecia.jsf?init=true">Consulta</a></li> 
+										<li><a href="../shiatsuConsTipoAlopecia.jsf?init=true">Consulta</a></li> 
 										<li><a href="../shiatsuListaTipoAlopecia.jsf?init=true">Mantenimiento</a></li>
 									  </ul>
 									</li>
