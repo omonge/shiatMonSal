@@ -65,4 +65,18 @@ public abstract class Controller  extends FacesController{
 		this.init = init;
 	}
 
+	/**
+	 * @return the agregar
+	 */
+	public boolean getAgregar() {
+		return this.agregar;
+	}
+
+	/**
+	 * @param agregar the agregar to set
+	 */
+	public void setAgregar(boolean agregar) {
+		this.agregar = agregar;
+	}
+
 }

@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.component.html.HtmlDataTable;
-import com.shiatsu.bo.PaisBo;
+import javax.faces.model.SelectItem;
+
+import com.shiatsu.bo.PaisBo; 
 import com.shiatsu.domain.Pais;
 import com.shiatsu.web.bundles.Bundle;
 import com.shiatzu.util.Controller;
@@ -151,11 +153,11 @@ public class PaisController  extends Controller{
 	private boolean validaInsertar(){
 		boolean correcto = true;
 		try{
-			if((this.pais.getPvInCodigo() == null) ||(Pais.PAIS_DEFAULT.equals(this.pais.getPvInCodigo()))){
+			if((!this.agregar) && (this.pais.getPvInCodigo() == null) ||(Pais.PAIS_DEFAULT.equals(this.pais.getPvInCodigo()))){
 				this.addError(this.getPropertyFieldName("cliente.pvInCodigo"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
 			}
-			if((this.pais.getPvStEstado()== null ||(Pais.ESTADO_DEFAULT.equals(this.pais.getPvStEstado())))){
+			if((!this.agregar) && (this.pais.getPvStEstado()== null ||(Pais.ESTADO_DEFAULT.equals(this.pais.getPvStEstado())))){
 				this.addError(this.getPropertyFieldName("cliente.pvStEstado"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
 			}
@@ -185,6 +187,7 @@ public class PaisController  extends Controller{
                 this.paisBo.agregar(this.pais);
                 this.addInfo(null, Bundle.rcs.getString("datosAgregados"));
                 respuesta = "success";
+                this.reiniciarFiltro();
             }
         }catch(BusinessErrorHelper be){
             this.exceptionBussinessError(be);
@@ -233,6 +236,19 @@ public class PaisController  extends Controller{
         }
         return respuesta;
 	}
+	
+	/**
+     * Retorna una lista de selectItems que contienen estados del cliente
+     * @return Lista de objetos <code>SelectItem</code> que contienen los ID de los estados existentes
+     */
+	public List<SelectItem> getEstadoItems(){
+		List<SelectItem> items = new ArrayList<SelectItem>();
+		items.add(new SelectItem(Pais.ESTADO_DEFAULT,   Bundle.rcs.getString("seleccion.valor")));
+		items.add(new SelectItem(Pais.ESTADO_ACTIVO,    Pais.ESTADO_ACTIVO_DESCRIPCION));
+		items.add(new SelectItem(Pais.ESTADO_INACTIVO,  Pais.ESTADO_INACTIVO_DESCRIPCION));
+		return items;
+	}
+	
         		
 	@Override
 	protected String getPropertyFieldName(String property) {

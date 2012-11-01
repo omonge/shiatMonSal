@@ -102,110 +102,57 @@
                 </nav>
                 <section id="main"> 
                     <div id="titulo" class="Tit_04_naranja">
-					<!-- InstanceBeginEditable name="titulo" --><h:outputText styleClass="outputText" value="#{rcs['titulo.cliente.mantenimiento']}"/><!-- InstanceEndEditable -->
+					<!-- InstanceBeginEditable name="titulo" --><h:outputText styleClass="outputText" value="#{rcs['titulo.profesion.mantenimiento']}"/><!-- InstanceEndEditable -->
                     </div>
                     <div id="cuerpo" class="Text">
 						<!-- InstanceBeginEditable name="contenido" -->
 					
 					<h:form  styleClass="form" id="form1"  >
-					<h:inputHidden value="#{clienteController.init}" ></h:inputHidden>
+					<h:inputHidden value="#{profesionController.init}" ></h:inputHidden>
 					   		<table border="0">
 					<tbody>
 						<tr>
 					  		<td class="Tit04Tabla">
-					  			<h:outputText styleClass="outputText" id="txt1" value="#{rcs['cliente.codigo']}"></h:outputText>
+					  			<h:outputText styleClass="outputText" id="txt1" value="#{rcs['profesion.codigo']}"></h:outputText>
 						    </td>
 					  	    <td class="formPaddingData">
-					  	    	<h:inputText styleClass="inputText" id="txtPvLoCodigo"
-					  	    				 value="#{clienteController.cliente.pvStCodigo}" size="22" maxlength="22" >
+					  	    	<h:inputText styleClass="inputText" id="txtPvInCodigo"
+					  	    				 value="#{profesionController.profesion.pvInCodigo}" size="10" maxlength="10" >
 					  	    	</h:inputText> 
-					  	    	<h:message styleClass="error" id="msgTxtCodigo" for="txtPvLoCodigo" errorClass="error" infoClass="info" warnClass="warn"></h:message>
+					  	    	<h:message styleClass="error" id="msgTxtPvInCodigo" for="txtPvInCodigo" errorClass="error" infoClass="info" warnClass="warn"></h:message>
 					  	   </td>
 					    </tr>
-					    <tr>
-						  		<td class="Tit04Tabla"> 
-						  			<h:outputText styleClass="outputText" id="lblNombre"
-									value="#{rcs['cliente.nombre']}"></h:outputText>
-							    </td>
-						  	    <td class="formPaddingData">
-						  	    	<h:inputText styleClass="inputText" id="txtPvStNombre" 
-						  	    				 value="#{clienteController.cliente.pvStNombre}" size="50" maxlength="50">
-						  	    	</h:inputText> 
-						  	    	<h:message styleClass="error" id="msgTxtNombre" for="txtPvStNombre" errorClass="error" infoClass="info" warnClass="warn"></h:message>
-						  	   </td>
-						</tr>  
-						 
-						<tr>
-				  		<td class="Tit04Tabla">
-				  			<h:outputText styleClass="outputText" id="lblCelular"
-							value="#{rcs['cliente.telefonoCelular']}"></h:outputText>
-					    </td>
-					    <td class="formPaddingData">
-				  			
-					    <h:inputText styleClass="inputText" id="txtPvLoTelefonoCelular" value="#{clienteController.cliente.pvLoTelefonoCelular}" size="8" maxlength="8">
-				  	    	</h:inputText><h:message styleClass="error" id="msgTxtpvInTelefonoCelular" for="txtPvLoTelefonoCelular" errorClass="error" infoClass="info" warnClass="warn"></h:message></td>
-					 </tr> 
+					      
 					 <tr>
-				  	   	<td class="Tit04Tabla">	
-				  	   		 
-				  	    	<h:outputText styleClass="outputText" id="lblCasa" value="#{rcs['cliente.telefonoCasa']}"></h:outputText>
-				  	   </td>
-				  	    <td class="formPaddingData">
-				  	    	<h:inputText styleClass="inputText" id="txtPvLoTelefonoCasa" 
-				  	    				 value="#{clienteController.cliente.pvLoTelefonoCasa}" size="8" maxlength="8">
-				  	    	</h:inputText> 
-				  	    	<h:message styleClass="error" id="msgTxtpvInTelefonoCasa" for="txtPvLoTelefonoCasa" errorClass="error" infoClass="info" warnClass="warn"></h:message>
-				  	   	</td>
+				  	   	
+				  	    
 				    </tr> 
 			        <tr>
-			            <td  class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblFrecuenciaCita" value="#{rcs['cliente.frecuencia']}"></h:outputText></td>
+			            <td  class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblFrecuenciaCita" value="#{rcs['profesion.estado']}"></h:outputText></td>
 			            <td class="formPaddingData">
-				  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInFrecuenciaCita" value="#{clienteController.cliente.pvInFrecuenciaCita}">
-												<f:selectItems value="#{clienteController.frecuenciasCitasItems}"/>
+				  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvStEstado" value="#{profesionController.profesion.pvStEstado}">
+												<f:selectItems value="#{profesionController.estadoItems}"/>
 								</h:selectOneMenu>
-			                <h:message styleClass="error" id="msgTxtPvInFrecuenciaCita" for="cmbPvInFrecuenciaCita" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
+			                <h:message styleClass="error" id="msgCmbPvStEstado" for="cmbPvStEstado" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
 			            </td>
 			        </tr>
 			        <tr>
-			            <td  class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblProfesion" value="#{rcs['cliente.profesion']}"></h:outputText></td>
+			            <td  class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblProfesion" value="#{rcs['profesion.descripcion']}"></h:outputText></td>
 			            <td class="formPaddingData">
-				  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvIntProfesion" value="#{clienteController.cliente.pvInProfesion}">
-												<f:selectItems value="#{clienteController.profesionItems}"/>
-								</h:selectOneMenu>
-			                <h:message styleClass="error" id="msgTxtPvIntProfesion" for="cmbPvIntProfesion" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
-			            </td>
+				  	    	
+			            <h:inputText styleClass="inputText" id="txtPvStDescripcion" value="#{profesionController.profesion.pvStDescripcion}" size="50" maxlength="50">
+					  	    	</h:inputText><h:message styleClass="error" id="msgTxtPvStDescripcion" for="txtPvStDescripcion" errorClass="error" infoClass="info" warnClass="warn"></h:message></td>
 			        </tr> 
+			         
 			        <tr>
-			            <td class="Tit04Tabla" ><h:outputText styleClass="outputText" id="lblNacionalidad" value="#{rcs['cliente.nacionalidad']}"></h:outputText></td>
-			            <td class="formPaddingData">
-				  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInNacionalidad" value="#{clienteController.cliente.pvInNacionalidad}">
-												<f:selectItems value="#{clienteController.nacionalidadItems}"/>
-								</h:selectOneMenu>
-			                <h:message styleClass="error" id="msgTxtPvInNacionalidad" for="cmbPvInNacionalidad" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
-			            </td>
-			        </tr> 
-			        <tr>
-			            <td  class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblSexo" value="#{rcs['cliente.sexo']}"></h:outputText></td>
-			            <td class="formPaddingData">
-				  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvIntSexo" value="#{clienteController.cliente.pvInSexo}">
-												<f:selectItems value="#{clienteController.sexoItems}"/>
-								</h:selectOneMenu>
-			                <h:message styleClass="error" id="msgTxtPvIntSexo" for="cmbPvIntSexo" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
-			            </td>
+			            
+			            
 			        </tr>
-			      	<tr>
-			            <td  class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblTipoAlopecia" value="#{rcs['cliente.tipoAlopecia']}"></h:outputText></td>
-			            <td class="formPaddingData">
-				  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInTipoAlopecia" value="#{clienteController.cliente.pvInTipoAlopecia}">
-												<f:selectItems value="#{clienteController.tipoAlopeciaItems}"/>
-								</h:selectOneMenu>
-			                <h:message styleClass="error" id="msgCmbPvInTipoAlopecia" for="cmbPvInTipoAlopecia" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
-			            </td>
-			        </tr>
+			      	
 			        
 					<tr>
 			            <td colspan="2">
-				            <h:commandButton type="submit" value="#{rcs['boton.buscar']}"   styleClass="commandButton" id="btnBuscar"   action="#{clienteController.buscar}"></h:commandButton>
+				            <h:commandButton type="submit" value="#{rcs['boton.buscar']}"   styleClass="commandButton" id="btnBuscar"   action="#{profesionController.buscar}"></h:commandButton>
 				            
 				            
 				            
@@ -221,87 +168,47 @@
 					   <h:dataTable border="0" columnClasses="" headerClass="Tit04Tabla"
 									footerClass="Tit04Tabla" rowClasses="even,odd"  
 									styleClass="dataTable" id="table1"
-									value="#{clienteController.listaCliente}" var="clientes" rows="20" 
-									binding="#{clienteController.listaDataTableCliente}">		
+									value="#{profesionController.lista}" var="var" rows="20" 
+									binding="#{profesionController.listaDataTable}">		
+							
 							<h:column id="Columna1">
 								<f:facet name="header">
 									<h:outputText styleClass="outputText"
-										value="#{rcs['cliente.codigo']}"
+										value="#{rcs['profesion.codigo']}"
 										id="lbl1"></h:outputText>
 								</f:facet>
-									<h:commandLink styleClass="commandLink" id="link1" action="#{clienteController.cargarObjeto}">
+									<h:commandLink styleClass="commandLink" id="link1" action="#{profesionController.cargarObjeto}">
 										<h:outputText styleClass="pad-right" id="text1"
-											value="#{clientes.pvStCodigo}">
+											value="#{var.pvInCodigo}">
 										</h:outputText>
 										<f:attribute value="center" name="align" />
 									</h:commandLink>
 							</h:column>
+							
 							<h:column id="Columna2">
 								<f:facet name="header">
 									<h:outputText styleClass="outputText pad-right"
-										value="#{rcs['cliente.nombre']}"
+										value="#{rcs['profesion.estado']}"
 										id="lbl2"></h:outputText>
 								</f:facet>			
 								<h:outputText styleClass="outputText pad-right" id="text2"
-										value="#{clientes.pvStNombre}">					
-								</h:outputText>
-								<f:attribute value="center" name="align" />
+									value="#{var.estadoDescripcion}">
+								</h:outputText>		
+								<f:attribute value="center" name="align" />	
 							</h:column>
+							
 							<h:column id="Columna3">
 								<f:facet name="header">
 									<h:outputText styleClass="outputText pad-right"
-										value="#{rcs['cliente.direccion']}"
+										value="#{rcs['profesion.descripcion']}"
 										id="lbl3"></h:outputText>
 								</f:facet>			
 								<h:outputText styleClass="outputText pad-right" id="text3"
-									value="#{clientes.pvStDireccion}">
-								</h:outputText>		
-								<f:attribute value="center" name="align" />	
-							</h:column>
-							<h:column id="Columna4">
-								<f:facet name="header">
-									<h:outputText styleClass="outputText pad-right"
-										value="#{rcs['cliente.email']}"
-										id="lbl4"></h:outputText>
-								</f:facet>			
-								<h:outputText styleClass="outputText pad-right" id="text4"
-									value="#{clientes.pvStEmail1}">
-								</h:outputText>		
-								<f:attribute value="center" name="align" />	
-							</h:column>
-							<h:column id="Columna5">
-								<f:facet name="header">
-									<h:outputText styleClass="outputText pad-right"
-										value="#{rcs['cliente.telefonoCasa']}"
-										id="lbl5"></h:outputText>
-								</f:facet>			
-								<h:outputText styleClass="outputText pad-right" id="text5"
-									value="#{clientes.pvLoTelefonoCasa}">
-								</h:outputText>			
+										value="#{var.pvStDescripcion}">					
+								</h:outputText>
 								<f:attribute value="center" name="align" />
-							</h:column>		
-							<h:column id="Columna6">
-								<f:facet name="header">
-									<h:outputText styleClass="outputText pad-right"
-										value="#{rcs['cliente.telefonoCelular']}"
-										id="lbl6"></h:outputText>
-								</f:facet>			
-								<h:outputText styleClass="outputText pad-right" id="text6"
-									value="#{clientes.pvLoTelefonoCelular}">
-								</h:outputText>			
-								<f:attribute value="center" name="align" />
-							</h:column>	
-							<h:column id="Columna7">
-								<f:facet name="header">
-									<h:outputText styleClass="outputText pad-right"
-										value="#{rcs['cliente.estado']}"
-										id="lbl7"></h:outputText>
-								</f:facet>			
-								<h:outputText styleClass="outputText pad-right" id="text7"
-									value="#{clientes.pvStEstadoDescripcion}">
-								</h:outputText>		
-								<f:attribute value="center" name="align" />	
 							</h:column>
+							 
 						</h:dataTable>
 						<t:dataScroller for="table1" fastStep="10" pageCountVar="pageCount"
 									pageIndexVar="pageIndex" styleClass="scroller" paginator="true"
@@ -327,7 +234,7 @@
 							</f:facet>
 						</t:dataScroller>					
 						<div align="left">
-							<h:commandButton type="submit" value="#{rcs['boton.agregar']}" styleClass="commandButton" id="btnAgregarBottom" action="#{clienteController.irAgregar}"></h:commandButton>
+							<h:commandButton type="submit" value="#{rcs['boton.agregar']}" styleClass="commandButton" id="btnAgregarBottom" action="#{profesionController.irAgregar}"></h:commandButton>
 						</div>
 	</h:form>
 					<!-- InstanceEndEditable -->   

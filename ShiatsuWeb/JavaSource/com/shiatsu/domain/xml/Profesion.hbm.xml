@@ -6,7 +6,7 @@
 <hibernate-mapping package="com.shiatsu.domain">
     <class name="Profesion" table="CAT_PROFESION">
         <id name="pvInCodigo" column="CODIGO" type="java.lang.Integer" length="10">
-            <generator class="assigned" />
+        	<generator class="identity"></generator>
         </id>
         <property name="pvStDescripcion" 			column="DESCRIPCION" 				type="java.lang.String" 	length="100"/>
         <property name="pvStEstado" 				column="ESTADO" 					type="java.lang.String" 	length="1"/>   

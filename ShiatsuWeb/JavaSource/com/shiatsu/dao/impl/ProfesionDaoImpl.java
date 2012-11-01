@@ -86,13 +86,22 @@ public class ProfesionDaoImpl extends HibernateDaoSupport implements ProfesionDa
             filtros.add(profesion.getPvInCodigo());
             and = true;
         }
-        if((profesion.getPvStDescripcion() != null) ){
+        if((profesion.getPvStEstado() != null) && (!Profesion.ESTADO_DEFAULT.equals(profesion.getPvStEstado())) ) {
             if(and){
-                hql += "AND (profesion.pvStDescripcion = ?) ";
+                hql += "AND (profesion.pvStEstado = ?) ";
             }else{
-                hql += "(profesion.pvStDescripcion = ?) ";
+                hql += "profesion.pvStEstado = ?) ";
+            } 
+            filtros.add(profesion.getPvStEstado());
+            and = true;
+        } 
+        if((profesion.getPvStDescripcion() != null) && (!"".equals(profesion.getPvStDescripcion())) ){
+            if(and){
+                hql += "AND (UPPER(profesion.pvStDescripcion) like ?) ";
+            }else{
+                hql += "(UPPER(profesion.pvStDescripcion) like ?) ";
             }
-            filtros.add(profesion.getPvStDescripcion());
+            filtros.add("%"+profesion.getPvStDescripcion().toUpperCase()+"%");
             and = true;
         }
         if(and){
@@ -101,8 +110,7 @@ public class ProfesionDaoImpl extends HibernateDaoSupport implements ProfesionDa
             for(int i = 0; i < filtros.size(); i++){
                 values[i] = filtros.get(i);
             } 
-            lista = ht.find(hql,values);
-            ht.setMaxResults(0);
+            lista = ht.find(hql,values); 
         }
         return lista;
 	}

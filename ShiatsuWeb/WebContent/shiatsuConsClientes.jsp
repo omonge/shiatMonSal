@@ -72,6 +72,27 @@
 										<li><a href="shiatsuListaClientes.jsf?init=true">Mantenimiento</a></li>
 									  </ul>
 									</li>
+									<li>Tipo Alopecia
+									  <ul>
+										<li><a href="shiatsuActTipoAlopecia.jsf?init=true">Agregar</a></li>
+										<li><a href="shiatsuConstipoAlopecia.jsf?init=true">Consulta</a></li> 
+										<li><a href="shiatsuListaTipoAlopecia.jsf?init=true">Mantenimiento</a></li>
+									  </ul>
+									</li>
+									<li>Pa&iacute;s 
+									  <ul>
+										<li><a href="shiatsuActPais.jsf?init=true">Agregar</a></li>
+										<li><a href="shiatsuConsPais.jsf?init=true">Consulta</a></li>
+										<li><a href="shiatsuListaPais.jsf?init=true">Mantenimiento</a></li>
+									  </ul>
+									</li>
+									<li>Profesi&oacute;n
+									  <ul>
+										<li><a href="shiatsuActProfesion.jsf?init=true">Agregar</a></li>
+										<li><a href="shiatsuConsProfesion.jsf?init=true">Consulta</a></li>
+										<li><a href="shiatsuListaProfesion.jsf?init=true">Mantenimiento</a></li>
+									  </ul>
+									</li>
 								  </ul>
 								</li>
 								<li><a href="#">Salir</a> </li>

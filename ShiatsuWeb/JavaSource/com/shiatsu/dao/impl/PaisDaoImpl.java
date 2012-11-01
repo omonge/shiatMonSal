@@ -86,13 +86,22 @@ public class PaisDaoImpl extends HibernateDaoSupport implements PaisDao{
             filtros.add(pais.getPvInCodigo());
             and = true;
         }
-        if((pais.getPvStDescripcion() != null) ){
+        if((pais.getPvStEstado() != null) && (!Pais.ESTADO_DEFAULT.equals(pais.getPvStEstado())) ) {
             if(and){
-                hql += "AND (pais.pvStDescripcion = ?) ";
+                hql += "AND (pais.pvStEstado = ?) ";
             }else{
-                hql += "(pais.pvStDescripcion = ?) ";
+                hql += "pais.pvStEstado = ?) ";
+            } 
+            filtros.add(pais.getPvStEstado());
+            and = true;
+        } 
+        if((pais.getPvStDescripcion() != null) && (!"".equals(pais.getPvStDescripcion())) ){
+            if(and){
+                hql += "AND (UPPER(pais.pvStDescripcion) like ?) ";
+            }else{
+                hql += "(UPPER(pais.pvStDescripcion) like ?) ";
             }
-            filtros.add(pais.getPvStDescripcion());
+            filtros.add("%"+pais.getPvStDescripcion().toUpperCase()+"%");
             and = true;
         }
         if(and){
@@ -101,8 +110,7 @@ public class PaisDaoImpl extends HibernateDaoSupport implements PaisDao{
             for(int i = 0; i < filtros.size(); i++){
                 values[i] = filtros.get(i);
             } 
-            lista = ht.find(hql,values);
-            ht.setMaxResults(0);
+            lista = ht.find(hql,values); 
         }
         return lista;
 	}

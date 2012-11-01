@@ -327,6 +327,7 @@ public class ClienteController extends Controller {
                 this.clienteBo.agregar(this.cliente);
                 this.addInfo(null, Bundle.rcs.getString("datosAgregados"));
                 respuesta = "success";
+                this.reiniciarFiltro();
             }
         }catch(BusinessErrorHelper be){
             this.exceptionBussinessError(be);
@@ -397,26 +398,15 @@ public class ClienteController extends Controller {
 	 */
 	public Cliente getCliente() {
 		return cliente;
-	}
+	} 
+  
 	/**
 	 * @param cliente the cliente to set
 	 */
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	/**
-	 * @return the agregar
-	 */
-	public Boolean getAgregar() {
-		return agregar;
-	}
-	/**
-	 * @param agregar the agregar to set
-	 */
-	public void setAgregar(Boolean agregar) {
-		this.agregar = agregar;
-	}
-	
+
 	/**
 	 * @return the listaDataTableCliente
 	 */

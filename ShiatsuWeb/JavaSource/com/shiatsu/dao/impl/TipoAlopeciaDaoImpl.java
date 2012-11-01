@@ -86,13 +86,22 @@ public class TipoAlopeciaDaoImpl extends HibernateDaoSupport implements  TipoAlo
             filtros.add(tipoAlopecia.getPvInCodigo());
             and = true;
         }
-        if((tipoAlopecia.getPvStDescripcion() != null) ){
+        if((tipoAlopecia.getPvStEstado() != null) && (!TipoAlopecia.ESTADO_DEFAULT.equals(tipoAlopecia.getPvStEstado())) ) {
             if(and){
-                hql += "AND (tipoAlopecia.pvStDescripcion = ?) ";
+                hql += "AND (tipoAlopecia.pvStEstado = ?) ";
             }else{
-                hql += "(tipoAlopecia.pvStDescripcion = ?) ";
+                hql += "tipoAlopecia.pvStEstado = ?) ";
+            } 
+            filtros.add(tipoAlopecia.getPvStEstado());
+            and = true;
+        } 
+        if((tipoAlopecia.getPvStDescripcion() != null)&& (!"".equals(tipoAlopecia.getPvStDescripcion())) ){
+            if(and){
+                hql += "AND (UPPER(tipoAlopecia.pvStDescripcion) like ?) ";
+            }else{
+                hql += "(UPPER(tipoAlopecia.pvStDescripcion) like ?) ";
             }
-            filtros.add(tipoAlopecia.getPvStDescripcion());
+            filtros.add("%"+tipoAlopecia.getPvStDescripcion().toUpperCase()+"%");
             and = true;
         }
         if(and){

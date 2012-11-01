@@ -51,11 +51,11 @@
 	 <!-- ================ Managed Bean ProfesionController ================ -->
 	 <managed-bean>
 	        <managed-bean-name>profesionController</managed-bean-name>
-	        <managed-bean-class>com.shiatsu.web.controller.profesionController</managed-bean-class>
+	        <managed-bean-class>com.shiatsu.web.controller.ProfesionController</managed-bean-class>
 	        <managed-bean-scope>session</managed-bean-scope>
 	        <managed-property>
 	            <property-name>profesionBo</property-name>
-	            <property-class>com.shiatsu.bo.ProfesioBo</property-class>
+	            <property-class>com.shiatsu.bo.ProfesionBo</property-class>
 	            <value>#{profesionBo}</value>
         	</managed-property>
 	 </managed-bean>
@@ -83,10 +83,98 @@
 	    		<to-view-id>/shiatsuListaClientes.jsp</to-view-id>
 	    	</navigation-case>
 	    	<navigation-case>
-	    		<from-action>#{clienteController.eliminarCliente}</from-action>
+	    		<from-action>#{clienteController.eliminar}</from-action>
 	    		<from-outcome>success</from-outcome>
 	    		<to-view-id>/shiatsuListaClientes.jsp</to-view-id>
 	    	</navigation-case>
 	    </navigation-rule>
+	    
+	<!-- ================ Navigation PaisController ================ -->
+	 <navigation-rule>
+	    	<from-view-id>/shiatsuListaPais.jsp</from-view-id>
+	    	<navigation-case>
+	    		<from-action>#{paisController.cargarObjeto}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuActPais.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{paisController.irAgregar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuActPais.jsp</to-view-id>
+	    	</navigation-case>
+	    </navigation-rule>
+		<navigation-rule>
+	    	<from-view-id>/shiatsuActPais.jsp</from-view-id>
+	    	<navigation-case>
+	    		<from-action>#{paisController.regresar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuListaPais.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{paisController.eliminar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuListaPais.jsp</to-view-id>
+	    	</navigation-case>
+	    </navigation-rule>
+		
+		
+			<!-- ================ Navigation ProfesionController ================ -->
+	 <navigation-rule>
+	    	<from-view-id>/shiatsuListaProfesion.jsp</from-view-id>
+	    	<navigation-case>
+	    		<from-action>#{profesionController.cargarObjeto}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuActProfesion.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{profesionController.irAgregar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuActProfesion.jsp</to-view-id>
+	    	</navigation-case>
+	    </navigation-rule>
+		<navigation-rule>
+	    	<from-view-id>/shiatsuActProfesion.jsp</from-view-id>
+	    	<navigation-case>
+	    		<from-action>#{profesionController.regresar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuListaProfesion.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{profesionController.eliminar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuListaProfesion.jsp</to-view-id>
+	    	</navigation-case>
+	    </navigation-rule>
+	    
+	    
+	    
+			<!-- ================ Navigation TipoAlopeciaController ================ -->
+	 <navigation-rule>
+	    	<from-view-id>/shiatsuListaTipoAlopecia.jsp</from-view-id>
+	    	<navigation-case>
+	    		<from-action>#{tipoAlopeciaController.cargarObjeto}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuActTipoAlopecia.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{tipoAlopeciaController.irAgregar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuActTipoAlopecia.jsp</to-view-id>
+	    	</navigation-case>
+	    </navigation-rule>
+		<navigation-rule>
+	    	<from-view-id>/shiatsuActTipoAlopecia.jsp</from-view-id>
+	    	<navigation-case>
+	    		<from-action>#{tipoAlopeciaController.regresar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuListaTipoAlopecia.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{tipoAlopeciaController.eliminar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuListaTipoAlopecia.jsp</to-view-id>
+	    	</navigation-case>
+	    </navigation-rule>
+		
 		
 </faces-config>

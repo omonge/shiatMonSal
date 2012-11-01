@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.component.html.HtmlDataTable;
+import javax.faces.model.SelectItem;
+
 import com.shiatsu.bo.ProfesionBo;
 import com.shiatsu.domain.Profesion;
 import com.shiatsu.web.bundles.Bundle;
@@ -151,11 +153,11 @@ public class ProfesionController  extends Controller{
 	private boolean validaInsertar(){
 		boolean correcto = true;
 		try{
-			if((this.profesion.getPvInCodigo() == null) ||(Profesion.PROFESION_DEFAULT.equals(this.profesion.getPvInCodigo()))){
+			if((!this.agregar) && (this.profesion.getPvInCodigo() == null) ||(Profesion.PROFESION_DEFAULT.equals(this.profesion.getPvInCodigo()))){
 				this.addError(this.getPropertyFieldName("cliente.pvInCodigo"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
 			}
-			if((this.profesion.getPvStEstado()== null ||(Profesion.ESTADO_DEFAULT.equals(this.profesion.getPvStEstado())))){
+			if((!this.agregar) && (this.profesion.getPvStEstado()== null ||(Profesion.ESTADO_DEFAULT.equals(this.profesion.getPvStEstado())))){
 				this.addError(this.getPropertyFieldName("cliente.pvStEstado"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
 			}
@@ -185,6 +187,7 @@ public class ProfesionController  extends Controller{
                 this.profesionBo.agregar(this.profesion);
                 this.addInfo(null, Bundle.rcs.getString("datosAgregados"));
                 respuesta = "success";
+                this.reiniciarFiltro();
             }
         }catch(BusinessErrorHelper be){
             this.exceptionBussinessError(be);
@@ -233,6 +236,19 @@ public class ProfesionController  extends Controller{
         }
         return respuesta;
 	}
+	
+	/**
+     * Retorna una lista de selectItems que contienen estados del cliente
+     * @return Lista de objetos <code>SelectItem</code> que contienen los ID de los estados existentes
+     */
+	public List<SelectItem> getEstadoItems(){
+		List<SelectItem> items = new ArrayList<SelectItem>();
+		items.add(new SelectItem(Profesion.ESTADO_DEFAULT,   Bundle.rcs.getString("seleccion.valor")));
+		items.add(new SelectItem(Profesion.ESTADO_ACTIVO,    Profesion.ESTADO_ACTIVO_DESCRIPCION));
+		items.add(new SelectItem(Profesion.ESTADO_INACTIVO,  Profesion.ESTADO_INACTIVO_DESCRIPCION));
+		return items;
+	}
+	
         		
 	@Override
 	protected String getPropertyFieldName(String property) {

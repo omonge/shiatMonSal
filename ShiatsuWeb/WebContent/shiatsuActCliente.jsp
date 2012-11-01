@@ -72,6 +72,27 @@
 										<li><a href="shiatsuListaClientes.jsf?init=true">Mantenimiento</a></li>
 									  </ul>
 									</li>
+									<li>Tipo Alopecia
+									  <ul>
+										<li><a href="shiatsuActTipoAlopecia.jsf?init=true">Agregar</a></li>
+										<li><a href="shiatsuConstipoAlopecia.jsf?init=true">Consulta</a></li> 
+										<li><a href="shiatsuListaTipoAlopecia.jsf?init=true">Mantenimiento</a></li>
+									  </ul>
+									</li>
+									<li>Pa&iacute;s 
+									  <ul>
+										<li><a href="shiatsuActPais.jsf?init=true">Agregar</a></li>
+										<li><a href="shiatsuConsPais.jsf?init=true">Consulta</a></li>
+										<li><a href="shiatsuListaPais.jsf?init=true">Mantenimiento</a></li>
+									  </ul>
+									</li>
+									<li>Profesi&oacute;n
+									  <ul>
+										<li><a href="shiatsuActProfesion.jsf?init=true">Agregar</a></li>
+										<li><a href="shiatsuConsProfesion.jsf?init=true">Consulta</a></li>
+										<li><a href="shiatsuListaProfesion.jsf?init=true">Mantenimiento</a></li>
+									  </ul>
+									</li>
 								  </ul>
 								</li>
 								<li><a href="#">Salir</a> </li>
@@ -95,7 +116,7 @@
 			    </td>
 		  	    <td class="formPaddingData">
 		  	    	<h:inputText styleClass="inputText" id="txtPvLoCodigo"
-		  	    				 value="#{clienteController.cliente.pvStCodigo}" size="10" maxlength="10" disabled="#{!clienteController.agregar}">
+		  	    				 value="#{clienteController.cliente.pvStCodigo}" size="10" maxlength="10" disabled="#{!clienteController.agregar}" style="text-transform: uppercase">
 		  	    	</h:inputText> 
 		  	    	<h:message styleClass="error" id="msgTxtCodigo" for="txtPvLoCodigo" errorClass="error" infoClass="info" warnClass="warn"></h:message>
 		  	   </td>
@@ -107,7 +128,7 @@
 				    </td>
 			  	    <td class="formPaddingData">
 			  	    	<h:inputText styleClass="inputText" id="txtPvStNombre" 
-			  	    				 value="#{clienteController.cliente.pvStNombre}" size="50" maxlength="50">
+			  	    				 value="#{clienteController.cliente.pvStNombre}" size="50" maxlength="50" style="text-transform: uppercase">
 			  	    	</h:inputText> 
 			  	    	<h:message styleClass="error" id="msgTxtNombre" for="txtPvStNombre" errorClass="error" infoClass="info" warnClass="warn"></h:message>
 			  	   </td>
@@ -119,7 +140,7 @@
 			    </td>
 		  	    <td class="formPaddingData">
 		  	    	<h:inputText styleClass="inputText" id="txtPvStDireccion" 
-		  	    				 value="#{clienteController.cliente.pvStDireccion}" size="50" maxlength="50">
+		  	    				 value="#{clienteController.cliente.pvStDireccion}" size="50" maxlength="50" style="text-transform: uppercase">
 		  	    	</h:inputText> 
 		  	    	<h:message styleClass="error" id="msgTxtDireccion" for="txtPvStDireccion" errorClass="error" infoClass="info" warnClass="warn"></h:message>
 		  	   </td>
@@ -189,7 +210,7 @@
             <td class="Tit04Tabla" ><h:outputText styleClass="outputText" id="lblLugarProfesion" value="#{rcs['cliente.lugarProfesion']}"></h:outputText></td>
             <td class="formPaddingData">
               	<h:inputText styleClass="inputText" id="txtPvStLugarProfesion" 
-	  	    				 value="#{clienteController.cliente.pvStLugarProfesion}" size="50" maxlength="50">
+	  	    				 value="#{clienteController.cliente.pvStLugarProfesion}" size="50" maxlength="50" style="text-transform: uppercase">
 	  	    	</h:inputText>
                 <h:message styleClass="error" id="msgTxtPvStLugarProfesion" for="txtPvStLugarProfesion" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
             </td>

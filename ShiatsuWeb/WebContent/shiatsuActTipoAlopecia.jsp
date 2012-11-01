@@ -102,10 +102,61 @@
                 </nav>
                 <section id="main"> 
                     <div id="titulo" class="Tit_04_naranja">
-					<!-- InstanceBeginEditable name="titulo" --><h:outputText styleClass="outputText" value=""/><!-- InstanceEndEditable -->
+					<!-- InstanceBeginEditable name="titulo" --><h:outputText styleClass="outputText" value="#{rcs['titulo.tipoAlopecia.mantenimiento']}"/><!-- InstanceEndEditable -->
                     </div>
                     <div id="cuerpo" class="Text">
-						<!-- InstanceBeginEditable name="contenido" --> 
+						<!-- InstanceBeginEditable name="contenido" -->
+       <h:form  styleClass="form" id="form1" >
+       <h:inputHidden value="#{tipoAlopeciaController.init}" ></h:inputHidden>
+   <table border="0">
+		<tbody>
+		<c:if test="${!tipoAlopeciaController.agregar}">	
+			<tr>
+		  		<td class="Tit04Tabla">
+		  			<h:outputText styleClass="outputText" id="lnlPvInCodigo" value="#{rcs['tipoAlopecia.codigo']}"></h:outputText>
+			    </td>
+		  	    <td class="formPaddingData">
+		  	    	<h:inputText styleClass="inputText" id="txtPvInCodigo"
+		  	    				 value="#{tipoAlopeciaController.tipoAlopecia.pvInCodigo}" size="10" maxlength="10" disabled="#{!tipoAlopeciaController.agregar}">
+		  	    	</h:inputText> 
+		  	    	<h:message styleClass="error" id="msgTtxtPvInCodigo" for="txtPvInCodigo" errorClass="error" infoClass="info" warnClass="warn"></h:message>
+		  	   </td>
+		    </tr>
+		    </c:if>
+        <tr>
+            <td class="Tit04Tabla" ><h:outputText styleClass="outputText" id="lblPvStDescripcion" value="#{rcs['tipoAlopecia.descripcion']}"></h:outputText></td>
+            <td class="formPaddingData">
+              	<h:inputText styleClass="inputText" id="txtPvStDescripcion" 
+	  	    				 value="#{tipoAlopeciaController.tipoAlopecia.pvStDescripcion}" size="50" maxlength="50" style="text-transform: uppercase">
+	  	    	</h:inputText>
+                <h:message styleClass="error" id="msgTxtPvStDescripcion" for="txtPvStDescripcion" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
+            </td>
+        </tr>
+        
+        <c:if test="${!tipoAlopeciaController.agregar}">	
+			<tr>
+	            <td class="Tit04Tabla" ><h:outputText styleClass="outputText" id="lblEstado" value="#{rcs['tipoAlopecia.estado']}"/></td>
+	            <td class="formPaddingData">
+	                <h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInEstado" value="#{tipoAlopeciaController.tipoAlopecia.pvStEstado}">
+									<f:selectItems value="#{tipoAlopeciaController.estadoItems}"/>
+					</h:selectOneMenu>
+	                <h:message styleClass="error" id="msgTxtEstado" for="cmbPvInEstado" errorClass="error" infoClass="info" warnClass="warn"/>
+	            </td>
+	        </tr>
+		</c:if>
+		<tr>
+            <td colspan="2">
+	            <h:commandButton type="submit" value="#{rcs['boton.agregar']}"   styleClass="commandButton" id="btnAgregar"   rendered="#{tipoAlopeciaController.agregar}" 	action="#{tipoAlopeciaController.insertar}"></h:commandButton>
+	            <h:commandButton type="submit" value="#{rcs['boton.modificar']}" styleClass="commandButton" id="btnModificar" rendered="#{!tipoAlopeciaController.agregar}" 	action="#{tipoAlopeciaController.modificar}"></h:commandButton>
+	            <h:commandButton type="submit" value="#{rcs['boton.eliminar']}"  styleClass="commandButton" id="btnEliminar"  rendered="#{!tipoAlopeciaController.agregar}"  	action="#{tipoAlopeciaController.eliminar}" onclick="return confirmEliminar('e','tipoAlopecia');"></h:commandButton>
+			    <h:commandButton type="submit" value="#{rcs['boton.regresar']}"  styleClass="commandButton" id="bntRegresar"  action="#{tipoAlopeciaController.regresar}"></h:commandButton>	            
+            </td>
+        </tr>
+		</tbody>
+	</table>
+		
+		<h:messages styleClass="messages" id="messages1" globalOnly="true" infoClass="info" errorClass="error" warnClass="warn"></h:messages>
+	</h:form>
 					<!-- InstanceEndEditable -->   
                     </div>
                 </section>
