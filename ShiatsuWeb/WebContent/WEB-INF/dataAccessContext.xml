@@ -14,10 +14,15 @@ http://www.springframework.org/schema/jee http://www.springframework.org/schema/
         <property name="dataSource" ref="shiatsuDS" />
         <property name="mappingResources">
         	<list>
+        		  <value>com/shiatsu/domain/xml/Canton.hbm.xml</value>
         		  <value>com/shiatsu/domain/xml/Cliente.hbm.xml</value>
+        		  <value>com/shiatsu/domain/xml/Distrito.hbm.xml</value>
+        		  <value>com/shiatsu/domain/xml/Enfermedad.hbm.xml</value>
+        		  <value>com/shiatsu/domain/xml/Medicamento.hbm.xml</value>
         		  <value>com/shiatsu/domain/xml/TipoAlopecia.hbm.xml</value>
         		  <value>com/shiatsu/domain/xml/Pais.hbm.xml</value> 
-        		  <value>com/shiatsu/domain/xml/Profesion.hbm.xml</value> 
+        		  <value>com/shiatsu/domain/xml/Profesion.hbm.xml</value>
+        		  <value>com/shiatsu/domain/xml/Provincia.hbm.xml</value> 
         	</list>
         </property>
         <property name="hibernateProperties">
