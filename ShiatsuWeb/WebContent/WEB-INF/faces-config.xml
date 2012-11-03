@@ -37,6 +37,21 @@
 	            <property-class>com.shiatsu.bo.ProfesionBo</property-class>
 	            <value>#{profesionBo}</value>
         	</managed-property>
+        	<managed-property>
+	            <property-name>provinciaBo</property-name>
+	            <property-class>com.shiatsu.bo.ProvinciaBo</property-class>
+	            <value>#{provinciaBo}</value>
+        	</managed-property>
+        	<managed-property>
+	            <property-name>cantonBo</property-name>
+	            <property-class>com.shiatsu.bo.CantonBo</property-class>
+	            <value>#{cantonBo}</value>
+        	</managed-property>
+        	<managed-property>
+	            <property-name>distritoBo</property-name>
+	            <property-class>com.shiatsu.bo.DistritoBo</property-class>
+	            <value>#{distritoBo}</value>
+        	</managed-property>
 	 </managed-bean>
 	 
 	 <!-- ================ Managed Bean TipoAlopeciaController ================ -->

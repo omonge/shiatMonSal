@@ -46,9 +46,15 @@ public class Cliente implements Serializable {
 	private Integer pvInSexo;
 	private Long 	pvLoTelefonoCasa;
 	private Long 	pvLoTelefonoCelular;
-	private	Integer pvInTipoAlopecia;
+	private	Integer pvInTipoAlopecia; 
+	private	Integer pvInProvincia;
+	private	Integer pvInCanton;
+	private	Integer pvInDistrito;
 
 	public Cliente(){
+		this.pvInProvincia = null;
+		this.pvInCanton = null;
+		this.pvInDistrito = null;
 		this.pvStCodigo = null;
 		this.pvStDireccion = null;
 		this.pvInEstado = null;
@@ -299,6 +305,50 @@ public class Cliente implements Serializable {
 	 */
 	public void setPvInTipoAlopecia(Integer pvInTipoAlopecia) {
 		this.pvInTipoAlopecia = pvInTipoAlopecia;
+	}
+	
+	
+
+	/**
+	 * @return the pvInProvincia
+	 */
+	public Integer getPvInProvincia() {
+		return pvInProvincia;
+	}
+
+	/**
+	 * @param pvInProvincia the pvInProvincia to set
+	 */
+	public void setPvInProvincia(Integer pvInProvincia) {
+		this.pvInProvincia = pvInProvincia;
+	}
+
+	/**
+	 * @return the pvInCanton
+	 */
+	public Integer getPvInCanton() {
+		return pvInCanton;
+	}
+
+	/**
+	 * @param pvInCanton the pvInCanton to set
+	 */
+	public void setPvInCanton(Integer pvInCanton) {
+		this.pvInCanton = pvInCanton;
+	}
+
+	/**
+	 * @return the pvInDistrito
+	 */
+	public Integer getPvInDistrito() {
+		return pvInDistrito;
+	}
+
+	/**
+	 * @param pvInDistrito the pvInDistrito to set
+	 */
+	public void setPvInDistrito(Integer pvInDistrito) {
+		this.pvInDistrito = pvInDistrito;
 	}
 
 	/**

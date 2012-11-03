@@ -9,16 +9,22 @@ import java.util.List;
 import javax.faces.component.html.HtmlDataTable; 
 import javax.faces.model.SelectItem;
 
+import com.shiatsu.domain.Canton;
 import com.shiatsu.domain.Cita;
 import com.shiatsu.domain.Cliente;
+import com.shiatsu.domain.Distrito;
 import com.shiatsu.domain.Pais;
 import com.shiatsu.domain.Profesion;
+import com.shiatsu.domain.Provincia;
 import com.shiatsu.domain.TipoAlopecia;
 import com.shiatsu.web.bundles.Bundle;
 import com.utilidades.business.BusinessErrorHelper;
+import com.shiatsu.bo.CantonBo;
 import com.shiatsu.bo.ClienteBo;
+import com.shiatsu.bo.DistritoBo;
 import com.shiatsu.bo.PaisBo;
 import com.shiatsu.bo.ProfesionBo;
+import com.shiatsu.bo.ProvinciaBo;
 import com.shiatsu.bo.TipoAlopeciaBo;
 import com.shiatzu.util.Controller;
 
@@ -28,13 +34,17 @@ import com.shiatzu.util.Controller;
  */
 public class ClienteController extends Controller {
 	 
-    private HtmlDataTable listaDataTableCliente;
-    private List<Cliente> listaCliente; 
-    private Cliente 	  cliente;
-	private ClienteBo	  clienteBo;  
-	private PaisBo	  	  paisBo;  
-	private ProfesionBo	  profesionBo;  
-	private TipoAlopeciaBo	  tipoAlopeciaBo; 
+    private HtmlDataTable 	listaDataTableCliente;
+    private List<Cliente> 	listaCliente; 
+    private Cliente 	  	cliente;
+	private ClienteBo	  	clienteBo;  
+	private PaisBo	  	  	paisBo;  
+	private ProfesionBo	  	profesionBo;  
+	private TipoAlopeciaBo	tipoAlopeciaBo; 
+	private ProvinciaBo	  	provinciaBo; 
+	private CantonBo	  	cantonBo; 
+	private DistritoBo	  	distritoBo; 
+	
 	
 	public ClienteController() { 
 		this.reiniciarController();
@@ -234,6 +244,56 @@ public class ClienteController extends Controller {
 		items.add(new SelectItem(Cliente.SEXO_MASCULINO,  	Cliente.SEXO_MASCULINO_DESCRIPCION));
 		return items;
 	}
+	
+	/** Retorna una lista de selectItems que contiene las provincia
+     * @return Lista de objetos <code>SelectItem</code> que contienen las provincias
+     */
+	public List<SelectItem> getProvinciaItems(){
+		List<SelectItem> items = new ArrayList<SelectItem>();
+		items.add(new SelectItem(Provincia.PROVINCIA_DEFAULT,     Bundle.rcs.getString("seleccion.valor")));
+		List<Provincia> lista = this.provinciaBo.getProvincia();
+		for (Provincia provincia : lista) {
+			items.add(new SelectItem(provincia.getPvInCodigo(),  provincia.getPvStDescripcion()));
+		}
+		return items;
+	}
+	
+	/** Retorna una lista de selectItems que contiene los cantones
+     * @return Lista de objetos <code>SelectItem</code> que contienen los cantones
+     */
+	public List<SelectItem> getCantonItems(){
+		List<SelectItem> items = new ArrayList<SelectItem>();
+		items.add(new SelectItem(Canton.CANTON_DEFAULT,     Bundle.rcs.getString("seleccion.valor")));
+		if(this.cliente.getPvInProvincia()!=null){
+			Canton elCanton = new Canton();
+			elCanton.getPvPrProvincia().setPvInCodigo(this.cliente.getPvInProvincia());
+			List<Canton> lista = this.cantonBo.getCanton(elCanton);
+			for (Canton canton : lista) {
+				items.add(new SelectItem(canton.getPvInCodigo(),  canton.getPvStDescripcion()));
+			}
+		}
+		return items;
+	}
+	
+	
+	/** Retorna una lista de selectItems que contiene los distritos
+     * @return Lista de objetos <code>SelectItem</code> que contienen los distritos
+     */
+	public List<SelectItem> getDistritoItems(){
+		List<SelectItem> items = new ArrayList<SelectItem>();
+		items.add(new SelectItem(Distrito.DISTRITO_DEFAULT,     Bundle.rcs.getString("seleccion.valor")));
+		if(this.cliente.getPvInCanton()!=null){
+			Distrito elDistrito = new Distrito();
+			elDistrito.getPvPrProvincia().setPvInCodigo(this.cliente.getPvInProvincia());
+			elDistrito.getPvCaCanton().setPvInCodigo(this.cliente.getPvInCanton());
+			List<Distrito> lista = this.distritoBo.getDistrito(elDistrito);
+			for (Distrito distrito : lista) {
+				items.add(new SelectItem(distrito.getPvInCodigo(),  distrito.getPvStDescripcion()));
+			}
+		}
+		return items;
+	}
+	
 	/**
      * Retorna una lista de selectItems que contienen frecuencia de citas del cliente
      * @return Lista de objetos <code>SelectItem</code> que contienen las frecuencia de citas del cliente
@@ -503,6 +563,48 @@ public class ClienteController extends Controller {
 	 */
 	public void setTipoAlopeciaBo(TipoAlopeciaBo tipoAlopeciaBo) {
 		this.tipoAlopeciaBo = tipoAlopeciaBo;
+	}
+
+	/**
+	 * @return the provinciaBo
+	 */
+	public ProvinciaBo getProvinciaBo() {
+		return provinciaBo;
+	}
+
+	/**
+	 * @param provinciaBo the provinciaBo to set
+	 */
+	public void setProvinciaBo(ProvinciaBo provinciaBo) {
+		this.provinciaBo = provinciaBo;
+	}
+
+	/**
+	 * @return the cantonBo
+	 */
+	public CantonBo getCantonBo() {
+		return cantonBo;
+	}
+
+	/**
+	 * @param cantonBo the cantonBo to set
+	 */
+	public void setCantonBo(CantonBo cantonBo) {
+		this.cantonBo = cantonBo;
+	}
+
+	/**
+	 * @return the distritoBo
+	 */
+	public DistritoBo getDistritoBo() {
+		return distritoBo;
+	}
+
+	/**
+	 * @param distritoBo the distritoBo to set
+	 */
+	public void setDistritoBo(DistritoBo distritoBo) {
+		this.distritoBo = distritoBo;
 	}
 
 	

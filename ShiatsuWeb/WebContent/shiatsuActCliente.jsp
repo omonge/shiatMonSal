@@ -134,6 +134,42 @@
 			  	   </td>
 			</tr>
 			<tr>
+			  		<td class="Tit04Tabla"> 
+			  			<h:outputText styleClass="outputText" id="lblProvincia"
+						value="#{rcs['cliente.provincia']}"></h:outputText>
+				    </td>
+			  	    <td class="formPaddingData">
+			  	    	 <h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInProvincia" value="#{clienteController.cliente.pvInProvincia}">
+									<f:selectItems value="#{clienteController.provinciaItems}"/>
+							</h:selectOneMenu>
+		                <h:message styleClass="error" id="msgCmbPvInProvincia" for="cmbPvInProvincia" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
+		           </td>
+			</tr>
+			<tr>
+			  		<td class="Tit04Tabla"> 
+			  			<h:outputText styleClass="outputText" id="lblCanton"
+						value="#{rcs['cliente.canton']}"></h:outputText>
+				    </td>
+			  	    <td class="formPaddingData">
+			  	    	 <h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInCanton" value="#{clienteController.cliente.pvInCanton}">
+									<f:selectItems value="#{clienteController.cantonItems}"/>
+							</h:selectOneMenu>
+		                <h:message styleClass="error" id="msgCmbPvInCanton" for="cmbPvInCanton" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
+		           </td>
+			</tr>
+			<tr>
+			  		<td class="Tit04Tabla"> 
+			  			<h:outputText styleClass="outputText" id="lblDistrito"
+						value="#{rcs['cliente.canton']}"></h:outputText>
+				    </td>
+			  	    <td class="formPaddingData">
+			  	    	 <h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInCanton" value="#{clienteController.cliente.pvInDistrito}">
+									<f:selectItems value="#{clienteController.distritoItems}"/>
+							</h:selectOneMenu>
+		                <h:message styleClass="error" id="msgCmbPvInDistrito" for="cmbPvInDistrito" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
+		           </td>
+			</tr>
+			<tr>
 		  		<td class="Tit04Tabla">
 		  			<h:outputText styleClass="outputText" id="lblDireccion"
 					value="#{rcs['cliente.direccion']}"></h:outputText>

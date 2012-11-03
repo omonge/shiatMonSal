@@ -33,6 +33,39 @@ http://www.springframework.org/schema/jee http://www.springframework.org/schema/
         </property> 
     </bean>
     
+    
+    <bean id="cantonBo" parent="shiatsuTP">
+        <property name="target">
+            <bean class="com.shiatsu.bo.impl.CantonBoImpl">
+                <property name="cantonDao" ref="cantonDao"/>
+            </bean>
+        </property> 
+    </bean>
+    
+    <bean id="distritoBo" parent="shiatsuTP">
+        <property name="target">
+            <bean class="com.shiatsu.bo.impl.DistritoBoImpl">
+                <property name="distritoDao" ref="distritoDao"/>
+            </bean>
+        </property> 
+    </bean>
+    
+    <bean id="enfermedadBo" parent="shiatsuTP">
+        <property name="target">
+            <bean class="com.shiatsu.bo.impl.EnfermedadBoImpl">
+                <property name="enfermedadDao" ref="enfermedadDao"/>
+            </bean>
+        </property> 
+    </bean>
+    
+    <bean id="medicamentoBo" parent="shiatsuTP">
+        <property name="target">
+            <bean class="com.shiatsu.bo.impl.MedicamentoBoImpl">
+                <property name="medicamentoDao" ref="medicamentoDao"/>
+            </bean>
+        </property> 
+    </bean>
+ 
     <bean id="tipoAlopeciaBo" parent="shiatsuTP">
         <property name="target">
             <bean class="com.shiatsu.bo.impl.TipoAlopeciaBoImpl">
@@ -57,5 +90,12 @@ http://www.springframework.org/schema/jee http://www.springframework.org/schema/
         </property> 
     </bean>
     
+    <bean id="provinciaBo" parent="shiatsuTP">
+        <property name="target">
+            <bean class="com.shiatsu.bo.impl.ProvinciaBoImpl">
+                <property name="provinciaDao" ref="provinciaDao"/>
+            </bean>
+        </property> 
+    </bean>
     
 </beans>

@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Provincia  implements Serializable{
 
 	private static final long serialVersionUID = 4655663135297201540L;
-	public static final Integer PROFESION_DEFAULT   = new Integer(0);
+	public static final Integer PROVINCIA_DEFAULT   = new Integer(0);
 	public static final String ESTADO_DEFAULT	= new String("");
 	public static final String ESTADO_ACTIVO   	= new String("A");
 	public static final String ESTADO_INACTIVO 	= new String("I");

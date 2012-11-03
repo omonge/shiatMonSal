@@ -24,6 +24,10 @@
         <property name="pvLoTelefonoCelular" 	column="TELEFONO_CELULAR" 		type="java.lang.Long" 		length="10"/>
         <property name="pvInTipoAlopecia" 		column="TIPO_ALOPECIA" 			type="java.lang.Integer"	length="3"/>
         
+        <property name="pvInProvincia" 			column="PROVINCIA" 				type="java.lang.Integer"	length="3"/>
+        <property name="pvInCanton" 			column="CANTON" 				type="java.lang.Integer"	length="3"/>
+        <property name="pvInDistrito" 			column="DISTRITO"				type="java.lang.Integer"	length="3"/>
+        
     </class>
 </hibernate-mapping>
 
