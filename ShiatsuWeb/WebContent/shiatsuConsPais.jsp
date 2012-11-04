@@ -15,7 +15,7 @@
 <!-- InstanceEndEditable --> 
 	<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
 	<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
-	<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+	<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %> 
 	<%@ taglib uri="http://www.jenia.org/jsf/popup" prefix="jp" %>
 	<%@ taglib uri="http://myfaces.apache.org/tomahawk" prefix="t"%>
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
@@ -72,6 +72,20 @@
 										<li><a href="shiatsuListaClientes.jsf?init=true">Mantenimiento</a></li>
 									  </ul>
 									</li>
+									<li>Enfermedad
+									  <ul>
+										<li><a href="shiatsuActEnfermedad.jsf?init=true">Agregar</a></li>
+										<li><a href="shiatsuConsEnfermedad.jsf?init=true">Consulta</a></li> 
+										<li><a href="shiatsuListaEnfermedad.jsf?init=true">Mantenimiento</a></li>
+									  </ul>
+									</li>
+									<li>Medicamento
+									  <ul>
+										<li><a href="shiatsuActMedicamaento.jsf?init=true">Agregar</a></li>
+										<li><a href="shiatsuConsMedicamento.jsf?init=true">Consulta</a></li> 
+										<li><a href="shiatsuListaMedicamento.jsf?init=true">Mantenimiento</a></li>
+									  </ul>
+									</li>
 									<li>Tipo Alopecia
 									  <ul>
 										<li><a href="shiatsuActTipoAlopecia.jsf?init=true">Agregar</a></li>
@@ -102,7 +116,7 @@
                 </nav>
                 <section id="main"> 
                     <div id="titulo" class="Tit_04_naranja">
-					<!-- InstanceBeginEditable name="titulo" --><h:outputText styleClass="outputText" value="#{rcs['titulo.pais.mantenimiento']}"/><!-- InstanceEndEditable -->
+					<!-- InstanceBeginEditable name="titulo" --><h:outputText styleClass="outputText" value="#{rcs['titulo.pais.consulta']}"/><!-- InstanceEndEditable -->
                     </div>
                     <div id="cuerpo" class="Text">
 						<!-- InstanceBeginEditable name="contenido" -->
@@ -177,12 +191,10 @@
 										value="#{rcs['pais.codigo']}"
 										id="lbl1"></h:outputText>
 								</f:facet>
-									<h:commandLink styleClass="commandLink" id="link1" action="#{paisController.cargarObjeto}">
-										<h:outputText styleClass="pad-right" id="text1"
+									 <h:outputText styleClass="pad-right" id="text1"
 											value="#{var.pvInCodigo}">
 										</h:outputText>
-										<f:attribute value="center" name="align" />
-									</h:commandLink>
+										<f:attribute value="center" name="align" /> 
 							</h:column>
 							
 							<h:column id="Columna2">

@@ -46,7 +46,7 @@ public class DistritoDaoImpl extends HibernateDaoSupport implements DistritoDao 
 	@Override
 	public List<Distrito> getDistrito(Distrito distrito) {
 		HibernateTemplate ht = this.getHibernateTemplate();
-        String hql = "FROM Profesion profesion WHERE ";
+        String hql = "FROM Distrito distrito WHERE ";
         
         List<Object> filtros   = new ArrayList<Object>();
         List<Distrito> lista = new ArrayList<Distrito>();
@@ -90,7 +90,7 @@ public class DistritoDaoImpl extends HibernateDaoSupport implements DistritoDao 
         }
         if((distrito.getPvCaCanton() != null) && (distrito.getPvCaCanton().getPvInCodigo() != null) &&  (!Canton.CANTON_DEFAULT.equals(distrito.getPvCaCanton().getPvInCodigo()))  ){
             if(and){
-                hql += "AND (distrito.pvCaCanton.pvInCodigo 0 ?) ";
+                hql += "AND (distrito.pvCaCanton.pvInCodigo = ?) ";
             }else{
                 hql += "(distrito.pvCaCanton.pvInCodigo = ?) ";
             }

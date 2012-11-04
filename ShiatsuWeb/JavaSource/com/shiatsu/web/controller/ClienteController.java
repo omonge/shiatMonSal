@@ -264,7 +264,7 @@ public class ClienteController extends Controller {
 	public List<SelectItem> getCantonItems(){
 		List<SelectItem> items = new ArrayList<SelectItem>();
 		items.add(new SelectItem(Canton.CANTON_DEFAULT,     Bundle.rcs.getString("seleccion.valor")));
-		if(this.cliente.getPvInProvincia()!=null){
+		if((this.cliente.getPvInProvincia()!=null) && (!Provincia.PROVINCIA_DEFAULT.equals(this.cliente.getPvInProvincia()))){
 			Canton elCanton = new Canton();
 			elCanton.getPvPrProvincia().setPvInCodigo(this.cliente.getPvInProvincia());
 			List<Canton> lista = this.cantonBo.getCanton(elCanton);
@@ -282,7 +282,7 @@ public class ClienteController extends Controller {
 	public List<SelectItem> getDistritoItems(){
 		List<SelectItem> items = new ArrayList<SelectItem>();
 		items.add(new SelectItem(Distrito.DISTRITO_DEFAULT,     Bundle.rcs.getString("seleccion.valor")));
-		if(this.cliente.getPvInCanton()!=null){
+		if((this.cliente.getPvInCanton()!=null) && (!Canton.CANTON_DEFAULT.equals(this.cliente.getPvInCanton()))){
 			Distrito elDistrito = new Distrito();
 			elDistrito.getPvPrProvincia().setPvInCodigo(this.cliente.getPvInProvincia());
 			elDistrito.getPvCaCanton().setPvInCodigo(this.cliente.getPvInCanton());
@@ -293,7 +293,7 @@ public class ClienteController extends Controller {
 		}
 		return items;
 	}
-	
+
 	/**
      * Retorna una lista de selectItems que contienen frecuencia de citas del cliente
      * @return Lista de objetos <code>SelectItem</code> que contienen las frecuencia de citas del cliente

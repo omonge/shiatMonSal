@@ -89,6 +89,30 @@
 	            <value>#{profesionBo}</value>
         	</managed-property>
 	 </managed-bean>
+	 
+	 <!-- ================ Managed Bean EnfermedadController ================ -->
+	 <managed-bean>
+	        <managed-bean-name>enfermedadController</managed-bean-name>
+	        <managed-bean-class>com.shiatsu.web.controller.EnfermedadController</managed-bean-class>
+	        <managed-bean-scope>session</managed-bean-scope>
+	        <managed-property>
+	            <property-name>enfermedadBo</property-name>
+	            <property-class>com.shiatsu.bo.EnfermedadBo</property-class>
+	            <value>#{enfermedadBo}</value>
+        	</managed-property>
+	 </managed-bean>
+	 
+	  <!-- ================ Managed Bean MedicamentoeController ================ -->
+	 <managed-bean>
+	        <managed-bean-name>medicamentoController</managed-bean-name>
+	        <managed-bean-class>com.shiatsu.web.controller.MedicamentoController</managed-bean-class>
+	        <managed-bean-scope>session</managed-bean-scope>
+	        <managed-property>
+	            <property-name>medicamentoBo</property-name>
+	            <property-class>com.shiatsu.bo.MedicamentoBo</property-class>
+	            <value>#{medicamentoBo}</value>
+        	</managed-property>
+	 </managed-bean>
 	 <!-- *************************  Navegación ************************************* -->
 
 	<!-- ================ Navigation ClienteController ================ -->
@@ -207,4 +231,59 @@
 	    </navigation-rule>
 		
 		
+	 <!-- ================ Navigation MedicamentoController ================ -->
+	 <navigation-rule>
+	    	<from-view-id>/shiatsuListaMedicamento.jsp</from-view-id>
+	    	<navigation-case>
+	    		<from-action>#{medicamentoController.cargarObjeto}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuActMedicamento.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{medicamentoController.irAgregar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuActMedicamento.jsp</to-view-id>
+	    	</navigation-case>
+	    </navigation-rule>
+		<navigation-rule>
+	    	<from-view-id>/shiatsuActMedicamento.jsp</from-view-id>
+	    	<navigation-case>
+	    		<from-action>#{medicamentoController.regresar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuListaMedicamento.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{medicamentoController.eliminar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuListaMedicamento.jsp</to-view-id>
+	    	</navigation-case>
+	    </navigation-rule>
+	
+	 <!-- ================ Navigation EnfermedadController ================ -->
+	 <navigation-rule>
+	    	<from-view-id>/shiatsuListaEnfermedad.jsp</from-view-id>
+	    	<navigation-case>
+	    		<from-action>#{enfermedadController.cargarObjeto}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuActEnfermedad.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{enfermedadController.irAgregar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuActEnfermedad.jsp</to-view-id>
+	    	</navigation-case>
+	    </navigation-rule>
+		<navigation-rule>
+	    	<from-view-id>/shiatsuActEnfermedad.jsp</from-view-id>
+	    	<navigation-case>
+	    		<from-action>#{enfermedadController.regresar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuListaEnfermedad.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{enfermedadController.eliminar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuListaEnfermedad.jsp</to-view-id>
+	    	</navigation-case>
+	    </navigation-rule>	
 </faces-config>

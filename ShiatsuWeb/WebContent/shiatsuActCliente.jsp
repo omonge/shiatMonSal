@@ -15,7 +15,7 @@
 <!-- InstanceEndEditable --> 
 	<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
 	<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
-	<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+	<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %> 
 	<%@ taglib uri="http://www.jenia.org/jsf/popup" prefix="jp" %>
 	<%@ taglib uri="http://myfaces.apache.org/tomahawk" prefix="t"%>
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
@@ -70,6 +70,20 @@
 										<li><a href="shiatsuActCliente.jsf?init=true">Agregar</a></li>
 										<li><a href="shiatsuConsClientes.jsf?init=true">Consulta</a></li> 
 										<li><a href="shiatsuListaClientes.jsf?init=true">Mantenimiento</a></li>
+									  </ul>
+									</li>
+									<li>Enfermedad
+									  <ul>
+										<li><a href="shiatsuActEnfermedad.jsf?init=true">Agregar</a></li>
+										<li><a href="shiatsuConsEnfermedad.jsf?init=true">Consulta</a></li> 
+										<li><a href="shiatsuListaEnfermedad.jsf?init=true">Mantenimiento</a></li>
+									  </ul>
+									</li>
+									<li>Medicamento
+									  <ul>
+										<li><a href="shiatsuActMedicamaento.jsf?init=true">Agregar</a></li>
+										<li><a href="shiatsuConsMedicamento.jsf?init=true">Consulta</a></li> 
+										<li><a href="shiatsuListaMedicamento.jsf?init=true">Mantenimiento</a></li>
 									  </ul>
 									</li>
 									<li>Tipo Alopecia
@@ -139,7 +153,7 @@
 						value="#{rcs['cliente.provincia']}"></h:outputText>
 				    </td>
 			  	    <td class="formPaddingData">
-			  	    	 <h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInProvincia" value="#{clienteController.cliente.pvInProvincia}">
+			  	    	 <h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInProvincia" value="#{clienteController.cliente.pvInProvincia}" onchange="submit();" >
 									<f:selectItems value="#{clienteController.provinciaItems}"/>
 							</h:selectOneMenu>
 		                <h:message styleClass="error" id="msgCmbPvInProvincia" for="cmbPvInProvincia" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
@@ -151,7 +165,7 @@
 						value="#{rcs['cliente.canton']}"></h:outputText>
 				    </td>
 			  	    <td class="formPaddingData">
-			  	    	 <h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInCanton" value="#{clienteController.cliente.pvInCanton}">
+			  	    	 <h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInCanton" value="#{clienteController.cliente.pvInCanton}"  onchange="submit();">
 									<f:selectItems value="#{clienteController.cantonItems}"/>
 							</h:selectOneMenu>
 		                <h:message styleClass="error" id="msgCmbPvInCanton" for="cmbPvInCanton" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
@@ -163,7 +177,7 @@
 						value="#{rcs['cliente.canton']}"></h:outputText>
 				    </td>
 			  	    <td class="formPaddingData">
-			  	    	 <h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInCanton" value="#{clienteController.cliente.pvInDistrito}">
+			  	    	 <h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInDistrito" value="#{clienteController.cliente.pvInDistrito}">
 									<f:selectItems value="#{clienteController.distritoItems}"/>
 							</h:selectOneMenu>
 		                <h:message styleClass="error" id="msgCmbPvInDistrito" for="cmbPvInDistrito" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
