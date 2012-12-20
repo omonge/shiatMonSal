@@ -54,7 +54,31 @@
         	</managed-property>
 	 </managed-bean>
 	 
-	 <!-- ================ Managed Bean TipoAlopeciaController ================ -->
+	 <!-- ================ Managed Bean DrogaController ================ -->
+	 <managed-bean>
+	        <managed-bean-name>drogaController</managed-bean-name>
+	        <managed-bean-class>com.shiatsu.web.controller.DrogaController</managed-bean-class>
+	        <managed-bean-scope>session</managed-bean-scope>
+	        <managed-property>
+	            <property-name>drogaBo</property-name>
+	            <property-class>com.shiatsu.bo.DrogaBo</property-class>
+	            <value>#{drogaBo}</value>
+        	</managed-property>
+	 </managed-bean>
+
+	 <!-- ================ Managed Bean TipoClienteController ================ -->
+	 <managed-bean>
+	        <managed-bean-name>tipoClienteController</managed-bean-name>
+	        <managed-bean-class>com.shiatsu.web.controller.TipoClienteController</managed-bean-class>
+	        <managed-bean-scope>session</managed-bean-scope>
+	        <managed-property>
+	            <property-name>tipoClienteBo</property-name>
+	            <property-class>com.shiatsu.bo.TipoClienteBo</property-class>
+	            <value>#{tipoClienteBo}</value>
+        	</managed-property>
+	 </managed-bean>
+
+	  <!-- ================ Managed Bean TipoAlopeciaController ================ -->
 	 <managed-bean>
 	        <managed-bean-name>tipoAlopeciaController</managed-bean-name>
 	        <managed-bean-class>com.shiatsu.web.controller.TipoAlopeciaController</managed-bean-class>
@@ -102,7 +126,7 @@
         	</managed-property>
 	 </managed-bean>
 	 
-	  <!-- ================ Managed Bean MedicamentoeController ================ -->
+	  <!-- ================ Managed Bean MedicamentoController ================ -->
 	 <managed-bean>
 	        <managed-bean-name>medicamentoController</managed-bean-name>
 	        <managed-bean-class>com.shiatsu.web.controller.MedicamentoController</managed-bean-class>
@@ -111,6 +135,28 @@
 	            <property-name>medicamentoBo</property-name>
 	            <property-class>com.shiatsu.bo.MedicamentoBo</property-class>
 	            <value>#{medicamentoBo}</value>
+        	</managed-property>
+	 </managed-bean>
+	  <!-- ================ Managed Bean SuministroController ================ -->
+	  <managed-bean>
+	        <managed-bean-name>suministroController</managed-bean-name>
+	        <managed-bean-class>com.shiatsu.web.controller.SuministroController</managed-bean-class>
+	        <managed-bean-scope>session</managed-bean-scope>
+	        <managed-property>
+	            <property-name>suministroBo</property-name>
+	            <property-class>com.shiatsu.bo.SuministroBo</property-class>
+	            <value>#{suministroBo}</value>
+        	</managed-property>
+	 </managed-bean>
+	  <!-- ================ Managed Bean UsuarioController ================ -->
+	 <managed-bean>
+	        <managed-bean-name>usuarioController</managed-bean-name>
+	        <managed-bean-class>com.shiatsu.web.controller.UsuarioController</managed-bean-class>
+	        <managed-bean-scope>session</managed-bean-scope>
+	        <managed-property>
+	            <property-name>usuarioBo</property-name>
+	            <property-class>com.shiatsu.bo.UsuarioBo</property-class>
+	            <value>#{usuarioBo}</value>
         	</managed-property>
 	 </managed-bean>
 	 <!-- *************************  Navegación ************************************* -->
@@ -286,4 +332,115 @@
 	    		<to-view-id>/shiatsuListaEnfermedad.jsp</to-view-id>
 	    	</navigation-case>
 	    </navigation-rule>	
+	    <navigation-rule>
+	    	<from-view-id>/shiatsuListaDroga.jsp</from-view-id>
+	    	<navigation-case>
+	    		<from-action>#{drogaController.cargarObjeto}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuActDroga.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{drogaController.irAgregar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuActDroga.jsp</to-view-id>
+	    	</navigation-case>
+	    </navigation-rule>
+	    
+	    <navigation-rule>
+	    	<from-view-id>/shiatsuActDroga.jsp</from-view-id>
+	    	<navigation-case>
+	    		<from-action>#{drogaController.regresar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuListaDroga.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{drogaController.eliminar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuListaDroga.jsp</to-view-id>
+	    	</navigation-case>
+	    </navigation-rule>
+
+	    <navigation-rule>
+	    	<from-view-id>/shiatsuListaTipoCliente.jsp</from-view-id>
+	    	<navigation-case>
+	    		<from-action>#{tipoClienteController.cargarObjeto}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuActTipoCliente.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{tipoClienteController.irAgregar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuActTipoCliente.jsp</to-view-id>
+	    	</navigation-case>
+	    </navigation-rule>
+	    
+	    <navigation-rule>
+	    	<from-view-id>/shiatsuActTipoCliente.jsp</from-view-id>
+	    	<navigation-case>
+	    		<from-action>#{tipoClienteController.regresar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuListaTipoCliente.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{tipoClienteController.eliminar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuListaTipoCliente.jsp</to-view-id>
+	    	</navigation-case>
+	    </navigation-rule>
+
+	    <navigation-rule>
+	    	<from-view-id>/shiatsuListaUsuario.jsp</from-view-id>
+	    	<navigation-case>
+	    		<from-action>#{usuarioController.cargarObjeto}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuActUsuario.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{usuarioController.irAgregar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuActUsuario.jsp</to-view-id>
+	    	</navigation-case>
+	    </navigation-rule>
+	    
+	    <navigation-rule>
+	    	<from-view-id>/shiatsuActUsuario.jsp</from-view-id>
+	    	<navigation-case>
+	    		<from-action>#{usuarioController.regresar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuListaUsuario.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{usuarioController.eliminar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuListaUsuario.jsp</to-view-id>
+	    	</navigation-case>
+	    </navigation-rule>
+
+	     <navigation-rule>
+	    	<from-view-id>/shiatsuListaSuministro.jsp</from-view-id>
+	    	<navigation-case>
+	    		<from-action>#{suministroController.cargarObjeto}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuActSuministro.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{suministroController.irAgregar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuActSuministro.jsp</to-view-id>
+	    	</navigation-case>
+	    </navigation-rule>
+	    
+	    <navigation-rule>
+	    	<from-view-id>/shiatsuActSuministro.jsp</from-view-id>
+	    	<navigation-case>
+	    		<from-action>#{suministroController.regresar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuListaSuministro.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{suministroController.eliminar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuListaSuministro.jsp</to-view-id>
+	    	</navigation-case>
+	    </navigation-rule>
 </faces-config>

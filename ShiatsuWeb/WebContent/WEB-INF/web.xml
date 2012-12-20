@@ -69,13 +69,12 @@
 		<servlet-name>Jenia internal servlet</servlet-name>
 		<servlet-class>org.jenia.faces.util.Servlet</servlet-class>
 		<load-on-startup>2</load-on-startup>
+	</servlet>	
+	 <servlet>
+		<servlet-name>Resource Servlet</servlet-name>
+		<servlet-class>org.primefaces.resource.ResourceServlet</servlet-class>
+		<load-on-startup>2</load-on-startup>
 	</servlet>
-	<servlet>
-
-<servlet-name>Resource Servlet</servlet-name>
-	<servlet-class>org.primefaces.resource.ResourceServlet</servlet-class>
-	<load-on-startup>2</load-on-startup>
-</servlet>
 	<!-- SERVLETS MAPINGS-->
   <servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>

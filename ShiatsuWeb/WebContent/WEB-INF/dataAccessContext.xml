@@ -17,12 +17,16 @@ http://www.springframework.org/schema/jee http://www.springframework.org/schema/
         		  <value>com/shiatsu/domain/xml/Canton.hbm.xml</value>
         		  <value>com/shiatsu/domain/xml/Cliente.hbm.xml</value>
         		  <value>com/shiatsu/domain/xml/Distrito.hbm.xml</value>
+        		  <value>com/shiatsu/domain/xml/Droga.hbm.xml</value>
         		  <value>com/shiatsu/domain/xml/Enfermedad.hbm.xml</value>
         		  <value>com/shiatsu/domain/xml/Medicamento.hbm.xml</value>
-        		  <value>com/shiatsu/domain/xml/TipoAlopecia.hbm.xml</value>
+                  <value>com/shiatsu/domain/xml/TipoAlopecia.hbm.xml</value>
+                  <value>com/shiatsu/domain/xml/TipoCliente.hbm.xml</value>
         		  <value>com/shiatsu/domain/xml/Pais.hbm.xml</value> 
         		  <value>com/shiatsu/domain/xml/Profesion.hbm.xml</value>
-        		  <value>com/shiatsu/domain/xml/Provincia.hbm.xml</value> 
+                  <value>com/shiatsu/domain/xml/Provincia.hbm.xml</value>
+                  <value>com/shiatsu/domain/xml/Suministro.hbm.xml</value>
+        		  <value>com/shiatsu/domain/xml/Usuario.hbm.xml</value>
         	</list>
         </property>
         <property name="hibernateProperties">
@@ -47,11 +51,15 @@ http://www.springframework.org/schema/jee http://www.springframework.org/schema/
     <bean id="cantonDao" 		class="com.shiatsu.dao.impl.CantonDaoImpl" 			parent="abstractShiatsuDAO" />
     <bean id="clienteDao" 		class="com.shiatsu.dao.impl.ClienteDaoImpl" 		parent="abstractShiatsuDAO" />
     <bean id="distritoDao" 		class="com.shiatsu.dao.impl.DistritoDaoImpl" 		parent="abstractShiatsuDAO" />
+    <bean id="drogaDao" 		class="com.shiatsu.dao.impl.DrogaDaoImpl" 			parent="abstractShiatsuDAO" />
     <bean id="enfermedadDao" 	class="com.shiatsu.dao.impl.EnfermedadDaoImpl" 		parent="abstractShiatsuDAO" />
     <bean id="medicamentoDao" 	class="com.shiatsu.dao.impl.MedicamentoDaoImpl" 	parent="abstractShiatsuDAO" />
-    <bean id="tipoAlopeciaDao" 	class="com.shiatsu.dao.impl.TipoAlopeciaDaoImpl" 	parent="abstractShiatsuDAO" />
+    <bean id="tipoAlopeciaDao"  class="com.shiatsu.dao.impl.TipoAlopeciaDaoImpl"    parent="abstractShiatsuDAO" />
+    <bean id="tipoClienteDao"   class="com.shiatsu.dao.impl.TipoClienteDaoImpl"     parent="abstractShiatsuDAO" />
     <bean id="paisDao" 			class="com.shiatsu.dao.impl.PaisDaoImpl" 			parent="abstractShiatsuDAO" />
     <bean id="profesionDao" 	class="com.shiatsu.dao.impl.ProfesionDaoImpl" 		parent="abstractShiatsuDAO" />
-    <bean id="provinciaDao" 	class="com.shiatsu.dao.impl.ProvinciaDaoImpl" 		parent="abstractShiatsuDAO" />
+    <bean id="provinciaDao"     class="com.shiatsu.dao.impl.ProvinciaDaoImpl"       parent="abstractShiatsuDAO" />
+    <bean id="suministroDao"    class="com.shiatsu.dao.impl.SuministroDaoImpl"      parent="abstractShiatsuDAO" />
+    <bean id="usuarioDao"       class="com.shiatsu.dao.impl.UsuarioDaoImpl"         parent="abstractShiatsuDAO" />
     
 </beans>
