@@ -6,18 +6,18 @@ import java.util.List;
 import javax.faces.component.html.HtmlDataTable;
 import javax.faces.model.SelectItem;
 
-import com.shiatsu.bo.DrogaBo;
-import com.shiatsu.domain.Droga;
+import com.shiatsu.bo.SucursalBo;
+import com.shiatsu.domain.Sucursal;
 import com.shiatsu.web.bundles.Bundle;
 import com.shiatzu.util.Controller;
 import com.utilidades.business.BusinessErrorHelper;
 
-public class DrogaController  extends Controller{
+public class SucursalController  extends Controller{
 
 	private HtmlDataTable     	  listaDataTable;
-    private List<Droga>    lista;
-    private Droga 	  	  droga;
-	private DrogaBo	  	  drogaBo;  
+    private List<Sucursal>    lista;
+    private Sucursal 	  	  sucursal;
+	private SucursalBo	  	  sucursalBo;  
 	
 
 	 /**
@@ -32,7 +32,7 @@ public class DrogaController  extends Controller{
        return init;
 	}
 	
-	public DrogaController() {
+	public SucursalController() {
 		this.reiniciarController();
 	}
 
@@ -45,13 +45,13 @@ public class DrogaController  extends Controller{
 	@Override
 	protected void reiniciarFiltro() {
 		this.agregar = Boolean.TRUE;
-		this.droga = new Droga();
+		this.sucursal = new Sucursal();
 	}
 
 	@Override
 	protected void reiniciarDatos() {
 		this.listaDataTable = new HtmlDataTable();
-		this.lista = new ArrayList<Droga>();
+		this.lista = new ArrayList<Sucursal>();
 	}
 	
 
@@ -64,7 +64,7 @@ public class DrogaController  extends Controller{
         boolean correcto = false;
 
         
-    	if ((this.droga.getPvStDescripcion() != null) && (!"".equals(this.droga.getPvStDescripcion()))) {
+    	if ((this.sucursal.getPvStDescripcion() != null) && (!"".equals(this.sucursal.getPvStDescripcion()))) {
             correcto = true;
     	}
         return correcto;
@@ -76,7 +76,7 @@ public class DrogaController  extends Controller{
      */
     private boolean validarObjetoId() { 
         boolean correcto = false;
-        if((this.droga.getPvInCodigo()!=null) && !(this.droga.getPvInCodigo().equals(Droga.DROGA_DEFAULT))) {
+        if((this.sucursal.getPvInCodigo()!=null) && !(this.sucursal.getPvInCodigo().equals(Sucursal.DEFAULT))) {
         	correcto = true;
         }
         return correcto;
@@ -92,14 +92,14 @@ public class DrogaController  extends Controller{
         String respuesta = "error";
         this.reiniciarDatos();
         if (this.validarObjetoId()) {
-            Droga droga = this.drogaBo.buscar(this.droga);
-            if (droga != null) {
-                this.lista.add(droga);
+            Sucursal sucursal = this.sucursalBo.buscar(this.sucursal);
+            if (sucursal != null) {
+                this.lista.add(sucursal);
             }
             respuesta = "success";
         } else{
         	if (this.validarFiltro()) {
-        		this.lista = this.drogaBo.getDrogas(this.droga);
+        		this.lista = this.sucursalBo.getSucursales(this.sucursal);
         		respuesta = "success";
         	}
             else{ 
@@ -117,7 +117,7 @@ public class DrogaController  extends Controller{
     }
  
 	public void buscarTodos(){
-		this.lista = this.drogaBo.getDrogas();
+		this.lista = this.sucursalBo.getSucursales();
         if(this.lista.isEmpty()){
         	this.addError(null, Bundle.rcs.getString("noHayRegistros"));
         }
@@ -127,7 +127,7 @@ public class DrogaController  extends Controller{
 	*@return success
 	*/
 	public String cargarObjeto(){
-		 this.droga = (Droga) this.listaDataTable.getRowData();
+		 this.sucursal = (Sucursal) this.listaDataTable.getRowData();
 	     this.agregar = false;
 		 return "success";
 	}
@@ -151,12 +151,12 @@ public class DrogaController  extends Controller{
 	private boolean validaInsertar(){
 		boolean correcto = true;
 		try{
-			if((!this.agregar) && (this.droga.getPvInCodigo() == null)){
-				this.addError(this.getPropertyFieldName("droga.pvInCodigo"),Bundle.rcs.getString("campoRequerido"));
+			if((!this.agregar) && (this.sucursal.getPvInCodigo() == null)){
+				this.addError(this.getPropertyFieldName("sucursal.pvInCodigo"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
 			}
-			if((this.droga.getPvStDescripcion()== null || ("".equals(this.droga.getPvStDescripcion())))){
-				this.addError(this.getPropertyFieldName("droga.pvStDescripcion"),Bundle.rcs.getString("campoRequerido"));
+			if((this.sucursal.getPvStDescripcion()== null || ("".equals(this.sucursal.getPvStDescripcion())))){
+				this.addError(this.getPropertyFieldName("sucursal.pvStDescripcion"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
 			}
 		}catch(NumberFormatException nef){
@@ -170,15 +170,15 @@ public class DrogaController  extends Controller{
 	}
 	
 	/**Método agregar
-	* Agrega un droga en la base de datos
+	* Agrega un sucursal en la base de datos
 	*@return success si logra insertar, error en caso contrario
 	*/
 	public String insertar(){
 		String respuesta = "error";
         try{
             if(this.validaInsertar()){
-            	//this.droga.setPvStEstado(Droga.ESTADO_ACTIVO);
-                this.drogaBo.agregar(this.droga);
+            	//this.sucursal.setPvStEstado(Sucursal.ESTADO_ACTIVO);
+                this.sucursalBo.agregar(this.sucursal);
                 this.addInfo(null, Bundle.rcs.getString("datosAgregados"));
                 respuesta = "success";
                 this.reiniciarFiltro();
@@ -192,14 +192,14 @@ public class DrogaController  extends Controller{
 	}
 	
 	/**Método modificar
-	* Modificar un droga en la base de datos
+	* Modificar un sucursal en la base de datos
 	*@return success si logra modificar, error en caso contrario
 	*/
 	public String modificar(){
 		String respuesta = "error";
         try{
             if(this.validaInsertar()){
-                this.drogaBo.modificar(this.droga);
+                this.sucursalBo.modificar(this.sucursal);
                 this.addInfo(null, Bundle.rcs.getString("datosModificados"));
                 respuesta = "success";
             }
@@ -212,13 +212,13 @@ public class DrogaController  extends Controller{
 	}
 	
 	/**Método eliminar
-	* Eliminar un Droga en la base de datos
+	* Eliminar un Sucursal en la base de datos
 	*@return success si logra eliminar, error en caso contrario
 	*/
 	public String eliminar(){
 		String respuesta = "error";
         try{
-            this.drogaBo.eliminar(this.droga);
+            this.sucursalBo.eliminar(this.sucursal);
             this.addInfo(null, Bundle.rcs.getString("datosEliminados")); 
             this.reiniciarController();
             this.buscarTodos();
@@ -232,7 +232,7 @@ public class DrogaController  extends Controller{
 	}
         
 	/**
-     * Retorna una lista de selectItems que contienen estados del droga
+     * Retorna una lista de selectItems que contienen estados del sucursal
      * @return Lista de objetos <code>SelectItem</code> que contienen los ID de los estados existentes
      */
 	public List<SelectItem> getEstadoItems(){
@@ -243,8 +243,8 @@ public class DrogaController  extends Controller{
 	@Override
 	protected String getPropertyFieldName(String property) {
 		if(property != null){
-			if (property.equals("Droga.pvInCodigo")) return "form1:pvInCodigo";
-			if (property.equals("Droga.pvStDescripcion")) return "form1:pvStDescripcion";
+			if (property.equals("Sucursal.pvInCodigo")) return "form1:pvInCodigo";
+			if (property.equals("Sucursal.pvStDescripcion")) return "form1:pvStDescripcion";
 		}
 		return null;
 	}
@@ -267,37 +267,37 @@ public class DrogaController  extends Controller{
 	/**
 	 * @return the lista
 	 */
-	public List<Droga> getLista() {
+	public List<Sucursal> getLista() {
 		return lista;
 	}
 
 	/**
 	 * @param lista the lista to set
 	 */
-	public void setLista(List<Droga> lista) {
+	public void setLista(List<Sucursal> lista) {
 		this.lista = lista;
 	}
 
 	/**
-	 * @return the Droga
+	 * @return the Sucursal
 	 */
-	public Droga getDroga() {
-		return this.droga;
+	public Sucursal getSucursal() {
+		return this.sucursal;
 	}
 
 	/**
-	 * @param Droga the Droga to set
+	 * @param Sucursal the Sucursal to set
 	 */
-	public void setDroga(Droga droga) {
-		this.droga = droga;
+	public void setSucursal(Sucursal sucursal) {
+		this.sucursal = sucursal;
 	}
 
 
 	/**
-	 * @param DrogaBo the DrogaBo to set
+	 * @param SucursalBo the SucursalBo to set
 	 */
-	public void setDrogaBo(DrogaBo drogaBo) {
-		this.drogaBo = drogaBo;
+	public void setSucursalBo(SucursalBo sucursalBo) {
+		this.sucursalBo = sucursalBo;
 	}
 
 }

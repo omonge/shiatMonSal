@@ -7,7 +7,7 @@ package com.shiatsu.domain;
  * @author omonge
  *
  */
-public class Usuario {
+public class FrecuenciaAsistencia {
 	public static final Integer DEFAULT   = Integer.valueOf(0);
 	private Integer pvInCodigo;
 	private String pvStDescripcion;
@@ -15,7 +15,7 @@ public class Usuario {
 	/**
 	 * 
 	 */
-	public Usuario() {
+	public FrecuenciaAsistencia() {
 		// TODO Auto-generated constructor stub
 	}
 	/**
@@ -68,10 +68,10 @@ public class Usuario {
 		if (obj == null) {
 			return false;
 		}
-		if (!(obj instanceof Usuario)) {
+		if (!(obj instanceof FrecuenciaAsistencia)) {
 			return false;
 		}
-		Usuario other = (Usuario) obj;
+		FrecuenciaAsistencia other = (FrecuenciaAsistencia) obj;
 		if (pvInCodigo == null) {
 			if (other.pvInCodigo != null) {
 				return false;

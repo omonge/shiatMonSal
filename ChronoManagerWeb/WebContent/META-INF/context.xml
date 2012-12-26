@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Context docBase="ChronoManager" path="/ChronoManager">
-  <ResourceLink global="jdbc/oraChronoManagerDS" name="jdbc/oraChronoManagerDS" type="javax.sql.DataSource"/>
-</Context>

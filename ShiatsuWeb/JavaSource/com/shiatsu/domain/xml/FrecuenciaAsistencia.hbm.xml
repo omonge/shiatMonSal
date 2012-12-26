@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.shiatsu.domain">
+    <class name="FrecuenciaAsistencia" table="CAT_FRECUENCIA_ASISTENCIA">
+        <id name="pvInCodigo" column="CODIGO" type="java.lang.Integer" length="10">
+        	<generator class="identity"></generator>
+        </id>
+        <property name="pvStDescripcion" 			column="DESCRIPCION" 				type="java.lang.String" 	length="100"/>  
+     </class>
+</hibernate-mapping>
+

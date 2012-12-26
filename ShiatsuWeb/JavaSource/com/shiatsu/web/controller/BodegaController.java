@@ -6,18 +6,18 @@ import java.util.List;
 import javax.faces.component.html.HtmlDataTable;
 import javax.faces.model.SelectItem;
 
-import com.shiatsu.bo.DrogaBo;
-import com.shiatsu.domain.Droga;
+import com.shiatsu.bo.BodegaBo;
+import com.shiatsu.domain.Bodega;
 import com.shiatsu.web.bundles.Bundle;
 import com.shiatzu.util.Controller;
 import com.utilidades.business.BusinessErrorHelper;
 
-public class DrogaController  extends Controller{
+public class BodegaController  extends Controller{
 
 	private HtmlDataTable     	  listaDataTable;
-    private List<Droga>    lista;
-    private Droga 	  	  droga;
-	private DrogaBo	  	  drogaBo;  
+    private List<Bodega>    lista;
+    private Bodega 	  	  bodega;
+	private BodegaBo	  	  bodegaBo;  
 	
 
 	 /**
@@ -32,7 +32,7 @@ public class DrogaController  extends Controller{
        return init;
 	}
 	
-	public DrogaController() {
+	public BodegaController() {
 		this.reiniciarController();
 	}
 
@@ -45,13 +45,13 @@ public class DrogaController  extends Controller{
 	@Override
 	protected void reiniciarFiltro() {
 		this.agregar = Boolean.TRUE;
-		this.droga = new Droga();
+		this.bodega = new Bodega();
 	}
 
 	@Override
 	protected void reiniciarDatos() {
 		this.listaDataTable = new HtmlDataTable();
-		this.lista = new ArrayList<Droga>();
+		this.lista = new ArrayList<Bodega>();
 	}
 	
 
@@ -64,7 +64,7 @@ public class DrogaController  extends Controller{
         boolean correcto = false;
 
         
-    	if ((this.droga.getPvStDescripcion() != null) && (!"".equals(this.droga.getPvStDescripcion()))) {
+    	if ((this.bodega.getPvStDescripcion() != null) && (!"".equals(this.bodega.getPvStDescripcion()))) {
             correcto = true;
     	}
         return correcto;
@@ -76,7 +76,7 @@ public class DrogaController  extends Controller{
      */
     private boolean validarObjetoId() { 
         boolean correcto = false;
-        if((this.droga.getPvInCodigo()!=null) && !(this.droga.getPvInCodigo().equals(Droga.DROGA_DEFAULT))) {
+        if((this.bodega.getPvInCodigo()!=null) && !(this.bodega.getPvInCodigo().equals(Integer.valueOf(0)))) {
         	correcto = true;
         }
         return correcto;
@@ -84,22 +84,22 @@ public class DrogaController  extends Controller{
 
 
     /**
-     * Método buscar Busca las listaTipoAlopecia que cumplan con el filtro
+     * Método buscar Busca las lista de Bodegas que cumplan con el filtro
      * @return String "success" o "error"
      */
     public String buscar() {
-        if(this.listaDataTable != null){this.listaDataTable.setFirst(0);} 
+        //if(this.listaDataTable != null){this.listaDataTable.setFirst(0);} 
         String respuesta = "error";
         this.reiniciarDatos();
         if (this.validarObjetoId()) {
-            Droga droga = this.drogaBo.buscar(this.droga);
-            if (droga != null) {
-                this.lista.add(droga);
+            Bodega bodega = this.bodegaBo.buscar(this.bodega);
+            if (bodega != null) {
+                this.lista.add(bodega);
             }
             respuesta = "success";
         } else{
         	if (this.validarFiltro()) {
-        		this.lista = this.drogaBo.getDrogas(this.droga);
+        		this.lista = this.bodegaBo.getBodegas(this.bodega);
         		respuesta = "success";
         	}
             else{ 
@@ -117,7 +117,7 @@ public class DrogaController  extends Controller{
     }
  
 	public void buscarTodos(){
-		this.lista = this.drogaBo.getDrogas();
+		this.lista = this.bodegaBo.getBodegas();
         if(this.lista.isEmpty()){
         	this.addError(null, Bundle.rcs.getString("noHayRegistros"));
         }
@@ -127,7 +127,7 @@ public class DrogaController  extends Controller{
 	*@return success
 	*/
 	public String cargarObjeto(){
-		 this.droga = (Droga) this.listaDataTable.getRowData();
+		 this.bodega = (Bodega) this.listaDataTable.getRowData();
 	     this.agregar = false;
 		 return "success";
 	}
@@ -151,12 +151,12 @@ public class DrogaController  extends Controller{
 	private boolean validaInsertar(){
 		boolean correcto = true;
 		try{
-			if((!this.agregar) && (this.droga.getPvInCodigo() == null)){
-				this.addError(this.getPropertyFieldName("droga.pvInCodigo"),Bundle.rcs.getString("campoRequerido"));
+			if((!this.agregar) && (this.bodega.getPvInCodigo() == null)){
+				this.addError(this.getPropertyFieldName("bodega.pvInCodigo"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
 			}
-			if((this.droga.getPvStDescripcion()== null || ("".equals(this.droga.getPvStDescripcion())))){
-				this.addError(this.getPropertyFieldName("droga.pvStDescripcion"),Bundle.rcs.getString("campoRequerido"));
+			if((this.bodega.getPvStDescripcion()== null || ("".equals(this.bodega.getPvStDescripcion())))){
+				this.addError(this.getPropertyFieldName("bodega.pvStDescripcion"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
 			}
 		}catch(NumberFormatException nef){
@@ -170,15 +170,15 @@ public class DrogaController  extends Controller{
 	}
 	
 	/**Método agregar
-	* Agrega un droga en la base de datos
+	* Agrega un bodega en la base de datos
 	*@return success si logra insertar, error en caso contrario
 	*/
 	public String insertar(){
 		String respuesta = "error";
         try{
             if(this.validaInsertar()){
-            	//this.droga.setPvStEstado(Droga.ESTADO_ACTIVO);
-                this.drogaBo.agregar(this.droga);
+            	//this.bodega.setPvStEstado(Bodega.ESTADO_ACTIVO);
+                this.bodegaBo.agregar(this.bodega);
                 this.addInfo(null, Bundle.rcs.getString("datosAgregados"));
                 respuesta = "success";
                 this.reiniciarFiltro();
@@ -192,14 +192,14 @@ public class DrogaController  extends Controller{
 	}
 	
 	/**Método modificar
-	* Modificar un droga en la base de datos
+	* Modificar un bodega en la base de datos
 	*@return success si logra modificar, error en caso contrario
 	*/
 	public String modificar(){
 		String respuesta = "error";
         try{
             if(this.validaInsertar()){
-                this.drogaBo.modificar(this.droga);
+                this.bodegaBo.modificar(this.bodega);
                 this.addInfo(null, Bundle.rcs.getString("datosModificados"));
                 respuesta = "success";
             }
@@ -212,13 +212,13 @@ public class DrogaController  extends Controller{
 	}
 	
 	/**Método eliminar
-	* Eliminar un Droga en la base de datos
+	* Eliminar un Bodega en la base de datos
 	*@return success si logra eliminar, error en caso contrario
 	*/
 	public String eliminar(){
 		String respuesta = "error";
         try{
-            this.drogaBo.eliminar(this.droga);
+            this.bodegaBo.eliminar(this.bodega);
             this.addInfo(null, Bundle.rcs.getString("datosEliminados")); 
             this.reiniciarController();
             this.buscarTodos();
@@ -232,7 +232,7 @@ public class DrogaController  extends Controller{
 	}
         
 	/**
-     * Retorna una lista de selectItems que contienen estados del droga
+     * Retorna una lista de selectItems que contienen estados del bodega
      * @return Lista de objetos <code>SelectItem</code> que contienen los ID de los estados existentes
      */
 	public List<SelectItem> getEstadoItems(){
@@ -243,8 +243,8 @@ public class DrogaController  extends Controller{
 	@Override
 	protected String getPropertyFieldName(String property) {
 		if(property != null){
-			if (property.equals("Droga.pvInCodigo")) return "form1:pvInCodigo";
-			if (property.equals("Droga.pvStDescripcion")) return "form1:pvStDescripcion";
+			if (property.equals("Bodega.pvInCodigo")) return "form1:pvInCodigo";
+			if (property.equals("Bodega.pvStDescripcion")) return "form1:pvStDescripcion";
 		}
 		return null;
 	}
@@ -267,37 +267,37 @@ public class DrogaController  extends Controller{
 	/**
 	 * @return the lista
 	 */
-	public List<Droga> getLista() {
+	public List<Bodega> getLista() {
 		return lista;
 	}
 
 	/**
 	 * @param lista the lista to set
 	 */
-	public void setLista(List<Droga> lista) {
+	public void setLista(List<Bodega> lista) {
 		this.lista = lista;
 	}
 
 	/**
-	 * @return the Droga
+	 * @return the Bodega
 	 */
-	public Droga getDroga() {
-		return this.droga;
+	public Bodega getBodega() {
+		return this.bodega;
 	}
 
 	/**
-	 * @param Droga the Droga to set
+	 * @param Bodega the Bodega to set
 	 */
-	public void setDroga(Droga droga) {
-		this.droga = droga;
+	public void setBodega(Bodega bodega) {
+		this.bodega = bodega;
 	}
 
 
 	/**
-	 * @param DrogaBo the DrogaBo to set
+	 * @param BodegaBo the BodegaBo to set
 	 */
-	public void setDrogaBo(DrogaBo drogaBo) {
-		this.drogaBo = drogaBo;
+	public void setBodegaBo(BodegaBo bodegaBo) {
+		this.bodegaBo = bodegaBo;
 	}
 
 }

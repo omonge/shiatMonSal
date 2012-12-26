@@ -5,15 +5,15 @@ import java.io.Serializable;
 public class Medicamento  implements Serializable{
 
 	private static final long serialVersionUID = 4655663135297201540L;
-	public static final Integer MEDICAMENTO_DEFAULT   = new Integer(0);
-	public static final String ESTADO_DEFAULT	= new String("");
-	public static final String ESTADO_ACTIVO   	= new String("A");
-	public static final String ESTADO_INACTIVO 	= new String("I");
-	public static final String ESTADO_ACTIVO_DESCRIPCION   	= new String("ACTIVO");
-	public static final String ESTADO_INACTIVO_DESCRIPCION 	= new String("INACTIVO");
+	public static final Integer MEDICAMENTO_DEFAULT   = Integer.valueOf(0);
+	public static final String ESTADO_DEFAULT	= "";
+	public static final String ESTADO_ACTIVO   	="A";
+	public static final String ESTADO_INACTIVO 	= "I";
+	public static final String ESTADO_ACTIVO_DESCRIPCION   	= "ACTIVO";
+	public static final String ESTADO_INACTIVO_DESCRIPCION 	= "INACTIVO";
 	private Integer pvInCodigo;
-	private String pvStDescripcion;
-	private String pvStEstado;
+	private String 	pvStDescripcion;
+	private String 	pvStEstado;
 	
 	public Medicamento(){
 		this.pvInCodigo = null;

@@ -76,7 +76,7 @@ public class TipoClienteController  extends Controller{
      */
     private boolean validarObjetoId() { 
         boolean correcto = false;
-        if((this.tipoCliente.getPvInCodigo()!=null)) {
+        if((this.tipoCliente.getPvInCodigo()!=null) && !(this.tipoCliente.getPvInCodigo().equals(TipoCliente.DEFAULT))) {
         	correcto = true;
         }
         return correcto;

@@ -77,7 +77,7 @@ public class UsuarioDaoImpl extends HibernateDaoSupport implements  UsuarioDao{
         List<Usuario> lista = new ArrayList<Usuario>();
         boolean and = false;//verifica que ya se haya agregado algo al where para concatener o no concatenar el operador AND
         
-        if((usuario.getPvInCodigo() != null)) {
+        if((usuario.getPvInCodigo()!=null) && !(usuario.getPvInCodigo().equals(Usuario.DEFAULT))) {
             hql += "usuario.pvInCodigo = ?) ";
             filtros.add(usuario.getPvInCodigo());
             and = true;

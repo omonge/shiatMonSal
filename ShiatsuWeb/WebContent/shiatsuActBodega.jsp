@@ -48,8 +48,8 @@
                     <h:form id="formBanner" >
                         
                             <div id="menus">
-                                <div id="usuario" class="flotarIzquierda"> 
-                                        <h:outputText styleClass="outputText" id="usuario" value="Shiatzu"/>  
+                                <div id="bodega" class="flotarIzquierda"> 
+                                        <h:outputText styleClass="outputText" id="bodega" value="Shiatzu"/>  
                                 </div>
                                 <div id="menu_fecha" class="flotarDerecha">
                                     <script language="JavaScript">mostrarFecha();</script> - <h:outputText value="#{rcs['version']}"></h:outputText>
@@ -116,42 +116,42 @@
                 </nav>
                 <section id="main"> 
                     <div id="titulo" class="Tit_04_naranja">
-					<!-- InstanceBeginEditable name="titulo" --><h:outputText styleClass="outputText" value="#{rcs['titulo.usuario.mantenimiento']}"/><!-- InstanceEndEditable -->
+					<!-- InstanceBeginEditable name="titulo" --><h:outputText styleClass="outputText" value="#{rcs['titulo.bodega.mantenimiento']}"/><!-- InstanceEndEditable -->
                     </div>
                     <div id="cuerpo" class="Text">
 						<!-- InstanceBeginEditable name="contenido" -->
        <h:form  styleClass="form" id="form1" >
-       <h:inputHidden value="#{usuarioController.init}" ></h:inputHidden>
+       <h:inputHidden value="#{bodegaController.init}" ></h:inputHidden>
    <table border="0">
 		<tbody>
-		<c:if test="${!usuarioController.agregar}">	
+		<c:if test="${!bodegaController.agregar}">	
 			<tr>
 		  		<td class="Tit04Tabla">
-		  			<h:outputText styleClass="outputText" id="lnlPvInCodigo" value="#{rcs['usuario.codigo']}"></h:outputText>
+		  			<h:outputText styleClass="outputText" id="lnlPvInCodigo" value="#{rcs['bodega.codigo']}"></h:outputText>
 			    </td>
 		  	    <td class="formPaddingData">
 		  	    	<h:inputText styleClass="inputText" id="txtPvInCodigo"
-		  	    				 value="#{usuarioController.usuario.pvInCodigo}" size="10" maxlength="10" disabled="#{!usuarioController.agregar}">
+		  	    				 value="#{bodegaController.bodega.pvInCodigo}" size="10" maxlength="10" disabled="#{!bodegaController.agregar}">
 		  	    	</h:inputText> 
 		  	    	<h:message styleClass="error" id="msgTtxtPvInCodigo" for="txtPvInCodigo" errorClass="error" infoClass="info" warnClass="warn"></h:message>
 		  	   </td>
 		    </tr>
 		    </c:if>
         <tr>
-            <td class="Tit04Tabla" ><h:outputText styleClass="outputText" id="lblPvStDescripcion" value="#{rcs['usuario.descripcion']}"></h:outputText></td>
+            <td class="Tit04Tabla" ><h:outputText styleClass="outputText" id="lblPvStDescripcion" value="#{rcs['bodega.descripcion']}"></h:outputText></td>
             <td class="formPaddingData">
               	<h:inputText styleClass="inputText" id="txtPvStDescripcion" 
-	  	    				 value="#{usuarioController.usuario.pvStDescripcion}" size="50" maxlength="50" style="text-transform: uppercase">
+	  	    				 value="#{bodegaController.bodega.pvStDescripcion}" size="50" maxlength="50" style="text-transform: uppercase">
 	  	    	</h:inputText>
                 <h:message styleClass="error" id="msgTxtPvStDescripcion" for="txtPvStDescripcion" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
             </td>
         </tr>
 		<tr>
             <td colspan="2">
-	            <h:commandButton type="submit" value="#{rcs['boton.agregar']}"   styleClass="commandButton" id="btnAgregar"   rendered="#{usuarioController.agregar}" 	action="#{usuarioController.insertar}"></h:commandButton>
-	            <h:commandButton type="submit" value="#{rcs['boton.modificar']}" styleClass="commandButton" id="btnModificar" rendered="#{!usuarioController.agregar}" 	action="#{usuarioController.modificar}"></h:commandButton>
-	            <h:commandButton type="submit" value="#{rcs['boton.eliminar']}"  styleClass="commandButton" id="btnEliminar"  rendered="#{!usuarioController.agregar}"  	action="#{usuarioController.eliminar}" onclick="return confirmEliminar('e','usuario');"></h:commandButton>
-			    <h:commandButton type="submit" value="#{rcs['boton.regresar']}"  styleClass="commandButton" id="bntRegresar"  action="#{usuarioController.regresar}"></h:commandButton>	            
+	            <h:commandButton type="submit" value="#{rcs['boton.agregar']}"   styleClass="commandButton" id="btnAgregar"   rendered="#{bodegaController.agregar}" 	action="#{bodegaController.insertar}"></h:commandButton>
+	            <h:commandButton type="submit" value="#{rcs['boton.modificar']}" styleClass="commandButton" id="btnModificar" rendered="#{!bodegaController.agregar}" 	action="#{bodegaController.modificar}"></h:commandButton>
+	            <h:commandButton type="submit" value="#{rcs['boton.eliminar']}"  styleClass="commandButton" id="btnEliminar"  rendered="#{!bodegaController.agregar}"  	action="#{bodegaController.eliminar}" onclick="return confirmEliminar('e','bodega');"></h:commandButton>
+			    <h:commandButton type="submit" value="#{rcs['boton.regresar']}"  styleClass="commandButton" id="bntRegresar"  action="#{bodegaController.regresar}"></h:commandButton>	            
             </td>
         </tr>
 		</tbody>

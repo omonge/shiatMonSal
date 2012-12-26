@@ -6,37 +6,37 @@ import java.util.List;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import com.shiatsu.dao.DrogaDao; 
-import com.shiatsu.domain.Droga;
+import com.shiatsu.dao.TarjetaDao; 
+import com.shiatsu.domain.Tarjeta;
 import com.utilidades.business.BusinessErrorHelper;
 
-public class DrogaDaoImpl extends HibernateDaoSupport implements  DrogaDao{
+public class TarjetaDaoImpl extends HibernateDaoSupport implements  TarjetaDao{
 
 	@Override
-	public void agregar(Droga droga) throws BusinessErrorHelper {
+	public void agregar(Tarjeta tarjeta) throws BusinessErrorHelper {
 		HibernateTemplate hibernate = this.getHibernateTemplate();
-        hibernate.save(droga);
+        hibernate.save(tarjeta);
 	}
 
 	@Override
-	public void modificar(Droga droga) throws BusinessErrorHelper {
+	public void modificar(Tarjeta tarjeta) throws BusinessErrorHelper {
 		HibernateTemplate hibernate = this.getHibernateTemplate();
-        hibernate.merge(droga);
+        hibernate.merge(tarjeta);
 	}
 
 	@Override
-	public void eliminar( Droga droga) throws BusinessErrorHelper {
+	public void eliminar( Tarjeta tarjeta) throws BusinessErrorHelper {
 		HibernateTemplate hibernate = this.getHibernateTemplate();
-        hibernate.delete(droga);
+        hibernate.delete(tarjeta);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public  Droga buscar(Droga droga) {
+	public  Tarjeta buscar(Tarjeta tarjeta) {
 		HibernateTemplate hibernate = this.getHibernateTemplate();
-        String hql = "FROM Droga droga WHERE droga.pvInCodigo = ?";
-        Object[] values = {droga.getPvInCodigo()};
-        List<Droga> lista = hibernate.find(hql,values);
+        String hql = "FROM Tarjeta tarjeta WHERE tarjeta.pvInCodigo = ?";
+        Object[] values = {tarjeta.getPvInCodigo()};
+        List<Tarjeta> lista = hibernate.find(hql,values);
         if(lista.isEmpty()){
         	return null;
         }else{
@@ -46,10 +46,10 @@ public class DrogaDaoImpl extends HibernateDaoSupport implements  DrogaDao{
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public boolean existe(Droga droga) {
+	public boolean existe(Tarjeta tarjeta) {
 		HibernateTemplate hibernate = this.getHibernateTemplate();
-        String hql = "SELECT droga.pvInCodigo FROM Droga droga WHERE droga.pvInCodigo = ?";
-        Object[] values = {droga.getPvInCodigo()};
+        String hql = "SELECT tarjeta.pvInCodigo FROM Tarjeta tarjeta WHERE tarjeta.pvInCodigo = ?";
+        Object[] values = {tarjeta.getPvInCodigo()};
         List<Object> lista = hibernate.find(hql,values);
         if(lista.isEmpty()){
         	return false;
@@ -60,40 +60,40 @@ public class DrogaDaoImpl extends HibernateDaoSupport implements  DrogaDao{
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Droga> getDrogas() {
+	public List<Tarjeta> getTarjetas() {
 		HibernateTemplate hibernate = this.getHibernateTemplate();
-        String hql = "FROM  Droga  droga ORDER BY droga.pvStDescripcion";
-        List<Droga> lista = hibernate.find(hql);
+        String hql = "FROM  Tarjeta  tarjeta ORDER BY tarjeta.pvStDescripcion";
+        List<Tarjeta> lista = hibernate.find(hql);
         return lista; 
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Droga> getDrogas(Droga droga) {
+	public List<Tarjeta> getTarjetas(Tarjeta tarjeta) {
 		HibernateTemplate ht = this.getHibernateTemplate();
-        String hql = "FROM  Droga  droga WHERE ";
+        String hql = "FROM  Tarjeta  tarjeta WHERE ";
         
         List<Object> filtros   = new ArrayList<Object>();
-        List<Droga> lista = new ArrayList<Droga>();
+        List<Tarjeta> lista = new ArrayList<Tarjeta>();
         boolean and = false;//verifica que ya se haya agregado algo al where para concatener o no concatenar el operador AND
         
-        if((droga.getPvInCodigo()!=null) && !(droga.getPvInCodigo().equals(Droga.DROGA_DEFAULT))) {
-            hql += "droga.pvInCodigo = ?) ";
-            filtros.add(droga.getPvInCodigo());
+        if((tarjeta.getPvInCodigo()!=null) && !(tarjeta.getPvInCodigo().equals(Tarjeta.DEFAULT))){
+            hql += "tarjeta.pvInCodigo = ?) ";
+            filtros.add(tarjeta.getPvInCodigo());
             and = true;
         }
         
-        if((droga.getPvStDescripcion() != null)&& (!"".equals(droga.getPvStDescripcion())) ){
+        if((tarjeta.getPvStDescripcion() != null)&& (!"".equals(tarjeta.getPvStDescripcion())) ){
             if(and){
-                hql += "AND (UPPER(droga.pvStDescripcion) like ?) ";
+                hql += "AND (UPPER(tarjeta.pvStDescripcion) like ?) ";
             }else{
-                hql += "(UPPER(droga.pvStDescripcion) like ?) ";
+                hql += "(UPPER(tarjeta.pvStDescripcion) like ?) ";
             }
-            filtros.add("%"+droga.getPvStDescripcion().toUpperCase()+"%");
+            filtros.add("%"+tarjeta.getPvStDescripcion().toUpperCase()+"%");
             and = true;
         }
         if(and){
-            hql += " ORDER BY droga.pvStDescripcion ASC";
+            hql += " ORDER BY tarjeta.pvStDescripcion ASC";
             Object[] values = new Object[filtros.size()];
             for(int i = 0; i < filtros.size(); i++){
                 values[i] = filtros.get(i);

@@ -6,18 +6,18 @@ import java.util.List;
 import javax.faces.component.html.HtmlDataTable;
 import javax.faces.model.SelectItem;
 
-import com.shiatsu.bo.DrogaBo;
-import com.shiatsu.domain.Droga;
+import com.shiatsu.bo.TarjetaBo;
+import com.shiatsu.domain.Tarjeta;
 import com.shiatsu.web.bundles.Bundle;
 import com.shiatzu.util.Controller;
 import com.utilidades.business.BusinessErrorHelper;
 
-public class DrogaController  extends Controller{
+public class TarjetaController  extends Controller{
 
 	private HtmlDataTable     	  listaDataTable;
-    private List<Droga>    lista;
-    private Droga 	  	  droga;
-	private DrogaBo	  	  drogaBo;  
+    private List<Tarjeta>    lista;
+    private Tarjeta 	  	  tarjeta;
+	private TarjetaBo	  	  tarjetaBo;  
 	
 
 	 /**
@@ -32,7 +32,7 @@ public class DrogaController  extends Controller{
        return init;
 	}
 	
-	public DrogaController() {
+	public TarjetaController() {
 		this.reiniciarController();
 	}
 
@@ -45,13 +45,13 @@ public class DrogaController  extends Controller{
 	@Override
 	protected void reiniciarFiltro() {
 		this.agregar = Boolean.TRUE;
-		this.droga = new Droga();
+		this.tarjeta = new Tarjeta();
 	}
 
 	@Override
 	protected void reiniciarDatos() {
 		this.listaDataTable = new HtmlDataTable();
-		this.lista = new ArrayList<Droga>();
+		this.lista = new ArrayList<Tarjeta>();
 	}
 	
 
@@ -64,7 +64,7 @@ public class DrogaController  extends Controller{
         boolean correcto = false;
 
         
-    	if ((this.droga.getPvStDescripcion() != null) && (!"".equals(this.droga.getPvStDescripcion()))) {
+    	if ((this.tarjeta.getPvStDescripcion() != null) && (!"".equals(this.tarjeta.getPvStDescripcion()))) {
             correcto = true;
     	}
         return correcto;
@@ -76,7 +76,7 @@ public class DrogaController  extends Controller{
      */
     private boolean validarObjetoId() { 
         boolean correcto = false;
-        if((this.droga.getPvInCodigo()!=null) && !(this.droga.getPvInCodigo().equals(Droga.DROGA_DEFAULT))) {
+        if((this.tarjeta.getPvInCodigo()!=null) && !(this.tarjeta.getPvInCodigo().equals(Tarjeta.DEFAULT))){
         	correcto = true;
         }
         return correcto;
@@ -92,14 +92,14 @@ public class DrogaController  extends Controller{
         String respuesta = "error";
         this.reiniciarDatos();
         if (this.validarObjetoId()) {
-            Droga droga = this.drogaBo.buscar(this.droga);
-            if (droga != null) {
-                this.lista.add(droga);
+            Tarjeta tarjeta = this.tarjetaBo.buscar(this.tarjeta);
+            if (tarjeta != null) {
+                this.lista.add(tarjeta);
             }
             respuesta = "success";
         } else{
         	if (this.validarFiltro()) {
-        		this.lista = this.drogaBo.getDrogas(this.droga);
+        		this.lista = this.tarjetaBo.getTarjetas(this.tarjeta);
         		respuesta = "success";
         	}
             else{ 
@@ -117,7 +117,7 @@ public class DrogaController  extends Controller{
     }
  
 	public void buscarTodos(){
-		this.lista = this.drogaBo.getDrogas();
+		this.lista = this.tarjetaBo.getTarjetas();
         if(this.lista.isEmpty()){
         	this.addError(null, Bundle.rcs.getString("noHayRegistros"));
         }
@@ -127,7 +127,7 @@ public class DrogaController  extends Controller{
 	*@return success
 	*/
 	public String cargarObjeto(){
-		 this.droga = (Droga) this.listaDataTable.getRowData();
+		 this.tarjeta = (Tarjeta) this.listaDataTable.getRowData();
 	     this.agregar = false;
 		 return "success";
 	}
@@ -151,12 +151,12 @@ public class DrogaController  extends Controller{
 	private boolean validaInsertar(){
 		boolean correcto = true;
 		try{
-			if((!this.agregar) && (this.droga.getPvInCodigo() == null)){
-				this.addError(this.getPropertyFieldName("droga.pvInCodigo"),Bundle.rcs.getString("campoRequerido"));
+			if((!this.agregar) && (this.tarjeta.getPvInCodigo() == null)){
+				this.addError(this.getPropertyFieldName("tarjeta.pvInCodigo"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
 			}
-			if((this.droga.getPvStDescripcion()== null || ("".equals(this.droga.getPvStDescripcion())))){
-				this.addError(this.getPropertyFieldName("droga.pvStDescripcion"),Bundle.rcs.getString("campoRequerido"));
+			if((this.tarjeta.getPvStDescripcion()== null || ("".equals(this.tarjeta.getPvStDescripcion())))){
+				this.addError(this.getPropertyFieldName("tarjeta.pvStDescripcion"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
 			}
 		}catch(NumberFormatException nef){
@@ -170,15 +170,15 @@ public class DrogaController  extends Controller{
 	}
 	
 	/**Método agregar
-	* Agrega un droga en la base de datos
+	* Agrega un tarjeta en la base de datos
 	*@return success si logra insertar, error en caso contrario
 	*/
 	public String insertar(){
 		String respuesta = "error";
         try{
             if(this.validaInsertar()){
-            	//this.droga.setPvStEstado(Droga.ESTADO_ACTIVO);
-                this.drogaBo.agregar(this.droga);
+            	//this.tarjeta.setPvStEstado(Tarjeta.ESTADO_ACTIVO);
+                this.tarjetaBo.agregar(this.tarjeta);
                 this.addInfo(null, Bundle.rcs.getString("datosAgregados"));
                 respuesta = "success";
                 this.reiniciarFiltro();
@@ -192,14 +192,14 @@ public class DrogaController  extends Controller{
 	}
 	
 	/**Método modificar
-	* Modificar un droga en la base de datos
+	* Modificar un tarjeta en la base de datos
 	*@return success si logra modificar, error en caso contrario
 	*/
 	public String modificar(){
 		String respuesta = "error";
         try{
             if(this.validaInsertar()){
-                this.drogaBo.modificar(this.droga);
+                this.tarjetaBo.modificar(this.tarjeta);
                 this.addInfo(null, Bundle.rcs.getString("datosModificados"));
                 respuesta = "success";
             }
@@ -212,13 +212,13 @@ public class DrogaController  extends Controller{
 	}
 	
 	/**Método eliminar
-	* Eliminar un Droga en la base de datos
+	* Eliminar un Tarjeta en la base de datos
 	*@return success si logra eliminar, error en caso contrario
 	*/
 	public String eliminar(){
 		String respuesta = "error";
         try{
-            this.drogaBo.eliminar(this.droga);
+            this.tarjetaBo.eliminar(this.tarjeta);
             this.addInfo(null, Bundle.rcs.getString("datosEliminados")); 
             this.reiniciarController();
             this.buscarTodos();
@@ -232,7 +232,7 @@ public class DrogaController  extends Controller{
 	}
         
 	/**
-     * Retorna una lista de selectItems que contienen estados del droga
+     * Retorna una lista de selectItems que contienen estados del tarjeta
      * @return Lista de objetos <code>SelectItem</code> que contienen los ID de los estados existentes
      */
 	public List<SelectItem> getEstadoItems(){
@@ -243,8 +243,8 @@ public class DrogaController  extends Controller{
 	@Override
 	protected String getPropertyFieldName(String property) {
 		if(property != null){
-			if (property.equals("Droga.pvInCodigo")) return "form1:pvInCodigo";
-			if (property.equals("Droga.pvStDescripcion")) return "form1:pvStDescripcion";
+			if (property.equals("Tarjeta.pvInCodigo")) return "form1:pvInCodigo";
+			if (property.equals("Tarjeta.pvStDescripcion")) return "form1:pvStDescripcion";
 		}
 		return null;
 	}
@@ -267,37 +267,37 @@ public class DrogaController  extends Controller{
 	/**
 	 * @return the lista
 	 */
-	public List<Droga> getLista() {
+	public List<Tarjeta> getLista() {
 		return lista;
 	}
 
 	/**
 	 * @param lista the lista to set
 	 */
-	public void setLista(List<Droga> lista) {
+	public void setLista(List<Tarjeta> lista) {
 		this.lista = lista;
 	}
 
 	/**
-	 * @return the Droga
+	 * @return the Tarjeta
 	 */
-	public Droga getDroga() {
-		return this.droga;
+	public Tarjeta getTarjeta() {
+		return this.tarjeta;
 	}
 
 	/**
-	 * @param Droga the Droga to set
+	 * @param Tarjeta the Tarjeta to set
 	 */
-	public void setDroga(Droga droga) {
-		this.droga = droga;
+	public void setTarjeta(Tarjeta tarjeta) {
+		this.tarjeta = tarjeta;
 	}
 
 
 	/**
-	 * @param DrogaBo the DrogaBo to set
+	 * @param TarjetaBo the TarjetaBo to set
 	 */
-	public void setDrogaBo(DrogaBo drogaBo) {
-		this.drogaBo = drogaBo;
+	public void setTarjetaBo(TarjetaBo tarjetaBo) {
+		this.tarjetaBo = tarjetaBo;
 	}
 
 }

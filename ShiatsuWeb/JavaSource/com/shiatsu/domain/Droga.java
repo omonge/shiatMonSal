@@ -8,7 +8,7 @@ package com.shiatsu.domain;
  *
  */
 public class Droga {
-	
+	public static final Integer DROGA_DEFAULT   = Integer.valueOf(0);
 	private Integer pvInCodigo;
 	private String pvStDescripcion;
 	

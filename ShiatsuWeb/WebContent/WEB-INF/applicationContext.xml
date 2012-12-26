@@ -110,6 +110,48 @@ http://www.springframework.org/schema/jee http://www.springframework.org/schema/
             </bean>
         </property> 
     </bean>
+    <bean id="suministroBo" parent="shiatsuTP">
+        <property name="target">
+            <bean class="com.shiatsu.bo.impl.SuministroBoImpl">
+                <property name="suministroDao" ref="suministroDao"/>
+            </bean>
+        </property> 
+    </bean>
+    <bean id="tarjetaBo" parent="shiatsuTP">
+        <property name="target">
+            <bean class="com.shiatsu.bo.impl.TarjetaBoImpl">
+                <property name="tarjetaDao" ref="tarjetaDao"/>
+            </bean>
+        </property> 
+    </bean>
+    <bean id="productoBo" parent="shiatsuTP">
+        <property name="target">
+            <bean class="com.shiatsu.bo.impl.ProductoBoImpl">
+                <property name="productoDao" ref="productoDao"/>
+            </bean>
+        </property> 
+    </bean>
+    <bean id="sucursalBo" parent="shiatsuTP">
+        <property name="target">
+            <bean class="com.shiatsu.bo.impl.SucursalBoImpl">
+                <property name="sucursalDao" ref="sucursalDao"/>
+            </bean>
+        </property> 
+    </bean>
+    <bean id="bodegaBo" parent="shiatsuTP">
+        <property name="target">
+            <bean class="com.shiatsu.bo.impl.BodegaBoImpl">
+                <property name="bodegaDao" ref="bodegaDao"/>
+            </bean>
+        </property> 
+    </bean>
+    <bean id="frecuenciaAsistenciaBo" parent="shiatsuTP">
+        <property name="target">
+            <bean class="com.shiatsu.bo.impl.FrecuenciaAsistenciaBoImpl">
+                <property name="frecuenciaAsistenciaDao" ref="frecuenciaAsistenciaDao"/>
+            </bean>
+        </property> 
+    </bean>
     <bean id="usuarioBo" parent="shiatsuTP">
         <property name="target">
             <bean class="com.shiatsu.bo.impl.UsuarioBoImpl">

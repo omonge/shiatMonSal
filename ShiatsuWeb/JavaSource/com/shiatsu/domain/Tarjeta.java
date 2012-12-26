@@ -7,15 +7,15 @@ package com.shiatsu.domain;
  * @author omonge
  *
  */
-public class Usuario {
-	public static final Integer DEFAULT   = Integer.valueOf(0);
+public class Tarjeta {
+	public static final Integer  DEFAULT   = Integer.valueOf(0);
 	private Integer pvInCodigo;
 	private String pvStDescripcion;
 	
 	/**
 	 * 
 	 */
-	public Usuario() {
+	public Tarjeta() {
 		// TODO Auto-generated constructor stub
 	}
 	/**
@@ -68,10 +68,10 @@ public class Usuario {
 		if (obj == null) {
 			return false;
 		}
-		if (!(obj instanceof Usuario)) {
+		if (!(obj instanceof Tarjeta)) {
 			return false;
 		}
-		Usuario other = (Usuario) obj;
+		Tarjeta other = (Tarjeta) obj;
 		if (pvInCodigo == null) {
 			if (other.pvInCodigo != null) {
 				return false;

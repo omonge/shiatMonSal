@@ -8,7 +8,7 @@ package com.shiatsu.domain;
  *
  */
 public class TipoCliente {
-	
+	public static final Integer DEFAULT   = Integer.valueOf(0);
 	private Integer pvInCodigo;
 	private String pvStDescripcion;
 	
