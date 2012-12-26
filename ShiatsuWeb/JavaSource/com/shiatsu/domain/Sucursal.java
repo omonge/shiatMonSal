@@ -10,6 +10,19 @@ package com.shiatsu.domain;
 public class Sucursal {
 	public static final Integer DEFAULT   = Integer.valueOf(0);
 	private Integer pvInCodigo;
+	private String pvStEstado;
+	/**
+	 * @return the pvStEstado
+	 */
+	public String getPvStEstado() {
+		return pvStEstado;
+	}
+	/**
+	 * @param pvStEstado the pvStEstado to set
+	 */
+	public void setPvStEstado(String pvStEstado) {
+		this.pvStEstado = pvStEstado;
+	}
 	private String pvStDescripcion;
 	
 	/**

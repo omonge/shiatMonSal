@@ -3,21 +3,60 @@
  */
 package com.shiatsu.domain;
 
+import java.io.Serializable;
+import java.util.Date;
+
 /**
  * @author omonge
  *
  */
-public class Suministro {
-	public static final Integer  DEFAULT   = Integer.valueOf(0);
+public class Suministro implements Serializable  {
+
+	private static final long serialVersionUID = 7187844110408404568L;
+	public static final Integer DEFAULT   = new Integer(0);
+	public static final String ESTADO_DEFAULT	= new String("");
+	public static final String ESTADO_ACTIVO   	= new String("A");
+	public static final String ESTADO_INACTIVO 	= new String("I");
+	public static final String ESTADO_ACTIVO_DESCRIPCION   	= new String("ACTIVO");
+	public static final String ESTADO_INACTIVO_DESCRIPCION 	= new String("INACTIVO");
+	
+	private Usuario pvUsUsuario;
+	private Date pvDafechaModificacion;
 	private Integer pvInCodigo;
-	private String pvStDescripcion;
+	private String pvStEstado;
 	
 	/**
 	 * 
 	 */
 	public Suministro() {
-		// TODO Auto-generated constructor stub
+		this.pvDafechaModificacion = new Date();
+		this.pvUsUsuario = new Usuario(); 
 	}
+	/** @return regresa el pvStEstadoDescripcion*/
+	public String getPvStEstadoDescripcion() { 
+		if(Cliente.ESTADO_ACTIVO.equals(this.pvStEstado)){
+			return ESTADO_ACTIVO_DESCRIPCION;
+		}
+		if(Cliente.ESTADO_INACTIVO.equals(this.pvStEstado)){ 
+			return ESTADO_INACTIVO_DESCRIPCION;
+		}
+		return null;
+	}	
+	/**
+	 * @return the pvStEstado
+	 */
+	public String getPvStEstado() {
+		return pvStEstado;
+	}
+	/**
+	 * @param pvStEstado the pvStEstado to set
+	 */
+	public void setPvStEstado(String pvStEstado) {
+		this.pvStEstado = pvStEstado;
+	}
+	private String pvStDescripcion;
+	
+	
 	/**
 	 * @return the pvInCodigo
 	 */
@@ -80,6 +119,30 @@ public class Suministro {
 			return false;
 		}
 		return true;
+	}
+	/**
+	 * @return the pvUsUsuario
+	 */
+	public Usuario getPvUsUsuario() {
+		return pvUsUsuario;
+	}
+	/**
+	 * @param pvUsUsuario the pvUsUsuario to set
+	 */
+	public void setPvUsUsuario(Usuario pvUsUsuario) {
+		this.pvUsUsuario = pvUsUsuario;
+	}
+	/**
+	 * @return the pvDafechaModificacion
+	 */
+	public Date getPvDafechaModificacion() {
+		return pvDafechaModificacion;
+	}
+	/**
+	 * @param pvDafechaModificacion the pvDafechaModificacion to set
+	 */
+	public void setPvDafechaModificacion(Date pvDafechaModificacion) {
+		this.pvDafechaModificacion = pvDafechaModificacion;
 	}
 	
 

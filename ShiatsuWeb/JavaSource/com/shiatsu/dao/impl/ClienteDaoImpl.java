@@ -21,8 +21,8 @@ public class ClienteDaoImpl extends HibernateDaoSupport implements ClienteDao {
 	@Override
 	public Cliente buscar(Cliente cliente) {
 		HibernateTemplate hibernate = this.getHibernateTemplate();
-        String hql = "FROM Cliente cliente WHERE UPPER(cliente.pvStCodigo) = ?";
-        Object[] values = {cliente.getPvStCodigo().toUpperCase()};
+        String hql = "FROM Cliente cliente WHERE cliente.pvStCodigo = ?";
+        Object[] values = {cliente.getPvStCodigo()};
         List<Cliente> clientes = hibernate.find(hql,values);
         if(clientes.isEmpty()){
         	return null;
@@ -35,7 +35,7 @@ public class ClienteDaoImpl extends HibernateDaoSupport implements ClienteDao {
 	@Override
 	public List<Cliente> getClientes() {
 		HibernateTemplate hibernate = this.getHibernateTemplate();
-        String hql = "FROM Cliente cliente ORDER BY cliente.pvStNombre";
+        String hql = "FROM Cliente cliente ORDER BY cliente.pvDiDiagnostico.pvStNombre";
         List<Cliente> clientes = hibernate.find(hql);
         return clientes; 
 	}
@@ -75,6 +75,16 @@ public class ClienteDaoImpl extends HibernateDaoSupport implements ClienteDao {
                 hql += "(cliente.pvInEstado = ?) ";
             }
             filtros.add(cliente.getPvInEstado());
+            and = true;
+        }
+        
+        if( (cliente.getPvDiDiagnostico() != null) && (cliente.getPvDiDiagnostico().getPvStNombre() != null) && (!Cliente.ESTADO_DEFAULT.equals(cliente.getPvDiDiagnostico().getPvStNombre()))){
+            if(and){
+                hql += "AND (cliente.pvStNombre = ?) ";
+            }else{
+                hql += "(cliente.pvStNombre = ?) ";
+            }
+            filtros.add(cliente.getPvDiDiagnostico().getPvStNombre());
             and = true;
         }
         
@@ -137,20 +147,9 @@ public class ClienteDaoImpl extends HibernateDaoSupport implements ClienteDao {
             filtros.add(cliente.getPvStFacturaNombre());
             and = true;
         }
-        
-        
-        if((cliente.getPvStNombre() != null) && (!"".equals(cliente.getPvStNombre())) ){
-            if(and){
-                hql += "AND (UPPER(TRIM(cliente.pvStNombre)) like ?) ";
-            }else{
-                hql += "(UPPER(TRIM(cliente.pvStNombre)) like ?) ";
-            }
-            filtros.add("%"+cliente.getPvStNombre()+"%");
-            and = true;
-        }
-        
+          
         if(and){
-            hql += " ORDER BY cliente.nombre ASC";
+            hql += " ORDER BY cliente.pvDiDiagnostico.pvStnombre ASC";
             Object[] values = new Object[filtros.size()];
             for(int i = 0; i < filtros.size(); i++){
                 values[i] = filtros.get(i);
@@ -189,8 +188,8 @@ public class ClienteDaoImpl extends HibernateDaoSupport implements ClienteDao {
 	@Override
 	public boolean existe(Cliente cliente) {
 		HibernateTemplate hibernate = this.getHibernateTemplate();
-        String hql = "SELECT cliente.pvStCodigo FROM Cliente cliente WHERE UPPER(cliente.pvStCodigo) = ?";
-        Object[] values = {cliente.getPvStCodigo().toUpperCase()};
+        String hql = "SELECT cliente.pvStCodigo FROM Cliente cliente WHERE cliente.pvStCodigo = ?";
+        Object[] values = {cliente.getPvStCodigo()};
         List<Object> clientes = hibernate.find(hql,values);
         if(clientes.isEmpty()){
         	return false;

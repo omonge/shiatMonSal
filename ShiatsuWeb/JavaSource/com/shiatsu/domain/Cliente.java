@@ -29,9 +29,9 @@ public class Cliente implements Serializable {
 	public static final String SEXO_FEMENINO_DESCRIPCION  	= new String("FEMENINO");
 	
 	public static final Integer ALOPECIA_DEFAULT  			= new Integer(0);
+	public static final Integer CLIENTE_DEFAULT  			= new Integer(0);
 	
-	private String 	pvStCodigo;
-
+	private Integer	pvStCodigo;
 	private String 	pvStDireccion;
 	private String  pvInEstado;
 	private String 	pvStEmail1;
@@ -41,7 +41,7 @@ public class Cliente implements Serializable {
 	private String  pvStLugarProfesion;
 	private Date	pvDaNacimiento;
 	private Integer pvInNacionalidad;
-	private String 	pvStNombre;
+	private Diagnostico pvDiDiagnostico;
 	private Integer pvInProfesion;
 	private Integer pvInSexo;
 	private Long 	pvLoTelefonoCasa;
@@ -49,7 +49,7 @@ public class Cliente implements Serializable {
 	private	Integer pvInTipoAlopecia; 
 	private	Integer pvInProvincia;
 	private	Integer pvInCanton;
-	private	Integer pvInDistrito;
+	private	Integer pvInDistrito; 
 
 	public Cliente(){
 		this.pvInProvincia = null;
@@ -65,7 +65,7 @@ public class Cliente implements Serializable {
 		this.pvStLugarProfesion = null;
 		this.pvDaNacimiento = null;
 		this.pvInNacionalidad = null;
-		this.pvStNombre = null;
+		this.pvDiDiagnostico = new Diagnostico();
 		this.pvInProfesion = null;
 		this.pvInSexo = null;
 		this.pvLoTelefonoCasa = null;
@@ -98,13 +98,13 @@ public class Cliente implements Serializable {
 	/**
 	 * @return the pvStCodigo
 	 */
-	public String getPvStCodigo() {
+	public Integer getPvStCodigo() {
 		return pvStCodigo;
 	}
 	/**
 	 * @param pvStCodigo the pvStCodigo to set
 	 */
-	public void setPvStCodigo(String pvStCodigo) {
+	public void setPvStCodigo(Integer pvStCodigo) {
 		this.pvStCodigo = pvStCodigo;
 	}
 	/**
@@ -231,21 +231,7 @@ public class Cliente implements Serializable {
 	public void setPvInNacionalidad(Integer pvInNacionalidad) {
 		this.pvInNacionalidad = pvInNacionalidad;
 	}
-	/**
-	 * @return the pvStNombre
-	 */
-	public String getPvStNombre() {
-		if(this.pvStNombre!=null){
-			return this.pvStNombre.toUpperCase();
-		}
-		return pvStNombre;
-	}
-	/**
-	 * @param pvStNombre the pvStNombre to set
-	 */
-	public void setPvStNombre(String pvStNombre) {
-		this.pvStNombre = pvStNombre;
-	}
+
 	/**
 	 * @return the pvInProfesion
 	 */
@@ -351,6 +337,22 @@ public class Cliente implements Serializable {
 		this.pvInDistrito = pvInDistrito;
 	}
 
+	
+	/**
+	 * @return the pvDiDiagnostico
+	 */
+	public Diagnostico getPvDiDiagnostico() {
+		return pvDiDiagnostico;
+	}
+
+	/**
+	 * @param pvDiDiagnostico the pvDiDiagnostico to set
+	 */
+	public void setPvDiDiagnostico(Diagnostico pvDiDiagnostico) {
+		this.pvDiDiagnostico = pvDiDiagnostico;
+	}
+
+	
 	/**
 	 * Comment for equals
 	 * @param obj

@@ -3,20 +3,32 @@
  */
 package com.shiatsu.domain;
 
+import java.util.Date;
+
 /**
  * @author omonge
  *
  */
 public class Producto {
 	public static final Integer DEFAULT   = Integer.valueOf(0);
+	public static final String ESTADO_DEFAULT	= new String("");
+	public static final String ESTADO_ACTIVO   	= new String("A");
+	public static final String ESTADO_INACTIVO 	= new String("I");
+	public static final String ESTADO_ACTIVO_DESCRIPCION   	= new String("ACTIVO");
+	public static final String ESTADO_INACTIVO_DESCRIPCION 	= new String("INACTIVO");
+	
+	private Usuario pvUsUsuario;
+	private Date pvDafechaModificacion;
 	private Integer pvInCodigo;
+	private String pvStEstado;
 	private String pvStDescripcion;
 	
 	/**
 	 * 
 	 */
 	public Producto() {
-		// TODO Auto-generated constructor stub
+		this.pvDafechaModificacion = new Date();
+		this.pvUsUsuario = new Usuario();
 	}
 	/**
 	 * @return the pvInCodigo
@@ -80,6 +92,42 @@ public class Producto {
 			return false;
 		}
 		return true;
+	}
+	/**
+	 * @return the pvStEstado
+	 */
+	public String getPvStEstado() {
+		return pvStEstado;
+	}
+	/**
+	 * @param pvStEstado the pvStEstado to set
+	 */
+	public void setPvStEstado(String pvStEstado) {
+		this.pvStEstado = pvStEstado;
+	}
+	/**
+	 * @return the pvUsUsuario
+	 */
+	public Usuario getPvUsUsuario() {
+		return pvUsUsuario;
+	}
+	/**
+	 * @param pvUsUsuario the pvUsUsuario to set
+	 */
+	public void setPvUsUsuario(Usuario pvUsUsuario) {
+		this.pvUsUsuario = pvUsUsuario;
+	}
+	/**
+	 * @return the pvDafechaModificacion
+	 */
+	public Date getPvDafechaModificacion() {
+		return pvDafechaModificacion;
+	}
+	/**
+	 * @param pvDafechaModificacion the pvDafechaModificacion to set
+	 */
+	public void setPvDafechaModificacion(Date pvDafechaModificacion) {
+		this.pvDafechaModificacion = pvDafechaModificacion;
 	}
 	
 

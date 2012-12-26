@@ -76,7 +76,7 @@ public class DrogaController  extends Controller{
      */
     private boolean validarObjetoId() { 
         boolean correcto = false;
-        if((this.droga.getPvInCodigo()!=null) && !(this.droga.getPvInCodigo().equals(Droga.DROGA_DEFAULT))) {
+        if((this.droga.getPvInCodigo()!=null)) {
         	correcto = true;
         }
         return correcto;

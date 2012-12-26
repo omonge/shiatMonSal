@@ -25,6 +25,8 @@ http://www.springframework.org/schema/jee http://www.springframework.org/schema/
     </bean>
    	
    <!--========== Bussiness Objects ==========-->
+   
+      
     <bean id="clienteBo" parent="shiatsuTP">
         <property name="target">
             <bean class="com.shiatsu.bo.impl.ClienteBoImpl">
@@ -41,7 +43,13 @@ http://www.springframework.org/schema/jee http://www.springframework.org/schema/
             </bean>
         </property> 
     </bean>
-    
+    <bean id="diagnosticoBo" parent="shiatsuTP">
+        <property name="target">
+            <bean class="com.shiatsu.bo.impl.DiagnosticoBoImpl">
+                <property name="diagnosticoDao" ref="diagnosticoDao"/>
+            </bean>
+        </property> 
+    </bean>
     <bean id="distritoBo" parent="shiatsuTP">
         <property name="target">
             <bean class="com.shiatsu.bo.impl.DistritoBoImpl">

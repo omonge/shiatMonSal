@@ -77,7 +77,7 @@ public class TipoClienteDaoImpl extends HibernateDaoSupport implements  TipoClie
         List<TipoCliente> lista = new ArrayList<TipoCliente>();
         boolean and = false;//verifica que ya se haya agregado algo al where para concatener o no concatenar el operador AND
         
-        if((tipoCliente.getPvInCodigo()!=null) && !(tipoCliente.getPvInCodigo().equals(TipoCliente.DEFAULT))) {
+        if((tipoCliente.getPvInCodigo() != null)) {
             hql += "tipoCliente.pvInCodigo = ?) ";
             filtros.add(tipoCliente.getPvInCodigo());
             and = true;

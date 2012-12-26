@@ -48,8 +48,8 @@
                     <h:form id="formBanner" >
                         
                             <div id="menus">
-                                <div id="sucursal" class="flotarIzquierda"> 
-                                        <h:outputText styleClass="outputText" id="sucursal" value="Shiatzu"/>  
+                                <div id="usuario" class="flotarIzquierda"> 
+                                        <h:outputText styleClass="outputText" id="usuario" value="Shiatzu"/>  
                                 </div>
                                 <div id="menu_fecha" class="flotarDerecha">
                                     <script language="JavaScript">mostrarFecha();</script> - <h:outputText value="#{rcs['version']}"></h:outputText>
@@ -62,7 +62,7 @@
                             <div id="raya_amarilla"></div>
                             <div id="menu_page">
 								<ul id="menu">	 
-								<li><a href="Templates/shiatsuInicio.jsf?init=true">Inicio</a></li>
+								<li><a href="shiatsuInicio.jsf?init=true">Inicio</a></li>
 								<li>Cat&aacute;logos
 								  <ul>
 									<li>Clientes
@@ -70,6 +70,13 @@
 										<li><a href="shiatsuActCliente.jsf?init=true">Agregar</a></li>
 										<li><a href="shiatsuConsClientes.jsf?init=true">Consulta</a></li> 
 										<li><a href="shiatsuListaClientes.jsf?init=true">Mantenimiento</a></li>
+									  </ul>
+									</li>
+									<li>Diagn&oacute;stico
+									  <ul>
+										<li><a href="shiatsuActDiagnostico.jsf?init=true">Agregar</a></li>
+										<li><a href="shiatsuConsDiagnostico.jsf?init=true">Consulta</a></li> 
+										<li><a href="shiatsuListaDiagnostico.jsf?init=true">Mantenimiento</a></li>
 									  </ul>
 									</li>
 									<li>Enfermedad
@@ -99,12 +106,61 @@
 										<li><a href="shiatsuConsPais.jsf?init=true">Consulta</a></li>
 										<li><a href="shiatsuListaPais.jsf?init=true">Mantenimiento</a></li>
 									  </ul>
-									</li>
+									</li>  
 									<li>Profesi&oacute;n
 									  <ul>
 										<li><a href="shiatsuActProfesion.jsf?init=true">Agregar</a></li>
 										<li><a href="shiatsuConsProfesion.jsf?init=true">Consulta</a></li>
 										<li><a href="shiatsuListaProfesion.jsf?init=true">Mantenimiento</a></li>
+									  </ul>
+									</li>
+									<li>Bodega
+									  <ul>
+										<li><a href="shiatsuActBodega.jsf?init=true">Agregar</a></li>
+										<li><a href="shiatsuConsBodega.jsf?init=true">Consulta</a></li>
+										<li><a href="shiatsuListaBodega.jsf?init=true">Mantenimiento</a></li>
+									  </ul>
+									</li>
+									<li>Frecuencia Asistencia
+									  <ul>
+										<li><a href="shiatsuActFrecuenciaAsistencia.jsf?init=true">Agregar</a></li>
+										<li><a href="shiatsuConsFrecuenciaAsistencia.jsf?init=true">Consulta</a></li>
+										<li><a href="shiatsuListaFrecuenciaAsistencia.jsf?init=true">Mantenimiento</a></li>
+									  </ul>
+									</li>
+									<li>Producto
+									  <ul>
+										<li><a href="shiatsuActProducto.jsf?init=true">Agregar</a></li>
+										<li><a href="shiatsuConsProducto.jsf?init=true">Consulta</a></li>
+										<li><a href="shiatsuListaProducto.jsf?init=true">Mantenimiento</a></li>
+									  </ul>
+									</li>
+									<li>Droga
+									  <ul>
+										<li><a href="shiatsuActDroga.jsf?init=true">Agregar</a></li>
+										<li><a href="shiatsuConsDroga.jsf?init=true">Consulta</a></li>
+										<li><a href="shiatsuListaDroga.jsf?init=true">Mantenimiento</a></li>
+									  </ul>
+									</li>
+									<li>TipoCliente
+									  <ul>
+										<li><a href="shiatsuActTipoCliente.jsf?init=true">Agregar</a></li>
+										<li><a href="shiatsuConsTipoCliente.jsf?init=true">Consulta</a></li>
+										<li><a href="shiatsuListaTipoCliente.jsf?init=true">Mantenimiento</a></li>
+									  </ul>
+									</li>
+									<li>Suministro
+									  <ul>
+										<li><a href="shiatsuActSuministro.jsf?init=true">Agregar</a></li>
+										<li><a href="shiatsuConsSuministro.jsf?init=true">Consulta</a></li>
+										<li><a href="shiatsuListaSuministro.jsf?init=true">Mantenimiento</a></li>
+									  </ul>
+									</li>
+									<li>Usuario
+									  <ul>
+										<li><a href="shiatsuActUsuario.jsf?init=true">Agregar</a></li>
+										<li><a href="shiatsuConsUsuario.jsf?init=true">Consulta</a></li>
+										<li><a href="shiatsuListaUsuario.jsf?init=true">Mantenimiento</a></li>
 									  </ul>
 									</li>
 								  </ul>

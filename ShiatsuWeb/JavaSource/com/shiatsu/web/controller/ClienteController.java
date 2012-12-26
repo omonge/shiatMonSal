@@ -92,9 +92,7 @@ public class ClienteController extends Controller {
     private boolean validarFiltro() {
         boolean correcto = false;
 
-    	if ((this.cliente.getPvStNombre() != null) && (!"".equals(this.cliente.getPvStNombre()))) {
-            correcto = true;
-    	}
+    	 
     	if ((this.cliente.getPvLoTelefonoCasa() != null) && (this.cliente.getPvLoTelefonoCasa().longValue() > Cliente.TELEFONO_DEFAULT.longValue())) {
             correcto = true;
     	}
@@ -128,7 +126,7 @@ public class ClienteController extends Controller {
      */
     private boolean validarObjetoId() { 
         boolean correcto = false;
-        if((this.cliente.getPvStCodigo()!=null) && (!"".equals(this.cliente.getPvStCodigo()))) {
+        if((this.cliente.getPvStCodigo()!=null) && (!Cliente.CLIENTE_DEFAULT.equals(this.cliente.getPvStCodigo()))) {
         	correcto = true;
         }
         return correcto;
@@ -350,11 +348,7 @@ public class ClienteController extends Controller {
 			if((this.cliente.getPvStEmail2() == null) || (this.cliente.getPvStEmail2().equals(""))){
 				this.addError(this.getPropertyFieldName("cliente.pvStEmail2"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
-			}*/
-			if((this.cliente.getPvStNombre() == null) || ("".equals(this.cliente.getPvStNombre()))){
-				this.addError(this.getPropertyFieldName("cliente.pvStNombre"),Bundle.rcs.getString("campoRequerido"));
-				correcto = false;
-			}
+			}*/ 
 			if((this.cliente.getPvInEstado() == null) || (Cliente.ESTADO_DEFAULT.equals(this.cliente.getPvInEstado()))){
 				this.addError(this.getPropertyFieldName("cliente.pvInEstado"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;

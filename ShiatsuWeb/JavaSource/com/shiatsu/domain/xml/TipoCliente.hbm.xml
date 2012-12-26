@@ -9,6 +9,7 @@
         	<generator class="identity"></generator>
         </id>
         <property name="pvStDescripcion" 			column="DESCRIPCION" 				type="java.lang.String" 	length="100"/>  
+    	<property name="pvStEstado" 				column="ESTADO" 					type="java.lang.String" 	length="1"/> 
      </class>
 </hibernate-mapping>
 

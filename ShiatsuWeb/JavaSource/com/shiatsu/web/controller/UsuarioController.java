@@ -76,7 +76,7 @@ public class UsuarioController  extends Controller{
      */
     private boolean validarObjetoId() { 
         boolean correcto = false;
-        if((this.usuario.getPvInCodigo()!=null) && !(this.usuario.getPvInCodigo().equals(Usuario.DEFAULT))) {
+        if((this.usuario.getPvInCodigo()!=null)) {
         	correcto = true;
         }
         return correcto;

@@ -8,8 +8,9 @@ package com.shiatsu.domain;
  *
  */
 public class TipoCliente {
-	public static final Integer DEFAULT   = Integer.valueOf(0);
+	
 	private Integer pvInCodigo;
+	private String pvStEstado;
 	private String pvStDescripcion;
 	
 	/**
@@ -80,6 +81,18 @@ public class TipoCliente {
 			return false;
 		}
 		return true;
+	}
+	/**
+	 * @return the pvStEstado
+	 */
+	public String getPvStEstado() {
+		return pvStEstado;
+	}
+	/**
+	 * @param pvStEstado the pvStEstado to set
+	 */
+	public void setPvStEstado(String pvStEstado) {
+		this.pvStEstado = pvStEstado;
 	}
 	
 

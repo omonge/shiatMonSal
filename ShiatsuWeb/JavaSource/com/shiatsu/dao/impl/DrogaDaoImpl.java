@@ -77,7 +77,7 @@ public class DrogaDaoImpl extends HibernateDaoSupport implements  DrogaDao{
         List<Droga> lista = new ArrayList<Droga>();
         boolean and = false;//verifica que ya se haya agregado algo al where para concatener o no concatenar el operador AND
         
-        if((droga.getPvInCodigo()!=null) && !(droga.getPvInCodigo().equals(Droga.DROGA_DEFAULT))) {
+        if((droga.getPvInCodigo() != null)) {
             hql += "droga.pvInCodigo = ?) ";
             filtros.add(droga.getPvInCodigo());
             and = true;

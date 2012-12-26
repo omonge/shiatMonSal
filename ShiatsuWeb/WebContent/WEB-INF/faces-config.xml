@@ -54,6 +54,48 @@
         	</managed-property>
 	 </managed-bean>
 	 
+ 	<!-- ================ Managed Bean DiagnosticoController ================ -->
+	 <managed-bean>
+	        <managed-bean-name>diagnosticoController</managed-bean-name>
+	        <managed-bean-class>com.shiatsu.web.controller.DiagnosticoController</managed-bean-class>
+	        <managed-bean-scope>session</managed-bean-scope>
+	        <managed-property>
+	            <property-name>diagnosticoBo</property-name>
+	            <property-class>com.shiatsu.bo.DiagnosticoBo</property-class>
+	            <value>#{diagnosticoBo}</value>
+        	</managed-property>
+        	<managed-property>
+	            <property-name>tipoAlopeciaBo</property-name>
+	            <property-class>com.shiatsu.bo.TipoAlopeciaBo</property-class>
+	            <value>#{tipoAlopeciaBo}</value>
+        	</managed-property>
+        	<managed-property>
+	            <property-name>paisBo</property-name>
+	            <property-class>com.shiatsu.bo.PaisBo</property-class>
+	            <value>#{paisBo}</value>
+        	</managed-property>
+        	<managed-property>
+	            <property-name>profesionBo</property-name>
+	            <property-class>com.shiatsu.bo.ProfesionBo</property-class>
+	            <value>#{profesionBo}</value>
+        	</managed-property>
+        	<managed-property>
+	            <property-name>provinciaBo</property-name>
+	            <property-class>com.shiatsu.bo.ProvinciaBo</property-class>
+	            <value>#{provinciaBo}</value>
+        	</managed-property>
+        	<managed-property>
+	            <property-name>cantonBo</property-name>
+	            <property-class>com.shiatsu.bo.CantonBo</property-class>
+	            <value>#{cantonBo}</value>
+        	</managed-property>
+        	<managed-property>
+	            <property-name>distritoBo</property-name>
+	            <property-class>com.shiatsu.bo.DistritoBo</property-class>
+	            <value>#{distritoBo}</value>
+        	</managed-property>
+	 </managed-bean>
+
 	 <!-- ================ Managed Bean DrogaController ================ -->
 	 <managed-bean>
 	        <managed-bean-name>drogaController</managed-bean-name>
@@ -636,5 +678,31 @@
 	    		<from-outcome>success</from-outcome>
 	    		<to-view-id>/shiatsuListaFrecuenciaAsistencia.jsp</to-view-id>
 	    	</navigation-case>
+	    </navigation-rule> 
+	    <navigation-rule>
+	    	<from-view-id>/shiatsuListaDiagnostico.jsp</from-view-id>
+	    	<navigation-case>
+	    		<from-action>#{diagnosticoController.cargarObjeto}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuActDiagnostico.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{diagnosticoController.irAgregar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuActDiagnostico.jsp</to-view-id>
+	    	</navigation-case>
 	    </navigation-rule>
+		<navigation-rule>
+	    	<from-view-id>/shiatsuActDiagnostico.jsp</from-view-id>
+	    	<navigation-case>
+	    		<from-action>#{diagnosticoController.regresar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuListaDiagnostico.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{diagnosticoController.eliminar}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuListaDiagnostico.jsp</to-view-id>
+	    	</navigation-case>
+	    </navigation-rule>	
 </faces-config>

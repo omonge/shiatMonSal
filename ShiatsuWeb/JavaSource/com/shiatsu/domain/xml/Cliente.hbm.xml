@@ -5,9 +5,13 @@
 
 <hibernate-mapping package="com.shiatsu.domain">
     <class name="Cliente" table="CAT_CLIENTE">
-        <id name="pvStCodigo" column="CODIGO" type="java.lang.String" length="22">
-            <generator class="assigned" />
+        <id name="pvStCodigo" column="CODIGO" type="java.lang.Integer" length="10">
+            <generator class="identity" />
         </id>
+		<many-to-one name="pvDiDiagnostico" class="com.shiatsu.domain.Diagnostico" lazy="false" >
+		    <column name="DIAGNOSTICO" />
+		</many-to-one>
+		    
         <property name="pvStDireccion" 			column="DIRECCION" 				type="java.lang.String" 	length="100"/>
         <property name="pvInEstado" 		    column="ESTADO" 				type="java.lang.String" 	length="1"/>
         <property name="pvStEmail1" 			column="EMAIL1" 				type="java.lang.String" 	length="50"/>
@@ -17,7 +21,6 @@
         <property name="pvStLugarProfesion"		column="LUGAR_PROFESION" 		type="java.lang.String" 	length="50"/>
         <property name="pvDaNacimiento" 		column="NACIMIENTO" 			type="java.util.Date"/>
         <property name="pvInNacionalidad"		column="NACIONALIDAD"			type="java.lang.Integer" 	length="10"/>
-        <property name="pvStNombre" 			column="NOMBRE" 				type="java.lang.String" 	length="50"/>
         <property name="pvInProfesion" 			column="PROFESION" 				type="java.lang.Integer" 	length="10"/>
         <property name="pvInSexo"	 			column="SEXO" 					type="java.lang.Integer" 	length="1"/>
         <property name="pvLoTelefonoCasa" 		column="TELEFONO_CASA" 			type="java.lang.Long" 		length="10"/>
