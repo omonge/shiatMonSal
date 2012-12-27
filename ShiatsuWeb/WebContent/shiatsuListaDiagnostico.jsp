@@ -421,7 +421,7 @@
 										id="lbl7"></h:outputText>
 								</f:facet>			
 								<h:outputText styleClass="outputText pad-right" id="text7"
-									value="#{dato.pvStEstadoDescripcion}">
+									value="#{dato.estadoDescripcion}">
 								</h:outputText>		
 								<f:attribute value="center" name="align" />	
 							</h:column>

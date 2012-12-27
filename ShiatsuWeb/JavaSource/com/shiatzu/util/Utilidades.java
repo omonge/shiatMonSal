@@ -11,6 +11,17 @@ public class Utilidades {
 		// TODO Auto-generated constructor stub
 	}
 	
+//	 public static Long getCedulaUsuarioGice(){
+//	        Long cedula = UsuarioGice.USUARIO_AUTOMATICO;//El usuario autom�tico default
+//	        try{
+//	            Map sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+//	            cedula = ((UsuarioCia)sessionMap.get("usuario")).getCedula();
+//	        }catch(Exception e){
+//	            System.out.println("Error al obtener la cedula del usuario mediante el FacesContext: " + e.getMessage());
+//	        }
+//	        return cedula;
+//	    }
+//	
 
     /**
      * 
