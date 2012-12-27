@@ -231,6 +231,18 @@
 									</h:commandLink>
 							</h:column>
 							
+							<h:column id="Columna2">
+								<f:facet name="header">
+									<h:outputText styleClass="outputText pad-right"
+										value="#{rcs['suministro.estado']}"
+										id="lbl2"></h:outputText>
+								</f:facet>			
+								<h:outputText styleClass="outputText pad-right" id="text2"
+									value="#{var.estadoDescripcion}">
+								</h:outputText>		
+								<f:attribute value="center" name="align" />	
+							</h:column>
+							
 							<h:column id="Columna3">
 								<f:facet name="header">
 									<h:outputText styleClass="outputText pad-right"

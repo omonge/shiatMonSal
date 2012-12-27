@@ -24,19 +24,19 @@ public class Tarjeta implements Serializable{
 	private String pvStEstado;
 	private String pvStDescripcion;
 	private Usuario pvObUsuario;
-	private Date pvDaModificacion;
+	private Date pvDaModifica;
 	
 	/**
 	 * 
 	 */
 	public Tarjeta() {
-		this.pvDaModificacion = new Date();
+		this.pvDaModifica = new Date();
 		this.pvObUsuario = new Usuario();
 	}
 	
 	
-	/** @return regresa el pvStEstadoDescripcion*/
-	public String getPvStEstadoDescripcion() { 
+	/** @return regresa el getEstadoDescripcion*/
+	public String getEstadoDescripcion() { 
 		if(Cliente.ESTADO_ACTIVO.equals(this.pvStEstado)){
 			return ESTADO_ACTIVO_DESCRIPCION;
 		}
@@ -133,13 +133,13 @@ public class Tarjeta implements Serializable{
 	}
 
 
-	public Date getPvDaModificacion() {
-		return pvDaModificacion;
+	public Date getPvDaModifica() {
+		return pvDaModifica;
 	}
 
 
-	public void setPvDaModificacion(Date pvDaModificacion) {
-		this.pvDaModificacion = pvDaModificacion;
+	public void setPvDaModifica(Date pvDaModifica) {
+		this.pvDaModifica = pvDaModifica;
 	}
 	
 

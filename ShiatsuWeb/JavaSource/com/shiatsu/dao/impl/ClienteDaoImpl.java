@@ -68,13 +68,13 @@ public class ClienteDaoImpl extends HibernateDaoSupport implements ClienteDao {
             filtros.add(cliente.getPvDaNacimiento());
             and = true;
         }
-        if((cliente.getPvInEstado() != null) && (!Cliente.ESTADO_DEFAULT.equals(cliente.getPvInEstado()))){
+        if((cliente.getPvStEstado() != null) && (!Cliente.ESTADO_DEFAULT.equals(cliente.getPvStEstado()))){
             if(and){
                 hql += "AND (cliente.pvInEstado = ?) ";
             }else{
                 hql += "(cliente.pvInEstado = ?) ";
             }
-            filtros.add(cliente.getPvInEstado());
+            filtros.add(cliente.getPvStEstado());
             and = true;
         }
         

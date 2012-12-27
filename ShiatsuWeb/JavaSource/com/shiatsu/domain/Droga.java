@@ -21,7 +21,7 @@ public class Droga   implements Serializable  {
 	public static final String ESTADO_INACTIVO_DESCRIPCION 	= new String("INACTIVO");
 	
 	private Usuario pvObUsuario;
-	private Date pvDaModificacion;
+	private Date pvDaModifica;
 	private Integer pvInCodigo;
 	private Integer pvStEstado;
 	private String pvStDescripcion;
@@ -30,13 +30,13 @@ public class Droga   implements Serializable  {
 	 * 
 	 */
 	public Droga() {
-		this.pvDaModificacion = new Date();
+		this.pvDaModifica = new Date();
 		this.pvObUsuario = new Usuario();  
 	}
 	
 	
-	/** @return regresa el pvStEstadoDescripcion*/
-	public String getPvStEstadoDescripcion() { 
+	/** @return regresa el getEstadoDescripcion*/
+	public String getEstadoDescripcion() { 
 		if(Cliente.ESTADO_ACTIVO.equals(this.pvStEstado)){
 			return ESTADO_ACTIVO_DESCRIPCION;
 		}
@@ -136,13 +136,13 @@ public class Droga   implements Serializable  {
 	}
 
 
-	public Date getPvDaModificacion() {
-		return pvDaModificacion;
+	public Date getPvDaModifica() {
+		return pvDaModifica;
 	}
 
 
-	public void setPvDaModificacion(Date pvDaModificacion) {
-		this.pvDaModificacion = pvDaModificacion;
+	public void setPvDaModifica(Date pvDaModifica) {
+		this.pvDaModifica = pvDaModifica;
 	}
 	
 

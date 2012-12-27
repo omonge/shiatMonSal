@@ -260,7 +260,7 @@
 										id="lbl2"></h:outputText>
 								</f:facet>			
 								<h:outputText styleClass="outputText pad-right" id="text2"
-									value="#{var.pvStEstadoDescripcion}">
+									value="#{var.pvEstadoDescripcion}">
 								</h:outputText>		
 								<f:attribute value="center" name="align" />	
 							</h:column>

@@ -18,10 +18,10 @@ public class Distrito  implements Serializable{
 	private String pvStDescripcion;
 	private String pvStEstado;
 	private Usuario pvObUsuario;
-	private Date pvDaModificacion;
+	private Date pvDaModifica;
 	
 	public Distrito(){
-		this.pvDaModificacion = new Date();
+		this.pvDaModifica = new Date();
 		this.pvObUsuario = new Usuario(); 
 		this.pvInCodigo = null;
 		this.pvStDescripcion = null;
@@ -149,12 +149,12 @@ public class Distrito  implements Serializable{
 		this.pvObUsuario = pvObUsuario;
 	}
 
-	public Date getPvDaModificacion() {
-		return pvDaModificacion;
+	public Date getPvDaModifica() {
+		return pvDaModifica;
 	}
 
-	public void setPvDaModificacion(Date pvDaModificacion) {
-		this.pvDaModificacion = pvDaModificacion;
+	public void setPvDaModifica(Date pvDaModifica) {
+		this.pvDaModifica = pvDaModifica;
 	}
 	 
 }

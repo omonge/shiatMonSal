@@ -17,14 +17,14 @@ public class Canton  implements Serializable{
 	private String pvStDescripcion;
 	private String pvStEstado;
 	private Usuario pvObUsuario;
-	private Date pvDaModificacion;
+	private Date pvDaModifica;
 	
 	public Canton(){
 		this.pvInCodigo = null;
 		this.pvStDescripcion = null;
 		this.pvStEstado = null;
 		this.pvPrProvincia = new Provincia();
-		this.pvDaModificacion = new Date();
+		this.pvDaModifica = new Date();
 		this.pvObUsuario = new Usuario(); 
 	}
 	
@@ -133,12 +133,12 @@ public class Canton  implements Serializable{
 		this.pvObUsuario = pvObUsuario;
 	}
 
-	public Date getPvDaModificacion() {
-		return pvDaModificacion;
+	public Date getPvDaModifica() {
+		return pvDaModifica;
 	}
 
-	public void setPvDaModificacion(Date pvDaModificacion) {
-		this.pvDaModificacion = pvDaModificacion;
+	public void setPvDaModifica(Date pvDaModifica) {
+		this.pvDaModifica = pvDaModifica;
 	}
 	 
 }

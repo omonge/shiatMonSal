@@ -114,7 +114,7 @@ public class ClienteController extends Controller {
     	if ((this.cliente.getPvInTipoAlopecia() != null) && (this.cliente.getPvInTipoAlopecia().intValue()  > Cliente.ALOPECIA_DEFAULT.intValue() )) {
             correcto = true;
     	}
-    	if ((this.cliente.getPvInEstado() != null) && (!Cliente.ESTADO_DEFAULT.equals(this.cliente.getPvInEstado()))) {
+    	if ((this.cliente.getPvStEstado() != null) && (!Cliente.ESTADO_DEFAULT.equals(this.cliente.getPvStEstado()))) {
             correcto = true;
     	}
         return correcto;
@@ -349,7 +349,7 @@ public class ClienteController extends Controller {
 				this.addError(this.getPropertyFieldName("cliente.pvStEmail2"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
 			}*/ 
-			if((this.cliente.getPvInEstado() == null) || (Cliente.ESTADO_DEFAULT.equals(this.cliente.getPvInEstado()))){
+			if((this.cliente.getPvStEstado() == null) || (Cliente.ESTADO_DEFAULT.equals(this.cliente.getPvStEstado()))){
 				this.addError(this.getPropertyFieldName("cliente.pvInEstado"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
 			}
@@ -391,7 +391,7 @@ public class ClienteController extends Controller {
 		String respuesta = "error";
         try{
             if(this.validaInsertar()){
-            	this.cliente.setPvInEstado(Cliente.ESTADO_ACTIVO);
+            	this.cliente.setPvStEstado(Cliente.ESTADO_ACTIVO);
                 this.clienteBo.agregar(this.cliente);
                 this.addInfo(null, Bundle.rcs.getString("datosAgregados"));
                 respuesta = "success";

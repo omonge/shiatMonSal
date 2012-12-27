@@ -32,10 +32,10 @@ public class Cliente implements Serializable {
 	public static final Integer CLIENTE_DEFAULT  			= new Integer(0);
 	
 	private Usuario pvObUsuario;
-	private Date pvDaModificacion;
+	private Date pvDaModifica;
 	private Integer	pvStCodigo;
 	private String 	pvStDireccion;
-	private String  pvInEstado;
+	private String  pvStEstado;
 	private String 	pvStEmail1;
 	private String 	pvStEmail2;
 	private String  pvStFacturaNombre;
@@ -59,7 +59,7 @@ public class Cliente implements Serializable {
 		this.pvInDistrito = null;
 		this.pvStCodigo = null;
 		this.pvStDireccion = null;
-		this.pvInEstado = null;
+		this.pvStEstado = null;
 		this.pvStEmail1 = null;
 		this.pvStEmail2 = null;
 		this.pvStFacturaNombre = null;
@@ -73,16 +73,16 @@ public class Cliente implements Serializable {
 		this.pvLoTelefonoCasa = null;
 		this.pvLoTelefonoCelular = null;
 		this.pvInTipoAlopecia = null;
-		this.pvDaModificacion = new Date();
+		this.pvDaModifica = new Date();
 		this.pvObUsuario = new Usuario(); 
 	}
 	
 	/** @return regresa el pvStEstadoDescripcion*/
-	public String getPvStEstadoDescripcion() { 
-		if(Cliente.ESTADO_ACTIVO.equals(this.pvInEstado)){
+	public String getEstadoDescripcion() { 
+		if(Cliente.ESTADO_ACTIVO.equals(this.pvStEstado)){
 			return ESTADO_ACTIVO_DESCRIPCION;
 		}
-		if(Cliente.ESTADO_INACTIVO.equals(this.pvInEstado)){ 
+		if(Cliente.ESTADO_INACTIVO.equals(this.pvStEstado)){ 
 			return ESTADO_INACTIVO_DESCRIPCION;
 		}
 		return null;
@@ -126,18 +126,15 @@ public class Cliente implements Serializable {
 	public void setPvStDireccion(String pvStDireccion) {
 		this.pvStDireccion = pvStDireccion;
 	}
-	/**
-	 * @return the pvInEstado
-	 */
-	public String getPvInEstado() {
-		return pvInEstado;
+	 
+	public String getPvStEstado() {
+		return pvStEstado;
 	}
-	/**
-	 * @param pvInEstado the pvInEstado to set
-	 */
-	public void setPvInEstado(String pvInEstado) {
-		this.pvInEstado = pvInEstado;
+
+	public void setPvStEstado(String pvStEstado) {
+		this.pvStEstado = pvStEstado;
 	}
+
 	/**
 	 * @return the pvStEmail1
 	 */
@@ -393,12 +390,12 @@ public class Cliente implements Serializable {
 		this.pvObUsuario = pvObUsuario;
 	}
 
-	public Date getPvDaModificacion() {
-		return pvDaModificacion;
+	public Date getPvDaModifica() {
+		return pvDaModifica;
 	}
 
-	public void setPvDaModificacion(Date pvDaModificacion) {
-		this.pvDaModificacion = pvDaModificacion;
+	public void setPvDaModifica(Date pvDaModifica) {
+		this.pvDaModifica = pvDaModifica;
 	}
 	 
 	

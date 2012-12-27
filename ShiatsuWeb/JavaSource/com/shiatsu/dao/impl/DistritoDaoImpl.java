@@ -88,7 +88,7 @@ public class DistritoDaoImpl extends HibernateDaoSupport implements DistritoDao 
             filtros.add(distrito.getPvPrProvincia().getPvInCodigo());
             and = true;
         }
-        if((distrito.getPvCaCanton() != null) && (distrito.getPvCaCanton().getPvInCodigo() != null) &&  (!Canton.CANTON_DEFAULT.equals(distrito.getPvCaCanton().getPvInCodigo()))  ){
+        if((distrito.getPvCaCanton() != null) && (distrito.getPvCaCanton().getPvInCodigo() != null) &&  (!Canton.DEFAULT.equals(distrito.getPvCaCanton().getPvInCodigo()))  ){
             if(and){
                 hql += "AND (distrito.pvCaCanton.pvInCodigo = ?) ";
             }else{

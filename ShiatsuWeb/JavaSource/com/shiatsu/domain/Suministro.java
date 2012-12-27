@@ -23,16 +23,16 @@ public class Suministro implements Serializable  {
 	private Integer pvInCodigo;
 	private String pvStEstado;
 	private Usuario pvObUsuario;
-	private Date pvDaModificacion;
+	private Date pvDaModifica;
 	/**
 	 * 
 	 */
 	public Suministro() {
-		this.pvDaModificacion = new Date();
+		this.pvDaModifica = new Date();
 		this.pvObUsuario = new Usuario();
 	}
-	/** @return regresa el pvStEstadoDescripcion*/
-	public String getPvStEstadoDescripcion() { 
+	/** @return regresa el getEstadoDescripcion*/
+	public String getEstadoDescripcion() { 
 		if(Cliente.ESTADO_ACTIVO.equals(this.pvStEstado)){
 			return ESTADO_ACTIVO_DESCRIPCION;
 		}
@@ -128,12 +128,12 @@ public class Suministro implements Serializable  {
 		this.pvObUsuario = pvObUsuario;
 	}
 
-	public Date getPvDaModificacion() {
-		return pvDaModificacion;
+	public Date getPvDaModifica() {
+		return pvDaModifica;
 	}
 
-	public void setPvDaModificacion(Date pvDaModificacion) {
-		this.pvDaModificacion = pvDaModificacion;
+	public void setPvDaModifica(Date pvDaModifica) {
+		this.pvDaModifica = pvDaModifica;
 	}
 	
 	
