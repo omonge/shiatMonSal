@@ -1,11 +1,12 @@
 package com.shiatsu.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Canton  implements Serializable{
 
 	private static final long serialVersionUID = 4655663135297201540L;
-	public static final Integer CANTON_DEFAULT   = new Integer(0);
+	public static final Integer DEFAULT   = new Integer(0);
 	public static final String ESTADO_DEFAULT	= new String("");
 	public static final String ESTADO_ACTIVO   	= new String("A");
 	public static final String ESTADO_INACTIVO 	= new String("I");
@@ -15,12 +16,16 @@ public class Canton  implements Serializable{
 	private Provincia pvPrProvincia;
 	private String pvStDescripcion;
 	private String pvStEstado;
+	private Usuario pvObUsuario;
+	private Date pvDaModificacion;
 	
 	public Canton(){
 		this.pvInCodigo = null;
 		this.pvStDescripcion = null;
 		this.pvStEstado = null;
 		this.pvPrProvincia = new Provincia();
+		this.pvDaModificacion = new Date();
+		this.pvObUsuario = new Usuario(); 
 	}
 	
 	public String getEstadoDescripcion(){
@@ -118,6 +123,22 @@ public class Canton  implements Serializable{
 		} else if (!pvInCodigo.equals(other.pvInCodigo))
 			return false;
 		return true;
+	}
+
+	public Usuario getPvObUsuario() {
+		return pvObUsuario;
+	}
+
+	public void setPvObUsuario(Usuario pvObUsuario) {
+		this.pvObUsuario = pvObUsuario;
+	}
+
+	public Date getPvDaModificacion() {
+		return pvDaModificacion;
+	}
+
+	public void setPvDaModificacion(Date pvDaModificacion) {
+		this.pvDaModificacion = pvDaModificacion;
 	}
 	 
 }

@@ -1,6 +1,7 @@
 package com.shiatsu.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Diagnostico implements Serializable{
 	
@@ -18,7 +19,7 @@ public class Diagnostico implements Serializable{
 	
 	public static final String TEXTO_SI	= new String("SI");
 	public static final String TEXTO_NO	= new String("NO");
- 
+	
 	private String pvStCodigo;
 	private String pvStNombre;
 	private Integer pvInTipoAlopecia;
@@ -33,7 +34,8 @@ public class Diagnostico implements Serializable{
 	private String pvStPsoriasis; 
 	private String pvStTelanocitos;
 	private String pvStEstado;
-	
+	private Usuario pvObUsuario;
+	private Date pvDaModificacion;
 			
 	public Diagnostico() {
 		this.pvStCodigo = null;
@@ -50,6 +52,8 @@ public class Diagnostico implements Serializable{
 		this.pvStPsoriasis = null;
 		this.pvStTelanocitos = null;
 		this.pvStEstado = null;
+		this.pvDaModificacion = new Date();
+		this.pvObUsuario = new Usuario(); 
 	}
 
 	/** @return regresa el pvStEstadoDescripcion*/
@@ -292,6 +296,22 @@ public class Diagnostico implements Serializable{
 		} else if (!pvStCodigo.equals(other.pvStCodigo))
 			return false;
 		return true;
+	}
+
+	public Usuario getPvObUsuario() {
+		return pvObUsuario;
+	}
+
+	public void setPvObUsuario(Usuario pvObUsuario) {
+		this.pvObUsuario = pvObUsuario;
+	}
+
+	public Date getPvDaModificacion() {
+		return pvDaModificacion;
+	}
+
+	public void setPvDaModificacion(Date pvDaModificacion) {
+		this.pvDaModificacion = pvDaModificacion;
 	}
 	
 	

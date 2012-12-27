@@ -27,14 +27,29 @@ public class FrecuenciaAsistencia implements Serializable  {
 	private Integer pvInCodigo;
 	private String pvStEstado;
 	private String pvStDescripcion;
+	private Usuario pvObUsuario;
+	private Date pvDaModificacion;
 	
 	/**
 	 * 
 	 */
 	public FrecuenciaAsistencia() {
-		this.pvDafechaModificacion = new Date();
-		this.pvUsUsuario = new Usuario();
+		this.pvDaModificacion = new Date();
+		this.pvObUsuario = new Usuario();
 	}
+	
+
+	/** @return regresa el pvStEstadoDescripcion*/
+	public String getPvStEstadoDescripcion() { 
+		if(Cliente.ESTADO_ACTIVO.equals(this.pvStEstado)){
+			return ESTADO_ACTIVO_DESCRIPCION;
+		}
+		if(Cliente.ESTADO_INACTIVO.equals(this.pvStEstado)){ 
+			return ESTADO_INACTIVO_DESCRIPCION;
+		}
+		return null;
+	}	
+	
 	/**
 	 * @return the pvInCodigo
 	 */
@@ -133,6 +148,26 @@ public class FrecuenciaAsistencia implements Serializable  {
 	 */
 	public void setPvDafechaModificacion(Date pvDafechaModificacion) {
 		this.pvDafechaModificacion = pvDafechaModificacion;
+	}
+
+
+	public Usuario getPvObUsuario() {
+		return pvObUsuario;
+	}
+
+
+	public void setPvObUsuario(Usuario pvObUsuario) {
+		this.pvObUsuario = pvObUsuario;
+	}
+
+
+	public Date getPvDaModificacion() {
+		return pvDaModificacion;
+	}
+
+
+	public void setPvDaModificacion(Date pvDaModificacion) {
+		this.pvDaModificacion = pvDaModificacion;
 	}
 	
 

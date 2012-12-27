@@ -20,8 +20,8 @@ public class Droga   implements Serializable  {
 	public static final String ESTADO_ACTIVO_DESCRIPCION   	= new String("ACTIVO");
 	public static final String ESTADO_INACTIVO_DESCRIPCION 	= new String("INACTIVO");
 	
-	private Usuario pvUsUsuario;
-	private Date pvDafechaModificacion;
+	private Usuario pvObUsuario;
+	private Date pvDaModificacion;
 	private Integer pvInCodigo;
 	private Integer pvStEstado;
 	private String pvStDescripcion;
@@ -30,8 +30,8 @@ public class Droga   implements Serializable  {
 	 * 
 	 */
 	public Droga() {
-		this.pvDafechaModificacion = new Date();
-		this.pvUsUsuario = new Usuario(); 
+		this.pvDaModificacion = new Date();
+		this.pvObUsuario = new Usuario();  
 	}
 	
 	
@@ -111,38 +111,6 @@ public class Droga   implements Serializable  {
 
 
 	/**
-	 * @return the pvUsUsuario
-	 */
-	public Usuario getPvUsUsuario() {
-		return pvUsUsuario;
-	}
-
-
-	/**
-	 * @param pvUsUsuario the pvUsUsuario to set
-	 */
-	public void setPvUsUsuario(Usuario pvUsUsuario) {
-		this.pvUsUsuario = pvUsUsuario;
-	}
-
-
-	/**
-	 * @return the pvDafechaModificacion
-	 */
-	public Date getPvDafechaModificacion() {
-		return pvDafechaModificacion;
-	}
-
-
-	/**
-	 * @param pvDafechaModificacion the pvDafechaModificacion to set
-	 */
-	public void setPvDafechaModificacion(Date pvDafechaModificacion) {
-		this.pvDafechaModificacion = pvDafechaModificacion;
-	}
-
-
-	/**
 	 * @return the pvStEstado
 	 */
 	public Integer getPvStEstado() {
@@ -155,6 +123,26 @@ public class Droga   implements Serializable  {
 	 */
 	public void setPvStEstado(Integer pvStEstado) {
 		this.pvStEstado = pvStEstado;
+	}
+
+
+	public Usuario getPvObUsuario() {
+		return pvObUsuario;
+	}
+
+
+	public void setPvObUsuario(Usuario pvObUsuario) {
+		this.pvObUsuario = pvObUsuario;
+	}
+
+
+	public Date getPvDaModificacion() {
+		return pvDaModificacion;
+	}
+
+
+	public void setPvDaModificacion(Date pvDaModificacion) {
+		this.pvDaModificacion = pvDaModificacion;
 	}
 	
 

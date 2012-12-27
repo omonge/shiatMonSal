@@ -20,17 +20,16 @@ public class Suministro implements Serializable  {
 	public static final String ESTADO_ACTIVO_DESCRIPCION   	= new String("ACTIVO");
 	public static final String ESTADO_INACTIVO_DESCRIPCION 	= new String("INACTIVO");
 	
-	private Usuario pvUsUsuario;
-	private Date pvDafechaModificacion;
 	private Integer pvInCodigo;
 	private String pvStEstado;
-	
+	private Usuario pvObUsuario;
+	private Date pvDaModificacion;
 	/**
 	 * 
 	 */
 	public Suministro() {
-		this.pvDafechaModificacion = new Date();
-		this.pvUsUsuario = new Usuario(); 
+		this.pvDaModificacion = new Date();
+		this.pvObUsuario = new Usuario();
 	}
 	/** @return regresa el pvStEstadoDescripcion*/
 	public String getPvStEstadoDescripcion() { 
@@ -120,30 +119,23 @@ public class Suministro implements Serializable  {
 		}
 		return true;
 	}
-	/**
-	 * @return the pvUsUsuario
-	 */
-	public Usuario getPvUsUsuario() {
-		return pvUsUsuario;
+
+	public Usuario getPvObUsuario() {
+		return pvObUsuario;
 	}
-	/**
-	 * @param pvUsUsuario the pvUsUsuario to set
-	 */
-	public void setPvUsUsuario(Usuario pvUsUsuario) {
-		this.pvUsUsuario = pvUsUsuario;
+
+	public void setPvObUsuario(Usuario pvObUsuario) {
+		this.pvObUsuario = pvObUsuario;
 	}
-	/**
-	 * @return the pvDafechaModificacion
-	 */
-	public Date getPvDafechaModificacion() {
-		return pvDafechaModificacion;
+
+	public Date getPvDaModificacion() {
+		return pvDaModificacion;
 	}
-	/**
-	 * @param pvDafechaModificacion the pvDafechaModificacion to set
-	 */
-	public void setPvDafechaModificacion(Date pvDafechaModificacion) {
-		this.pvDafechaModificacion = pvDafechaModificacion;
+
+	public void setPvDaModificacion(Date pvDaModificacion) {
+		this.pvDaModificacion = pvDaModificacion;
 	}
+	
 	
 
 }

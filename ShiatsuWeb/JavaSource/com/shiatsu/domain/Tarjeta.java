@@ -3,21 +3,47 @@
  */
 package com.shiatsu.domain;
 
+import java.io.Serializable;
+import java.util.Date;
+
 /**
  * @author omonge
  *
  */
-public class Tarjeta {
+public class Tarjeta implements Serializable{
+
+	private static final long serialVersionUID = 4655883135297201540L;
 	public static final Integer  DEFAULT   = Integer.valueOf(0);
+	public static final String ESTADO_DEFAULT	= new String("");
+	public static final String ESTADO_ACTIVO   	= new String("A");
+	public static final String ESTADO_INACTIVO 	= new String("I");
+	public static final String ESTADO_ACTIVO_DESCRIPCION   	= new String("ACTIVO");
+	public static final String ESTADO_INACTIVO_DESCRIPCION 	= new String("INACTIVO");
+	
 	private Integer pvInCodigo;
 	private String pvStEstado;
 	private String pvStDescripcion;
+	private Usuario pvObUsuario;
+	private Date pvDaModificacion;
 	
 	/**
 	 * 
 	 */
 	public Tarjeta() {
-		// TODO Auto-generated constructor stub
+		this.pvDaModificacion = new Date();
+		this.pvObUsuario = new Usuario();
+	}
+	
+	
+	/** @return regresa el pvStEstadoDescripcion*/
+	public String getPvStEstadoDescripcion() { 
+		if(Cliente.ESTADO_ACTIVO.equals(this.pvStEstado)){
+			return ESTADO_ACTIVO_DESCRIPCION;
+		}
+		if(Cliente.ESTADO_INACTIVO.equals(this.pvStEstado)){ 
+			return ESTADO_INACTIVO_DESCRIPCION;
+		}
+		return null;
 	}
 	/**
 	 * @return the pvStEstado
@@ -93,6 +119,27 @@ public class Tarjeta {
 			return false;
 		}
 		return true;
+	}
+	
+
+
+	public Usuario getPvObUsuario() {
+		return pvObUsuario;
+	}
+
+
+	public void setPvObUsuario(Usuario pvObUsuario) {
+		this.pvObUsuario = pvObUsuario;
+	}
+
+
+	public Date getPvDaModificacion() {
+		return pvDaModificacion;
+	}
+
+
+	public void setPvDaModificacion(Date pvDaModificacion) {
+		this.pvDaModificacion = pvDaModificacion;
 	}
 	
 

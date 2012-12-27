@@ -261,7 +261,7 @@ public class ClienteController extends Controller {
      */
 	public List<SelectItem> getCantonItems(){
 		List<SelectItem> items = new ArrayList<SelectItem>();
-		items.add(new SelectItem(Canton.CANTON_DEFAULT,     Bundle.rcs.getString("seleccion.valor")));
+		items.add(new SelectItem(Canton.DEFAULT,     Bundle.rcs.getString("seleccion.valor")));
 		if((this.cliente.getPvInProvincia()!=null) && (!Provincia.PROVINCIA_DEFAULT.equals(this.cliente.getPvInProvincia()))){
 			Canton elCanton = new Canton();
 			elCanton.getPvPrProvincia().setPvInCodigo(this.cliente.getPvInProvincia());
@@ -280,7 +280,7 @@ public class ClienteController extends Controller {
 	public List<SelectItem> getDistritoItems(){
 		List<SelectItem> items = new ArrayList<SelectItem>();
 		items.add(new SelectItem(Distrito.DISTRITO_DEFAULT,     Bundle.rcs.getString("seleccion.valor")));
-		if((this.cliente.getPvInCanton()!=null) && (!Canton.CANTON_DEFAULT.equals(this.cliente.getPvInCanton()))){
+		if((this.cliente.getPvInCanton()!=null) && (!Canton.DEFAULT.equals(this.cliente.getPvInCanton()))){
 			Distrito elDistrito = new Distrito();
 			elDistrito.getPvPrProvincia().setPvInCodigo(this.cliente.getPvInProvincia());
 			elDistrito.getPvCaCanton().setPvInCodigo(this.cliente.getPvInCanton());

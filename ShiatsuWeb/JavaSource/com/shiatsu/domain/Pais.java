@@ -1,6 +1,7 @@
 package com.shiatsu.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Pais  implements Serializable{
 
@@ -15,11 +16,15 @@ public class Pais  implements Serializable{
 	private Integer pvInCodigo;
 	private String pvStDescripcion;
 	private String pvStEstado;
+	private Usuario pvObUsuario;
+	private Date pvDaModificacion;
 	
 	public Pais(){
 		this.pvInCodigo = null;
 		this.pvStDescripcion = null;
 		this.pvStEstado = null;
+		this.pvDaModificacion = new Date();
+		this.pvObUsuario = new Usuario();
 	}
 	
 	public String getEstadoDescripcion(){
@@ -101,6 +106,23 @@ public class Pais  implements Serializable{
 		} else if (!pvInCodigo.equals(other.pvInCodigo))
 			return false;
 		return true;
+	}
+	
+
+	public Usuario getPvObUsuario() {
+		return pvObUsuario;
+	}
+
+	public void setPvObUsuario(Usuario pvObUsuario) {
+		this.pvObUsuario = pvObUsuario;
+	}
+
+	public Date getPvDaModificacion() {
+		return pvDaModificacion;
+	}
+
+	public void setPvDaModificacion(Date pvDaModificacion) {
+		this.pvDaModificacion = pvDaModificacion;
 	}
 	
 	 

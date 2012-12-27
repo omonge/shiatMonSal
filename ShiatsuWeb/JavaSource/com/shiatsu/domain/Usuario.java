@@ -3,21 +3,45 @@
  */
 package com.shiatsu.domain;
 
+import java.io.Serializable;
+import java.util.Date;
+
 /**
  * @author omonge
  *
  */
-public class Usuario {
+public class Usuario implements Serializable{
+
+	private static final long serialVersionUID = 4655663135297991540L;
+	
+	public static final String ESTADO_DEFAULT	= new String("");
+	public static final String ESTADO_ACTIVO   	= new String("A");
+	public static final String ESTADO_INACTIVO 	= new String("I");
+	public static final String ESTADO_ACTIVO_DESCRIPCION   	= new String("ACTIVO");
+	public static final String ESTADO_INACTIVO_DESCRIPCION 	= new String("INACTIVO");
 	
 	private Integer pvInCodigo;
 	private String pvStEstado;
-	private String pvStDescripcion;
+	private String pvStDescripcion; 
+	private Date pvDaModificacion;
 	
 	/**
 	 * 
 	 */
 	public Usuario() {
-		// TODO Auto-generated constructor stub
+		this.pvDaModificacion = new Date(); 
+	}
+	
+	
+	/** @return regresa el pvStEstadoDescripcion*/
+	public String getPvStEstadoDescripcion() { 
+		if(Cliente.ESTADO_ACTIVO.equals(this.pvStEstado)){
+			return ESTADO_ACTIVO_DESCRIPCION;
+		}
+		if(Cliente.ESTADO_INACTIVO.equals(this.pvStEstado)){ 
+			return ESTADO_INACTIVO_DESCRIPCION;
+		}
+		return null;
 	}
 	/**
 	 * @return the pvInCodigo
@@ -93,6 +117,16 @@ public class Usuario {
 	 */
 	public void setPvStEstado(String pvStEstado) {
 		this.pvStEstado = pvStEstado;
+	}
+	
+
+	public Date getPvDaModificacion() {
+		return pvDaModificacion;
+	}
+
+
+	public void setPvDaModificacion(Date pvDaModificacion) {
+		this.pvDaModificacion = pvDaModificacion;
 	}
 	
 

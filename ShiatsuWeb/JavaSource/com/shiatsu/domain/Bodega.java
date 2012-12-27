@@ -12,8 +12,7 @@ import java.util.Date;
  */
 public class Bodega  implements Serializable  {
 
-	private static final long serialVersionUID = 7129844110408404568L;
-	
+	private static final long serialVersionUID = 7129844110408404568L; 
 	public static final Integer DEFAULT   = Integer.valueOf(0);
 	public static final String ESTADO_DEFAULT	= new String("");
 	public static final String ESTADO_ACTIVO   	= new String("A");
@@ -21,8 +20,8 @@ public class Bodega  implements Serializable  {
 	public static final String ESTADO_ACTIVO_DESCRIPCION   	= new String("ACTIVO");
 	public static final String ESTADO_INACTIVO_DESCRIPCION 	= new String("INACTIVO");
 	
-	private Usuario pvUsUsuario;
-	private Date pvDafechaModificacion;
+	private Usuario pvObUsuario;
+	private Date pvDaModificacion;
 	private Integer pvInCodigo;
 	private String pvStEstado;
 	private String pvStDescripcion;
@@ -32,8 +31,8 @@ public class Bodega  implements Serializable  {
 	 * 
 	 */
 	public Bodega() {
-		this.pvDafechaModificacion = new Date();
-		this.pvUsUsuario = new Usuario(); 
+		this.pvDaModificacion = new Date();
+		this.pvObUsuario = new Usuario(); 
 	}
 	
 	
@@ -123,29 +122,25 @@ public class Bodega  implements Serializable  {
 	public void setPvStEstado(String pvStEstado) {
 		this.pvStEstado = pvStEstado;
 	}
-	/**
-	 * @return the pvUsUsuario
-	 */
-	public Usuario getPvUsUsuario() {
-		return pvUsUsuario;
+
+
+	public Usuario getPvObUsuario() {
+		return pvObUsuario;
 	}
-	/**
-	 * @param pvUsUsuario the pvUsUsuario to set
-	 */
-	public void setPvUsUsuario(Usuario pvUsUsuario) {
-		this.pvUsUsuario = pvUsUsuario;
+
+
+	public void setPvObUsuario(Usuario pvObUsuario) {
+		this.pvObUsuario = pvObUsuario;
 	}
-	/**
-	 * @return the pvDafechaModificacion
-	 */
-	public Date getPvDafechaModificacion() {
-		return pvDafechaModificacion;
+
+
+	public Date getPvDaModificacion() {
+		return pvDaModificacion;
 	}
-	/**
-	 * @param pvDafechaModificacion the pvDafechaModificacion to set
-	 */
-	public void setPvDafechaModificacion(Date pvDafechaModificacion) {
-		this.pvDafechaModificacion = pvDafechaModificacion;
+
+
+	public void setPvDaModificacion(Date pvDaModificacion) {
+		this.pvDaModificacion = pvDaModificacion;
 	}
 	
 

@@ -31,6 +31,8 @@ public class Cliente implements Serializable {
 	public static final Integer ALOPECIA_DEFAULT  			= new Integer(0);
 	public static final Integer CLIENTE_DEFAULT  			= new Integer(0);
 	
+	private Usuario pvObUsuario;
+	private Date pvDaModificacion;
 	private Integer	pvStCodigo;
 	private String 	pvStDireccion;
 	private String  pvInEstado;
@@ -71,6 +73,8 @@ public class Cliente implements Serializable {
 		this.pvLoTelefonoCasa = null;
 		this.pvLoTelefonoCelular = null;
 		this.pvInTipoAlopecia = null;
+		this.pvDaModificacion = new Date();
+		this.pvObUsuario = new Usuario(); 
 	}
 	
 	/** @return regresa el pvStEstadoDescripcion*/
@@ -380,6 +384,22 @@ public class Cliente implements Serializable {
         .append(this.pvStCodigo)
         .toHashCode();
     }
+
+	public Usuario getPvObUsuario() {
+		return pvObUsuario;
+	}
+
+	public void setPvObUsuario(Usuario pvObUsuario) {
+		this.pvObUsuario = pvObUsuario;
+	}
+
+	public Date getPvDaModificacion() {
+		return pvDaModificacion;
+	}
+
+	public void setPvDaModificacion(Date pvDaModificacion) {
+		this.pvDaModificacion = pvDaModificacion;
+	}
 	 
 	
 }
