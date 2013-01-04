@@ -12,6 +12,7 @@
 		    <column name="DIAGNOSTICO" />
 		</many-to-one>
 		    
+        <property name="pvStNombre" 			column="NOMBRE" 				type="java.lang.String" 	length="50"/>
         <property name="pvStDireccion" 			column="DIRECCION" 				type="java.lang.String" 	length="100"/>
         <property name="pvStEmail1" 			column="EMAIL1" 				type="java.lang.String" 	length="50"/>
         <property name="pvStEmail2" 			column="EMAIL2" 				type="java.lang.String" 	length="50"/>

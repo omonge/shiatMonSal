@@ -24,6 +24,7 @@ public class Suministro implements Serializable  {
 	private String pvStEstado;
 	private Usuario pvObUsuario;
 	private Date pvDaModifica;
+	private String pvEstadoDescripcion;
 	/**
 	 * 
 	 */
@@ -134,6 +135,18 @@ public class Suministro implements Serializable  {
 
 	public void setPvDaModifica(Date pvDaModifica) {
 		this.pvDaModifica = pvDaModifica;
+	}
+	/**
+	 * @return the pvEstadoDescripcion
+	 */
+	public String getPvEstadoDescripcion() {
+		return pvEstadoDescripcion;
+	}
+	/**
+	 * @param pvEstadoDescripcion the pvEstadoDescripcion to set
+	 */
+	public void setPvEstadoDescripcion(String pvEstadoDescripcion) {
+		this.pvEstadoDescripcion = pvEstadoDescripcion;
 	}
 	
 	

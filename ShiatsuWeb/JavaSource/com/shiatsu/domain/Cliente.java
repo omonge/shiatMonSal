@@ -52,27 +52,11 @@ public class Cliente implements Serializable {
 	private	Integer pvInProvincia;
 	private	Integer pvInCanton;
 	private	Integer pvInDistrito; 
+	private String  pvStNombre;
+	private String  pvStEstadoDescripcion;
 
 	public Cliente(){
-		this.pvInProvincia = null;
-		this.pvInCanton = null;
-		this.pvInDistrito = null;
-		this.pvStCodigo = null;
-		this.pvStDireccion = null;
-		this.pvStEstado = null;
-		this.pvStEmail1 = null;
-		this.pvStEmail2 = null;
-		this.pvStFacturaNombre = null;
-		this.pvInFrecuenciaCita = null;
-		this.pvStLugarProfesion = null;
-		this.pvDaNacimiento = null;
-		this.pvInNacionalidad = null;
 		this.pvDiDiagnostico = new Diagnostico();
-		this.pvInProfesion = null;
-		this.pvInSexo = null;
-		this.pvLoTelefonoCasa = null;
-		this.pvLoTelefonoCelular = null;
-		this.pvInTipoAlopecia = null;
 		this.pvDaModifica = new Date();
 		this.pvObUsuario = new Usuario(); 
 	}
@@ -87,7 +71,20 @@ public class Cliente implements Serializable {
 		}
 		return null;
 	}	
-	
+	/**
+	 * @return the pvStEstadoDescripcion
+	 */
+	public String getPvStEstadoDescripcion() {
+		return pvStEstadoDescripcion;
+	}
+
+	/**
+	 * @param pvStEstadoDescripcion the pvStEstadoDescripcion to set
+	 */
+	public void setPvStEstadoDescripcion(String pvStEstadoDescripcion) {
+		this.pvStEstadoDescripcion = pvStEstadoDescripcion;
+	}
+
 	/** @return regresa el getPvStSexoDescripcion*/
 	public String getPvStSexoDescripcion() { 
 		if(Cliente.SEXO_FEMENINO.equals(this.pvInSexo)){
@@ -133,6 +130,20 @@ public class Cliente implements Serializable {
 
 	public void setPvStEstado(String pvStEstado) {
 		this.pvStEstado = pvStEstado;
+	}
+	
+	/**
+	 * @return the pvStNombre
+	 */
+	public String getPvStNombre() {
+		return pvStNombre;
+	}
+
+	/**
+	 * @param pvStNombre the pvStNombre to set
+	 */
+	public void setPvStNombre(String pvStNombre) {
+		this.pvStNombre = pvStNombre;
 	}
 
 	/**

@@ -370,6 +370,30 @@
 								</h:outputText>		
 								<f:attribute value="center" name="align" />	
 							</h:column>
+						<h:column id="colFecha">
+								<f:facet name="header">
+									<h:outputText styleClass="outputText pad-right"
+										value="#{rcs['usuario.fechaModificacion']}"
+										id="lblColFecha"></h:outputText>
+								</f:facet>			
+								<h:outputText styleClass="outputText pad-right" id="lblFechaModificacion"
+										value="#{var.pvObUsuario.pvDaModifica}">					
+								</h:outputText>
+								<f:attribute value="center" name="align" />
+							</h:column>
+
+							<h:column id="colUsuario">
+								<f:facet name="header">
+									<h:outputText styleClass="outputText pad-right"
+										value="#{rcs['usuario.usuario']}"
+										id="lblColUsuario"></h:outputText>
+								</f:facet>			
+								<h:outputText styleClass="outputText pad-right" id="lblUsuario"
+										value="#{var.pvObUsuario.pvStDescripcion}">					
+								</h:outputText>
+								<f:attribute value="center" name="align" />
+							</h:column>
+							 
 						</h:dataTable>
 						<t:dataScroller for="table1" fastStep="10" pageCountVar="pageCount"
 									pageIndexVar="pageIndex" styleClass="scroller" paginator="true"

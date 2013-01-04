@@ -3,7 +3,11 @@ package com.shiatzu.util;
 import java.util.ArrayList;
 import java.util.List;
 
+//import javax.servlet.http.HttpSession;
+//import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
+
+import com.shiatsu.domain.Usuario;
 
 public class Utilidades {
 	
@@ -11,18 +15,17 @@ public class Utilidades {
 		// TODO Auto-generated constructor stub
 	}
 	
-//	 public static Long getCedulaUsuarioGice(){
-//	        Long cedula = UsuarioGice.USUARIO_AUTOMATICO;//El usuario autom�tico default
-//	        try{
-//	            Map sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
-//	            cedula = ((UsuarioCia)sessionMap.get("usuario")).getCedula();
-//	        }catch(Exception e){
-//	            System.out.println("Error al obtener la cedula del usuario mediante el FacesContext: " + e.getMessage());
-//	        }
-//	        return cedula;
-//	    }
-//	
+ public static Usuario getUsuario() {
+	    	Usuario usuario= new Usuario();//null;
+	        /*HttpSession session = (HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+	        
+	        if (session != null) {
+	             usuario  =  (Usuario)session.getAttribute("usuario");
+	          
 
+	        }*/
+	        return usuario;
+	}
     /**
      * 
      * Metodo getMeses
