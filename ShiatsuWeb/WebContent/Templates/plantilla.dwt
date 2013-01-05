@@ -64,7 +64,7 @@
 									<li>Clientes
 									  <ul>
 										<li><a href="../shiatsuActCliente.jsf?init=true">Agregar</a></li>
-										<li><a href="../shiatsuConsClientes.jsf?init=true">Consulta</a></li> 
+										<li><a href="../shiatsuConsClientes.jsf?init=true">Consulta</a> </li> 
 										<li><a href="../shiatsuListaClientes.jsf?init=true">Mantenimiento</a></li>
 									  </ul>
 									</li>
