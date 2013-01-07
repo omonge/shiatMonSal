@@ -81,7 +81,7 @@ public class ProfesionDaoImpl extends HibernateDaoSupport implements ProfesionDa
             if(and){
                 hql += "AND (profesion.pvInCodigo = ?) ";
             }else{
-                hql += "profesion.pvInCodigo = ?) ";
+                hql += "(profesion.pvInCodigo = ?) ";
             } 
             filtros.add(profesion.getPvInCodigo());
             and = true;
@@ -90,7 +90,7 @@ public class ProfesionDaoImpl extends HibernateDaoSupport implements ProfesionDa
             if(and){
                 hql += "AND (profesion.pvStEstado = ?) ";
             }else{
-                hql += "profesion.pvStEstado = ?) ";
+                hql += "(profesion.pvStEstado = ?) ";
             } 
             filtros.add(profesion.getPvStEstado());
             and = true;

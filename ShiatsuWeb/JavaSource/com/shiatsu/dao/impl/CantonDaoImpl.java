@@ -55,7 +55,7 @@ public class CantonDaoImpl extends HibernateDaoSupport implements CantonDao {
             if(and){
                 hql += "AND (canton.pvInCodigo = ?) ";
             }else{
-                hql += "canton.pvInCodigo = ?) ";
+                hql += "(canton.pvInCodigo = ?) ";
             } 
             filtros.add(canton.getPvInCodigo());
             and = true;
@@ -64,7 +64,7 @@ public class CantonDaoImpl extends HibernateDaoSupport implements CantonDao {
             if(and){
                 hql += "AND (canton.pvStEstado = ?) ";
             }else{
-                hql += "canton.pvStEstado = ?) ";
+                hql += "(canton.pvStEstado = ?) ";
             } 
             filtros.add(canton.getPvStEstado());
             and = true;

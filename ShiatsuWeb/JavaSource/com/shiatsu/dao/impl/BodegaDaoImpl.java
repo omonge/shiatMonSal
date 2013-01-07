@@ -78,7 +78,7 @@ public class BodegaDaoImpl extends HibernateDaoSupport implements  BodegaDao{
         boolean and = false;//verifica que ya se haya agregado algo al where para concatener o no concatenar el operador AND
         
         if((bodega.getPvInCodigo()!=null) && !(bodega.getPvInCodigo().equals(Integer.valueOf(0)))) {
-            hql += "bodega.pvInCodigo = ?) ";
+            hql += "(bodega.pvInCodigo = ?) ";
             filtros.add(bodega.getPvInCodigo());
             and = true;
         }
@@ -92,6 +92,15 @@ public class BodegaDaoImpl extends HibernateDaoSupport implements  BodegaDao{
             filtros.add("%"+bodega.getPvStDescripcion().toUpperCase()+"%");
             and = true;
         }
+        if((bodega.getPvStEstado() != null) && (!Bodega.ESTADO_DEFAULT.equals(bodega.getPvStEstado())) ) {
+            if(and){
+                hql += "AND (bodega.pvStEstado = ?) ";
+            }else{
+                hql += "(bodega.pvStEstado = ?) ";
+            } 
+            filtros.add(bodega.getPvStEstado());
+            and = true;
+        } 
         if(and){
             hql += " ORDER BY bodega.pvStDescripcion ASC";
             Object[] values = new Object[filtros.size()];

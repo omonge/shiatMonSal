@@ -34,7 +34,7 @@ public class EnfermedadDaoImpl extends HibernateDaoSupport implements Enfermedad
 	@Override
 	public Enfermedad buscar(Enfermedad enfermedad) {
 		HibernateTemplate hibernate = this.getHibernateTemplate();
-        String hql = "FROM Enfermedad  Enfermedad WHERE enfermedad.pvInCodigo = ?";
+        String hql = "FROM Enfermedad enfermedad WHERE enfermedad.pvInCodigo = ?";
         Object[] values = {enfermedad.getPvInCodigo()};
         List<Enfermedad> lista = hibernate.find(hql,values);
         if(lista.isEmpty()){
@@ -81,7 +81,7 @@ public class EnfermedadDaoImpl extends HibernateDaoSupport implements Enfermedad
             if(and){
                 hql += "AND (enfermedad.pvInCodigo = ?) ";
             }else{
-                hql += "enfermedad.pvInCodigo = ?) ";
+                hql += "(enfermedad.pvInCodigo = ?) ";
             } 
             filtros.add(enfermedad.getPvInCodigo());
             and = true;
@@ -90,7 +90,7 @@ public class EnfermedadDaoImpl extends HibernateDaoSupport implements Enfermedad
             if(and){
                 hql += "AND (enfermedad.pvStEstado = ?) ";
             }else{
-                hql += "enfermedad.pvStEstado = ?) ";
+                hql += "(enfermedad.pvStEstado = ?) ";
             } 
             filtros.add(enfermedad.getPvStEstado());
             and = true;

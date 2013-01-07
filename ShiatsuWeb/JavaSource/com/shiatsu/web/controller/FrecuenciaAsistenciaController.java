@@ -63,7 +63,9 @@ public class FrecuenciaAsistenciaController  extends Controller{
     private boolean validarFiltro() {
         boolean correcto = false;
 
-        
+        if ((this.frecuenciaAsistencia.getPvStEstado() != null) && (!FrecuenciaAsistencia.ESTADO_DEFAULT.equals(this.frecuenciaAsistencia.getPvStEstado()))) {
+            correcto = true;
+    	}
     	if ((this.frecuenciaAsistencia.getPvStDescripcion() != null) && (!"".equals(this.frecuenciaAsistencia.getPvStDescripcion()))) {
             correcto = true;
     	}
@@ -237,6 +239,9 @@ public class FrecuenciaAsistenciaController  extends Controller{
      */
 	public List<SelectItem> getEstadoItems(){
 		List<SelectItem> items = new ArrayList<SelectItem>();
+		items.add(new SelectItem(FrecuenciaAsistencia.ESTADO_DEFAULT,   Bundle.rcs.getString("seleccion.valor")));
+		items.add(new SelectItem(FrecuenciaAsistencia.ESTADO_ACTIVO,    FrecuenciaAsistencia.ESTADO_ACTIVO_DESCRIPCION));
+		items.add(new SelectItem(FrecuenciaAsistencia.ESTADO_INACTIVO,  FrecuenciaAsistencia.ESTADO_INACTIVO_DESCRIPCION));
 		return items;
 	}
 	

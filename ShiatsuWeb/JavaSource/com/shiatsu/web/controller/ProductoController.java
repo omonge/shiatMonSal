@@ -62,7 +62,9 @@ public class ProductoController  extends Controller{
      */
     private boolean validarFiltro() {
         boolean correcto = false;
-
+        if ((this.producto.getPvStEstado() != null) && (!Producto.ESTADO_DEFAULT.equals(this.producto.getPvStEstado()))) {
+            correcto = true;
+    	}
         
     	if ((this.producto.getPvStDescripcion() != null) && (!"".equals(this.producto.getPvStDescripcion()))) {
             correcto = true;
@@ -237,6 +239,10 @@ public class ProductoController  extends Controller{
      */
 	public List<SelectItem> getEstadoItems(){
 		List<SelectItem> items = new ArrayList<SelectItem>();
+		items.add(new SelectItem(Producto.ESTADO_DEFAULT,   Bundle.rcs.getString("seleccion.valor")));
+		items.add(new SelectItem(Producto.ESTADO_ACTIVO,    Producto.ESTADO_ACTIVO_DESCRIPCION));
+		items.add(new SelectItem(Producto.ESTADO_INACTIVO,  Producto.ESTADO_INACTIVO_DESCRIPCION));
+
 		return items;
 	}
 	

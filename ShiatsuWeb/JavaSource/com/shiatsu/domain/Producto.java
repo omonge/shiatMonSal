@@ -33,6 +33,7 @@ public class Producto {
 		this.pvUsUsuario = new Usuario();
 		this.pvDaModifica = new Date();
 		this.pvObUsuario = new Usuario();
+		this.pvStEstado = Producto.ESTADO_ACTIVO;
 	}
 	
 

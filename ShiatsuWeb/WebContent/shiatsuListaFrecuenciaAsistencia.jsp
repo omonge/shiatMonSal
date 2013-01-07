@@ -192,6 +192,15 @@
 					  	    	<h:message styleClass="error" id="msgTxtPvInCodigo" for="txtPvInCodigo" errorClass="error" infoClass="info" warnClass="warn"></h:message>
 					  	   </td>
 					    </tr>
+					    <tr>
+				            <td  class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblEstado" value="#{rcs['bodega.estado']}"></h:outputText></td>
+				            <td class="formPaddingData">
+					  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvStEstado" value="#{frecuenciaAsistenciaController.frecuenciaAsistencia.pvStEstado}">
+													<f:selectItems value="#{frecuenciaAsistenciaController.estadoItems}"/>
+									</h:selectOneMenu>
+				                <h:message styleClass="error" id="msgCmbPvStEstado" for="cmbPvStEstado" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
+				            </td>
+				        </tr>
 			        <tr>
 			            <td  class="Tit04Tabla"><h:outputText styleClass="outputText" id="lbltipoAlopecia" value="#{rcs['frecuenciaAsistencia.descripcion']}"></h:outputText></td>
 			            <td class="formPaddingData">

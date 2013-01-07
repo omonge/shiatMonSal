@@ -62,7 +62,9 @@ public class UsuarioController  extends Controller{
      */
     private boolean validarFiltro() {
         boolean correcto = false;
-
+        if ((this.usuario.getPvStEstado() != null) && (!Usuario.ESTADO_DEFAULT.equals(this.usuario.getPvStEstado()))) {
+            correcto = true;
+    	}
         
     	if ((this.usuario.getPvStDescripcion() != null) && (!"".equals(this.usuario.getPvStDescripcion()))) {
             correcto = true;
@@ -76,7 +78,7 @@ public class UsuarioController  extends Controller{
      */
     private boolean validarObjetoId() { 
         boolean correcto = false;
-        if((this.usuario.getPvInCodigo()!=null)) {
+        if((this.usuario.getPvInCodigo()!=null)&& !(this.usuario.getPvInCodigo().equals(Integer.valueOf(0)))) {
         	correcto = true;
         }
         return correcto;
@@ -237,6 +239,9 @@ public class UsuarioController  extends Controller{
      */
 	public List<SelectItem> getEstadoItems(){
 		List<SelectItem> items = new ArrayList<SelectItem>();
+		items.add(new SelectItem(Usuario.ESTADO_DEFAULT,   Bundle.rcs.getString("seleccion.valor")));
+		items.add(new SelectItem(Usuario.ESTADO_ACTIVO,    Usuario.ESTADO_ACTIVO_DESCRIPCION));
+		items.add(new SelectItem(Usuario.ESTADO_INACTIVO,  Usuario.ESTADO_INACTIVO_DESCRIPCION));
 		return items;
 	}
 	

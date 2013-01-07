@@ -78,7 +78,7 @@ public class SucursalDaoImpl extends HibernateDaoSupport implements  SucursalDao
         boolean and = false;//verifica que ya se haya agregado algo al where para concatener o no concatenar el operador AND
         
         if((sucursal.getPvInCodigo()!=null) && !(sucursal.getPvInCodigo().equals(Sucursal.DEFAULT))) {
-            hql += "sucursal.pvInCodigo = ?) ";
+            hql += "(sucursal.pvInCodigo = ?) ";
             filtros.add(sucursal.getPvInCodigo());
             and = true;
         }

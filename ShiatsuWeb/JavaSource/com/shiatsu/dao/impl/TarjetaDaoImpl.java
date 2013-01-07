@@ -78,7 +78,7 @@ public class TarjetaDaoImpl extends HibernateDaoSupport implements  TarjetaDao{
         boolean and = false;//verifica que ya se haya agregado algo al where para concatener o no concatenar el operador AND
         
         if((tarjeta.getPvInCodigo()!=null) && !(tarjeta.getPvInCodigo().equals(Tarjeta.DEFAULT))){
-            hql += "tarjeta.pvInCodigo = ?) ";
+            hql += "(tarjeta.pvInCodigo = ?) ";
             filtros.add(tarjeta.getPvInCodigo());
             and = true;
         }

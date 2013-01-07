@@ -213,13 +213,6 @@
 			            <h:inputText styleClass="inputText" id="txtPvStDescripcion" value="#{usuarioController.usuario.pvStDescripcion}" size="50" maxlength="50">
 					  	    	</h:inputText><h:message styleClass="error" id="msgTxtPvStDescripcion" for="txtPvStDescripcion" errorClass="error" infoClass="info" warnClass="warn"></h:message></td>
 			        </tr> 
-			         
-			        <tr>
-			            
-			            
-			        </tr>
-			      	
-			        
 					<tr>
 			            <td colspan="2">
 				            <h:commandButton type="submit" value="#{rcs['boton.buscar']}"   styleClass="commandButton" id="btnBuscar"   action="#{usuarioController.buscar}"></h:commandButton>

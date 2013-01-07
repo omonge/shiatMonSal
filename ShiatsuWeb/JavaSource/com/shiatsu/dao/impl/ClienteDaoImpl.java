@@ -54,7 +54,7 @@ public class ClienteDaoImpl extends HibernateDaoSupport implements ClienteDao {
             if(and){
                 hql += "AND (cliente.pvStCodigo = ?) ";
             }else{
-                hql += "cliente.pvStCodigo = ?) ";
+                hql += "(cliente.pvStCodigo = ?) ";
             } 
             filtros.add(cliente.getPvStCodigo());
             and = true;

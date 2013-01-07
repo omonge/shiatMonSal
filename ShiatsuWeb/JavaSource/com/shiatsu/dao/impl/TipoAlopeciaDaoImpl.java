@@ -81,7 +81,7 @@ public class TipoAlopeciaDaoImpl extends HibernateDaoSupport implements  TipoAlo
             if(and){
                 hql += "AND (tipoAlopecia.pvInCodigo = ?) ";
             }else{
-                hql += "tipoAlopecia.pvInCodigo = ?) ";
+                hql += "(tipoAlopecia.pvInCodigo = ?) ";
             } 
             filtros.add(tipoAlopecia.getPvInCodigo());
             and = true;
@@ -90,7 +90,7 @@ public class TipoAlopeciaDaoImpl extends HibernateDaoSupport implements  TipoAlo
             if(and){
                 hql += "AND (tipoAlopecia.pvStEstado = ?) ";
             }else{
-                hql += "tipoAlopecia.pvStEstado = ?) ";
+                hql += "(tipoAlopecia.pvStEstado = ?) ";
             } 
             filtros.add(tipoAlopecia.getPvStEstado());
             and = true;

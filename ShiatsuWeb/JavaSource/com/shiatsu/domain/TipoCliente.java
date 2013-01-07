@@ -31,6 +31,7 @@ public class TipoCliente implements Serializable{
 	public TipoCliente() {
 		this.pvDaModifica = new Date();
 		this.pvObUsuario = new Usuario();
+		this.pvStEstado  = TipoCliente.ESTADO_ACTIVO;
 	}
 	
 	

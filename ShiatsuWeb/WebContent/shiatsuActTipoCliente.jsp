@@ -191,6 +191,16 @@
 		  	    	</h:inputText> 
 		  	    	<h:message styleClass="error" id="msgTtxtPvInCodigo" for="txtPvInCodigo" errorClass="error" infoClass="info" warnClass="warn"></h:message>
 		  	   </td>
+		  	   <tr>
+ 				<td  class="Tit04Tabla">
+		  	   		<h:outputText styleClass="outputText" id="lblEstado" value="#{rcs['estado']}"></h:outputText></td>
+		            <td class="formPaddingData">
+		  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvStEstado" value="#{tipoClienteController.tipoCliente.pvStEstado}">
+							<f:selectItems value="#{tipoClienteController.estadoItems}"/>
+					</h:selectOneMenu>
+	                <h:message styleClass="error" id="msgCmbPvStEstado" for="cmbPvStEstado" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
+		        </td>
+		    </tr>
 		    </tr>
 		    </c:if>
         <tr>

@@ -192,6 +192,16 @@
 		  	    	<h:message styleClass="error" id="msgTtxtPvInCodigo" for="txtPvInCodigo" errorClass="error" infoClass="info" warnClass="warn"></h:message>
 		  	   </td>
 		    </tr>
+		    <tr>
+ 				<td  class="Tit04Tabla">
+		  	   		<h:outputText styleClass="outputText" id="lblEstado" value="#{rcs['estado']}"></h:outputText></td>
+		            <td class="formPaddingData">
+		  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvStEstado" value="#{medicamentoController.medicamento.pvStEstado}">
+							<f:selectItems value="#{medicamentoController.estadoItems}"/>
+					</h:selectOneMenu>
+	                <h:message styleClass="error" id="msgCmbPvStEstado" for="cmbPvStEstado" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
+		        </td>
+		    </tr>
 		    </c:if>
         <tr>
             <td class="Tit04Tabla" ><h:outputText styleClass="outputText" id="lblPvStDescripcion" value="#{rcs['profesion.descripcion']}"></h:outputText></td>
@@ -203,17 +213,6 @@
             </td>
         </tr>
         
-        <c:if test="${!medicamentoController.agregar}">	
-			<tr>
-	            <td class="Tit04Tabla" ><h:outputText styleClass="outputText" id="lblEstado" value="#{rcs['profesion.estado']}"/></td>
-	            <td class="formPaddingData">
-	                <h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInEstado" value="#{medicamentoController.medicamento.pvStEstado}">
-									<f:selectItems value="#{medicamentoController.estadoItems}"/>
-					</h:selectOneMenu>
-	                <h:message styleClass="error" id="msgTxtEstado" for="cmbPvInEstado" errorClass="error" infoClass="info" warnClass="warn"/>
-	            </td>
-	        </tr>
-		</c:if>
 		<tr>
             <td colspan="2">
 	            <h:commandButton type="submit" value="#{rcs['boton.agregar']}"   styleClass="commandButton" id="btnAgregar"   rendered="#{medicamentoController.agregar}" 	action="#{medicamentoController.insertar}"></h:commandButton>

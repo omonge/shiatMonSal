@@ -63,7 +63,9 @@ public class DrogaController  extends Controller{
     private boolean validarFiltro() {
         boolean correcto = false;
 
-        
+        if ((this.droga.getPvStEstado() != null) && (!Droga.ESTADO_DEFAULT.equals(this.droga.getPvStEstado()))) {
+            correcto = true;
+    	}
     	if ((this.droga.getPvStDescripcion() != null) && (!"".equals(this.droga.getPvStDescripcion()))) {
             correcto = true;
     	}
@@ -76,7 +78,7 @@ public class DrogaController  extends Controller{
      */
     private boolean validarObjetoId() { 
         boolean correcto = false;
-        if((this.droga.getPvInCodigo()!=null)) {
+        if((this.droga.getPvInCodigo()!=null) && !(this.droga.getPvInCodigo().equals(Integer.valueOf(0)))) {
         	correcto = true;
         }
         return correcto;
@@ -237,6 +239,9 @@ public class DrogaController  extends Controller{
      */
 	public List<SelectItem> getEstadoItems(){
 		List<SelectItem> items = new ArrayList<SelectItem>();
+		items.add(new SelectItem(Droga.ESTADO_DEFAULT,   Bundle.rcs.getString("seleccion.valor")));
+		items.add(new SelectItem(Droga.ESTADO_ACTIVO,    Droga.ESTADO_ACTIVO_DESCRIPCION));
+		items.add(new SelectItem(Droga.ESTADO_INACTIVO,  Droga.ESTADO_INACTIVO_DESCRIPCION));
 		return items;
 	}
 	

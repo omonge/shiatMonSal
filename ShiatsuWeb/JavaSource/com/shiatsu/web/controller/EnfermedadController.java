@@ -182,7 +182,8 @@ public class EnfermedadController  extends Controller{
 	public String insertar(){
 		String respuesta = "error";
         try{
-            if(this.validaInsertar()){
+            if(this.validaInsertar()){ 
+            	//this.enfermedad.setPvObUsuario(Utilidades.getUsuario());
             	this.enfermedad.setPvStEstado(Enfermedad.ESTADO_ACTIVO);
                 this.enfermedadBo.agregar(this.enfermedad);
                 this.addInfo(null, Bundle.rcs.getString("datosAgregados"));

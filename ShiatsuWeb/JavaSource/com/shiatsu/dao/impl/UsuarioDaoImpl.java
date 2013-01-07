@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import com.shiatsu.dao.UsuarioDao; 
+import com.shiatsu.dao.UsuarioDao;
 import com.shiatsu.domain.Usuario;
 import com.utilidades.business.BusinessErrorHelper;
 
@@ -77,8 +77,8 @@ public class UsuarioDaoImpl extends HibernateDaoSupport implements  UsuarioDao{
         List<Usuario> lista = new ArrayList<Usuario>();
         boolean and = false;//verifica que ya se haya agregado algo al where para concatener o no concatenar el operador AND
         
-        if((usuario.getPvInCodigo() != null)) {
-            hql += "usuario.pvInCodigo = ?) ";
+        if((usuario.getPvInCodigo() != null) && !(usuario.getPvInCodigo().equals(Integer.valueOf(0)))) {
+            hql += "(usuario.pvInCodigo = ?) ";
             filtros.add(usuario.getPvInCodigo());
             and = true;
         }
@@ -92,6 +92,15 @@ public class UsuarioDaoImpl extends HibernateDaoSupport implements  UsuarioDao{
             filtros.add("%"+usuario.getPvStDescripcion().toUpperCase()+"%");
             and = true;
         }
+        if((usuario.getPvStEstado() != null) && (!Usuario.ESTADO_DEFAULT.equals(usuario.getPvStEstado())) ) {
+            if(and){
+                hql += "AND (usuario.pvStEstado = ?) ";
+            }else{
+                hql += "(usuario.pvStEstado = ?) ";
+            } 
+            filtros.add(usuario.getPvStEstado());
+            and = true;
+        } 
         if(and){
             hql += " ORDER BY usuario.pvStDescripcion ASC";
             Object[] values = new Object[filtros.size()];

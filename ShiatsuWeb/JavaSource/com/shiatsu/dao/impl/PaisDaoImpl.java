@@ -81,7 +81,7 @@ public class PaisDaoImpl extends HibernateDaoSupport implements PaisDao{
             if(and){
                 hql += "AND (pais.pvInCodigo = ?) ";
             }else{
-                hql += "pais.pvInCodigo = ?) ";
+                hql += "(pais.pvInCodigo = ?) ";
             } 
             filtros.add(pais.getPvInCodigo());
             and = true;
@@ -90,7 +90,7 @@ public class PaisDaoImpl extends HibernateDaoSupport implements PaisDao{
             if(and){
                 hql += "AND (pais.pvStEstado = ?) ";
             }else{
-                hql += "pais.pvStEstado = ?) ";
+                hql += "(pais.pvStEstado = ?) ";
             } 
             filtros.add(pais.getPvStEstado());
             and = true;

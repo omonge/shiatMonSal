@@ -33,6 +33,7 @@ public class Bodega  implements Serializable  {
 	public Bodega() {
 		this.pvDaModifica = new Date();
 		this.pvObUsuario = new Usuario(); 
+		this.pvStEstado   = Bodega.ESTADO_ACTIVO;
 	}
 	
 	

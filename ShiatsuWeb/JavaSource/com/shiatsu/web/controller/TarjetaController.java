@@ -237,6 +237,9 @@ public class TarjetaController  extends Controller{
      */
 	public List<SelectItem> getEstadoItems(){
 		List<SelectItem> items = new ArrayList<SelectItem>();
+		items.add(new SelectItem(Tarjeta.ESTADO_DEFAULT,   Bundle.rcs.getString("seleccion.valor")));
+		items.add(new SelectItem(Tarjeta.ESTADO_ACTIVO,    Tarjeta.ESTADO_ACTIVO_DESCRIPCION));
+		items.add(new SelectItem(Tarjeta.ESTADO_INACTIVO,  Tarjeta.ESTADO_INACTIVO_DESCRIPCION));
 		return items;
 	}
 	

@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import com.shiatsu.dao.FrecuenciaAsistenciaDao; 
+import com.shiatsu.dao.FrecuenciaAsistenciaDao;
 import com.shiatsu.domain.FrecuenciaAsistencia;
 import com.utilidades.business.BusinessErrorHelper;
 
@@ -78,7 +78,7 @@ public class FrecuenciaAsistenciaDaoImpl extends HibernateDaoSupport implements 
         boolean and = false;//verifica que ya se haya agregado algo al where para concatener o no concatenar el operador AND
         
         if((frecuenciaAsistencia.getPvInCodigo()!=null) && !(frecuenciaAsistencia.getPvInCodigo().equals(Integer.valueOf(0)))) {
-            hql += "frecuenciaAsistencia.pvInCodigo = ?) ";
+            hql += "(frecuenciaAsistencia.pvInCodigo = ?) ";
             filtros.add(frecuenciaAsistencia.getPvInCodigo());
             and = true;
         }
@@ -92,6 +92,15 @@ public class FrecuenciaAsistenciaDaoImpl extends HibernateDaoSupport implements 
             filtros.add("%"+frecuenciaAsistencia.getPvStDescripcion().toUpperCase()+"%");
             and = true;
         }
+        if((frecuenciaAsistencia.getPvStEstado() != null) && (!FrecuenciaAsistencia.ESTADO_DEFAULT.equals(frecuenciaAsistencia.getPvStEstado())) ) {
+            if(and){
+                hql += "AND (frecuenciaAsistencia.pvStEstado = ?) ";
+            }else{
+                hql += "(frecuenciaAsistencia.pvStEstado = ?) ";
+            } 
+            filtros.add(frecuenciaAsistencia.getPvStEstado());
+            and = true;
+        } 
         if(and){
             hql += " ORDER BY frecuenciaAsistencia.pvStDescripcion ASC";
             Object[] values = new Object[filtros.size()];

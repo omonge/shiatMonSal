@@ -81,7 +81,7 @@ public class MedicamentoDaoImpl extends HibernateDaoSupport implements Medicamen
             if(and){
                 hql += "AND (medicamento.pvInCodigo = ?) ";
             }else{
-                hql += "medicamento.pvInCodigo = ?) ";
+                hql += "(medicamento.pvInCodigo = ?) ";
             } 
             filtros.add(medicamento.getPvInCodigo());
             and = true;
@@ -90,7 +90,7 @@ public class MedicamentoDaoImpl extends HibernateDaoSupport implements Medicamen
             if(and){
                 hql += "AND (medicamento.pvStEstado = ?) ";
             }else{
-                hql += "medicamento.pvStEstado = ?) ";
+                hql += "(medicamento.pvStEstado = ?) ";
             } 
             filtros.add(medicamento.getPvStEstado());
             and = true;

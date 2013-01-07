@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import com.shiatsu.dao.SuministroDao; 
+import com.shiatsu.dao.SuministroDao;
 import com.shiatsu.domain.Suministro;
 import com.utilidades.business.BusinessErrorHelper;
 
@@ -77,8 +77,8 @@ public class SuministroDaoImpl extends HibernateDaoSupport implements  Suministr
         List<Suministro> lista = new ArrayList<Suministro>();
         boolean and = false;//verifica que ya se haya agregado algo al where para concatener o no concatenar el operador AND
         
-        if((suministro.getPvInCodigo() != null)) {
-            hql += "suministro.pvInCodigo = ?) ";
+        if((suministro.getPvInCodigo() != null) && !(suministro.getPvInCodigo().equals(Suministro.DEFAULT))) {
+            hql += "(suministro.pvInCodigo = ?) ";
             filtros.add(suministro.getPvInCodigo());
             and = true;
         }
@@ -92,6 +92,15 @@ public class SuministroDaoImpl extends HibernateDaoSupport implements  Suministr
             filtros.add("%"+suministro.getPvStDescripcion().toUpperCase()+"%");
             and = true;
         }
+        if((suministro.getPvStEstado() != null) && (!Suministro.ESTADO_DEFAULT.equals(suministro.getPvStEstado())) ) {
+            if(and){
+                hql += "AND (suministro.pvStEstado = ?) ";
+            }else{
+                hql += "(suministro.pvStEstado = ?) ";
+            } 
+            filtros.add(suministro.getPvStEstado());
+            and = true;
+        } 
         if(and){
             hql += " ORDER BY suministro.pvStDescripcion ASC";
             Object[] values = new Object[filtros.size()];

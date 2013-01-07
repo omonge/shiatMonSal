@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import com.shiatsu.dao.ProductoDao; 
+import com.shiatsu.dao.ProductoDao;
 import com.shiatsu.domain.Producto;
 import com.utilidades.business.BusinessErrorHelper;
 
@@ -78,7 +78,7 @@ public class ProductoDaoImpl extends HibernateDaoSupport implements  ProductoDao
         boolean and = false;//verifica que ya se haya agregado algo al where para concatener o no concatenar el operador AND
         
         if((producto.getPvInCodigo()!=null) && !(producto.getPvInCodigo().equals(Producto.DEFAULT))) {            
-            hql += "producto.pvInCodigo = ?) ";
+            hql += "(producto.pvInCodigo = ?) ";
             filtros.add(producto.getPvInCodigo());
             and = true;
         }
@@ -92,6 +92,15 @@ public class ProductoDaoImpl extends HibernateDaoSupport implements  ProductoDao
             filtros.add("%"+producto.getPvStDescripcion().toUpperCase()+"%");
             and = true;
         }
+        if((producto.getPvStEstado() != null) && (!Producto.ESTADO_DEFAULT.equals(producto.getPvStEstado())) ) {
+            if(and){
+                hql += "AND (producto.pvStEstado = ?) ";
+            }else{
+                hql += "(producto.pvStEstado = ?) ";
+            } 
+            filtros.add(producto.getPvStEstado());
+            and = true;
+        } 
         if(and){
             hql += " ORDER BY producto.pvStDescripcion ASC";
             Object[] values = new Object[filtros.size()];

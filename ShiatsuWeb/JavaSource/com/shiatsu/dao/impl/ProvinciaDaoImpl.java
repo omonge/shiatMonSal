@@ -81,7 +81,7 @@ public class ProvinciaDaoImpl extends HibernateDaoSupport implements ProvinciaDa
             if(and){
                 hql += "AND (provincia.pvInCodigo = ?) ";
             }else{
-                hql += "provincia.pvInCodigo = ?) ";
+                hql += "(provincia.pvInCodigo = ?) ";
             } 
             filtros.add(provincia.getPvInCodigo());
             and = true;
@@ -90,7 +90,7 @@ public class ProvinciaDaoImpl extends HibernateDaoSupport implements ProvinciaDa
             if(and){
                 hql += "AND (provincia.pvStEstado = ?) ";
             }else{
-                hql += "provincia.pvStEstado = ?) ";
+                hql += "(provincia.pvStEstado = ?) ";
             } 
             filtros.add(provincia.getPvStEstado());
             and = true;

@@ -56,7 +56,7 @@ public class DistritoDaoImpl extends HibernateDaoSupport implements DistritoDao 
             if(and){
                 hql += "AND (distrito.pvInCodigo = ?) ";
             }else{
-                hql += "distrito.pvInCodigo = ?) ";
+                hql += "(distrito.pvInCodigo = ?) ";
             } 
             filtros.add(distrito.getPvInCodigo());
             and = true;
@@ -65,7 +65,7 @@ public class DistritoDaoImpl extends HibernateDaoSupport implements DistritoDao 
             if(and){
                 hql += "AND (distrito.pvStEstado = ?) ";
             }else{
-                hql += "distrito.pvStEstado = ?) ";
+                hql += "(distrito.pvStEstado = ?) ";
             } 
             filtros.add(distrito.getPvStEstado());
             and = true;

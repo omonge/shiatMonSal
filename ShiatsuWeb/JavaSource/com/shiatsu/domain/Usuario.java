@@ -30,7 +30,7 @@ public class Usuario implements Serializable{
 	 */
 	public Usuario() {
 		this.pvDaModifica = new Date(); 
-		this.pvInCodigo	  = Integer.valueOf(1);
+		this.pvStEstado   = Usuario.ESTADO_ACTIVO;
 	}
 	
 	

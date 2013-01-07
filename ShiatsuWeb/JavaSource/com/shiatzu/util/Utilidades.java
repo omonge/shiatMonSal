@@ -3,8 +3,7 @@ package com.shiatzu.util;
 import java.util.ArrayList;
 import java.util.List;
 
-//import javax.servlet.http.HttpSession;
-//import javax.faces.context.FacesContext;
+
 import javax.faces.model.SelectItem;
 
 import com.shiatsu.domain.Usuario;
@@ -16,13 +15,12 @@ public class Utilidades {
 	}
 	
  public static Usuario getUsuario() {
-	    	Usuario usuario= new Usuario();//null;
+	    	Usuario usuario= new Usuario();
+	    	usuario.setPvInCodigo(123);
 	        /*HttpSession session = (HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 	        
 	        if (session != null) {
 	             usuario  =  (Usuario)session.getAttribute("usuario");
-	          
-
 	        }*/
 	        return usuario;
 	}

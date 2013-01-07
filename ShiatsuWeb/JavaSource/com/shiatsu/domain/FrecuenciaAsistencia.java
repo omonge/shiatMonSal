@@ -36,6 +36,7 @@ public class FrecuenciaAsistencia implements Serializable  {
 	public FrecuenciaAsistencia() {
 		this.pvDaModifica = new Date();
 		this.pvObUsuario = new Usuario();
+		this.pvStEstado = FrecuenciaAsistencia.ESTADO_ACTIVO;
 	}
 	
 

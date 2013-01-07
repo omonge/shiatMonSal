@@ -183,7 +183,7 @@
 					<tbody>
 						<tr>
 					  		<td class="Tit04Tabla">
-					  			<h:outputText styleClass="outputText" id="txt1" value="#{rcs['pais.codigo']}"></h:outputText>
+					  			<h:outputText styleClass="outputText" id="txt1" value="#{rcs['medicamento.codigo']}"></h:outputText>
 						    </td>
 					  	    <td class="formPaddingData">
 					  	    	<h:inputText styleClass="inputText" id="txtPvInCodigo"
@@ -191,14 +191,9 @@
 					  	    	</h:inputText> 
 					  	    	<h:message styleClass="error" id="msgTxtPvInCodigo" for="txtPvInCodigo" errorClass="error" infoClass="info" warnClass="warn"></h:message>
 					  	   </td>
-					    </tr>
-					      
-					 <tr>
-				  	   	
-				  	    
-				    </tr> 
+					    </tr> 
 			        <tr>
-			            <td  class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblFrecuenciaCita" value="#{rcs['pais.estado']}"></h:outputText></td>
+			            <td  class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblEstado" value="#{rcs['medicamento.estado']}"></h:outputText></td>
 			            <td class="formPaddingData">
 				  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvStEstado" value="#{medicamentoController.medicamento.pvStEstado}">
 												<f:selectItems value="#{medicamentoController.estadoItems}"/>
@@ -207,7 +202,7 @@
 			            </td>
 			        </tr>
 			        <tr>
-			            <td  class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblProfesion" value="#{rcs['pais.descripcion']}"></h:outputText></td>
+			            <td  class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblProfesion" value="#{rcs['medicamento.descripcion']}"></h:outputText></td>
 			            <td class="formPaddingData">
 				  	    	
 			            <h:inputText styleClass="inputText" id="txtPvStDescripcion" value="#{medicamentoController.medicamento.pvStDescripcion}" size="50" maxlength="50">
@@ -244,7 +239,7 @@
 							<h:column id="Columna1">
 								<f:facet name="header">
 									<h:outputText styleClass="outputText"
-										value="#{rcs['pais.codigo']}"
+										value="#{rcs['medicamento.codigo']}"
 										id="lbl1"></h:outputText>
 								</f:facet>
 									<h:commandLink styleClass="commandLink" id="link1" action="#{medicamentoController.cargarObjeto}">
@@ -258,7 +253,7 @@
 							<h:column id="Columna2">
 								<f:facet name="header">
 									<h:outputText styleClass="outputText pad-right"
-										value="#{rcs['pais.estado']}"
+										value="#{rcs['medicamento.estado']}"
 										id="lbl2"></h:outputText>
 								</f:facet>			
 								<h:outputText styleClass="outputText pad-right" id="text2"
@@ -270,7 +265,7 @@
 							<h:column id="Columna3">
 								<f:facet name="header">
 									<h:outputText styleClass="outputText pad-right"
-										value="#{rcs['pais.descripcion']}"
+										value="#{rcs['medicamento.descripcion']}"
 										id="lbl3"></h:outputText>
 								</f:facet>			
 								<h:outputText styleClass="outputText pad-right" id="text3"

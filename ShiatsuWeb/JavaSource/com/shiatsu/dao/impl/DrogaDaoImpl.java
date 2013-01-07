@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import com.shiatsu.dao.DrogaDao; 
+import com.shiatsu.dao.DrogaDao;
 import com.shiatsu.domain.Droga;
 import com.utilidades.business.BusinessErrorHelper;
 
@@ -77,8 +77,8 @@ public class DrogaDaoImpl extends HibernateDaoSupport implements  DrogaDao{
         List<Droga> lista = new ArrayList<Droga>();
         boolean and = false;//verifica que ya se haya agregado algo al where para concatener o no concatenar el operador AND
         
-        if((droga.getPvInCodigo() != null)) {
-            hql += "droga.pvInCodigo = ?) ";
+        if((droga.getPvInCodigo() != null) && !(droga.getPvInCodigo().equals(Integer.valueOf(0)))) {
+            hql += "(droga.pvInCodigo = ?) ";
             filtros.add(droga.getPvInCodigo());
             and = true;
         }
@@ -92,6 +92,15 @@ public class DrogaDaoImpl extends HibernateDaoSupport implements  DrogaDao{
             filtros.add("%"+droga.getPvStDescripcion().toUpperCase()+"%");
             and = true;
         }
+        if((droga.getPvStEstado() != null) && (!Droga.ESTADO_DEFAULT.equals(droga.getPvStEstado())) ) {
+            if(and){
+                hql += "AND (droga.pvStEstado = ?) ";
+            }else{
+                hql += "(droga.pvStEstado = ?) ";
+            } 
+            filtros.add(droga.getPvStEstado());
+            and = true;
+        } 
         if(and){
             hql += " ORDER BY droga.pvStDescripcion ASC";
             Object[] values = new Object[filtros.size()];

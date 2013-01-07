@@ -31,6 +31,7 @@ public class Suministro implements Serializable  {
 	public Suministro() {
 		this.pvDaModifica = new Date();
 		this.pvObUsuario = new Usuario();
+		this.pvStEstado  = Suministro.ESTADO_ACTIVO;
 	}
 	/** @return regresa el getEstadoDescripcion*/
 	public String getEstadoDescripcion() { 

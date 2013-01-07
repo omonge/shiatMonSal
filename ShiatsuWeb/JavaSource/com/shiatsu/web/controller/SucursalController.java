@@ -177,7 +177,7 @@ public class SucursalController  extends Controller{
 		String respuesta = "error";
         try{
             if(this.validaInsertar()){
-            	//this.sucursal.setPvStEstado(Sucursal.ESTADO_ACTIVO);
+            	this.sucursal.setPvStEstado(Sucursal.ESTADO_ACTIVO);
                 this.sucursalBo.agregar(this.sucursal);
                 this.addInfo(null, Bundle.rcs.getString("datosAgregados"));
                 respuesta = "success";
@@ -237,6 +237,9 @@ public class SucursalController  extends Controller{
      */
 	public List<SelectItem> getEstadoItems(){
 		List<SelectItem> items = new ArrayList<SelectItem>();
+		items.add(new SelectItem(Sucursal.ESTADO_DEFAULT,   Bundle.rcs.getString("seleccion.valor")));
+		items.add(new SelectItem(Sucursal.ESTADO_ACTIVO,    Sucursal.ESTADO_ACTIVO_DESCRIPCION));
+		items.add(new SelectItem(Sucursal.ESTADO_INACTIVO,  Sucursal.ESTADO_INACTIVO_DESCRIPCION));
 		return items;
 	}
 	

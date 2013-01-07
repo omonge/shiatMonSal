@@ -61,9 +61,10 @@ public class TipoClienteController  extends Controller{
      * @return boolean true si es correcto, false si hay algo malo
      */
     private boolean validarFiltro() {
-        boolean correcto = false;
-
-        
+        boolean correcto = false; 
+        if ((this.tipoCliente.getPvStEstado() != null) && (!TipoCliente.ESTADO_DEFAULT.equals(this.tipoCliente.getPvStEstado()))) {
+            correcto = true;
+    	}
     	if ((this.tipoCliente.getPvStDescripcion() != null) && (!"".equals(this.tipoCliente.getPvStDescripcion()))) {
             correcto = true;
     	}
@@ -76,7 +77,7 @@ public class TipoClienteController  extends Controller{
      */
     private boolean validarObjetoId() { 
         boolean correcto = false;
-        if((this.tipoCliente.getPvInCodigo()!=null)) {
+        if((this.tipoCliente.getPvInCodigo()!=null) && !(this.tipoCliente.getPvInCodigo().equals(Integer.valueOf(0)))) {
         	correcto = true;
         }
         return correcto;
@@ -237,6 +238,9 @@ public class TipoClienteController  extends Controller{
      */
 	public List<SelectItem> getEstadoItems(){
 		List<SelectItem> items = new ArrayList<SelectItem>();
+		items.add(new SelectItem(TipoCliente.ESTADO_DEFAULT,   Bundle.rcs.getString("seleccion.valor")));
+		items.add(new SelectItem(TipoCliente.ESTADO_ACTIVO,    TipoCliente.ESTADO_ACTIVO_DESCRIPCION));
+		items.add(new SelectItem(TipoCliente.ESTADO_INACTIVO,  TipoCliente.ESTADO_INACTIVO_DESCRIPCION));
 		return items;
 	}
 	

@@ -63,7 +63,9 @@ public class SuministroController  extends Controller{
     private boolean validarFiltro() {
         boolean correcto = false;
 
-        
+        if ((this.suministro.getPvStEstado() != null) && (!Suministro.ESTADO_DEFAULT.equals(this.suministro.getPvStEstado()))) {
+            correcto = true;
+    	}
     	if ((this.suministro.getPvStDescripcion() != null) && (!"".equals(this.suministro.getPvStDescripcion()))) {
             correcto = true;
     	}
@@ -237,6 +239,9 @@ public class SuministroController  extends Controller{
      */
 	public List<SelectItem> getEstadoItems(){
 		List<SelectItem> items = new ArrayList<SelectItem>();
+		items.add(new SelectItem(Suministro.ESTADO_DEFAULT,   Bundle.rcs.getString("seleccion.valor")));
+		items.add(new SelectItem(Suministro.ESTADO_ACTIVO,    Suministro.ESTADO_ACTIVO_DESCRIPCION));
+		items.add(new SelectItem(Suministro.ESTADO_INACTIVO,  Suministro.ESTADO_INACTIVO_DESCRIPCION));
 		return items;
 	}
 	

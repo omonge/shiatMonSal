@@ -23,7 +23,7 @@ public class Droga   implements Serializable  {
 	private Usuario pvObUsuario;
 	private Date pvDaModifica;
 	private Integer pvInCodigo;
-	private Integer pvStEstado;
+	private String pvStEstado;
 	private String pvStDescripcion;
 	
 	/**
@@ -31,7 +31,8 @@ public class Droga   implements Serializable  {
 	 */
 	public Droga() {
 		this.pvDaModifica = new Date();
-		this.pvObUsuario = new Usuario();  
+		this.pvObUsuario = new Usuario(); 
+		this.pvStEstado  = Droga.ESTADO_ACTIVO;
 	}
 	
 	
@@ -113,7 +114,7 @@ public class Droga   implements Serializable  {
 	/**
 	 * @return the pvStEstado
 	 */
-	public Integer getPvStEstado() {
+	public String getPvStEstado() {
 		return pvStEstado;
 	}
 
@@ -121,7 +122,7 @@ public class Droga   implements Serializable  {
 	/**
 	 * @param pvStEstado the pvStEstado to set
 	 */
-	public void setPvStEstado(Integer pvStEstado) {
+	public void setPvStEstado(String pvStEstado) {
 		this.pvStEstado = pvStEstado;
 	}
 

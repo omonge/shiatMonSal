@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import com.shiatsu.dao.TipoClienteDao; 
+import com.shiatsu.dao.TipoClienteDao;
 import com.shiatsu.domain.TipoCliente;
 import com.utilidades.business.BusinessErrorHelper;
 
@@ -77,8 +77,8 @@ public class TipoClienteDaoImpl extends HibernateDaoSupport implements  TipoClie
         List<TipoCliente> lista = new ArrayList<TipoCliente>();
         boolean and = false;//verifica que ya se haya agregado algo al where para concatener o no concatenar el operador AND
         
-        if((tipoCliente.getPvInCodigo() != null)) {
-            hql += "tipoCliente.pvInCodigo = ?) ";
+        if((tipoCliente.getPvInCodigo() != null) && !(tipoCliente.getPvInCodigo().equals(Integer.valueOf(0)))) {
+            hql += "(tipoCliente.pvInCodigo = ?) ";
             filtros.add(tipoCliente.getPvInCodigo());
             and = true;
         }
@@ -92,6 +92,15 @@ public class TipoClienteDaoImpl extends HibernateDaoSupport implements  TipoClie
             filtros.add("%"+tipoCliente.getPvStDescripcion().toUpperCase()+"%");
             and = true;
         }
+        if((tipoCliente.getPvStEstado() != null) && (!TipoCliente.ESTADO_DEFAULT.equals(tipoCliente.getPvStEstado())) ) {
+            if(and){
+                hql += "AND (tipoCliente.pvStEstado = ?) ";
+            }else{
+                hql += "(tipoCliente.pvStEstado = ?) ";
+            } 
+            filtros.add(tipoCliente.getPvStEstado());
+            and = true;
+        } 
         if(and){
             hql += " ORDER BY tipoCliente.pvStDescripcion ASC";
             Object[] values = new Object[filtros.size()];

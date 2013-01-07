@@ -192,19 +192,7 @@
 		  	    	<h:message styleClass="error" id="msgTtxtPvInCodigo" for="txtPvInCodigo" errorClass="error" infoClass="info" warnClass="warn"></h:message>
 		  	   </td>
 		    </tr>
-		    </c:if>
-        <tr>
-            <td class="Tit04Tabla" ><h:outputText styleClass="outputText" id="lblPvStDescripcion" value="#{rcs['tipoAlopecia.descripcion']}"></h:outputText></td>
-            <td class="formPaddingData">
-              	<h:inputText styleClass="inputText" id="txtPvStDescripcion" 
-	  	    				 value="#{tipoAlopeciaController.tipoAlopecia.pvStDescripcion}" size="50" maxlength="50" style="text-transform: uppercase">
-	  	    	</h:inputText>
-                <h:message styleClass="error" id="msgTxtPvStDescripcion" for="txtPvStDescripcion" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
-            </td>
-        </tr>
-        
-        <c:if test="${!tipoAlopeciaController.agregar}">	
-			<tr>
+		    <tr>
 	            <td class="Tit04Tabla" ><h:outputText styleClass="outputText" id="lblEstado" value="#{rcs['tipoAlopecia.estado']}"/></td>
 	            <td class="formPaddingData">
 	                <h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInEstado" value="#{tipoAlopeciaController.tipoAlopecia.pvStEstado}">
@@ -214,6 +202,15 @@
 	            </td>
 	        </tr>
 		</c:if>
+        <tr>
+            <td class="Tit04Tabla" ><h:outputText styleClass="outputText" id="lblPvStDescripcion" value="#{rcs['tipoAlopecia.descripcion']}"></h:outputText></td>
+            <td class="formPaddingData">
+              	<h:inputText styleClass="inputText" id="txtPvStDescripcion" 
+	  	    				 value="#{tipoAlopeciaController.tipoAlopecia.pvStDescripcion}" size="50" maxlength="50" style="text-transform: uppercase">
+	  	    	</h:inputText>
+                <h:message styleClass="error" id="msgTxtPvStDescripcion" for="txtPvStDescripcion" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
+            </td>
+        </tr> 
 		<tr>
             <td colspan="2">
 	            <h:commandButton type="submit" value="#{rcs['boton.agregar']}"   styleClass="commandButton" id="btnAgregar"   rendered="#{tipoAlopeciaController.agregar}" 	action="#{tipoAlopeciaController.insertar}"></h:commandButton>

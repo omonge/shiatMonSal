@@ -63,6 +63,9 @@ public class BodegaController  extends Controller{
     private boolean validarFiltro() {
         boolean correcto = false;
 
+        if ((this.bodega.getPvStEstado() != null) && (!Bodega.ESTADO_DEFAULT.equals(this.bodega.getPvStEstado()))) {
+            correcto = true;
+    	}
         
     	if ((this.bodega.getPvStDescripcion() != null) && (!"".equals(this.bodega.getPvStDescripcion()))) {
             correcto = true;
@@ -237,6 +240,9 @@ public class BodegaController  extends Controller{
      */
 	public List<SelectItem> getEstadoItems(){
 		List<SelectItem> items = new ArrayList<SelectItem>();
+		items.add(new SelectItem(Bodega.ESTADO_DEFAULT,   Bundle.rcs.getString("seleccion.valor")));
+		items.add(new SelectItem(Bodega.ESTADO_ACTIVO,    Bodega.ESTADO_ACTIVO_DESCRIPCION));
+		items.add(new SelectItem(Bodega.ESTADO_INACTIVO,  Bodega.ESTADO_INACTIVO_DESCRIPCION));
 		return items;
 	}
 	

@@ -54,7 +54,7 @@ public class DiagnosticoDaoImpl extends HibernateDaoSupport implements Diagnosti
             if(and){
                 hql += "AND (diagnostico.pvStCodigo = ?) ";
             }else{
-                hql += "diagnostico.pvStCodigon = ?) ";
+                hql += "(diagnostico.pvStCodigon = ?) ";
             } 
             filtros.add(diagnostico.getPvStCodigo());
             and = true;
