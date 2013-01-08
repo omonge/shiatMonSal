@@ -1,11 +1,13 @@
 package com.shiatsu.bo.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import com.shiatsu.bo.EnfermedadBo;
 import com.shiatsu.dao.EnfermedadDao;
 import com.shiatsu.domain.Enfermedad;
 import com.shiatsu.web.bundles.Bundle;
+import com.shiatzu.util.Utilidades;
 import com.utilidades.business.BusinessErrorHelper;
 import com.utilidades.business.BusinessObjectHelper;
 
@@ -24,6 +26,8 @@ public class EnfermedadBoImpl extends BusinessObjectHelper implements Enfermedad
 	public void agregar(Enfermedad enfermedad) throws BusinessErrorHelper {
 		try{
 			 if(!this.existe(enfermedad)){
+				 enfermedad.setPvObUsuario(Utilidades.getUsuario());
+				 enfermedad.setPvDaModifica(new Date());
 				 this.enfermedadDao.agregar(enfermedad);
 			 }else{
 				 throw new Exception(Bundle.rcs.getString("existe"));
@@ -40,6 +44,8 @@ public class EnfermedadBoImpl extends BusinessObjectHelper implements Enfermedad
 	public void modificar(Enfermedad enfermedad) throws BusinessErrorHelper {
 		try{
 			 if(this.enfermedadDao.existe(enfermedad)){
+				 //enfermedad.setPvObUsuario(Utilidades.getUsuario());
+				 enfermedad.setPvDaModifica(new Date());
 				 this.enfermedadDao.modificar(enfermedad);
 	         }else{ 
 	        	this.addError("EnfermedadBo.modificar", Bundle.rcs.getString("noExiste"));

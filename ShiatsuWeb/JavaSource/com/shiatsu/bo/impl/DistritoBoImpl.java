@@ -1,11 +1,13 @@
 package com.shiatsu.bo.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import com.shiatsu.bo.DistritoBo;
 import com.shiatsu.dao.DistritoDao;
 import com.shiatsu.domain.Distrito;
 import com.shiatsu.web.bundles.Bundle;
+import com.shiatzu.util.Utilidades;
 import com.utilidades.business.BusinessErrorHelper;
 import com.utilidades.business.BusinessObjectHelper;
 
@@ -24,6 +26,8 @@ public class DistritoBoImpl extends BusinessObjectHelper implements DistritoBo {
 	public void agregar(Distrito distrito) throws BusinessErrorHelper {
 		try{
 			 if(!this.existe(distrito)){
+			 	distrito.setPvObUsuario(Utilidades.getUsuario());
+			 	distrito.setPvDaModifica(new Date());
 				 this.distritoDao.agregar(distrito);
 			 }else{
 				 throw new Exception(Bundle.rcs.getString("existe"));
@@ -40,6 +44,7 @@ public class DistritoBoImpl extends BusinessObjectHelper implements DistritoBo {
 	public void modificar(Distrito distrito) throws BusinessErrorHelper {
 		try{
 			 if(this.distritoDao.existe(distrito)){
+				 distrito.setPvDaModifica(new Date());
 				 this.distritoDao.modificar(distrito);
 	         }else{ 
 	        	this.addError("DistritoBo.modificar", Bundle.rcs.getString("noExiste"));

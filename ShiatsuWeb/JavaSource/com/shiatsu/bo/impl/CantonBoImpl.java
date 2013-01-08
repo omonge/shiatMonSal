@@ -1,11 +1,13 @@
 package com.shiatsu.bo.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import com.shiatsu.bo.CantonBo;
 import com.shiatsu.dao.CantonDao;
 import com.shiatsu.domain.Canton;
 import com.shiatsu.web.bundles.Bundle;
+import com.shiatzu.util.Utilidades;
 import com.utilidades.business.BusinessErrorHelper;
 import com.utilidades.business.BusinessObjectHelper;
 
@@ -16,15 +18,17 @@ public class CantonBoImpl extends BusinessObjectHelper implements CantonBo {
 	/**
 	 * @param pCantonDao the pCantonDao to set
 	 */
-	public void setCantonDao(CantonDao CantonDao) {
-		this.cantonDao = CantonDao;
+	public void setCantonDao(CantonDao cantonDao) {
+		this.cantonDao = cantonDao;
 	}
 
 	@Override
-	public void agregar(Canton Canton) throws BusinessErrorHelper {
+	public void agregar(Canton canton) throws BusinessErrorHelper {
 		try{
-			 if(!this.existe(Canton)){
-				 this.cantonDao.agregar(Canton);
+			 if(!this.existe(canton)){
+			 	canton.setPvObUsuario(Utilidades.getUsuario());
+			 	canton.setPvDaModifica(new Date());
+				this.cantonDao.agregar(canton);
 			 }else{
 				 throw new Exception(Bundle.rcs.getString("existe"));
 			 }
@@ -37,10 +41,11 @@ public class CantonBoImpl extends BusinessObjectHelper implements CantonBo {
 	}
 
 	@Override
-	public void modificar(Canton Canton) throws BusinessErrorHelper {
+	public void modificar(Canton canton) throws BusinessErrorHelper {
 		try{
-			 if(this.cantonDao.existe(Canton)){
-				 this.cantonDao.modificar(Canton);
+			 if(this.cantonDao.existe(canton)){
+				 canton.setPvDaModifica(new Date());
+				 this.cantonDao.modificar(canton);
 	         }else{ 
 	        	this.addError("CantonBo.modificar", Bundle.rcs.getString("noExiste"));
 	         }
@@ -52,10 +57,10 @@ public class CantonBoImpl extends BusinessObjectHelper implements CantonBo {
 	}
 
 	@Override
-	public void eliminar(Canton Canton) throws BusinessErrorHelper {
+	public void eliminar(Canton canton) throws BusinessErrorHelper {
 		try{
-			 if(this.cantonDao.existe(Canton)){
-				 this.cantonDao.eliminar(Canton);
+			 if(this.cantonDao.existe(canton)){
+				 this.cantonDao.eliminar(canton);
 	         }else{ 
 	        	this.addError("CantonBo.modificar", Bundle.rcs.getString("noExiste"));
 	         }
@@ -67,8 +72,8 @@ public class CantonBoImpl extends BusinessObjectHelper implements CantonBo {
 	}
 
 	@Override
-	public Canton buscar(Canton Canton) { 
-		return this.cantonDao.buscar(Canton);
+	public Canton buscar(Canton canton) { 
+		return this.cantonDao.buscar(canton);
 	}
 
 	@Override

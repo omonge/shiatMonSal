@@ -1,11 +1,13 @@
 package com.shiatsu.bo.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import com.shiatsu.bo.SuministroBo;
 import com.shiatsu.dao.SuministroDao;
 import com.shiatsu.domain.Suministro;
 import com.shiatsu.web.bundles.Bundle;
+import com.shiatzu.util.Utilidades;
 import com.utilidades.business.BusinessErrorHelper;
 import com.utilidades.business.BusinessObjectHelper;
 
@@ -24,6 +26,8 @@ public class SuministroBoImpl extends BusinessObjectHelper implements Suministro
 	public void agregar(Suministro suministro) throws BusinessErrorHelper {
 		try{
 			 if(!this.existe(suministro)){
+			 	suministro.setPvObUsuario(Utilidades.getUsuario());
+			 	suministro.setPvDaModifica(new Date());
 				 this.suministroDao.agregar(suministro);
 			 }else{
 				 throw new Exception(Bundle.rcs.getString("existe"));
@@ -40,6 +44,7 @@ public class SuministroBoImpl extends BusinessObjectHelper implements Suministro
 	public void modificar(Suministro suministro) throws BusinessErrorHelper {
 		try{
 			 if(this.suministroDao.existe(suministro)){
+				 suministro.setPvDaModifica(new Date());
 				 this.suministroDao.modificar(suministro);
 	         }else{ 
 	        	this.addError("suministroBo.modificar", Bundle.rcs.getString("noExiste"));

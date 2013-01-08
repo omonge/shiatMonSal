@@ -272,7 +272,7 @@
 										id="lblColFecha"></h:outputText>
 								</f:facet>			
 								<h:outputText styleClass="outputText pad-right" id="lblFechaModificacion"
-										value="#{var.pvObUsuario.pvDaModifica}">					
+										value="#{var.pvDaModifica}">					
 								</h:outputText>
 								<f:attribute value="center" name="align" />
 							</h:column>

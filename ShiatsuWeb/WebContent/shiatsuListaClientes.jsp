@@ -257,7 +257,7 @@
 			        <tr>
 			            <td  class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblSexo" value="#{rcs['cliente.sexo']}"></h:outputText></td>
 			            <td class="formPaddingData">
-				  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvIntSexo" value="#{clienteController.cliente.pvInSexo}">
+				  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvIntSexo" value="#{clienteController.cliente.pvStSexo}">
 												<f:selectItems value="#{clienteController.sexoItems}"/>
 								</h:selectOneMenu>
 			                <h:message styleClass="error" id="msgTxtPvIntSexo" for="cmbPvIntSexo" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
@@ -379,7 +379,7 @@
 										id="lblColFecha"></h:outputText>
 								</f:facet>			
 								<h:outputText styleClass="outputText pad-right" id="lblFechaModificacion"
-										value="#{var.pvObUsuario.pvDaModifica}">					
+										value="#{var.pvDaModifica}">					
 								</h:outputText>
 								<f:attribute value="center" name="align" />
 							</h:column>

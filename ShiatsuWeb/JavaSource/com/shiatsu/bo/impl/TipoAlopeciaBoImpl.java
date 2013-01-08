@@ -1,11 +1,13 @@
 package com.shiatsu.bo.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import com.shiatsu.bo.TipoAlopeciaBo;
 import com.shiatsu.dao.TipoAlopeciaDao;
 import com.shiatsu.domain.TipoAlopecia;
 import com.shiatsu.web.bundles.Bundle;
+import com.shiatzu.util.Utilidades;
 import com.utilidades.business.BusinessErrorHelper;
 import com.utilidades.business.BusinessObjectHelper;
 
@@ -24,6 +26,8 @@ public class TipoAlopeciaBoImpl extends BusinessObjectHelper implements TipoAlop
 	public void agregar(TipoAlopecia tipoAlopecia) throws BusinessErrorHelper {
 		try{
 			 if(!this.existe(tipoAlopecia)){
+			 	tipoAlopecia.setPvObUsuario(Utilidades.getUsuario());
+			 	tipoAlopecia.setPvDaModifica(new Date());
 				 this.tipoAlopeciaDao.agregar(tipoAlopecia);
 			 }else{
 				 throw new Exception(Bundle.rcs.getString("existe"));
@@ -40,6 +44,7 @@ public class TipoAlopeciaBoImpl extends BusinessObjectHelper implements TipoAlop
 	public void modificar(TipoAlopecia tipoAlopecia) throws BusinessErrorHelper {
 		try{
 			 if(this.tipoAlopeciaDao.existe(tipoAlopecia)){
+				 tipoAlopecia.setPvDaModifica(new Date());
 				 this.tipoAlopeciaDao.modificar(tipoAlopecia);
 	         }else{ 
 	        	this.addError("tipoAlopeciaBo.modificar", Bundle.rcs.getString("noExiste"));

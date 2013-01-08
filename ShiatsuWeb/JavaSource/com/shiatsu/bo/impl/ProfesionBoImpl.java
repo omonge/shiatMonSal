@@ -1,11 +1,13 @@
 package com.shiatsu.bo.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import com.shiatsu.bo.ProfesionBo;
 import com.shiatsu.dao.ProfesionDao;
 import com.shiatsu.domain.Profesion;
 import com.shiatsu.web.bundles.Bundle;
+import com.shiatzu.util.Utilidades;
 import com.utilidades.business.BusinessErrorHelper;
 import com.utilidades.business.BusinessObjectHelper;
 
@@ -24,6 +26,8 @@ public class ProfesionBoImpl extends BusinessObjectHelper implements ProfesionBo
 	public void agregar(Profesion profesion) throws BusinessErrorHelper {
 		try{
 			 if(!this.existe(profesion)){
+			 	profesion.setPvObUsuario(Utilidades.getUsuario());
+			 	profesion.setPvDaModifica(new Date());
 				 this.profesionDao.agregar(profesion);
 			 }else{
 				 throw new Exception(Bundle.rcs.getString("existe"));
@@ -40,6 +44,7 @@ public class ProfesionBoImpl extends BusinessObjectHelper implements ProfesionBo
 	public void modificar(Profesion profesion) throws BusinessErrorHelper {
 		try{
 			 if(this.profesionDao.existe(profesion)){
+				 profesion.setPvDaModifica(new Date());
 				 this.profesionDao.modificar(profesion);
 	         }else{ 
 	        	this.addError("profesionBo.modificar", Bundle.rcs.getString("noExiste"));

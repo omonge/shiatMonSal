@@ -1,11 +1,13 @@
 package com.shiatsu.bo.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import com.shiatsu.bo.ProvinciaBo;
 import com.shiatsu.dao.ProvinciaDao;
 import com.shiatsu.domain.Provincia;
 import com.shiatsu.web.bundles.Bundle;
+import com.shiatzu.util.Utilidades;
 import com.utilidades.business.BusinessErrorHelper;
 import com.utilidades.business.BusinessObjectHelper;
 
@@ -24,6 +26,8 @@ public class ProvinciaBoImpl extends BusinessObjectHelper implements ProvinciaBo
 	public void agregar(Provincia provincia) throws BusinessErrorHelper {
 		try{
 			 if(!this.existe(provincia)){
+			 	provincia.setPvObUsuario(Utilidades.getUsuario());
+			 	provincia.setPvDaModifica(new Date());
 				 this.provinciaDao.agregar(provincia);
 			 }else{
 				 throw new Exception(Bundle.rcs.getString("existe"));
@@ -40,6 +44,7 @@ public class ProvinciaBoImpl extends BusinessObjectHelper implements ProvinciaBo
 	public void modificar(Provincia provincia) throws BusinessErrorHelper {
 		try{
 			 if(this.provinciaDao.existe(provincia)){
+				 provincia.setPvDaModifica(new Date());
 				 this.provinciaDao.modificar(provincia);
 	         }else{ 
 	        	this.addError("provinciaBo.modificar", Bundle.rcs.getString("noExiste"));

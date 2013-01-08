@@ -22,7 +22,7 @@
         <property name="pvDaNacimiento" 		column="NACIMIENTO" 			type="java.util.Date"/>
         <property name="pvInNacionalidad"		column="NACIONALIDAD"			type="java.lang.Integer" 	length="10"/>
         <property name="pvInProfesion" 			column="PROFESION" 				type="java.lang.Integer" 	length="10"/>
-        <property name="pvInSexo"	 			column="SEXO" 					type="java.lang.Integer" 	length="1"/>
+        <property name="pvStSexo"	 			column="SEXO" 					type="java.lang.String" 	length="1"/>
         <property name="pvLoTelefonoCasa" 		column="TELEFONO_CASA" 			type="java.lang.Long" 		length="10"/>
         <property name="pvLoTelefonoCelular" 	column="TELEFONO_CELULAR" 		type="java.lang.Long" 		length="10"/>
         <property name="pvInTipoAlopecia" 		column="TIPO_ALOPECIA" 			type="java.lang.Integer"	length="3"/>

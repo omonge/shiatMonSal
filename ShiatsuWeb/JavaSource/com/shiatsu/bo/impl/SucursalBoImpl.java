@@ -1,11 +1,13 @@
 package com.shiatsu.bo.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import com.shiatsu.bo.SucursalBo;
 import com.shiatsu.dao.SucursalDao;
 import com.shiatsu.domain.Sucursal;
 import com.shiatsu.web.bundles.Bundle;
+import com.shiatzu.util.Utilidades;
 import com.utilidades.business.BusinessErrorHelper;
 import com.utilidades.business.BusinessObjectHelper;
 
@@ -24,6 +26,8 @@ public class SucursalBoImpl extends BusinessObjectHelper implements SucursalBo {
 	public void agregar(Sucursal sucursal) throws BusinessErrorHelper {
 		try{
 			 if(!this.existe(sucursal)){
+			 	sucursal.setPvObUsuario(Utilidades.getUsuario());
+			 	sucursal.setPvDaModifica(new Date());
 				 this.sucursalDao.agregar(sucursal);
 			 }else{
 				 throw new Exception(Bundle.rcs.getString("existe"));
@@ -40,6 +44,7 @@ public class SucursalBoImpl extends BusinessObjectHelper implements SucursalBo {
 	public void modificar(Sucursal sucursal) throws BusinessErrorHelper {
 		try{
 			 if(this.sucursalDao.existe(sucursal)){
+				 sucursal.setPvDaModifica(new Date());
 				 this.sucursalDao.modificar(sucursal);
 	         }else{ 
 	        	this.addError("sucursalBo.modificar", Bundle.rcs.getString("noExiste"));

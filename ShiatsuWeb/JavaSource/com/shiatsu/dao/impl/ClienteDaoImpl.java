@@ -50,7 +50,7 @@ public class ClienteDaoImpl extends HibernateDaoSupport implements ClienteDao {
         List<Cliente> lista = new ArrayList<Cliente>();
         boolean and = false;//verifica que ya se haya agregado algo al where para concatener o no concatenar el operador AND
         
-        if((cliente.getPvStCodigo() != null) && (!"".equals(cliente.getPvStCodigo())) ) {
+        if((cliente.getPvStCodigo() != null) && !(cliente.getPvStCodigo().equals(Cliente.CLIENTE_DEFAULT)) ) {
             if(and){
                 hql += "AND (cliente.pvStCodigo = ?) ";
             }else{
@@ -98,13 +98,13 @@ public class ClienteDaoImpl extends HibernateDaoSupport implements ClienteDao {
             and = true;
         }
         
-        if((cliente.getPvInSexo() != null) && (!Cliente.SEXO_DEFAULT.equals(cliente.getPvInSexo()))){
+        if((cliente.getPvStSexo() != null) && (!Cliente.SEXO_DEFAULT.equals(cliente.getPvStSexo()))){
             if(and){
-                hql += "AND (cliente.pvInSexo = ?) ";
+                hql += "AND (cliente.pvStSexo = ?) ";
             }else{
-                hql += "(cliente.pvInSexo = ?) ";
+                hql += "(cliente.pvStSexo = ?) ";
             }
-            filtros.add(cliente.getPvInSexo());
+            filtros.add(cliente.getPvStSexo());
             and = true;
         }
         
@@ -149,7 +149,7 @@ public class ClienteDaoImpl extends HibernateDaoSupport implements ClienteDao {
         }
           
         if(and){
-            hql += " ORDER BY cliente.pvDiDiagnostico.pvStnombre ASC";
+            hql += " ORDER BY cliente.pvDiDiagnostico.pvStNombre ASC";
             Object[] values = new Object[filtros.size()];
             for(int i = 0; i < filtros.size(); i++){
                 values[i] = filtros.get(i);

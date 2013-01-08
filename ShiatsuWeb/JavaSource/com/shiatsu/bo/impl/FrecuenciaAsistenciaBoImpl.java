@@ -1,11 +1,13 @@
 package com.shiatsu.bo.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import com.shiatsu.bo.FrecuenciaAsistenciaBo;
 import com.shiatsu.dao.FrecuenciaAsistenciaDao;
 import com.shiatsu.domain.FrecuenciaAsistencia;
 import com.shiatsu.web.bundles.Bundle;
+import com.shiatzu.util.Utilidades;
 import com.utilidades.business.BusinessErrorHelper;
 import com.utilidades.business.BusinessObjectHelper;
 
@@ -24,6 +26,8 @@ public class FrecuenciaAsistenciaBoImpl extends BusinessObjectHelper implements 
 	public void agregar(FrecuenciaAsistencia frecuenciaAsistencia) throws BusinessErrorHelper {
 		try{
 			 if(!this.existe(frecuenciaAsistencia)){
+			 	frecuenciaAsistencia.setPvObUsuario(Utilidades.getUsuario());
+			 	frecuenciaAsistencia.setPvDaModifica(new Date());
 				 this.frecuenciaAsistenciaDao.agregar(frecuenciaAsistencia);
 			 }else{
 				 throw new Exception(Bundle.rcs.getString("existe"));
@@ -40,6 +44,7 @@ public class FrecuenciaAsistenciaBoImpl extends BusinessObjectHelper implements 
 	public void modificar(FrecuenciaAsistencia frecuenciaAsistencia) throws BusinessErrorHelper {
 		try{
 			 if(this.frecuenciaAsistenciaDao.existe(frecuenciaAsistencia)){
+				 frecuenciaAsistencia.setPvDaModifica(new Date());
 				 this.frecuenciaAsistenciaDao.modificar(frecuenciaAsistencia);
 	         }else{ 
 	        	this.addError("frecuenciaAsistenciaBo.modificar", Bundle.rcs.getString("noExiste"));

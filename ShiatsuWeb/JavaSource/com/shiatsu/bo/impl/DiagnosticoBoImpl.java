@@ -2,12 +2,14 @@
  * DiagnosticoBoImpl.java
  */
 package com.shiatsu.bo.impl;
+import java.util.Date;
 import java.util.List;
 
 import com.shiatsu.bo.DiagnosticoBo;
 import com.shiatsu.dao.DiagnosticoDao;
 import com.shiatsu.domain.Diagnostico;
 import com.shiatsu.web.bundles.Bundle;
+import com.shiatzu.util.Utilidades;
 import com.utilidades.business.BusinessErrorHelper;
 import com.utilidades.business.BusinessObjectHelper;
 
@@ -41,6 +43,8 @@ public class DiagnosticoBoImpl extends BusinessObjectHelper implements Diagnosti
 	public void agregar(Diagnostico diagnostico) throws BusinessErrorHelper {
 		try{
 			 if(!this.existe(diagnostico)){
+			 	diagnostico.setPvObUsuario(Utilidades.getUsuario());
+			 	diagnostico.setPvDaModifica(new Date());
 				 this.diagnosticoDao.agregar(diagnostico);
 			 }else{
 				 throw new Exception(Bundle.rcs.getString("existe"));
@@ -57,6 +61,7 @@ public class DiagnosticoBoImpl extends BusinessObjectHelper implements Diagnosti
 	public void modificar(Diagnostico diagnostico) throws BusinessErrorHelper {
 		try{
 			 if(this.diagnosticoDao.existe(diagnostico)){
+				 diagnostico.setPvDaModifica(new Date());
 				 this.diagnosticoDao.modificar(diagnostico);
 	         }else{ 
 	        	this.addError("diagnosticoBo.modificar", Bundle.rcs.getString("noExiste"));

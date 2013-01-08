@@ -351,7 +351,7 @@
         <tr>
             <td  class="Tit04Tabla"><h:outputText styleClass="outputText" id="lblSexo" value="#{rcs['cliente.sexo']}"></h:outputText></td>
             <td class="formPaddingData">
-	  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvIntSexo" value="#{clienteController.cliente.pvInSexo}">
+	  	    	<h:selectOneMenu styleClass="selectOneMenu" id="cmbPvIntSexo" value="#{clienteController.cliente.pvStSexo}">
 									<f:selectItems value="#{clienteController.sexoItems}"/>
 					</h:selectOneMenu>
                 <h:message styleClass="error" id="msgTxtPvIntSexo" for="cmbPvIntSexo" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
@@ -370,7 +370,7 @@
 			<tr>
 	            <td class="Tit04Tabla" ><h:outputText styleClass="outputText" id="lblEstado" value="#{rcs['cliente.estado']}"/></td>
 	            <td class="formPaddingData">
-	                <h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInEstado" value="#{clienteController.cliente.pvInEstado}">
+	                <h:selectOneMenu styleClass="selectOneMenu" id="cmbPvInEstado" value="#{clienteController.cliente.pvStEstado}">
 									<f:selectItems value="#{clienteController.estadoItems}"/>
 					</h:selectOneMenu>
 	                <h:message styleClass="error" id="msgTxtEstado" for="cmbPvInEstado" errorClass="error" infoClass="info" warnClass="warn"/>

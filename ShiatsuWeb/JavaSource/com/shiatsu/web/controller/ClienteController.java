@@ -108,7 +108,7 @@ public class ClienteController extends Controller {
     	if ((this.cliente.getPvInNacionalidad() != null) && (this.cliente.getPvInNacionalidad().intValue() > Cliente.NACIONALIDAD_DEFAULT.intValue())) {
             correcto = true;
     	}    	
-    	if ((this.cliente.getPvInSexo() != null) && (!Cliente.SEXO_DEFAULT.equals(this.cliente.getPvInSexo()))) {
+    	if ((this.cliente.getPvStSexo() != null) && (!Cliente.SEXO_DEFAULT.equals(this.cliente.getPvStSexo()))) {
             correcto = true;
     	} 
     	if ((this.cliente.getPvInTipoAlopecia() != null) && (this.cliente.getPvInTipoAlopecia().intValue()  > Cliente.ALOPECIA_DEFAULT.intValue() )) {
@@ -365,7 +365,7 @@ public class ClienteController extends Controller {
 				this.addError(this.getPropertyFieldName("cliente.pvInProfesion"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
 			}
-			if((this.cliente.getPvInSexo() == null) || (Cliente.SEXO_DEFAULT.equals(this.cliente.getPvInSexo()))){
+			if((this.cliente.getPvStSexo() == null) || (Cliente.SEXO_DEFAULT.equals(this.cliente.getPvStSexo()))){
 				this.addError(this.getPropertyFieldName("cliente.pvInSexo"),Bundle.rcs.getString("campoRequerido"));
 				correcto = false;
 			}

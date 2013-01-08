@@ -1,11 +1,13 @@
 package com.shiatsu.bo.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import com.shiatsu.bo.MedicamentoBo;
 import com.shiatsu.dao.MedicamentoDao;
 import com.shiatsu.domain.Medicamento;
 import com.shiatsu.web.bundles.Bundle;
+import com.shiatzu.util.Utilidades;
 import com.utilidades.business.BusinessErrorHelper;
 import com.utilidades.business.BusinessObjectHelper;
 
@@ -24,6 +26,8 @@ public class MedicamentoBoImpl extends BusinessObjectHelper implements Medicamen
 	public void agregar(Medicamento medicamento) throws BusinessErrorHelper {
 		try{
 			 if(!this.existe(medicamento)){
+			 	medicamento.setPvObUsuario(Utilidades.getUsuario());
+			 	medicamento.setPvDaModifica(new Date());
 				 this.medicamentoDao.agregar(medicamento);
 			 }else{
 				 throw new Exception(Bundle.rcs.getString("existe"));
@@ -40,6 +44,7 @@ public class MedicamentoBoImpl extends BusinessObjectHelper implements Medicamen
 	public void modificar(Medicamento medicamento) throws BusinessErrorHelper {
 		try{
 			 if(this.medicamentoDao.existe(medicamento)){
+				 medicamento.setPvDaModifica(new Date());
 				 this.medicamentoDao.modificar(medicamento);
 	         }else{ 
 	        	this.addError("MedicamentoBo.modificar", Bundle.rcs.getString("noExiste"));

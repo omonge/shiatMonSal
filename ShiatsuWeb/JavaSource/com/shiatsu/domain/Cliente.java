@@ -46,6 +46,7 @@ public class Cliente implements Serializable {
 	private Diagnostico pvDiDiagnostico;
 	private Integer pvInProfesion;
 	private Integer pvInSexo;
+	private String  pvStSexo;
 	private Long 	pvLoTelefonoCasa;
 	private Long 	pvLoTelefonoCelular;
 	private	Integer pvInTipoAlopecia; 
@@ -71,6 +72,21 @@ public class Cliente implements Serializable {
 		}
 		return null;
 	}	
+	
+	/**
+	 * @return the pvStSexo
+	 */
+	public String getPvStSexo() {
+		return pvStSexo;
+	}
+
+	/**
+	 * @param pvStSexo the pvStSexo to set
+	 */
+	public void setPvStSexo(String pvStSexo) {
+		this.pvStSexo = pvStSexo;
+	}
+
 	/**
 	 * @return the pvStEstadoDescripcion
 	 */
