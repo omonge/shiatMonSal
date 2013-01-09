@@ -44,8 +44,7 @@ public class Cliente implements Serializable {
 	private Date	pvDaNacimiento;
 	private Integer pvInNacionalidad;
 	private Diagnostico pvDiDiagnostico;
-	private Integer pvInProfesion;
-	private Integer pvInSexo;
+	private Integer pvInProfesion; 
 	private String  pvStSexo;
 	private Long 	pvLoTelefonoCasa;
 	private Long 	pvLoTelefonoCelular;
@@ -53,8 +52,7 @@ public class Cliente implements Serializable {
 	private	Integer pvInProvincia;
 	private	Integer pvInCanton;
 	private	Integer pvInDistrito; 
-	private String  pvStNombre;
-	private String  pvStEstadoDescripcion;
+	private String  pvStNombre; 
 
 	public Cliente(){
 		this.pvDiDiagnostico = new Diagnostico();
@@ -87,26 +85,14 @@ public class Cliente implements Serializable {
 		this.pvStSexo = pvStSexo;
 	}
 
-	/**
-	 * @return the pvStEstadoDescripcion
-	 */
-	public String getPvStEstadoDescripcion() {
-		return pvStEstadoDescripcion;
-	}
-
-	/**
-	 * @param pvStEstadoDescripcion the pvStEstadoDescripcion to set
-	 */
-	public void setPvStEstadoDescripcion(String pvStEstadoDescripcion) {
-		this.pvStEstadoDescripcion = pvStEstadoDescripcion;
-	}
+  
 
 	/** @return regresa el getPvStSexoDescripcion*/
-	public String getPvStSexoDescripcion() { 
-		if(Cliente.SEXO_FEMENINO.equals(this.pvInSexo)){
+	public String getSexoDescripcion() { 
+		if(Cliente.SEXO_FEMENINO.equals(this.pvStSexo)){
 			return SEXO_FEMENINO_DESCRIPCION;
 		}
-		if(Cliente.SEXO_MASCULINO.equals(this.pvInSexo)){ 
+		if(Cliente.SEXO_MASCULINO.equals(this.pvStSexo)){ 
 			return SEXO_MASCULINO_DESCRIPCION;
 		}
 		return null;
@@ -271,19 +257,7 @@ public class Cliente implements Serializable {
 	 */
 	public void setPvInProfesion(Integer pvInProfesion) {
 		this.pvInProfesion = pvInProfesion;
-	}
-	/**
-	 * @return the pvInSexo
-	 */
-	public Integer getPvInSexo() {
-		return pvInSexo;
-	}
-	/**
-	 * @param pvInSexo the pvInSexo to set
-	 */
-	public void setPvInSexo(Integer pvInSexo) {
-		this.pvInSexo = pvInSexo;
-	}
+	} 
 	/**
 	 * @return the pvLoTelefonoCasa
 	 */

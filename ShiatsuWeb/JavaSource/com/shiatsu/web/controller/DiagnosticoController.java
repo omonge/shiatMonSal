@@ -64,6 +64,16 @@ public class DiagnosticoController extends Controller {
 	}
 	
 	
+	 /**
+     * Recupera el objeto seleccionado del DataTable
+     * Lo carga para ser usado luego y cierra el popUp
+     * @return String "jeniaClosePopupFrameWithAction"
+     */
+    public String cargarObjetoPopUp(){
+        this.diagnostico = (Diagnostico) this.listaDataTableDiagnostico.getRowData();
+        return "jeniaClosePopupFrameWithAction";
+    }
+	
 	/****************** METODOS *************************************/
  
 	 /**
@@ -86,13 +96,40 @@ public class DiagnosticoController extends Controller {
      */
     private boolean validarFiltro() {
         boolean correcto = false;
- 
-    	if ((this.diagnostico.getPvStNombre() != null) && (!"".equals(this.diagnostico.getPvStNombre()))) {
-            correcto = true;
-    	} 
-    	if ((this.diagnostico.getPvStEstado() != null) && (!Diagnostico.ESTADO_DEFAULT.equals(this.diagnostico.getPvStEstado()))) {
-            correcto = true;
-    	}
+   
+		if((this.diagnostico.getPvStDermatitisOleosa()) != null && (!Diagnostico.TEXTO_DEFAULT.equals(this.diagnostico.getPvStDermatitisOleosa()))){
+			correcto = true;
+		}
+		if((this.diagnostico.getPvStDermatitisSeborreica())  != null && (!Diagnostico.TEXTO_DEFAULT.equals(this.diagnostico.getPvStDermatitisSeborreica()))){
+			correcto = true;
+		}
+		if((this.diagnostico.getPvStDermatitisSeca()) != null && (!Diagnostico.TEXTO_DEFAULT.equals(this.diagnostico.getPvStDermatitisSeca())) ){
+			correcto = true;
+		}
+		if((this.diagnostico.getPvStDeshidratacion())  != null && (!Diagnostico.TEXTO_DEFAULT.equals(this.diagnostico.getPvStDeshidratacion())) ){
+			correcto = true;
+		}
+		if((this.diagnostico.getPvStNombre()  != null) && (!Diagnostico.TEXTO_DEFAULT.equals(this.diagnostico.getPvStNombre()))){
+			correcto = true;
+		}
+		if((this.diagnostico.getPvStPsoriasis()  != null) && (!Diagnostico.TEXTO_DEFAULT.equals(this.diagnostico.getPvStPsoriasis()))){
+			correcto = true;
+		} 
+		if((this.diagnostico.getPvStTelanocitos()  != null) && (!Diagnostico.TEXTO_DEFAULT.equals(this.diagnostico.getPvStTelanocitos()))){
+			correcto = true;
+		}
+		if((this.diagnostico.getPvInTipoAlopecia()  != null) && (!Diagnostico.NUMERO_DEFAULT.equals(this.diagnostico.getPvInTipoAlopecia()))){
+			correcto = true;
+		}
+		if((this.diagnostico.getPvStCaspa()  != null) && (!Diagnostico.TEXTO_DEFAULT.equals(this.diagnostico.getPvStCaspa()))){
+			correcto = true;
+		} 
+		if((this.diagnostico.getPvStHongo()  != null) && (!Diagnostico.TEXTO_DEFAULT.equals(this.diagnostico.getPvStHongo()))){
+			correcto = true;
+		} 
+		if((this.diagnostico.getPvStEstado()  != null) && (!Diagnostico.TEXTO_DEFAULT.equals(this.diagnostico.getPvStEstado()))){
+			correcto = true;
+		}
         return correcto;
     }
 

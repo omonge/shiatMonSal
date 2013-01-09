@@ -14,7 +14,7 @@
 <title>Shiatsu - Inicio </title>
 <!-- InstanceEndEditable --> 
 	<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
-	<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
+	<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %> 
 	<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %> 
 	<%@ taglib uri="http://www.jenia.org/jsf/popup" prefix="jp" %>
 	<%@ taglib uri="http://myfaces.apache.org/tomahawk" prefix="t"%>
@@ -343,7 +343,12 @@
 			                <h:message styleClass="error" id="msgCmbPvStEstado" for="cmbPvStEstado" errorClass="error" infoClass="info" warnClass="warn" ></h:message>
 			            </td>
 			        </tr>
-			       
+			       <tr>
+			            <td colspan="2">
+				            <h:commandButton type="submit" value="#{rcs['boton.buscar']}"   styleClass="commandButton" id="btnBuscar"   action="#{diagnosticoController.buscar}"></h:commandButton>
+				    
+			            </td>
+			        </tr>
 					</tbody>
 				</table>
 	
@@ -432,7 +437,7 @@
 										id="lblColFecha"></h:outputText>
 								</f:facet>			
 								<h:outputText styleClass="outputText pad-right" id="lblFechaModificacion"
-										value="#{var.pvDaModifica}">					
+										value="#{dato.pvDaModifica}">					
 								</h:outputText>
 								<f:attribute value="center" name="align" />
 							</h:column>
@@ -444,7 +449,7 @@
 										id="lblColUsuario"></h:outputText>
 								</f:facet>			
 								<h:outputText styleClass="outputText pad-right" id="lblUsuario"
-										value="#{var.pvObUsuario.pvStDescripcion}">					
+										value="#{dato.pvObUsuario.pvStDescripcion}">					
 								</h:outputText>
 								<f:attribute value="center" name="align" />
 							</h:column>

@@ -14,7 +14,7 @@
 <title>Shiatsu - Inicio </title>
 <!-- InstanceEndEditable --> 
 	<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
-	<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
+	<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %> 
 	<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %> 
 	<%@ taglib uri="http://www.jenia.org/jsf/popup" prefix="jp" %>
 	<%@ taglib uri="http://myfaces.apache.org/tomahawk" prefix="t"%>

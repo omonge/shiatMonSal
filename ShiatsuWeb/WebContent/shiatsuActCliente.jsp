@@ -14,7 +14,7 @@
 <title>Shiatsu - Inicio </title>
 <!-- InstanceEndEditable --> 
 	<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
-	<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
+	<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %> 
 	<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %> 
 	<%@ taglib uri="http://www.jenia.org/jsf/popup" prefix="jp" %>
 	<%@ taglib uri="http://myfaces.apache.org/tomahawk" prefix="t"%>
@@ -186,8 +186,13 @@
 			    </td>
 		  	    <td class="formPaddingData">
 		  	    	<h:inputText styleClass="inputText" id="txtPvLoCodigo"
-		  	    				 value="#{clienteController.cliente.pvStCodigo}" size="10" maxlength="10" disabled="#{!clienteController.agregar}" style="text-transform: uppercase">
+		  	    				 value="#{clienteController.cliente.pvDiDiagnostico.pvStCodigo}" size="10" maxlength="10" readonly="true" style="text-transform: uppercase">
 		  	    	</h:inputText> 
+		  	    	 <jp:popupFrame width="650" height="400" title="#{rcs['titulo.diagnostico.popup']}" id="diagnosticoPopUp"
+                             actionOpen="#{clienteController.abrirPopUpDiagnostico}" 
+                             actionClose="#{clienteController.cerrarPopUpDiagnostico}" center="true"> 
+                          <h:commandButton type="submit" image="images/buscar.gif" styleClass="commandExButton" id="btnBuscarDiagnostico" title="#{rcs['titulo.diagnostico.popup']}"></h:commandButton>
+                     </jp:popupFrame>
 		  	    	<h:message styleClass="error" id="msgTxtCodigo" for="txtPvLoCodigo" errorClass="error" infoClass="info" warnClass="warn"></h:message>
 		  	   </td>
 		    </tr>
@@ -198,7 +203,7 @@
 				    </td>
 			  	    <td class="formPaddingData">
 			  	    	<h:inputText styleClass="inputText" id="txtPvStNombre" 
-			  	    				 value="#{clienteController.cliente.pvStNombre}" size="50" maxlength="50" style="text-transform: uppercase">
+			  	    				 value="#{clienteController.cliente.pvDiDiagnostico.pvStNombre}"   readonly="true" size="50" maxlength="50" style="text-transform: uppercase">
 			  	    	</h:inputText> 
 			  	    	<h:message styleClass="error" id="msgTxtNombre" for="txtPvStNombre" errorClass="error" infoClass="info" warnClass="warn"></h:message>
 			  	   </td>

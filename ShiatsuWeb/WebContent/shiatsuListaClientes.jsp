@@ -14,7 +14,7 @@
 <title>Shiatsu - Inicio </title>
 <!-- InstanceEndEditable --> 
 	<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
-	<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
+	<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %> 
 	<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %> 
 	<%@ taglib uri="http://www.jenia.org/jsf/popup" prefix="jp" %>
 	<%@ taglib uri="http://myfaces.apache.org/tomahawk" prefix="t"%>
@@ -276,9 +276,7 @@
 					<tr>
 			            <td colspan="2">
 				            <h:commandButton type="submit" value="#{rcs['boton.buscar']}"   styleClass="commandButton" id="btnBuscar"   action="#{clienteController.buscar}"></h:commandButton>
-				            
-				            
-				            
+				    
 			            </td>
 			        </tr>
 					</tbody>
@@ -291,7 +289,7 @@
 					   <h:dataTable border="0" columnClasses="" headerClass="Tit04Tabla"
 									footerClass="Tit04Tabla" rowClasses="even,odd"  
 									styleClass="dataTable" id="table1"
-									value="#{clienteController.listaCliente}" var="clientes" rows="20" 
+									value="#{clienteController.listaCliente}" var="dato" rows="20" 
 									binding="#{clienteController.listaDataTableCliente}">		
 							<h:column id="Columna1">
 								<f:facet name="header">
@@ -301,7 +299,7 @@
 								</f:facet>
 									<h:commandLink styleClass="commandLink" id="link1" action="#{clienteController.cargarObjeto}">
 										<h:outputText styleClass="pad-right" id="text1"
-											value="#{clientes.pvStCodigo}">
+											value="#{dato.pvStCodigo}">
 										</h:outputText>
 										<f:attribute value="center" name="align" />
 									</h:commandLink>
@@ -313,7 +311,7 @@
 										id="lbl2"></h:outputText>
 								</f:facet>			
 								<h:outputText styleClass="outputText pad-right" id="text2"
-										value="#{clientes.pvDiDiagnostico.pvStNombre}">					
+										value="#{dato.pvDiDiagnostico.pvStNombre}">					
 								</h:outputText>
 								<f:attribute value="center" name="align" />
 							</h:column>
@@ -324,7 +322,7 @@
 										id="lbl3"></h:outputText>
 								</f:facet>			
 								<h:outputText styleClass="outputText pad-right" id="text3"
-									value="#{clientes.pvStDireccion}">
+									value="#{dato.pvStDireccion}">
 								</h:outputText>		
 								<f:attribute value="center" name="align" />	
 							</h:column>
@@ -335,7 +333,7 @@
 										id="lbl4"></h:outputText>
 								</f:facet>			
 								<h:outputText styleClass="outputText pad-right" id="text4"
-									value="#{clientes.pvStEmail1}">
+									value="#{dato.pvStEmail1}">
 								</h:outputText>		
 								<f:attribute value="center" name="align" />	
 							</h:column>
@@ -346,7 +344,7 @@
 										id="lbl5"></h:outputText>
 								</f:facet>			
 								<h:outputText styleClass="outputText pad-right" id="text5"
-									value="#{clientes.pvLoTelefonoCasa}">
+									value="#{dato.pvLoTelefonoCasa}">
 								</h:outputText>			
 								<f:attribute value="center" name="align" />
 							</h:column>		
@@ -357,7 +355,7 @@
 										id="lbl6"></h:outputText>
 								</f:facet>			
 								<h:outputText styleClass="outputText pad-right" id="text6"
-									value="#{clientes.pvLoTelefonoCelular}">
+									value="#{dato.pvLoTelefonoCelular}">
 								</h:outputText>			
 								<f:attribute value="center" name="align" />
 							</h:column>	
@@ -368,10 +366,24 @@
 										id="lbl7"></h:outputText>
 								</f:facet>			
 								<h:outputText styleClass="outputText pad-right" id="text7"
-									value="#{clientes.estadoDescripcion}">
+									value="#{dato.estadoDescripcion}">
 								</h:outputText>		
 								<f:attribute value="center" name="align" />	
 							</h:column>
+						 
+							
+							<h:column id="ColumnaSexo">
+								<f:facet name="header">
+									<h:outputText styleClass="outputText pad-right"
+										value="#{rcs['cliente.sexo']}"
+										id="lblSexo"></h:outputText>
+								</f:facet>			
+								<h:outputText styleClass="outputText pad-right" id="textSexo"
+									value="#{dato.sexoDescripcion}">
+								</h:outputText>		
+								<f:attribute value="center" name="align" />	
+							</h:column>	
+							
 						<h:column id="colFecha">
 								<f:facet name="header">
 									<h:outputText styleClass="outputText pad-right"
@@ -379,7 +391,7 @@
 										id="lblColFecha"></h:outputText>
 								</f:facet>			
 								<h:outputText styleClass="outputText pad-right" id="lblFechaModificacion"
-										value="#{var.pvDaModifica}">					
+										value="#{dato.pvDaModifica}">					
 								</h:outputText>
 								<f:attribute value="center" name="align" />
 							</h:column>
@@ -391,7 +403,7 @@
 										id="lblColUsuario"></h:outputText>
 								</f:facet>			
 								<h:outputText styleClass="outputText pad-right" id="lblUsuario"
-										value="#{var.pvObUsuario.pvStDescripcion}">					
+										value="#{dato.pvObUsuario.pvStDescripcion}">					
 								</h:outputText>
 								<f:attribute value="center" name="align" />
 							</h:column>

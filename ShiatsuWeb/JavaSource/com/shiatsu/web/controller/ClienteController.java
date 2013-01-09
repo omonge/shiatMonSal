@@ -12,6 +12,7 @@ import javax.faces.model.SelectItem;
 import com.shiatsu.domain.Canton;
 import com.shiatsu.domain.Cita;
 import com.shiatsu.domain.Cliente;
+import com.shiatsu.domain.Diagnostico;
 import com.shiatsu.domain.Distrito;
 import com.shiatsu.domain.Pais;
 import com.shiatsu.domain.Profesion;
@@ -83,7 +84,28 @@ public class ClienteController extends Controller {
         return init;
 	}
 	 
-	
+	  
+    /**
+     * Método abrirPopUpDiagnostico
+     * Abre el pop up 
+     * @return success
+     */
+    public String abrirPopUpDiagnostico() {
+        this.getFacesContext().getApplication().createValueBinding("#{diagnosticoController.diagnostico}").setValue(this.getFacesContext(), new Diagnostico());
+        return "success";
+    }
+ 
+    /**
+     * Método cerrarPopUpDiagnostico
+     * Cierra el pop up
+     * @return success
+     */ 
+    public String cerrarPopUpDiagnostico(){
+    	Diagnostico diagnostico = (Diagnostico) this.getFacesContext().getApplication().createValueBinding("#{diagnosticoController.diagnostico}").getValue(this.getFacesContext());
+        this.cliente.setPvDiDiagnostico(diagnostico);
+        return "success";
+    }
+
 
 	/**
      * Método para validar el código, agrega el error al faces si lo hay

@@ -59,7 +59,6 @@ public class DiagnosticoDaoImpl extends HibernateDaoSupport implements Diagnosti
             filtros.add(diagnostico.getPvStCodigo());
             and = true;
         }
-       
         
         if((diagnostico.getPvStEstado() != null)  && (!"".equals(diagnostico.getPvStEstado())) ){
             if(and){
@@ -70,8 +69,7 @@ public class DiagnosticoDaoImpl extends HibernateDaoSupport implements Diagnosti
             filtros.add(diagnostico.getPvStEstado());
             and = true;
         }
-        
-        
+          
         if((diagnostico.getPvStNombre() != null) && (!"".equals(diagnostico.getPvStNombre())) ){
             if(and){
                 hql += "AND (UPPER(TRIM(diagnostico.pvStNombre)) like ?) ";
@@ -82,8 +80,99 @@ public class DiagnosticoDaoImpl extends HibernateDaoSupport implements Diagnosti
             and = true;
         }
         
+        if((diagnostico.getPvStDermatitisOleosa() != null)  && (!"".equals(diagnostico.getPvStDermatitisOleosa())) ){
+            if(and){
+                hql += "AND (UPPER(TRIM(diagnostico.pvStDermatitisOleosa)) = ?) ";
+            }else{
+                hql += "(UPPER(TRIM(diagnostico.pvStDermatitisOleosa)) = ?) ";
+            }
+            filtros.add(diagnostico.getPvStEstado());
+            and = true;
+        }
+        
+        if((diagnostico.getPvStDermatitisSeborreica() != null)  && (!"".equals(diagnostico.getPvStDermatitisSeborreica())) ){
+            if(and){
+                hql += "AND (UPPER(TRIM(diagnostico.pvStDermatitisSeborreica)) = ?) ";
+            }else{
+                hql += "(UPPER(TRIM(diagnostico.pvStDermatitisSeborreica)) = ?) ";
+            }
+            filtros.add(diagnostico.getPvStDermatitisSeborreica());
+            and = true;
+        }
+        
+        if((diagnostico.getPvStDermatitisSeca() != null)  && (!"".equals(diagnostico.getPvStDermatitisSeca())) ){
+            if(and){
+                hql += "AND (UPPER(TRIM(diagnostico.pvStDermatitisSeca)) = ?) ";
+            }else{
+                hql += "(UPPER(TRIM(diagnostico.pvStDermatitisSeca)) = ?) ";
+            }
+            filtros.add(diagnostico.getPvStDermatitisSeca());
+            and = true;
+        }
+        
+        
+        if((diagnostico.getPvStDeshidratacion() != null)  && (!"".equals(diagnostico.getPvStDeshidratacion())) ){
+            if(and){
+                hql += "AND (UPPER(TRIM(diagnostico.pvStDeshidratacion)) = ?) ";
+            }else{
+                hql += "(UPPER(TRIM(diagnostico.pvStDeshidratacion)) = ?) ";
+            }
+            filtros.add(diagnostico.getPvStDeshidratacion());
+            and = true;
+        }
+        
+        if((diagnostico.getPvStPsoriasis() != null)  && (!"".equals(diagnostico.getPvStPsoriasis())) ){
+            if(and){
+                hql += "AND (UPPER(TRIM(diagnostico.pvStPsoriasis)) = ?) ";
+            }else{
+                hql += "(UPPER(TRIM(diagnostico.pvStPsoriasis)) = ?) ";
+            }
+            filtros.add(diagnostico.getPvStPsoriasis());
+            and = true;
+        }
+        
+        if((diagnostico.getPvStTelanocitos() != null)  && (!"".equals(diagnostico.getPvStTelanocitos())) ){
+            if(and){
+                hql += "AND (UPPER(TRIM(diagnostico.pvStTelanocitos)) = ?) ";
+            }else{
+                hql += "(UPPER(TRIM(diagnostico.pvStTelanocitos)) = ?) ";
+            }
+            filtros.add(diagnostico.getPvStTelanocitos());
+            and = true;
+        }
+        
+        if((diagnostico.getPvInTipoAlopecia() != null)  && (!Diagnostico.NUMERO_DEFAULT.equals(diagnostico.getPvInTipoAlopecia())) ){
+            if(and){
+                hql += "AND (UPPER(TRIM(diagnostico.pvInTipoAlopecia)) = ?) ";
+            }else{
+                hql += "(UPPER(TRIM(diagnostico.pvInTipoAlopecia)) = ?) ";
+            }
+            filtros.add(diagnostico.getPvInTipoAlopecia());
+            and = true;
+        }
+        
+        if((diagnostico.getPvStCaspa() != null)  && (!"".equals(diagnostico.getPvStCaspa())) ){
+            if(and){
+                hql += "AND (UPPER(TRIM(diagnostico.pvStCaspa)) = ?) ";
+            }else{
+                hql += "(UPPER(TRIM(diagnostico.pvStCaspa)) = ?) ";
+            }
+            filtros.add(diagnostico.getPvStCaspa());
+            and = true;
+        }
+        
+        if((diagnostico.getPvStHongo() != null)  && (!"".equals(diagnostico.getPvStHongo())) ){
+            if(and){
+                hql += "AND (UPPER(TRIM(diagnostico.pvStHongo)) = ?) ";
+            }else{
+                hql += "(UPPER(TRIM(diagnostico.pvStHongo)) = ?) ";
+            }
+            filtros.add(diagnostico.getPvStHongo());
+            and = true;
+        }
+         
         if(and){
-            hql += " ORDER BY diagnostico.nombre ASC";
+            hql += " ORDER BY diagnostico.pvStNombre ASC";
             Object[] values = new Object[filtros.size()];
             for(int i = 0; i < filtros.size(); i++){
                 values[i] = filtros.get(i);

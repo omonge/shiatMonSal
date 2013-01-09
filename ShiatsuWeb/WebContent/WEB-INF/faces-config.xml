@@ -286,6 +286,16 @@
 	    		<from-outcome>success</from-outcome>
 	    		<to-view-id>/shiatsuListaClientes.jsp</to-view-id>
 	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{clienteController.abrirPopUpDiagnostico}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/popupDiagnostico.jsp</to-view-id>
+	    	</navigation-case>
+	    	<navigation-case>
+	    		<from-action>#{clienteController.cerrarPopUpDiagnostico}</from-action>
+	    		<from-outcome>success</from-outcome>
+	    		<to-view-id>/shiatsuActCliente.jsp</to-view-id>
+	    	</navigation-case> 
 	    </navigation-rule>
 	    
 	<!-- ================ Navigation PaisController ================ -->
@@ -703,6 +713,7 @@
 	    		<from-action>#{diagnosticoController.eliminar}</from-action>
 	    		<from-outcome>success</from-outcome>
 	    		<to-view-id>/shiatsuListaDiagnostico.jsp</to-view-id>
-	    	</navigation-case>
+	    	</navigation-case> 
+	    	
 	    </navigation-rule>	
 </faces-config>
